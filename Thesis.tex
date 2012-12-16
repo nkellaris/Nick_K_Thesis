@@ -1,0 +1,1474 @@
+\documentclass{report}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[hmargin=2.5cm,vmargin=2.5cm]{geometry}
+\usepackage{tabularx}
+\usepackage{booktabs}
+%\usepackage{biblatex}
+%\bibliography{thesis.bib}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{multicol}
+%\usepackage{cite}
+\usepackage[rightcaption]{sidecap}
+%\usepackage{hyperref}
+\usepackage{threeparttable}
+\usepackage[table]{xcolor}
+\usepackage{psfrag}
+\usepackage[margin=10pt,font=small,textfont=sf,labelfont=bf]{caption}
+\usepackage{subfig}
+\usepackage[section]{placeins}
+
+\title{Development of Thermal Stand-offs and a Phonon Read-out Transmission Line for the CDMS SNOLAB Detector Towers}
+\author{Nicholas Kellaris}
+
+\begin{document}
+\bibliographystyle{plain}
+\maketitle
+
+\chapter{Dark Matter and the CDMS Experiment for Direct Detection}
+
+\section{Introduction}
+
+Modern cosmology seeks to understand our universe from its base upwards. Its efforts focus on determining the universe's fundamental constituents, structure, and its evolution. These efforts now indicate that the answers are much more complex than previously believed. Observations of our universe at its largest scales and distances now portray a universe which would be nearly unrecognizable to a scientist in the early 20th century. The current model for the constituent mass-energy components of the universe is shown in Figure 1.1. Here, we see that the vast majority of our universe is composed of "stuff" we wouldn't even recognize -- only around 5\% of the energy density of our universe is baryonic matter (all standard-model particles, including atoms). One of the central goals of modern cosmology is determining the nature of the remaining 95\% of our universe.
+
+This chapter will focus on the search for one particular component of this mysterious energy density: dark matter (the term "dark" simply refers our belief that, whatever dark matter is, it is non-luminous and thus cannot be detected though emission of electromagnetic radiation). After a brief introduction to the standard cosmological model, it will present indirect cosmological evidence for the presence of dark matter, as well as the likely properties a dark matter particle would possess: non-baryonic, non-relativistic (or "cold"), and weakly interacting. Some candidates for dark matter will be discussed; finally, an overview of the CDMS group's efforts at direct detection will be given. Much of this chapter is adapted from a dissertation by J. Filippini \cite{Filippini2008}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width = .4\textwidth]{Pie_chart_universe.jpg}
+\caption{Constituent percentages for total energy density of the universe, present day. Everyday matter (stars, interstellar gas, etc.) comprises less than 5\% of the total mass-energy density of our universe. Figure from NASA/WMAP science team, 2008 \cite{WMAP}.}
+\end{figure}
+
+\section{The $\Lambda$CDM Model of Cosmology}
+
+The $\Lambda$CDM Model is the current, generally accepted, model for modern cosmology. This model stipulates that the universe is homogeneous and isotropic on its largest scales (on the order of gigaparsecs); conversely, if we examine the universe temporally, we see substantial differences -- an evolving universe. This evolution was shown to be an expansion, as evidenced by the redshift of distant galaxies by Edwin Hubble in the 1920s. Hubble demonstrated that our current epoch is seeing an accelerating expansion in the universe.
+
+The conditions of isotropy and homogeneity for this model result in the Friedman-Robertson-Walker (FRW) metric,
+
+\begin{eqnarray}
+ds^2 = (cdt)^2 - R^2(t)\left(\frac{dr^2}{1-kr^2} + r^2(d\theta^2 + sin^2(\theta d \phi^2))\right)
+\end{eqnarray}
+
+where k identifies spatial curvature (either 0,-1, or +1, which corresponds to flat, negatively-curved, and positively-curved space respectively), and the parameter concerning the evolution of the universe is R(t), the scaling factor, which has dimensions of length. It is worth noting that the Hubble Constant is derived from this scaling factor: $H \equiv \frac{d log R}{dt}$.
+
+The time evolution of this metric, and thus the universe, depends on the contents of our universe. The $\Lambda$CDM model considers three classes of mass-energy: matter, radiation, and the (relatively) recently added dark energy. Each is determined by relative values of energy density $\rho$ and relativistic pressure p. In addition, each scales differently with R(t), the scaling factor:
+
+\begin{enumerate}
+\item \textbf{Matter:} non-relativistic material whose energy density decreases as $\sim 1/R^3$ with the expansion of the universe and whose relativistic pressure $\approx 0$. This group includes baryons as well as potential cold dark matter.
+\item \textbf{Radiation:} photons and relativistic matter -- such as massless neutrinos -- which have a positive relativistic pressure, and whose energy density decreases as $\sim 1/R^4$ -- faster than matter -- due to redshifts in radiation caused by expansion.
+\item \textbf{Dark Energy:} an energy density present in space itself (generally known as vacuum energy) with a negative pressure, and an energy density which does not dilute with expansion of the universe. Proposed cause for the accelerated expansion of the universe.
+\end{enumerate}
+
+The inclusion of cold dark matter and dark energy are characteristic features of this cosmological model (as indicated by the name, where $\Lambda$ represents the dark energy cosmological constant, and CDM stands for "cold dark matter").
+
+\subsection{The Density Parameter}
+
+Another feature of the $\Lambda$CDM model is the value of the energy density, $\Omega$. This quantity comes from the Friedmann equations, which govern the expansion of space for the FRW metric. $\Omega$ describes the energy density of our universe, $\rho$, in relation to some critical energy density, $\rho_c$, for which the curvature term in the FRW metric, k, is zero. The density parameter is defined as $\Omega \equiv \rho/\rho_c$.
+
+$\Lambda$CDM cosmology predicts that $\Omega \approx 1$, so that our universe is very nearly flat. This parameter can be separated into the relative contributions of the three classes of energy, defined as $\Omega_{x} \equiv \frac{\rho_{x}}{\rho_{c}}$  such that,
+\begin{eqnarray}
+\centering
+\Omega = \Omega_{m} + \Omega_{r} + \Omega_{\Lambda}
+\end{eqnarray}
+where $\Omega_{m}$, $\Omega_{r}$, and $\Omega_{\Lambda}$ are the energy densities of matter, radiation, and dark energy respectively. This model predicts that the present energy density is dominated by $\Omega_{m}$ and $\Omega_{\Lambda}$; this arises from their different dispersion relations with the expansion of the universe. $\Omega_{m}$ can be further separated into $\Omega_{mb}$ and $\Omega_{mnb}$ which are the baryonic and non-baryonic contributions.
+
+Experimental observations from three independent sources confirm the dominance of matter and dark energy. These are observations of distant Type 1a Supernovae(SNe), the cosmic microwave background WMAP data (CMB), and observations of baryon acoustic oscillations. Independently, each set constrains the relative energy densities weakly; however, together the data sets provide a consistent set of well- constrained energy density parameters: $\Omega_{mb} = 0.0456 \pm 0.0015$, $\Omega_{mnb} = 0.228 \pm 0.013$, and $\Omega_{\Lambda} = 0.726 \pm 0.015$ \cite{Komatsu2008}. Figure 1.2 shows the constrained parameter space of the $\Omega_{\Lambda}$ - $\Omega_{m}$ plane. Together, they dominate the total mass-energy density of the universe.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width = .5\textwidth]{Energy_densities.png}
+\caption{Union data for WMAP cosmic microwave background (CMB), baryon acoustic oscillations (BAO), and Type 1a supernovae data (SNe). The shaded areas show 1, 2, and 3$\sigma$ confidence regions. These data provide a consistent region in the energy density parameter space, and seem to indicate a flat universe. Figure from \cite{Kowalski2008}.}
+\end{figure}
+
+\subsection{Evolution of the Universe}
+The history of our universe, as portrayed by the $\Lambda$CDM model, has some key events which will be of consequence in the sections which follow, therefore are laid out here, chronologically:
+\begin{enumerate}
+\item The universe originated in the Big Bang, an event which precipitated the current expansion. Before this event, all of space-time was concentrated at $R \approx 0$, in an arbitrarily small, infinitely dense region.
+\item Around $10^{-36}$ seconds after the Big Bang, a period of inflation is believed to have occurred, during which the universe expanded by a factor of at least $10^{78}$. This smoothed out initial inhomogeneities, leading to the homogeneous and isotropic universe we currently live in.
+\item Approximately 1 minute later, the universe cooled enough to permit fusion of protons and neutrons into the light nuclei (deuterium, helium, and lithium) in a process called Big Bang nucleosynthesis. This process was responsible for the majority of the amounts of these elements present today.
+\item Nearly 400,000 years after the Big Bang, cooling had progressed enough for the first neutral atoms to form (hydrogen) from free protons and electrons in a process called recombination. Photons could now travel freely among the neutral atoms, creating a transparent universe. This initial decoupling is the cosmic microwave background we see today.
+\item The next few billion years saw the formation of the non-linear structure of the universe due to small inhomogeneities which resulted in gravitational collapse to over-dense regions. Structure formation occurred hierarchically -- from small structures first, to large.
+\item Around 4 billion years ago, the energy density of dark energy overtook that of matter, and the expansion of the universe began to accelerate.
+\end{enumerate}
+
+We shall see in the following section that many of these events naturally support the theory of cold dark matter.
+
+\section{Observational Evidence for Dark Matter}
+
+There is significant observational evidence which implies not only the existence of dark matter, but also its likely non-baryonic and non-relativistic nature. evidence can generally be divided into three main areas: the modern universe, the primordial universe, and structure formation. Evidence in the modern universe includes rotational velocities and velocity dispersions of galaxies and galaxy clusters, strong, weak, and micro gravitational lensing, and intergalactic x-ray emission spectra. The primordial universe provides us with Big Bang nucleosynthesis and the cosmic microwave background, both of which act as "baryometers" setting limits on the amount of baryonic matter in the universe. Finally, the rate of structure formation in the early universe provides further evidence of some form of non-baryonic, non-relativistic, dark matter. These will be discussed in turn below. Even at the time of this writing, techniques continue to improve, our repository of evidence grows, each time adding more support to the current theory of dark matter.
+
+\subsection{Velocity Dispersion in Galaxies and Galactic Clusters}
+
+In 1933, Fritz Zwicky became the first person to use the velocity dispersion within cosmological objects to infer the total mass of the system. His studies of the Coma galaxy cluster led to the conclusion that its actual mass was several hundred times higher than indicated by the amount of radiative matter. He termed this unseen matter \emph{dunkle Materie} or 'dark matter', the first reference to such a material.
+
+The method used by Zwicky is still employed today, with great success, to characterize the mass of galaxies and clusters. For a galaxy, this process calculates the velocities of a large number of constituent stars, finding the velocity dispersion of the group. These velocities are measured through the Doppler shift of characteristic spectra, such as the 21cm HI line. The average kinetic energy can then be related to the gravitational potential through the virial theorem. This method is particularly useful for dwarf and elliptical galaxies, due to their amorphous structure. Clusters (also amorphous) are analyzed in an analogous fashion.
+
+Recent data, particularly from the Sloan Digital Sky Survey (SDSS), has revealed numerous local, faint, dwarf galaxies which have subsequently been analyzed (see Simon and Geha \cite{Simon2007}). Their results reveal a significant dark matter dominance in dwarf galaxies, with mass to light ratios which approach 1000 times the solar mass-to-light ratio ($M_{\bigodot}/L_{\bigodot}$) in some. %explanation?
+
+\subsection{Rotation Curves for Spiral Galaxies}
+
+Analysis of the rotation curves for spiral galaxies also indicates a population of dark matter which -- though not as drastic as in dwarf galaxies -- is still significant. Furthermore, these curves suggest a mass distribution for the dark matter throughout the galaxies. Spiral galaxies present a particularly powerful tool for determining mass distribution, due to the simple near-circular rotational motion of their constituent stars.
+
+A spiral galaxy is structured such that there is a central concentration of stars (the bulge) surrounded by a disc of stars. Given the rotational symmetry of this shape, if the light distribution was indicative of matter distribution, we would expect the rotation velocities -- from basic Newtonian mechanics -- to drop off as $\sim 1/\sqrt{r}$ outside the luminous galactic disk. This has been tested for a multitude of spiral galaxies, with rotational velocities calculated from line-of-sight velocities inferred from Doppler shifts of characteristic spectra: The H$\alpha$ line, the 21cm HI line, CO rotational transition lines, etc. The results, compiled by Sofue and Rubin \cite{Sofue2001}, are shown in Figure 1.3. These curves are drastically different from the behavior expected from a galaxy with most of the mass concentrated toward the center. Instead, the distribution must continue well outside of the luminous disc to allow such high rotational velocities. This is believed to be in the form of some dark matter halo, in which these galaxies are embedded.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width = .5\textwidth]{Rotational_velocities.png}
+\caption{Aggregation of data on rotational velocities of matter as a function of distance, in kiloparsecs, from the galactic center. The flat rotational velocity curve, as opposed to one which drops off as $\sim 1/\sqrt{r}$ past the central bulge, indicates a mass distribution that extends well past the visible concentration of mass. Figure from \cite{Sofue2001}}
+\end{figure}
+
+Various methods have been developed to which are able to verify mass values obtained through velocity dispersion in clusters. One such method is observation of x-ray emission spectra from intracluster gas. Intracluster gas is superheated plasma which lies at the center of galactic clusters, and is believed to comprise up to 90\% of the total baryonic matter in a cluster. This gas is heated to temperatures of between $10^7$ and $10^8$ Kelvin by the gravitational energy of the cluster (from collision shockwaves and gravitational potential). At such temperatures, this intracluster medium (ICM) emits x-ray radiation, which determines the temperature of the ICM. If we assume that the gas is in hydrostatic equilibrium, then given a temperature profile for the ICM, we can infer the total mass of the cluster. Such observations have been made on multiple clusters up to a redshift of $z \approx 0.5$ by the \emph{Chandra} x-ray telescope, which support results obtained through velocity dispersion \cite{Vikhlinin2005,Vikhlinin2009}.
+
+\subsection{Gravitational Lensing}
+
+General relativity predicts that the path of light will be bent in the presence of a gravitational potential. Einstein first observed this phenomenon as the bending of starlight passing near the sun during a total solar eclipse. The same phenomenon occurs at the intergalactic scale, with the gravitational potential of the sun replaced by that of a galaxy or a cluster. This gravitational potential acts as a lens with an effective refractive index,
+
+\begin{eqnarray}
+n(x) = 1 + \frac{2}{c^2}|\Phi(x)|
+\end{eqnarray}
+
+so characterizing the path of the light allows us to determine the potential, and thus the mass of the lensing object. Figure 1.4 shows a diagram of the process of gravitational lensing.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width = .4\textwidth]{Lens_diagram.jpg}
+\caption{Representation of the process of gravitational lensing. Light from the distant blue galaxy is refracted from the central cluster. This creates multiple images of the galaxy as shown by the faint dotted lines. Image from the Chandra X-ray Observatory website \cite{lens}.}
+\end{figure}
+
+There are three general groups of gravitational lensing:
+
+\begin{enumerate}
+\item \textbf{Strong Lensing:} Occurs when the mass density of the lensing object is high enough to produce visible distortion of background objects in the form of arcs, or full Einstein rings as in Figure 1.5. Requires near-direct alignment of observer, lensing object, and background source.
+\item \textbf{Weak Lensing:} Smaller-effect lensing where the distortion of background objects must be inferred from statistical correlations among the visible shapes. Doing so allows the mass distribution of the lensing object to be determined. Far more common than strong lensing phenomena.
+\item \textbf{Microlensing:} Effect caused by lensing objects of much smaller mass, such as a planet or star. Not strong enough to cause detectable distortion, but can be observed through a variation in background object brightness with the increase, maximum, then decrease of the lensing effect as the lensing object moves in front of the background object. %speak about MACHOS and micro lensing later
+\end{enumerate}
+
+Strong lensing and weak lensing are of particular importance in the theory of dark matter. They allow us to infer the total mass as well as its distribution throughout a gravitational lens. Studies of strong lensing from clusters such as Abell 2218 have led to the conclusion that there is simply not enough luminous matter to reproduce the lensing observed. Estimates for the mass-to-light ratio Abell 2218 range from 80 to 180 depending on the part of the cluster under observation, strongly supporting the presence of significant dark matter \cite{Kneib1995,Kneib1996}.
+
+Weak lensing studies, though more difficult, have been pursued by collaborations \cite{Sheldon2009} on more than 130,000 galaxy clusters and groups. Their mass results generally agree with those obtained for the velocity dispersion methods. Furthermore, the large structure of clusters allows us to treat their properties as representative of the larger universe; by measuring $\Omega_{m}$ for these clusters, we are essentially determining $\Omega_{m}$ for the universe as a whole. Results from these studies have confirmed -- completely independently -- the value of $\Omega_{m} \approx 0.2 - 0.3$, providing support for the $\Lambda$CDM model \cite{Sheldon2009}.
+
+\begin{figure}
+    \centering
+    \subfloat[]{\includegraphics[width=.3\textwidth]{Bullet_visible.png}}
+    \subfloat[]{\includegraphics[width=.3\textwidth]{Bullet_xray.png}}
+    \caption{Images of the Bullet Cluster, which show a clear discrepancy between the location of the baryonic matter (imaged by X-rays) and the total mass distribution. Both the visible light image (a) and the X-ray image (b) are superimposed on the mass contours inferred from weak lensing.}
+\end{figure}
+
+One of the most compelling subjects for weak lensing studies at the moment is the Bullet Cluster (1E057-558). The Bullet Cluster is actually two clusters, visible just after collision. Clowe and coauthors have analyzed the weak lensing phenomenon -- thereby constructing the mass distribution -- and compared it to the ICM distribution (which contains the majority of the baryonic matter in a cluster). The results, shown in Figure 1.6, display a substantial contrast in the distribution of the ICM and the mass contours inferred from weak lensing. We see that the majority of the clusters' mass has continued through, it did not undergo collision. These observations indicate that the majority of the clusters' mass is not only dark, but also must have a very small collision cross-section (i.e. it is non-baryonic).
+
+\subsection{Big Bang Nucleosynthesis}
+
+$\Lambda$CDM cosmology predicts that a period of intense nucleosynthesis occurred from roughly three minutes to twenty minutes after the Big Bang, after the universe had cooled enough to allow fusion, which created the light nuclei: deuterium ($^2H$), helium ($^3He,^4He$), and lithium ($^7Li$). The relative abundance of each of these elements depended solely on three factors: the baryon mass density, the expansion rate of universe, and the neutron-proton ratio. The last parameter, neutron-proton ratio, can be determined assuming that weak interactions at this time were in thermal equilibrium. With this, the neutron-proton number densities are $n/p = e^{-Q/T}$, where Q is the neutron-proton mass difference, and T is temperature \cite{Amsler2008}. These first two parameters can be reduced to a dependence on the ratio of baryons to photons: $\eta \equiv \eta_{b}/\eta_{\gamma}$ (photon density governs expansion rate). Photon density, however, can be determined from the temperature of the cosmic microwave background. Therefore, measuring the relic abundance of the light elements gives an accurate measurement of baryon density.
+
+Deuterium is the most accurate "baryometer" of these light elements for two reasons. First, deuterium levels have a strong dependence on $\eta$, as shown in Figure 1.6 by the logarithmic scale used. Second, no galactic processes are currently known to exist which can produce significant amounts of deuterium. Measuring abundances of deuterium (which have not been disturbed by galactic evolution processes which can destroy deuterium) can therefore accurately determine relic deuterium abundances. Such candidates are low-metallicity stars (Population II and Population III) and low-metallicity primordial gas (ICM dubbed Lyman-$\alpha$ forests). Recent measurements of deuterium were conducted using absorption lines from high z ($\approx 3$) quasars illuminating intermediary metal-poor Lyman-$\alpha$ forests. These measurements give $\langle log(^2H/H)_{p} \rangle = -4.55 \pm 0.03$ and $\Omega_{b,0}h^2 = 0.0213 \pm 0.0010$ (68\% confidence limits) where the subscript $p$ denotes primordial abundance and $(^2H/H)$ is abundance relative to elemental hydrogen \cite{Pettini2008}. The $\Omega_{b,0}h^2$ represents the current baryonic matter portion of the critical density. The agreement between these numbers, and those found from the CMB power spectrum are shown in Figure 1.6. Their concordance lends strength to the belief that any significant presence of dark matter must be non-baryonic in nature.
+
+The other light elements have also been used to calculate $\eta$, but due to difficulties in detection, as well as problems with post-BBN creation of these elements, results vary (see Figure 1.6). Specifically, the origin large discrepancy between the observed abundance of $^7Li$ and the predicted is a source of debate (see \cite{Amsler2008}). Though models (or theories) need to be adjusted to encompass $^7Li$, Big Bang nucleosynthesis provides strong evidence for the presence of a significant amount of non-baryonic dark matter.
+
+\begin{SCfigure}[.7][h]
+\centering
+\includegraphics[width = .4\textwidth]{Deuterium.png}
+\caption{Comparison of light element abundances from various sources. Curves show abundances as predicted by the standard model of Big Bang nucleosynthesis \cite{Cyburt2008} (95\% CL). The hatched vertical regions show predictions of baryon density from BBN and measurements of the CMB (also 95\% CL). The boxes show the actual observed abundances of these light elements and their agreement (or disagreement in the case of $^7Li$) with predictions;the inner boxes represent $\pm2\sigma$ statistical error, while the outer boxes are statistical and systematic errors. Figure from \cite{Amsler2008}.}
+\end{SCfigure}
+
+\begin{SCfigure}[.7][h]
+\centering
+\includegraphics[width = .5\textwidth]{structure_formation.jpg}
+\caption{Numerical simulations of the formation of structure in the universe from z=30 to the present over a box 43MPc in size. We see how the nearly homogeneous early universe aggregates into the overdensities to form the structure of superclusters we see today. Notice that by around z = 1, most of the structure has formed and begins to separate. Past this period dark energy dominates, which prevents further large-scale formation of structure. Figure from \cite{Simulation}.}
+\end{SCfigure}
+
+\subsection{Universal Structure}
+Observations of the Cosmic Microwave Background (CMB) and other early large-scale structures present us with another set of primordial evidence which indicates significant dark matter abundance, suggests its non-baryonic nature, and requires it to be "cold" (i.e., non-relativistic at the time of the early universe).
+
+\subsubsection{Anisotropies in the CMB}
+The cosmic microwave background is an image of the early universe just after recombination. Once neutral atoms were formed, photons were decoupled from baryonic matter, and propagated through the universe. This period is called the drag epoch. The 2.73 black body radiation forming the CMB is a result of these first photons. Once photons were decoupled from baryons, baryonic matter could begin to clump into the slight matter over-densities, and begin to form large-scale structures. This process is modeled in $\Lambda$CDM by linear perturbation theory for early epochs, and numerical simulations for later periods using a relativistic theory of gravitational collapse (see \cite{Kolb1990}, \cite{Padmanabhan1993}, \cite{Liddle2000} for an explanation of the theory). Figure 1.7 shows one such simulation.
+
+By observing the temperature anisotropies in the CMB signal (which gives photon anisotropy) we can determine baryon anisotropies at the time of the drag epoch. This is due to the tight coupling of baryons and photons prior thi epoch. These anisotropies are defined by over-densities and under-densities in the energy field,
+
+\begin{eqnarray}
+\delta(\vec{x},t) \equiv \frac{\rho(\vec{x},t) - \langle\rho(t)\rangle}{\langle\rho(t)\rangle} \\
+\delta(\vec{k},t) \equiv \frac{1}{(2\pi)^{3/2}} \int \delta(\vec{x},t) e^{-\vec{k} \cdot \vec{x}} d^3 \vec{x}
+\end{eqnarray}
+
+where $\bar{\rho}(t)$ is the mean energy density of the universe at time t, and $\delta(\vec{k},t)$ the statistical distribution of the density variation for different length scales. The theory of gravitational collapse modeling the formation of structure requires these anisotropies be $\geq 10^{-3}$ at the time of recombination to allow the creation of bright galaxies as far back as $z \approx 7.6 $ \cite{Bradley2008} and the superstructures we see today. However, baryon anisotropies at similar length scales in the CMB are only observed to be $\approx 10^{-5}$. Such small anisotropies could not have formed the structures we see in similar time scales.
+
+Dark matter provides a solution to this problem if we stipulate the existence of some \emph{non-baryonic} dark matter, as espoused by Big Bang nucleosynthesis models. This non-baryonic dark matter did not interact electromagnetically, therefore felt none of the effects of scattering photons. As a result, dark matter was able to settle into over-densities, creating gravitational potential wells long before recombination. After photon decoupling, baryons could then gravitate toward these pre-established potential wells more quickly, forming the baryon structure we see today.
+
+\begin{SCfigure}[.7][h]
+\centering
+\includegraphics[width=.4\textwidth]{BAO_propagation.jpg}
+\caption{Formation of baryon acoustic oscillations. Perturbations in energy density of the early universe created sound waves in the photon-baryon plasma. These waves propagated outward with photons and baryons coupled until the drag epoch freed photons and left the baryon peak stalled. This baryon peak remained as a feature in the density correlation function at $\approx 150$ MPc. Figure from \cite{Eisenstein2007}. }
+\end{SCfigure}
+
+Solving the problem of structure formation with the addition of dark matter sets another constraint on the properties any dominant dark matter candidate: it must be non-relativistic by early epochs ($z > 1000$). Relativistic matter would not have created the large potential wells required, and would not have resulted the baryon acoustic oscillations described below. Relativistic matter would have resulted in "top-down" formation of structure, where the largest structures form first. This is opposite of the hierarchical formation posited by the $\Lambda$CDM model, and does not match with observations and simulations.
+
+
+\subsubsection{Baryon Acoustic Oscillations}
+
+The argument for non-baryonic dark matter of further supported by the recent identification of baryon acoustic oscillations in large-scale structure by the Sloan Digital Sky Survey (SDSS), the 2dF Galaxy Redshift Survey (2dFGRS), and the five-year Wilkinson Microwave Anisotropy Probe (WMAP). These signatures, present in both the CMB ($z \approx 1000$) and strucures at low redshift (low z), provide powerful tools to constrain $\Omega_{m}$, $\Omega_{b}$, and $\Omega_{\Lambda}$, and offer further confirmation of $\Lambda$CDM cosmology.
+
+Baryon acoustic oscillations, first predicted in 1970, are acoustic waves in baryonic matter which were formed in the early universe before the drag epoch. We can see the imprint left by these waves in the structure of our universe. The process (shown in Figure 1.8) is as follows \cite{Eisenstein2005}:
+
+\begin{enumerate}
+\item Over-dense dark matter regions attract baryonic matter, while photon pressure drives baryonic matter outward (dark matter, which does not interact electromagnetically, was unaffected). This perturbation excites sound waves in the photon-baryon plasma.
+\item This acoustic wave travels outward at nearly half the speed of light (the speed of sound in the plasma) with the photon and baryon peak coupled.
+\item Once the universe cooled enough through expansion, photons and baryons decoupled in the drag epoch. This drastically reduced the speed of sound. Photons streamed outward at the speed of light, while the baryons -- losing their driving pressure -- stalled.
+\item The dark matter perturbation draws baryons back toward the center, while the baryon perturbation draws dark matter outward. This spreads the matter distribution. A peak in baryon distribution remains at the radius of the sound horizon (the baryon peak at the time of decoupling).
+\item The dark matter and baryon perturbations seed formation of structure in the universe, resulting in a density correlation peak at a radius of around 150 MPc.
+\end{enumerate}
+
+Detecting the signal of these BAO is impossible without statistical analysis, as the myriad over-densities in the early universe meant creation of many interfering oscillations, which would just appear as turbulence. However, by statistical correlation measurements of over-densities, these features can be distinguished. Analysis from the five-year WMAP survey has successfully measured these oscillations as fluctuations in the power spectrum of the cosmic microwave background, placing the \emph{co-moving} sound horizon at $\sim 150$ MPc \cite{Komatsu2008}.
+
+Whether these oscillations would still be visible in the modern universe depends on how expansion proceeded after their formation. Predictions from $\Lambda$CDM cosmology stipulate that early expansion provided linear perturbation growth. This type of growth leaves the Fourier components of the waves uncoupled, preserving well-defined features such as the sound horizon \cite{Eisenstein2005}. These features should then leave a detectable imprint on the structure of the modern universe. The Sloan Digital Sky Survey and the 2dF Galaxy Redshift Survey are the first experiments to be able to detect these faint signatures in modern matter densities. The results from the LRG (luminous red galaxy) data set in SDSS are shown in Figure 1.9. This plot shows two-point correlation function calculated for $\sim$ 46,000 galaxies at a redshift $0.16 < z < 0.47$. The sound horizon is clearly visible at a co-moving distance of roughly 150 MPc.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width = .5\textwidth]{BAO_peak.jpg}
+\caption{Correlation function found from Sloan Digital Sky Survey, LRG sample. The sound horizon, emphasized in the magnified box, is observed at $\sim 100 h^{-1} MPc$ (150 MPc). The colored lines show various cosmological parameter models: green shows $\Omega_{m}h^2 = 0.12$, red shows $\Omega_{m}h^2 = 0.13$, blue shows $\Omega_{m}h^2 = 0.14$. All assume that $\Omega_{mb}h^2 = 0.024$. The bottom pink line shows a purely dark matter curve ($\Omega_{m}h^2 = 0.105$), which lacks the peak entirely. Figure from \cite{Eisenstein2005}.}
+\end{figure}
+
+The presence and characteristics of BAO provide a wealth of information about the structure and evolution of the universe. First, the simple presence of BAO in the promordial and modern universe evidences the linear perturbation growth predicted by $\Lambda$CDM cosmology. Second, the shape of the peak provides information on $\Omega_{\Lambda}$, $\Omega_{m}$, and $\Omega_{mb}$ (baryonic matter density). The smallness of the peak in Figure 1.9 suggests a dominance of dark matter over baryonic matter, but also predicts that $\Omega_{m}h^2 \approx 0.12$ -- based on the best fit described in the figure -- leading to a dominance of dark energy in the modern universe. Third, by confirming the size of BAO at z $\sim$ 1000 and z $\approx .16$ we create a standard length scale which can tell us about the expansion of the universe, independent of supernova observations. Though the data is not accurate enough to do so at the moment, future measurements of BAO could provide a method to independently determine the Hubble parameter (H(z)) \cite{Eisenstein2005}.
+
+Full data for WMAP, SDSS, and 2dFRGS surveys, combined with observations of distant Type1a Supernovae create the plot shown in Figure 1.2 and described in section 1.2.1. Baryon acoustic oscillations play an important role in this figure, as they provide independent measures of the cosmological parameters. Their agreement with cosmic microwave background and supernova data provides strong support for the $\Lambda$CDM model of cosmology.
+
+\section{Candidates for Dark Matter}
+
+The large body of evidence which supports the existence of dark matter has allowed us to infer many of its properties. The dominant dark matter in our universe must be non-baryonic, non-relativistic ("cold"), stable enough to have a lifetime which is large compared to the age of the universe, and must be nearly non-interacting. Though we have constrained many of its properties, we still must ask: \emph{what is it?}. As of this writing, this question is still unanswered, but its properties inferred from the body of indirect evidence drastically narrows the list of likely candidates. I will discuss one of the most promising members of this list, Weakly Interacting Massive Particles or WIMPs.
+
+\subsection{WIMPs}
+
+WIMPs (Weakly Interacting Massive Particles) are a hypothetical class of particles which interact with other matter only through weak-scale processes ("weakly interacting") and gravity. They have a hypothesized mass of $10GeV \leq M \leq 10TeV$ ("massive"). WIMPs are a favored candidate for dark matter (and the subject of our collaboration's scrutiny) not only because they would satisfy the constraints described above, but also due to cosmological considerations which predict weak-scale interaction cross-sections for dark matter particles caused by a process called "freeze out".
+
+The full argument for the cosmological constraints on interaction cross-section for dark matter particles is beyond the scope of this chapter; however, the main argument will be reviewed here. First, the abundance of a particle in the modern universe is determined its creation and annihilation rate throughout the evolution of the universe. Figure 1.10 shows the process for determining the co-moving number density of a hypothetical particle. A particle in the early universe (just after the inflationary epoch) would be in thermal and chemical equilibrium with the primordial plasma, such that its creation from thermal production and annihilation rate were equal. The annihilation rate is given by $\Gamma$, where
+\begin{eqnarray}
+\Gamma = n\langle \sigma v \rangle ,
+\end{eqnarray}
+
+and $n$ is the number density of the particle, $\sigma$ is the annihilation cross-section, $v$ is the relative velocity of the two particles, and the brackets denote an average over the thermal ensemble. This rate will be equal to thermal production as long as $T >> m$, where $m$ is the mass of the particle. The number density would be constant. As T drops, thermal production stops and the number density for a massive, non-relativistic particle in thermal equilibrium after this point would be proportional to the Boltzmann constant, $n \propto e^{-\frac{mc^2}{k_bT}}$. This is shown as the solid curve in Figure 1.10. The particle would remain in thermal equilibrium until annihilation becomes inefficient, below $\Gamma \sim H$. This is known as "freeze out". The relic density after this transition is approximately \cite{Jungman1996}
+
+\begin{eqnarray}
+\Omega h^2 \approx \frac{0.1pb \cdot c}{\langle \sigma v \rangle} .
+\end{eqnarray}
+
+This can be understood generally as follows: a particle with a larger cross-section will stay in thermal equilibrium for slightly longer, resulting in a exponential suppression in the number density from the Boltzmann factor. Figure 1.10 shows expected co-moving relic densities for increasing cross-sections. From equation 1.7, to obtain relic density near that expected for dark matter ($\Omega h^2 \sim 0.1$) would require a cross section characteristic of the weak scale. Such a particle would have a mass, $m \sim 100 $ GeV.
+
+Particle physics offers further motivation for the existence of a new particle at the weak scale. This motivation, completely independent from cosmological motivation, comes from efforts to address the "hierarchy problem" in the Standard Model (see \cite{Filippini2008} for the argument). Theories which address this problem typically call for the existence of a new particle at the weak scale. Thus, there exists strong motivation for a weakly interacting dark matter candidate. When coupled with the theoretical possibility for detection of such a particle, the allure of WIMPs as the favored dark matter candidate becomes obvious.
+
+\section{The Cryogenic Dark Matter Search and Direct Detection}
+
+Direct detection is the ultimate goal in determining any dark matter candidate. Indirect evidence provides us with clues as to the properties of candidates and motivates their existence, but only direct detection will allow us to confirm the existence of and fully characterize a candidate. Currently, there are roughly two dozen experiments worldwide which have engaged in the search for direct dark matter detection. These experiments use a variety of techniques in an effort for dark matter detection (see Figure 1.11).Our collaboration, CDMS, is one of the leading groups in the direct detection efforts. This section will explain the general principles governing our experiment as well give a brief history of its evolution since inception.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width = .5\textwidth]{Dm_experiments.png}
+\caption{Different detection methods utilized by dark matter experiments. The CDMS Experiment uses phonons and ionization for improved background rejection. Figure from \cite{Figueroa2011}.}
+\end{figure}
+
+The CDMS Experiment has been taking data in low background environments since 1996. In the years since then, the experiment has gone through several iterations: CDMS I, CDMS II, SuperCDMS Soudan, and SuperCDMS SNOLAB (currently under development). Detection technology has changed significantly, but the basic principle remains the same: that WIMPs will scatter elastically off nuclei in atoms, producing a signal which can be detected as energy deposition. This energy deposition can be characterized through the collection of phonons and charge from interaction recoils. Characterizing each "event" (nuclear or electron recoil in the detector) allows us to discriminate possible WIMP interactions from background.
+
+\subsection{Background}
+
+For our experiment, background is anything that could be misconstrued as a WIMP interaction. The major background in our experiment consists of $\beta$, $\alpha$, $\gamma$ radiation, as well as neutrons and cosmic ray muons. These background events can occur at a rate of $ \sim 10^{13}$ times that for predicted WIMP events, therefore extensive measures are taken to reduce their occurance.
+
+The experiment uses multiple stages of shielding to drastically lower this background:
+\begin{enumerate}
+\item \textbf{Underground:} experiment location determines muon flux. CDMS I was located at the Stanford Underground Facility (SUF) which provided shielding of 16 meters water equivalent (mwe). This reduced the observed muon flux by a factor of 5 \cite{Abusaidi2000}. CDMS II moved to the Soudan mine in Minnesota which provides $\sim 2100$ mwe. SuperCDMS SNOLAB will move to the SNOLAB facility (at the Sudbury mine in Ontario Canada) which provides $\sim 6000$ mwe shielding. These depths greatly reduce muon flux as well as cosmic ray gammas (a factor of $\sim 1000$ from Soudan to SNOLAB facility \cite{Saab2012}.
+\item \textbf{Active veto:} To further mitigate the muon background, a muon scintillator surrounds the experiment. This detects muons and can rule out muon coincident events in the detector (rendered unnecessary in SNOLAB).
+\item \textbf{Polyethylene:} A circular shield of polyethylene is placed inside the active veto to moderate neutrons produced by muons interacting with the active veto.
+\item \textbf{Lead:} 23cm of lead shields the experiment from external gammas.
+\item \textbf{Ancient Lead:} A layer of low activity lead (obtained from a Roman shipwreck) shields betas from the outer lead.
+\item \textbf{Polyethylene:} A final layer of polyethylene shields the experiment from the ancient lead.
+\item \textbf{Radiopure Experiment:} Finally, all of the materials used inside of the dilution fridge containing the experiment are selected for extreme radiopurity to prevent \emph{production} of any background in the experiment. In addition, care must be taken to prevent activation of any materials from cosmic rays.
+\end{enumerate}
+
+After these extensive measures are taken to minimize background, we are still left with $\sim 1$ event/kg/KeV/day \cite{Saab2012}. Methods must then be developed to distinguish these background events from possible WIMP signals, as discussed below.
+
+\subsection{Basic Detection Method}
+
+The detection methods used in the CDMS experiment are phonon and ionization signals. These methods use an ultra-pure (as low as $10^{13}$ impurities/$cm^3$) single-crystal semiconductor material such as Germanium or Silicon cooled to $\sim 20$ mK in a dilution fridge. These extreme temperatures are necessary to limit thermal noise present and thus increase sensitivity to particle collisions with the detector lattice. When a particle collides with the lattice, two things happen:
+\begin{itemize}
+\item Free electron/hole pairs are created due to the semiconductor nature of the detector. These charges can be collected by applying a voltage across the detector.
+\item Athermal phonons are excited in the lattice, which can be detected through various means.
+\end{itemize}
+
+These two methods of detection provide a powerful tool for discerning between possible WIMP interactions and background events which penetrate to the detector. This is because most background particles interact with atomic electrons (electron recoil). Only neutrons and WIMPs interact with the nucleus of an atom (nuclear recoil). These recoils deposit energy through ionization and phonon production differently. These differences can be described by the ionization yield, Y, which is the ratio of energy deposited through ionization to the amount deposited as phonons. Electron recoil typically has Y$\sim$1 while nuclear recoil has nuclear recoil has a Y$\sim$0.3. Since background is heavily dominated by electron recoil interactions, this method is very useful for background rejection.
+
+Below, a brief description of each generation of the experiment highlighting technological improvements is presented.
+
+\subsection{CDMS I}
+The first experiment used two detector types: BLIP (Berkeley Large Ionization- and Phonon-based) and FLIP (Fast Large Ionization- and Phonon-based) detectors. BLIPs used neutron transmutation doped Ge thermistors (NTD) bonded to Ge crystals. These collected phonon energy through a calorimetric temperature change in the crystal. FLIPs, on the other hand, used W QETs for phonon collection. BLIPs were germanium detectors, while FLIPs were either germanium or silicon. Germanium was ultimately adopted in later experiments due to the larger nucleus which improved probability of nuclear recoil. Both technologies used JFET ionization sensors on one side which received charges through a voltage established across the bulk of the detectors.
+
+\subsubsection{W QETs}
+
+W QETs (Tungsten Quasiparticle-trap-assisted Electro-thermal-feedback Transition-edge-sensors) use aluminum pads lithographically patterned on one surface of the detectors with an array of tungsten wires attached to them. The tungsten wire is held near its superconducting transition temperature ($\sim$ 80 mK). The superconducting aluminum pads cause phonons to deposit energy as heat. This heat causes an abrupt transition in the tungsten, whose change in resistivity is detected as a current pulse in a SQUID amplification array. This method allowed for a factor of 10 better sensitivity in phonon detection, as well as X-Y localization of the event to within a few millimeters \cite{Gaitskell1997}.
+
+
+\begin{figure}[h]
+\begin{centering}
+\subfloat[Left side shows four phonon channels, while right shows two charge channels.]
+  {\includegraphics[width=0.3\textwidth]{ZIP.png}}
+  \hspace{10pt}
+  \subfloat[iZIP detectors have four phonon channels and two charge channels on each side.]
+  {\includegraphics[width=0.3\textwidth]{iZIP.png}}
+  \subfloat[SNOLAB detectors will have six phonon channels and two charge channels on each side.]
+  {\includegraphics[width=0.3\textwidth]{iZIP_snolab.png}}
+\caption{Detector layout for CDMS experiments. Pictures from \cite{Saab2012}.}
+\end{centering}
+\end{figure}
+
+\subsection{CDMS II}
+
+CDMS II was located in the Soudan mine, which drastically reduced cosmic ray background. This is important, especially for muon flux, as muons can produce neutrons in materials. This neutron background is significantly more difficult to distinguish from possible WIMP interactions than other types of background, as it produces nuclear recoil rather than electron recoil. Another major improvement was the development of ZIP (Z-sensitive Ionization- and Phonon-based) detectors. ZIPs had four phonon channels on one side and two charge collection channels on the other side of the detector. Figure 1.11 a) shows the layout of the phonon and charge channels for the ZIP detectors. These detectors built upon the FLIP technology in CDMS, and by creating four phonon channels allowed further localization of events. Combined with ionization yield, this increased electron recoil rejection to $> 10^{-6}$ (only 1 in $10^6$ electron recoil events would be mistaken for a WIMP signal) \cite{Saab2012}.
+
+\subsection{SuperCDMS Soudan}
+
+The next generation of the experiment greatly improved detector technology with iZIPs where the "i" stands for interleaved. This germanium detector has four phonon channels and 2 charge channels on \emph{each side} as can be seen in Figure 1.11 b). The layout not only provides localization improvements (e.g. unambiguous radial positioning of events \cite{DOE}) but also addresses the largest source of background for the CDMS II experiment: leakage events \cite{Akerib2005}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width = .8\textwidth]{iZIP_ionization.png}
+\caption{Utilization of iZIP symmetry conditions to reject surface "leakage" events. These events occur close enough to the surface so that charge is only collected on one side, breaking symmetric charge collection.}
+\end{figure}
+
+\subsubsection{Leakage events}
+
+These leakage events are electron recoil interactions which occur in the "dead zone" of the detectors (near the surface) where charge collection efficiency is lower. This produces low ionization yields which "leak" into the nuclear recoil regime of the signal, as shown in Figure 1.12 on the right plot. The lowest electron recoils overlap with the nuclear recoil regime, where they can be mistaken for nuclear recoils. By locating charge channels on both sides and establishing a voltage difference between charge and phonon channels, an electric field is produces such that electron recoils that occur within $\sim$ 1 mm of the surface are only collected on one side. This distinguishes the low ionization electron recoils from symmetric charge collection nuclear recoils. Symmetry selection now allows us to rule these events out with a rejection of $10^{-5}$ \cite{Saab2012}.
+
+\subsection{SuperCDMS SNOLAB}
+
+The next generation CDMS experiment will take place in the Sudbury mine in Ontario, Canada. This mine is nearly three times as deep as Soudan, which will render the muon flux negligible. Furthermore, the design of the detector will change once more such that it is larger, with six phonon channels and two charge channels on each side, as seen in Figure 1.11 c), which leads to a further increase in signal sensitivity and improves rejection of backgrounds. Another advancement in the experiment is the consideration of an active neutron veto, which is estimated to be capable of rejecting 79\% of all neutron-induced backgrounds \cite{DOE}. In addition, this experiment will be a massive upscaling in detector mass (around 200kg as compared to $\sim$10 kg for previous experiments). Figure 1.13 shows the projected upper limit of $\sigma \approx 8 \cdot 10^{-47} cm^2$ for the spin-independent cross section for SuperCDMS SNOLAB in comparison to results from previous experiments.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width = .5\textwidth]{crosssection.png}
+\caption{Upper limits on the spin-independent cross-section and WIMP mass parameter space as set by various dark matter experiments. The dash-dot line shows the projected upper limits for SuperCDMS SNOLAB due the the large detector payload (200kg) and increased detector. Figure from \cite{DOE}.}
+\end{figure}
+
+\chapter{Tower Support Tube Design}
+
+We are proposing design alterations for SNOLab, considering possible alternate materials
+and dimensions for the central support tubes.
+
+\bigskip
+
+Considerations for Material Candidates:
+\begin{itemize}
+\item Thermal Conductivity
+\item Radioactivity
+\item Mechanical Properties
+\end{itemize}
+
+\subsection{Thermal Conductivity}
+Due to the finite cooling power of our helium dilution refrigerator, we must limit the
+thermal load to each stage of the fridge. The tower support tubes are a major source of
+thermal loading on each stage. The thermal power load on each stage from the tubes is
+governed by the general equation
+\begin{eqnarray}
+Power = \int_{T_{low}}^{T_{high}} \frac{A}{L}K(T)dT \ \ , %place this above in a more general section and reference it.
+\end{eqnarray}
+where $T_{low}$ is the temperature of the stage being loaded, $T_{high}$ is the warmer
+connecting stage, A is the tube cross-sectional area, L is tube length, and K(T) is the
+thermal conductivity. From the equation, we can see that thermal power is directly proportional
+to thermal conductivity, so by decreasing thermal conductivity, we decrease power to each
+stage. Figure 1 displays the thermal conductivity for tower tube candidate materials.
+\begin{figure}[htb]
+\includegraphics[width = \textwidth]{TowerCond.png}
+\caption{Thermal conductivity of the various core material candidates. All values have been
+extrapolated past 50mK. Below are the materials which offer improvement over UF-4S
+graphite for each stage.}
+\end{figure}
+\begin{figure}[htb]
+\centering
+\begin{minipage}[t]{.3\textwidth}
+\textbf{4K - 600mK Stage:}
+\begin{itemize}
+\item Vespel SP-1
+\item Vespel SP-22
+\item POCO AXM-5Q
+\end{itemize}
+\end{minipage}
+\begin{minipage}[t]{.3\textwidth}
+\textbf{600mK - 50mK Stage:}
+\begin{itemize}
+\item POCO AXM-5Q
+\item Vespel SP-22
+\item Vespel SP-1
+\end{itemize}
+\end{minipage}
+\begin{minipage}[t]{.3\textwidth}
+\textbf{50mK-10mK Stage:}
+\begin{itemize}
+\item Vespel SP-22
+\item Ti 15-3-3-3
+\end{itemize}
+\end{minipage}
+\end{figure}
+
+From the graph, one can see that Ti 15-3-3-3 potentially has a much lower thermal
+conductivity for the temperature range of the lowest support tube, 100mK to 40mK.
+Current data only extends down to 230mK, however. At that temperature, it is crossing
+the lowest thermally conductive material, Vespel SP-22, and decreasing quickly.
+
+Table 1 summarizes the possible improvements in thermal power conducted for each stage,
+assuming identical tube dimensions.
+
+\begin{table}[htb]
+\begin{threeparttable}
+{\footnotesize\rm\begin{tabularx}{17.7cm}{l|XXXXXX}
+  \multicolumn{7}{l}{{\large Calculated Power Conducted for Candidate Tower Materials}}\\
+\toprule
+ {\normalsize Material} & 4.2K-600mK  &5K-1K\tnote{*}& 600mK-50mK & 1K-100mK\tnote{*} & 50mK-10mK & 100mK-40mK\tnote{*} \\
+  &P($\mu$W)&P($\mu$W)&P($\mu$W)&P($\mu$W)& P(nW) & P(nW) \\ \hline\hline
+  Current Graphite & 202 & 309 & 0.95 & 3.4 & 2.2 & 11.4 \\
+  POCO AXM-5Q & 140 & 238.4 & 0.46 & \textbf{1.35} & 2.75 & 10.5 \\
+  Ti-6Al-4V 'Grade 5' & 2294 & 3490 & 7.8 & 43.6 & 0.4-2.13 & 6.4-21.1 \\
+  Ti 15V-3Cr-3Sn-3Al & 1134 & 1623 & 1.79 & 12.4 & - & - \\
+  45Nb-Ti (45\% wt. Nb) & 1715 & 2879 & 3.0 & 13.9 & 2.1 & 15.5 \\
+  Vespel SP-1 & \textbf{92.2} & \textbf{129} & 0.96 & 2.92 & 4.9 & 19.8 \\
+  Vespel SP-22 & 107 & 166 & \textbf{0.39} & 1.67 & \textbf{0.38} & \textbf{2.6} \\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}
+   \item[*]{Thermal stability calculations provided to account for non-ideal fridge temperatures}
+\end{tablenotes}}
+\caption{Calculated power conducted between individual tower stages. Power Calculations
+based on current support tube lengths: 4K-600mK stage - 0.949in; 600mK-50mK stage - 1.572in;
+50mK-10mK stage - 1.334in. \textbf{Bold} numbers display lowest power conducted for a given
+stage.}
+\end{threeparttable}
+\end{table}
+
+\subsubsection{Next Steps}
+
+Implement thermal conductivity tests during tower runs to increase data sets, and verify
+current data. Build 3He cooler fridge.
+
+\subsection{Radioactivity}
+%While this isn't the primary factor in choosing materials, they must still show radioactivity levels that are below an acceptable limit. Data from Gopher screening is shown in
+%Table 2. The new screening of current CDMS Graphite (already screened at Oroville) shows very low radioactivity. Conversely, Vespel SP-22, POCO AXM-5Q, and POCO ACF-10Q (another
+%variation of POCO Graphite) show far too much radioactivity. Ti 15-3-3-3 and Vespel SP-1 have reasonably low levels of radioactive contamination. The potential for decreasing the
+%dimensions of these tubes, thus decreasing volume, could compensate for their higher radioactivity.
+
+Due to the sensitivity of our detectors, radioactive contamination in our tower
+materials is a concern, and therefore a consideration when choosing a candidate.
+Material samples were sent to a test facility to be screened for radioactivity.
+The results are presented in Table 2, which gives the total activity for nuclear
+transmutational processes (e.g. $\alpha$-decay, $\beta$-decay, Spontaneous Fission).
+
+\subsubsection{Measurement Process}
+The measurement process used a high purity Ge detector as a gamma counter to measured the
+gamma decay spectrum of each sample. From this, characteristic lines were identified for
+the U-238, Th-232, Co-60, K-40 and Cs-137 chains. A Monte Carlo simulation was then
+performed for each isotope in the chains of interest. This subtracted off background
+activity and estimated the efficiency of gamma detection for each line, which includes
+sample geometry and gamma production rate for transmutational decay processes. The result
+of this simulation was the total activity for each isotope.
+
+Due to the long half-lives of the parent isotopes, the decay chains are assumed to be in
+secular equilibrium, implying that the decay rates of all isotopes are equal. Due to the
+finite accuracy of statistics, the activity of the lines were not all equal, so a weighted
+average of the best lines was taken to then obtain the activity of the parent isotope
+reported in Table 2.
+
+
+POCO is dirty because it is industrial grade
+
+\begin{table}[htb]
+\centering
+\begin{threeparttable}
+\rowcolors{3}{gray!20}{white}
+\begin{tabular}{l|ccccc}
+\multirow{2}{*}{\large{Material}} & \multicolumn{5}{c}{Contamination in mBq/kg}\\
+& U-238 & Th-232 & Co-60 & K-40 & Cs-137 \\\toprule
+CDMS Graphite & 1.328 $\pm$ 2.176 & & & & \\
+ZXF-5Q Graphite & 159.731 $\pm$ 4.374 & 218.112 $\pm$ 5.256 &  &  &  \\
+ACF-10Q Graphite & 406.771 $\pm$ 6.508 & 286.649 $\pm$ 5.731 & & 35.90 $\pm$ 8.021 &\\
+AXM-5Q Graphite & 117.708 $\pm$ 2.391 & 217.127 $\pm$ 3.785 & & &  \\
+Vespel SP-22 & 48.38 $\pm$ 4.832 & 211.1 $\pm$ 8.991 & & 7.822 $\pm$ 6.088 &\\
+Vespel SP-1 & & 5.39 $\pm$ 4.80 & & &  \\
+Ti 15-3-3-3 & & 17.2 $\pm$ 3.2 & & &  \\
+
+\end{tabular}
+\caption{Activity of listed parent for each sample. Screened at Gopher, a high purity Ge
+gamma counter in Soudan, MN.}
+\end{threeparttable}
+\end{table}
+
+\begin{table}[htb]
+\centering
+\begin{threeparttable}
+\rowcolors{3}{gray!20}{white}
+\begin{tabular}{l|ccccc}
+\multirow{2}{*}{\large{Material}} & \multicolumn{3}{c}{$\frac{Neutrons}{year \cdot cm^{3}}$}\\
+& Sponteneous Fission & ($\alpha$,n)-reactions & Total \\\toprule
+CDMS Graphite & 2.1 $\cdot 10^{-4}$ & - & 2.1 $\cdot 10^{-4}$ \\
+ZXF-5Q Graphite & - & - & - \\
+ACF-10Q Graphite & - & - & - \\
+AXM-5Q Graphite & - & - & - \\
+Vespel SP-22 & - & - & - \\
+Vespel SP-1 & - & - & - \\
+Ti 15-3-3-3 & 3.04 $\cdot 10^{-7}$ & 2.09 $\cdot 10^{-6}$ & 2.4 $\cdot 10^{-6}$ \\
+
+\end{tabular}
+\caption{Neutron production per year for 1 $cm^{3}$ of material for candidate materials}
+\end{threeparttable}
+\end{table}
+
+\subsubsection{Using SOURCES-4C to Predict Neutron Emission Rates}
+Neutron background is the largest concern for our detectors as it produces a
+nuclear recoil which, along with no charge collection, mimics the expected signal
+from WIMPS. In our candidate materials, there are two sources of neutrons:
+Spontaneous Fission and ($\alpha$,n)-reactions. These occur at different rates
+for each material, depending on the radioactive decay chain present and its
+constituent materials, which are the target materials for the ($\alpha$,n)-reactions.
+Therefore, the total activity for each material is not the determining factor;
+Instead, we must select materials based on acceptable neutron emission rates.
+
+To model the neutron emission rate of each material, we used SOURCES-4C, a program
+developed by Los Alamos National Laboratory and Texas A\&M University. This
+program allows calculation of neutron emission rates through both spontaneous
+fission and ($\alpha$,n)-reactions using an extensive library of parameters
+such as reaction and stopping cross-sections,product nuclide level branching
+fractions, etc.
+
+For our problem, the input parameters for SOURCES-4C were:
+\begin{enumerate}
+\item Constituent elements in atom fraction
+\item Alpha sources in atoms/cc
+\item Target materials in atom fraction
+\end{enumerate}
+
+To determine the $\alpha$-source contamination in atoms/cc we had to convert
+from the total activity values in Table 2. We use the equation
+$$
+D = -\frac{R \rho h}{ln\frac{1}{2}} \qquad,
+$$
+
+to find the number of atoms/cc for a given isotope, where R is activity in
+Becquerels/kg , $\rho$ is the material density in kg/cc, and h is the half-life
+of the isotope in seconds.
+
+Once we have the contamination of the parent isotope, we can then find the
+corresponding contamination for all $\alpha$-emitting daughters using the relation
+$$
+D_{d} = D_{p}\frac{h_{d}}{h_{p}} \qquad,
+$$
+
+where the subscripts d and p represent daughter and parent, respectively.
+
+As seen in Table 3, the neutron emission levels over the duration of an
+experiment are very low, thus probability of neutron emission is unlikely.
+For the POCO graphite grades, purification is an option as ACF-10Q, AXM-5Q,
+and ZXF-5Q are all industrial grades, so have higher impurity levels.
+Both POCO and Mersen offer purification processes which are able to reduce
+impurities to $ < $5ppm. These processes place the sample in an environment
+of chlorine gas pressurized above 15 psi and heated to roughly 2000$^{o}$C.
+The chlorine then readily bonds with oxidizable metals to remove them. The
+POCO samples will be purified and re-screened to test for a reduction in activity
+levels and the possibility of using them in the tower.
+
+\subsection{Mechanical Properties}
+The mechanical properties of the materials determine how little of the material
+we can safely use, thus setting the total radioactivity and thermal power conducted.
+Data for our materials was obtained from Matweb, DuPont data sheets, and
+correspondence with Mersen, the producer of our current graphite, formally known
+as Grade UF-4S. Relevant properties are presented in Table 3.
+
+\begin{table}[htb]%THERMOPHYSICAL PROPERTIES
+\centering
+\begin{threeparttable}
+{\footnotesize\rm\begin{tabularx}{16.5cm}{llp{1.6cm}p{1.9cm}p{1.6cm}p{1.6cm}l}
+\multicolumn{5}{l}{\Large{Thermophysical Properties}}\\
+\toprule
+& \parbox[t][1cm][t]{2.2cm}{CTE @300K \\ $\Delta L/L$ \\ $(\mu m/(m\cdot C^o))$}
+& Tensile Strength [MPa] & Compressive Strength [MPa]
+& Flexural Strength [MPa] & Modulus of Elasticity [GPa] & Poisson's Ratio\\
+\midrule
+ CDMS Graphite & 1.8-2.9  & (20) & (50) & 27.6 & (7.2) & 0.3* \\
+ POCO AXM-5Q & 7.8 & 48 & 124 & 69 & 10.5 & 0.3* \\
+ Ti 15V-3Cr-3Sn-3Al & 9.7 & 1100 & 1130 & - & 95.5 & 0.36  \\
+ Ti 21S & 7.07 & 880-1210 & - & - & 83-110 & 0.34 \\
+ Vespel SP-1 & 45 & 86 & 133 & 110 & 2.5 & 0.41 \\
+ Vespel SCP-5000 & $<$45 & 163 & 640 & 254 & 3.99 & 0.41 \\
+Graphlite CF Rod & - & 2340 & 1900 & - & 131 & - \\
+ \bottomrule
+\end{tabularx}}
+
+\caption{Thermophysical properties of candidate materials. The compressive and tensile
+strengths for CDMS Graphite were derived from the flexural strength given in the datasheet, using an apparent trend in graphite materials where tensile $\approx$ 2/3 flexural and compressive $\approx$ twice flexural. In addition, Modulus of Elasticity (E) was inferred from the given Shear Modulus (G) where $G = E/[2(1-\nu)]$ \\ *The poisson ratio of 0.3 is typical for graphites }
+\end{threeparttable}
+\end{table}
+
+\begin{itemize}
+\item CDMS Graphite has a lower strength than every other material, including AXM-5Q,
+another graphite.
+\item The Ti alloys offer high strength and low CTE. Ti 21S will be discussed in
+Availability section.
+\item Vespel SCP-5000 is the newly developed replacement for Vespel SP-1 with better
+mechanical properties and a lower CTE. In the above table, the CTE of Vespel SP-1 is
+45$\mu$m/mC from 300K to cryogenic temperatures. For temperatures above 300K, its CTE
+is 54 $\mu$m/mC. The CTE of SCP-5000, 45$\mu$m/mC, is given for temperatures above 300K.
+The cryogenic CTE is not known, but would likely be lower than its room temperature value
+as with Vespel SP-1.
+\end{itemize}
+
+\subsubsection{Thermal Contraction}
+
+
+To prevent individual temperature stages from thermally shorting to one another, they must not touch at any temperature between 300K and 40mK. In addition, the tower must not shorten enough to allow our NbTi vacuum coax's to sag and short to the casing. The current design has a 0.03 inch (0.0762cm) gap between each stage. Below room temperature, the CTE of SP-1 is 45$\mu$m/mC. To get total contraction, $\Delta L$:
+
+$$
+\Delta L = 45\frac{\mu m}{mC^{o}}(L_{tube})(\Delta T)
+$$
+
+For the longest tower stage, this gives 0.021 inches. Subtracting off the contraction of the copper tower stage (CTE $\approx$ 10$\mu$m/mC) gives a total of 0.018 inches contraction. While this leaves the gap open, the new design may consider lengthening the gap slightly to allow a larger buffer.
+
+As for shorting the NbTi wires, a simple model considers the wires under no tension, and any shortening in length is efficiently taken up by the wires (e.g. pulling them toward
+the casing). We find that the largest deflection for any stage is 0.083 inches. The wires are centered in the vacuum coax, 0.024 inches from the casing. This means we will have way too much deflection! We need a better model, different material, or new side coax design.
+
+\subsubsection{Possible Next Steps}
+\begin{itemize}
+\item Radioactivity screening and thermal conductivity test for Ti21S, Vespel SCP-5000, and Vespel SCP-5050
+\item Carry out strength tests for materials in support tube dimensions and as bulk material.
+\end{itemize}
+
+\subsection{Dimension Optimization}
+ We are considering the possibility to decrease thickness and/or radius of tower support tubes. This would significantly decrease thermal power conducted and total radioactivity.
+
+Through discussion with Dr. Sanjay Govindjee at UC Berkeley, a model predicting failure loads for different materials/dimensions as well as optimization of Radius/Thickness (a/t) has been developedd . The load considered is the same as that used in the graphite tower break test (one end fixed, the other subjected to a transverse shear force).
+
+The most recent model created by Professor Govindjee considers 4 failure modes:
+\begin{itemize}
+\item Shear Instability (Buckling)
+\item Bending Instability (Buckling)
+\item Material Failure from Normal Stresses
+\item Material Failure from Shear Stresses
+\end{itemize}
+
+His full report can be read starting on page {\huge BLANK}. The summary of the failure formulas and their validities follow.
+
+\subsubsection{Tube Geometry}
+The graphite tube tested had nominal dimensions of thickness $t = 0.028$in, radius $a = 0.986$in (to middle surface), and length $L=1.334$in.
+
+For theory, the relevant geometric ratios are
+\begin{eqnarray}
+\frac{a}{t} = 35.2 \\
+\frac{L}{a} = 1.35 \\
+Z = \frac{(1-\nu^2)^\frac{1}{2}L^2}{at} = 61.5 \ (\text{for $\nu$ = 0.3})
+\end{eqnarray}
+
+where Z is Donnell's parameter. These values imply that we have a fairly thin shell of intermediate length. For dimension optimization, these values may change.
+
+\subsubsection{Shear Instability}
+
+The tube may fail due to shear instability. According to Yamaki, this will occur when the maximum shear stress, $\tau_{f} = P/\pi at$ exceeds critical torsional stress from a purely torsional load,
+$$
+\tau{b} = \frac{\pi^2E}{12(1-\nu^2)}(1-\nu^2)^{\frac{3}{8}}a_s\left(\frac{t}{a}\right)^{\frac{5}{4}}\left(\frac{a}{L}\right)^{\frac{1}{2}}~~,
+$$
+
+where $a_{s}$ is between 0.81 and 1.04 for $Z \in [50,100]$. As dimensions change, Z could become as high as 400, for which $a_{s}$ is between 0.81 and 0.91. For either case, the lower value of 0.81 is taken to be conservative.
+
+The number of circumferential waves present in buckling is
+$$
+N = \pi(1-\nu^2)b_{s}\left(\frac{a}{L}\right)^{1/2}\left(\frac{a}{t}\right)^{1/4},
+$$
+where $b_{s}$ is between 0.8 to 1.15 for the range of Z values.
+
+This value gives between 3 and 5 waves depending on material/dimensions. Donnell's shell theory will only give errors of $\sim$4\% at 3 waves. Above 3 waves the error decreases
+quickly. For graphite at current dimensions we have 5 waves, assuring accuracy.
+
+To get critical load ($P_{c}$), set $\tau_{f} = \tau_{b}$ and solve for P:
+$$
+P_{c}^{s} = \frac{\pi^3E}{12(1-\nu^2)^{\frac{-5}{8}}}a_{s}\frac{a^{1/4}t^{9/4}}{L^{1/2}}
+$$
+
+\subsubsection{Bending Instability}
+
+Bending instability can also occur in the case of transverse loading. This will occur as local buckling when the maximum stress (tensile or compressive) is exceeded. Approximating the tube as a membrane, the stress is $\sigma_{b} = PL/a^2t\pi$. The tube fails at a critical stress reasonably approximated by
+$$
+\sigma_{c}=\frac{E}{\sqrt{3(1-\nu^2)}}\frac{t}{a}.
+$$
+
+Combining these gives the critical load for localized bending buckling as:
+
+$$
+P_{c}^{b} = \frac{E \pi}{\sqrt{3(1-\nu^2)}}\frac{t^2a}{L}
+$$
+\subsubsection{Material Failure: Normal Stresses}
+
+The material may fail simply from exceeding its normal stress limit, $\sigma_{f}$ where $\sigma_{f}$ is the minimum of tensile or compressive strength. Then the failure load for this failure is:
+$$
+P_{c}^{mb} = \sigma_{f} \pi \frac{a^2t}{L}
+$$
+\subsubsection{Material Failure: Shear Stresses}
+
+Failure can also occur from the tube exceeding its shear stress limit, $\tau_{f}$. In ductile materials, $\tau_{f} \approx \sigma_{f}/2 \ \text{or} \ \sigma_{f}/\sqrt{3}$. Brittle material values (such as graphite) can be approximated from $\tau_{f} = \sigma_{t}\sqrt{R/3} $ where $R = \sigma_{c}/\sigma_{t}$ (compressive/tensile).
+
+Given $\tau_{f}$, the predicted critical load for shear failure is:
+$$
+P_{c}^{ms} = \tau_{f}\pi at
+$$
+
+\subsubsection{Plotting Failure Curves}
+
+Using the available material properties, we are able to produce the following graphs in figure 2. Each point along each line represents the radius and thickness that will give a failure load of 145lbs (as found in Dennis' tower break test). The upper right side of each line represents safe design dimensions. The green line follows the dominating failure mode at any point along the graph, therefore, the dimension space above this line represents safe design space.
+
+%\begin{figure}[htb]
+%\begin{minipage}[t]{.45\textwidth}
+%\includegraphics[width=\textwidth]{Graphite_Failure100mK40mK.png}
+%\end{minipage}
+%\begin{minipage}[t]{.45\textwidth}
+%\includegraphics[width=\textwidth]{Vespel_Failure5K1K.png}
+%\end{minipage}
+%\end{figure}
+%\begin{figure}[htb]
+%\begin{minipage}[t]{.45\textwidth}
+%\includegraphics[width=\textwidth]{Vespel_Failure1K100mK.png}
+%\end{minipage}
+%\begin{minipage}[t]{.45\textwidth}
+%\includegraphics[width=\textwidth]{Ti15333_Failure.png}
+%\end{minipage}
+%\caption{Theoretical failure curves for different materials for 145lb load. The green dashed line represents minimum (thus optimum) dimensions for a 145lb load. Actual CDMS
+%Graphite dimensions are plotted as an '*' for comparison.}
+%\end{figure}
+
+The predicted failure curves for CDMS graphite can be seen in the upper-left graph. The predicted dimensions for CDMS Graphite deviate $15-23\%$ from actual values of Radius = 1in, Thickness = 0.028in. The graphite model is still rough, however, as the values of tensile and compressive strength used were those approximated in table 3. These should be verified before further progress is made.
+
+\subsection{Minimizing Radioactivity and Heat Load}
+
+Once the optimal dimension pairs (radius, thickness) are obtained along the failure limit, we can minimize radioactivity and heat load of the candidate materials. Radioactivity is
+directly proportional to volume, and thermal power is directly related to cross-sectional area. Holding tube lengths fixed, minimization of radioactivity and heat load is reduced
+to the problem of minimizing cross-section. Therefore, radioactivity and heat load will have identical minimization parameters.
+
+The graphs in figure 3 plot radioactivity and thermal power as a function of radius. The thickness of the tube at any radius is implicitly the thickness from the optimal dimension
+pairs obtained from the failure limit lines in figure 2.
+
+%\begin{figure}[htb]
+%\begin{minipage}[t]{.48\textwidth}
+%\includegraphics[width=\textwidth]{VSP1_Graphite_5K1K.png}
+%\end{minipage}
+%\begin{minipage}[t]{.48\textwidth}
+%\includegraphics[width=\textwidth]{VSCP5000_Graphite_5K1K.png}
+%\end{minipage}
+%\end{figure}
+%\begin{figure}[htb]
+%\begin{minipage}[t]{.48\textwidth}
+%\includegraphics[width=\textwidth]{VSP1_Graphite_1K100mK.png}
+%\end{minipage}
+%\begin{minipage}[t]{.48\textwidth}
+%\includegraphics[width=\textwidth]{Ti15333_Graphite_100mK40mK.png}
+%\end{minipage}
+%\caption{Radioactivity and Thermal Power for varying dimensions. The green shaded regions represent the uncertainty in radioactivity given in table 2. The regions bounded by black
+%dashed lines are those of the candidate materials. Point 1 gives current graphite heat load, while point 2 (including error bars) gives current graphite radioactivity.}
+%\end{figure}
+
+It is obvious that the candidate materials offer significant improvement over the current UF-4S Graphite. The heat load improvement per stage is examined below. For simplicity,
+the values along the optimum lines have been used.
+
+\smallskip
+
+\large{\underline{5K -1K}}
+
+At a radius of 0.4 inches, the power from Vespel SP-1 is 50$\mu$W. This is 1/6 the current heat load. Assuming the same thermal conductivity for Vespel SCP-5000, this number could
+be reduced to near 35$\mu$W for more than an 800\% reduction in heat load.
+
+\smallskip
+
+\underline{{\large 1K-100mK}}
+
+Vespel SP-1 could reduce the heat load to 1.3$\mu$W from 3.4$\mu$W, 2.6 times less than the current heat load. Vespel SCP-5000 could offer an additional 30\% improvement over SP-1.
+
+\smallskip
+
+\underline{{\large 100mK-40mK}}
+
+With no data yet in this range for Ti 15-3-3-3 we cannot know the improvement, but at the optimum value, cross-section is reduced by nearly a factor of 20. Given that the thermal
+conductivity of Ti 15-3-3-3 is almost certainly lower at this stage than UF-4S Graphite, a significant improvement is expected.
+
+\bigskip
+
+For each stage, the candidate materials not only offer a significant reduction in thermal power, but remain well within acceptable limits for radioactivity.
+
+It should be noted that the optimized values would almost certainly result in a failure load of less than 145lbs. Given the error for the predicted Graphite failure, the actual
+would be around 20-30\% lower. Even so, our failure load would still be near 100lbs. If it is decided that this is too low, the material dimensions can easily be increased and
+still offer more than a factor of 2 improvement for each stage.
+
+\section{Striplines}
+In addition to modifying the tower support tubes, we are examining the feasibility of replacing the NbTi vacuum coaxial cables along tower face with a parallel strip transmission
+line. This transmission line must satisfy the new inductance requirements of the SQUID/Detector designs while remaining within acceptable limits for thermal power loading on the
+tower stages. Critical current density, resistivity, and critical temperature ($T_{c}$) must also be evaluated for the new line.
+
+Our consideration of a flex cable comes from:
+\begin{itemize}
+\item Low inductance design capability
+\item Precise control over dimensions
+\item Reproducibility
+\item Strength, and Low Radioactivity (from Kapton substrate)
+\end{itemize}
+
+The new SQUID design will reduce the superconducting QET resistance from 0.2$\Omega$ to 0.02$\Omega$. Since the 3dB roll-off frequency corresponds to R/L for our amplifier, when we reduce R by a factor of 10, we must also reduce inductance, L, by a factor of 10 to maintain our bandwidth. The new goal for the inductance of our flex cable is 30nH over a 20 inch length, or $\approx$ 60nH/m. To determine the inductance for our parallel traces we used the following formula used by basic inductance calculators:
+
+$$ L \approx \frac{\mu_{0}\mu_{r}h}{w} \ \ (h > t , w >> h)$$
+
+$\mu_{0}$ = the magnetic constant (4$\pi \cdot 10^{-7}$)\\
+$\mu_{r}$ = relative permeability of Kapton (assumed to be 1)\\
+t = thickness of trace \\
+h = center-to-center separation of traces \\
+w = width of the trace \\
+
+Sonnet EM modeling software will be used to provide more detailed inductance modeling as well as to measure electrical cross-talk.
+
+\subsection{NbTi Trace}
+
+We have ordered Nb47Ti(53\% Nb, 47\% Ti by weight) which was rolled by Virginia Fine Metal. The foil is 4" x 10" and 0.002" thick. The same Nb47Ti has already been successfully etched so it can now be made into a preliminary parallel strip transmission line for testing.
+
+\begin{table}[ht]
+\centering
+\begin{threeparttable}
+{\footnotesize\rm\begin{tabular}{l|rrrrrr}
+  \multicolumn{7}{l}{{\large Thermal Loading in Tower Stages for Current 8 Pair Design, 6 Face Tower}}\\
+\toprule
+ {\normalsize Material} & 4.2K-600mK & 600mK-50mK & 50mK - 10mK & 5K-1K\tnote{*} & 1K-100mK\tnote{*} & 100mK-40mK\tnote{*} \\
+  &P($\mu$W)&P(nW)&P(nW)&P($\mu$W)& P(nW) & P(nW) \\ \hline\hline
+  Ti15333 @ 0.0005" & - & 658.5 & 4.41 & - & 1997 & 15.44 \\
+  Ti15333 @ 0.001" & - & 807.4 & 5.03 & - & 2670 & 17.60 \\
+  Nb-47Ti @ 0.001" & 108.4 & 879.95 & 5.14  & 170.74 & 2767 & 18.42 \\
+  Graphite Tube & 202 & 950 & 2.2 & 309 & 3400 & 11.4 \\
+  Current Vacuum Coax's & 0.762 & \multicolumn{2}{r}{3.60} & 1.28 & \multicolumn{2}{r}{16.68} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+   \item[*]{Thermal stability calculations provided to account for non-ideal fridge temperatures}
+\end{tablenotes}}
+\caption{Calculated power conducted between individual tower stages for 30nH inductance. Graphite numbers based on current support tube lengths: 4.2K-600mK stage - 0.949in; 600mK-50mK
+stage - 1.572in; 50mK-10mK stage - 1.334in. Transmission line calculations used inter-stage lengths of: 4.2K-600mK - 0.688in; 600mK-50mK - 0.789in; 50mK-10mK - 0.740in. Vacuum coax
+calculations used: 4.2K-600mK - 1.339in; 600mK-10mK - 0.83in. }
+\end{threeparttable}
+\end{table}
+
+\subsection{Ti 15-3-3-3 Trace}
+Ti 15-3-3-3 is another option as a trace material. Its relevant properties are discussed below.
+\begin{itemize}
+\item Thermal Conductivity: This alloy offers a lower thermal conductivity than NbTi at all stages.
+\item Critical Current Density: MUST EXPERIMENTALLY DETERMINE
+\item Superconducting Transition Temperature: 3.89K
+\item Resistivity: MUST EXPERIMENTALLY DETERMINE
+\end{itemize}
+
+Due to it's very low transition temperature, it is not an option at the 4K to 600mK transition. If the SQUIDS are placed at the 600mK stage, Ti 15-3-3-3 is an ideal choice as a trace from 600mK down to the 10mK base.
+
+To roll Ti 15-3-3-3 we have contacted Ulbrich, a company which could provide us with a foil as thin as 0.5 mil. The cost for even 1 mil, however, is \$1010/lb with a minimum of 10 lbs, so it will be expensive. Another possible company is called Arnold Rolled Products. They carry Ti 15-3-3-3 sheet in stock and could roll to 0.5 mil.
+
+\bigskip
+
+\subsection{New 50mK Stage (or 100mK for Non-Ideal) Heatsink}
+ The current tower design has an internal heat sink for the 50mK stage. The only external components of this stage on the tower face are two connectors for thermally connecting
+the tower support tubes to the fridge. This new transmission line design, while easily adjustable to meet inductance requirements, is much more thermally conductive; therefore,
+to implement this new design, I propose adding an additional external component for heatsinking the transmission line to the 50mK fridge stage. The need for an external 50mK
+heatsink can be seen in Table 5. We have used a best case transmission line design: 0.5 mil Ti 15-3-3-3 designed for 50nH/20". This is compared to the current NbTi vacuum coax's and graphite tower support tubes. The power shown is per tower with the current 6-sided design.
+
+\bigskip
+
+\begin{table}
+\centering
+\begin{threeparttable}
+\begin{tabular}{l|r}
+\multicolumn{2}{c}{Power Loaded to Base (40mK) [nW]}\\\toprule
+Ti15333 & 1442 \\\midrule
+Current Vacuum Coax's & 16.68\\\midrule
+Graphite Tube & 11.4 \\ \bottomrule
+\end{tabular}
+\end{threeparttable}
+\caption{Power load on tower base. For simplicity, only the non-ideal temperature calculations are provided.}
+\end{table}
+
+\bigskip
+Assuming the internal 50mK stage heatsink can be brought out, we can have  a thermally competitive design for the parallel strip transmission line. Table 4 compares an NbTi line, Ti 15-3-3-3 line, current coax's, and the Graphite tube. NbTi only goes to 1 mil, as it cannot be rolled thinner. Ti 15-3-3-3 is presented in 0.5 mil and 1 mil, as it can be produced in 0.5 mil, but it will be expensive.
+
+\section{Availability}
+\subsection{Vespel SP-1/Vespel SCP-5000}
+
+Vespel SP-1 and SCP-5000 are both readily available from DuPont through the certified distributor Curbell Plastics.
+
+As a warning, an employee from Curbell Plastics notified us that another company, Pro Plastics, sells a counterfeit material under the name of Vespel.
+
+\subsection{Carbone UF-4S}
+
+This is the grade currently used in the towers as a support tube. Through recent contact with Mersen (the new owner of Carbone of America) we have found that this grade is still produced and readily available.
+
+\subsection{Ti 15-3-3-3/Ti 21s}
+
+Ti 15-3-3-3 is not available in anything except sheet form in the United States. Chinese companies, however, have Ti 15-3-3-3 available as wire, sheet, and rod. Two possible
+companies are YR Titanium and ReTi Metal. Two rods have been ordered from ReTi Metal.
+
+Ti 21s is another metastable-$\beta$ alloy with similar properties to Ti 15-3-3-3. Tests will be conducted to determine its suitability.
+
+\subsection{Stripline Companies}
+\subsubsection{Rolling}
+\begin{itemize}
+\item Hamilton Materials
+\item Virginia Fine Metals
+\item Arnold Rolled Products
+\end{itemize}
+
+\subsubsection{Transmission Line Fabrication}
+\begin{itemize}
+\item Luxel
+\item Tech-Etch
+\end{itemize}
+
+\chapter{Design of Low Conductivity Electronics for the Detector Tower}
+
+\section{Phonon Readout Cable}
+
+\subsection{Thermal Conductivity of Kapton Polyimide}
+
+Thermal conductivity data for Kapton varies among the literature, as can be seen from Figure 1. In particular, we are interested in the Kapton HN data, as the company fabricating our stripline, Tech-Etch, uses this type. The power law fit of these thermal conductivities in the range of interest is presented in Table 1. The thermal conductivity used in heat load calculations was the data from M. Barucci \cite{bar}. This thermal conductivity is markedly higher than most of the other data. this is likely due to the direction of measurement along the sample. Barucci measures along a strip of Kapton, while other authors use a laminate of Kapton strips and measure through the thickness of the laminate (transverse to the Kapton strip direction). Unless the Kapton is isotropic, this would result in a different measured thermal conductivity.
+
+\begin{figure}[h]
+\includegraphics[width = .9\textwidth]{Kapton_var.png}
+\caption{Compiled data for the thermal conductivity of Kapton films. The type is specified in the legend, as well as whether measurements were performed parallel or perpendicular to the Kapton surface. The direction of Kapton measurement is not stated when unknown. Data are from Radebaugh \cite{rad73}, Barucci \cite{bar}, Lawrence \cite{law}, Wipf \cite{wip}, Rule \cite{Rule1996}, Yokoyama \cite{yok}, Baudouy \cite{Baudouy2003} }
+\end{figure}
+
+\begin{table}[h]
+\centering
+\begin{threeparttable}
+\begin{tabular}{llclr}
+\toprule
+Author & Type & Dir. of Measurement & k(T) [ $\mu$W/cm-K] & Temperature Range [K]\\
+\midrule
+Wipf \cite{wip} & Unspecified & $\perp$ & $14.51 \cdot T^{1.177}$ & 5 - 20 \\
+Lawrence \cite{law} & HN & $\perp$ & $46.38 \cdot T^{0.568}$ & 0.5 - 5 \\
+Rule \cite{Rule1996} & HN & $\perp$ & $24.7 \cdot T^{1.043}$ & 4.2 - 10 \\
+Rule \cite{Rule1996} & H & $\perp$ & $18.2 \cdot T^{1.121}$ & 4.2 - 10 \\
+Barucci \cite{bar} & HN & $\parallel$ & $65 \cdot T$ & 0.2 - 5 \\
+Radebaugh \cite{rad73} & Unspecified & $\perp$ & $12.73 \cdot T^{0.982}$ & 0.02 - 4 \\
+Akerib & Unspecified & ? & $60.7 \cdot T^{1.75}$ & 0.02 - 0.6  \\
+Akerib & Unspecified & ? & $92 \cdot T^{1.02}$ & 4 - 165 \\
+Yokoyama \cite{yok} & H & $\perp$ & $36.87 \cdot 10^{0.9154}$ & 10 - 300 \\
+Baudouy \cite{Baudouy2003} & HN & $\perp$ & $22.8 + 24.0 \cdot T$ & 1.4 - 2 \\
+\bottomrule
+\end{tabular}
+\caption{Power law fits for thermal conductivity of Kapton in range of interest. The direction of measurement specifies whether thermal conductivity was taken parallel or transverse to the surface of a Kapton strip.}
+\end{threeparttable}
+\end{table}
+
+
+\subsection{Thermal Conductivities of Trace Materials}
+
+The thermal conductivities of candidate trace materials for the Phonon line are presented in Figure 2. The thermal budget is very tight for the phonon line, so thermal conductivity is one of the main considerations for material selection.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width = .8\textwidth]{Trace_material_k.png}
+\caption{Thermal conductivities for trace materials. High and low values were taken from the literature when a significant variation was present among data. Data from: Haasbroek \cite{has}, Barucci \cite{Barucci2008}, Corzett{cor}, Olson \cite{ols}, Fairbank \cite{fair}, Wikus \cite{wik}, Dyachkov \cite{dya}.}
+\end{figure}
+
+
+\subsection{Resistivities of Trace Materials}
+Since Ti15-3 has a transition temperature of 3.9K (as measured at MIT), it will not be in a superconducting state throughout the 4.2K - 600mK span. However, as long as the resistivity remains low, it can still be used. Table 2 presents the resistivity as compared to other possible trace materials.
+
+\begin{table}[h]
+\centering
+\begin{threeparttable}
+\begin{tabular}{l|c|c|c|c}
+Alloy & \multicolumn{3}{c}{Resistivity in $\mu$ $\Omega$ $cm$} \\\toprule
+ & 300K & 273K & 10K & 4.2K \\\midrule
+70Cu-30Ni & - & 38.4 & - & 36.4 \\
+Constantan & 49.1 & - & 46.1 & - \\
+Manganin (4\%Ni) & 47.6 & - & 41.9 & - \\
+Ti15-3 & 146 & - & - & 173 \\
+SS316 & - & 76.5 & - & 55.3 \\
+50Nb-50Ti & 76.7 & - & 54 & 0 \\
+\end{tabular}
+\end{threeparttable}
+\caption{Resistivities of possible trace materials.}
+\end{table}
+
+Though the resistivity of Ti15-3 is higher than other candidate materials, if we consider a trace 10 mils wide and 1 mil thick, we get a resistance of
+$$
+\frac{R}{Length} = \frac{173 \cdot 10^{-6} \Omega cm}{6.45 \cdot 10^{-5} cm^{2}} = 2.68 \Omega / cm
+$$
+
+\subsection{Phonon Transmission Line Dimensions}
+
+The new proposed dimensions for the phonon transmission line are shown below. The total widths of the lines (as given below) are larger than previously thought, which may alter design considerations. The trace separation is 10 mil between every trace, regardless of width. Though this places adjacent traces near one another, by alternating trace types as shown in Figures 3,4, and 5, we can increase the spacing between the lines whose cross-talk we are concerned with.
+
+\begin{itemize}
+\item 4.2K to 600mK
+    \begin{itemize}
+    \item 4.2K-600mK cable length = 9.24cm
+    \item Trace width = 10 mil
+    \item Total traces = $2\cdot12$ QET Bias Resistor + $2\cdot12$ SQUID Bias + $2\cdot12$ SQUID Feedback + $2\cdot6$ LED + $2\cdot4$ Charge Readout Bias + $2\cdot4$ Charge Feedback = 100 Traces
+    \item Horizontal trace separation = 10 mil
+    \item Trace thickness = 0.8 mil
+    \item Total line width = 1.01 inches
+    \item Total trace cross-section = 0.0052 $cm^2$
+    \item Total Kapton cross-section = 0.0098 $cm^2$
+    \item Total adhesive cross-section = 0.0130 $cm^2$
+    \end{itemize}
+\item 600mK to 50mK
+    \begin{itemize}
+    \item 600mK-50mK cable length = 5.04cm
+    \item Trace width:
+        \begin{itemize}
+        \item QET Signal = 40 mil
+        \item QET Bias Resistor, LED line, Thermometry line, Charge readout = 10 mil
+        \end{itemize}
+    \item Total traces = $2\cdot12$ QET Signal + $2\cdot12$ QET Bias Resistor + $2\cdot6$ LED + $2\cdot4$ Charge Readout Bias + $2\cdot4$ Charge Feedback = 76 Traces
+    \item Horizontal trace separation = 10 mil
+    \item Trace thickness = 0.8 mil
+    \item Total line width = 1.13 inches
+    \item Total trace cross-section = 0.0076 $cm^2$
+    \item Total Kapton cross-section = 0.0109 $cm^2$
+    \item Total adhesive cross-section = 0.0146 $cm^2$
+    \end{itemize}
+\end{itemize}
+
+\newpage
+
+\begin{figure}[h]
+\centering
+\includegraphics[width = .9\textwidth]{4K_600mK_diagram.png}
+\caption{Cross-section for 4K-600mK phonon transmission line showing 20 of the 100 traces.}
+\end{figure}
+~\\
+~\\
+\begin{figure}[h]
+\centering
+\includegraphics[width = .9\textwidth]{600mK_50mK_diagram.png}
+\caption{Cross-section for the 600mK-50mK section of the phonon transmission line showing 16 of the 76 traces.}
+\end{figure}
+~\\
+~\\
+\begin{figure}[h]
+\centering
+\includegraphics[width = .9\textwidth]{50mK_10mK_diagram.png}
+\caption{Cross-section for the 50mK-10mK section of the phonon transmission line showing 12 of the 52 traces.}
+\end{figure}
+
+\newpage
+
+\begin{itemize}
+\item 50mK to 10mK
+    \begin{itemize}
+    \item 50mK-10mK cable length = 3.25cm
+    \item Trace width:
+        \begin{itemize}
+        \item QET Signal = 40 mil
+        \item LED line, Thermometry line, Charge readout = 10 mil
+        \end{itemize}
+    \item Total traces = $2\cdot12$ QET Signal + $2\cdot6$ LED + $2\cdot4$ Charge Readout Bias + $2\cdot4$ Charge Feedback = 52 Traces
+    \item Horizontal trace separation = 30 mil between QET ; 10 mil between all else
+    \item Trace thickness = 0.8 mil
+    \item Total line width = 1.13 inches
+    \item Total trace cross-section = 0.0064 $cm^2$
+    \item Total Kapton cross-section = 0.0109 $cm^2$
+    \item Total adhesive cross-section = 0.0146 $cm^2$
+    \end{itemize}
+\end{itemize}
+
+\subsection{Phonon Transmission Line Heat Load}
+
+The heat loads for the Phonon line using different trace materials are shown below \footnotemark. As you can see, the heat load from the traces is significant, especially for the 4.2K-600mK span.
+The 50mK-10mK span assumes placement of a heat sink at the detector end of the tower (before the copper tube which holds the detector housings) which shortens the 50mK-10mK cable length to only 3.25cm. If we were to create a heat sink closer to the detectors, this could be significantly reduced.
+
+\begin{table}[h]
+\begin{threeparttable}
+\begin{tabular}{rrrr|rrr}
+\toprule
+ & \multicolumn{6}{c}{Heat Load for 48 Towers in $\mu$W} \\
+  & 5K-1K & 1K-100mK & 100mK-40mK & 4.2K-600mK & 600mK-50mK & 50mK-10mK \\
+ \cmidrule(r){2-7}
+   Ti15-3 \cite{wik} & 590.6 & 20.20 & $1.0\cdot10^{-4}$ & 412.5 & 2.93 & $1.1 \cdot 10^{-6}$ \\
+   45Nb-Ti \cite{ols} & 1047 & 22.89 & 0.0279 & 623.9 & 4.95 & 0.0037 \\
+   Manganin (2\%Ni) \cite{Peroni1999} & 2476 & 192.9 & 1.321 & 1707 & 62.19 & 0.317 \\
+   SS316 \cite{lou} \cite{Barucci2008} & 1347 - 1846  & 117.7 - 235.8 & 0.938 - 3.087 & 941.1 - 1351 & 39.33 - 88.76 & 0.238 - 0.9405 \\
+   70Cu-30Ni \cite{pob} \cite{ols} & 1483 - 2480 & 140.7 - 190 & 1.25 - 1.273 & 1047 - 1706 & 48.26 - 60.94 & 0.303 - 0.330 \\
+   Al5056 \cite{Coccia1983} & 3.98E+5 & 2273 & .4225 & 2.05E+5 & 321.1 & 0.031 \\
+   Kapton \cite{bar} & 237.6 & 20.11 & 0.265 & 171.1 & 7.26 & 0.076 \\
+   Epoxy Adhesive &&&&&& \\
+   \multicolumn{2}{c}{\bf{Total Phonon Line}} & & & & & \\
+   with Ti15-3 & 828.3 & 40.31 & 0.265 & 583.6 & 10.19 & 0.076 \\
+   with 45Nb-Ti & 1285 & 43.00 & 0.292 & 795 & 12.21 & 0.0793 \\
+   with Manganin & 2714 & 213 & 1.585 & 1878 & 69.45 & 0.3925 \\
+   with SS316 & 1584 - 2083 & 137.8 - 255.9 & 1.203 - 3.351 & 1112 - 1522 & 46.59 - 96.02 & 0.314 - 1.016 \\
+   with 70Cu-30Ni & 1721 - 2717 & 160.8 - 210.1 & 1.515 - 1.537 & 1218 - 1877 & 55.52 - 68.2 & 0.3787 - 0.406 \\
+   with Al5056 & 3.99E+5 & 2293 & 0.687 & 2.05E+5 & 328.1 & .106 \\
+  \bottomrule
+\end{tabular}
+\end{threeparttable}
+\caption{Heat loads for constituents of the phonon cable as well as the total cable heat load for various materials for a total of 48 towers. Assumes all trace thicknesses are 0.84 mils. The large heat load at the 50mK-10mK span for the phonon cable is due to short cable length (3.25cm) created by placing a heat sink at the bottom of the tower.}
+\end{table}
+
+\footnotetext{Constantan (55Cu-45Ni) was considered as an alternative to Cupro-Nickel, due to its lower Copper content. However, it was found \cite{tou} to have a higher thermal conductivity than 70Cu-30Ni.}
+
+\newpage
+\subsection{Sonnet Modeling for Phonon Line}
+Between the SQUIDS and our detectors, we have set an inductance limit of roughly 30nH between signal/return lines. To ensure that our cable would meet this requirement, Sonnet modeling software was used to simulate the line with 40mil wide, 0.8mil thick traces at a center-to-center separation of 2.3mil. This yields:
+$$
+L = 22.4\frac{nH}{20"}
+$$
+as well as,
+$$
+C = 471\frac{pF}{20"}
+$$
+for capacitance between the lines.
+
+\section{Charge Readout Lines}
+
+The form of the future charge readout lines is still under debate. Since noise is only a concern on the gate wires, the charge feedback and bias pairs can be integrated into the flexible parallel-trace transmission line design. The 4 remaining gate wires have a few available options. The simplest option would be for the lines to remain vacuum coaxes. The next option involves a flexible coaxial cable produced by AXON' The last option would be to make our own cable with low noise properties.
+
+If we keep the vacuum coaxes, we will alter the design slightly to allow removal of the coaxes from the tower. This would involve a type of carbon fiber rod supported frame to which the wires are mounted, as depicted in Figure 6. Though this could be a low heat load design, it is the least convenient option. Heat loads are presented in Table 4. The wires would be the same 1.2 mil diameter NbTi lines currently used in our towers, however would have an additional heat sink at the newly available externalized 50mK stage on the next generation tower design. We see that the heat loads for this option are rather large, due to the carbon fiber rods. While the calculations have assumed a 40mil rod thickness, our supplier for rods also has 33mil, 30mil, 20mil, and 10mil diameter rod options, which could reduce heat loads.
+
+The next option involves a coaxial cable from AXON' \footnotemark.
+\footnotetext{Another company, Texcal, was considered, as they also produce low-noise cabling. Unfortunately, their cables use silver-plated copper conductors, whose thermal conductivity far exceeds what is acceptable for our purposes.}
+This cable uses Constantan as a conductor material, PTFE for a housing, and Celloflan dielectric (porous PTFE); The cable's cross-section is shown in Figure 6. A thin graphite coating on the outside of the Celloflan dielectric prevents static charge build-up on the insulator -- our main source of noise in the gate wires. The suitability of this option depends on expected heat loads from the cable. These are shown in Table 4. The calculations use Cupro-Nickel (70Cu-30Ni) thermal conductivity in place of Constantan \footnotemark, as well as simple PTFE in place of Celloflan. The high expected heat loads from this cable will likely rule it out as a candidate for replacing the vacuum coax design.
+
+\footnotetext{It was found that the actual thermal conductivity of Constantan is slightly higher than Cupro-Nickel, but is close enough for approximation purposes. If this is considered a viable option, more accurate calculations will be done.}
+Another option is to simply alter a cable to have low-noise characteristics. This could be made possible with a flexible polyimide cable whose dielectric has undergone ion implantation to increase the conductivity to near that of graphite \footnotemark. This would serve the same function as the graphite layer in the AXON' coaxial cable -- preventing static charge build-up. Heat loads for this option are not presented, as the potential form of these cables is as-of-yet unknown.
+
+\footnotetext{See, for instance, \cite{Chen2009}}
+
+\begin{figure}[h]
+$\vcenter{\hbox{\includegraphics[width = .5\textwidth]{Edelweiss_cable.jpeg}}}$
+$\vcenter{\hbox{\includegraphics[width = .5\textwidth]{Charge_vacuum_design.png}}}$
+\caption{Two possible designs for future charge gate wires. Left is the specially made AXON' cable (to have a Conastantan conductor). Right shows the basic structure of a removable vacuum coax design with copper heatsink connections supported by carbon fiber rods.}
+\end{figure}
+
+\subsection{Charge Readout Heat Loads}
+
+The total charge readout line heat load contribution for a 12 tower experiment is presented below in Table 4. These calculations assume 4 gate wires per detector, so 288 wires for 12 towers (or 288 coaxes in the case of the AXON' cable).
+
+\begin{table}[h]
+\begin{threeparttable}
+\begin{tabular}{rrrr|rrr}
+\toprule
+ & \multicolumn{6}{c}{Charge Coax Heat Loads for 12 Towers in $\mu$W} \\
+  & 5K-1K & 1K-100mK & 100mK-40mK & 4.2K-600mK & 600mK-50mK & 50mK-10mK \\
+ \cmidrule(r){2-7}
+   Vacuum Coax Design & 122.3 & 16.34 & 0.135 & 94.3 & 5.17 & 0.031 \\
+   AXON' Cable & 2736 - 4439 & 261.56 - 351.22 & 3.163 - 3.221 & 1862 - 2988 & 88.59 - 110.91 & 0.768 - 0.827 \\
+  \bottomrule
+\end{tabular}
+\end{threeparttable}
+\caption{Heat loads for charge readout coaxes for 12 towers. With 50mK heat sinking, assumes cable lengths of: 4.2K - 600mK = 7.8cm ; 600mK - 50mK = 2.7cm ; 50mK - 10mK = 1.5cm. Assumes 4 lines (or coaxes) per detector, 6 detectors per tower. The vacuum coax calculations assume two 40 mil diameter rods between each stage, which constitute the frame for the removable vacuum coaxes. These dominate the heat loads ($>95\%$).}
+\end{table}
+
+\section{Wiring for 300K - 4.2K}
+
+We must design cable to run from room temperature (300K) to the HEMTs on the tower (4.2K). This cable must meet resistance, thermal, and practical requirements. The upper limit on round trip resistance for the lines is around 200$\Omega$, while the upper limit for heat load is 500mW on 4.2K. Apart from these considerations, the cable must be thin enough to be flexible, the dimensions work-able, and the traces should be solderable\footnotemark.
+
+To meet the heat load restrictions of the cable, a 77K heat sink will be placed along the cable. This will be located around 20" down the cable from room temperature. From here, the 77K - 4.2K length will run around 90" until the 4.2K heat sink. From here, there will be 20" to the HEMTs at the tower. 500mW is a larger heat load than we expect from any reasonably designed cable, so minimizing heat load is not the primary design consideration.
+
+\footnotetext{OFHC Copper was considered as an option, as it is the easiest to solder and has a much smaller resistivity, but the thermal conductivity was nearly 5 orders of magnitude higher than the range of materials in Figure 7. Dimensions could not be decreased enough to produce a viable heat load.}
+
+The resistivity of some of the candidate materials is shown in Table 2. This will set a limit on the minimum dimensions of the traces to keep below 200$\Omega$ for the lines. This, as well as the ease with which the traces can be manufactured into a cable (ability to solder to the traces, flexibility, strength, availability) is the main consideration for selection of dimensions and trace material.
+
+\begin{SCfigure}
+\includegraphics[width = .65\textwidth]{Trace_matl_300K.png}
+\caption{Thermal conductivities of viable trace materials for a cable spanning 4.2K to 300K. References for data are: \newline Nb47Ti - Tekdata website ; Nb50Ti - Flachbart \cite{Flachbart1978} ; Ti 15333 - Wikus \cite{wik} ; Manganin (84Cu-4Ni-12Mn) - Touloukian \cite{tou} ; 70Cu-30Ni - Tekdata website ; 55Cu-45Ni - Touloukian \cite{tou} ; SS316 - NIST database.}
+\end{SCfigure}
+
+\subsection{Expected Heat Loads}
+
+The predicted heat loads for some of the candidate materials on the 77K stage and 4.2K stage are presented in Table 5. These heat loads assume the cross-sections presented for each material in the same table. Cross-sections for each material were minimized based on each material's resistivity to produce a line resistance of 200$\Omega$. As the resistivity of each material varies with temperature, the maximum value of resistivity from Table 2 was assumed for each material across the temperature range to provide a safety buffer in resistance.
+
+The heat loads are all relatively similar despite very different thermal conductivities, due to the different minimum cross-sections. After factoring in resistance, the advantage of Ti15-3-3-3 over 70Cu-30Ni is only a factor of 2 for power onto 4.2K, despite Ti15-3-3-3 being about a factor of ten better in thermal conductivity.
+
+Considering the difficulty in fabricating a cable out of Ti15-3-3-3, and the large dimensions that would be required for a Ti15-3-3-3 trace (30 mil wide traces would still have to be 7.5 mils thick) it is not the best option. Instead, Manganin or 70Cu-30Ni are recommended.
+
+\begin{table}[h]
+\centering
+\begin{threeparttable}
+\begin{tabular}{l|ccc}
+\toprule
+Material & $A_{min}$ [$cm^2$] & Power to 77K [$\mu W$] & Power to 4.2K [$\mu W$] \\
+\midrule
+70Cu-30Ni & 1.2680E-4 & 1.301E+7 & 3.802E+5 \\
+Ti15-3-3-3 & 5.7125E-4 & 1.374E+7 & 1.605E+5 \\
+Manganin (4\%Ni) & 1.5718E-4 & 1.0220E+7 & 2.862E+5 \\
+SS316 & 2.526E-4 & 1.187E+7 & 3.180E+5 \\
+\bottomrule
+\end{tabular}
+\end{threeparttable}
+\caption{Minimum cross-sections and expected heat loads for candidate materials for a 48-tower experiment. Minimum cross-sections are calculated from the maximum resistivities of each material in Table 2 and used to calculate heat loads.  Only some of the candidate materials are presented for comparison, as heat loads are not a major concern.}
+\end{table}
+
+
+\section{Tower Thermal Stand-offs}
+Unlike the wiring, the thermal stand-offs for the tower can be made out of a multitude of materials. Both tube and hexa-pod structures have been proposed for these materials. These candidates are evaluated based on their thermal conductivity and their strength (which allows us to decrease their cross-sectional area).
+
+\subsection{Thermal Conductivities of Tower Materials}
+In SuperCDMS, the dominant heat load came from the thermal stand-offs, so replacement materials aim for a significant improvement in thermal power conducted between stages. Figure 8 shows the candidate materials for thermal stand-offs based on radioactivity screening acceptability. Though the Graphlite rods are much higher in thermal conductivity, their strength makes them a viable material.
+
+\begin{figure}
+\includegraphics[width = \textwidth]{Stand_off_graph.png}
+\caption{Thermal conductivities of candidate thermal standoff materials. POCO AXM-5Q (1) is from Woodcraft \cite{woo:gr} , while POCO AXM-5Q (2) was measured by Marc Runyan at Caltech \cite{run}.}
+\end{figure}
+
+\subsection{Stand-off Configurations}
+There are currently two possibilities for the thermal stand-off configuration. The first is a hexapod structure, while the second is a thin walled tube.
+
+The hexapod structure allows us to limit power loads by angling the stand-off material, which increases the effective length of the material. In addition, it limits cross-sections, as it is a very open structure. This has only been proposed for the Graplite rods so far, but could conceivably be applied to the Vespel or Ti15-3 as well.
+
+The other materials were designed to be thin walled tubes. The dimensions of the tubes were optimized using the analytical model given in my earlier report. Using a given tube length, radius and thickness are optimized to minimize cross-section while maintaining a failure limit of 130 lbs (59 kg). This limit is in shear loading of the tower (mimicking holding the tower sideways with the detectors attached). The detectors themselves will weigh 1.4 kg apiece. With 6 detectors that is around 10 kg. We will need to figure out the equivalent load at the end of the tube to see if this results in greater than 130 lbs.
+
+\subsection{Stand-off Heat Loads}
+
+The stand-off lengths used to calculate heat loads were chosen to be: 4.2K-600mK = 1.68 inches ; 600mK-50mK = 1.65 inches ; 50mK-10mK = 1.30 inches. These can easily be adjusted depending on heat load constraints. The heat loads for materials of various dimensions were calculated for each stage. At each stage, the heat load for CF Graphlite rods was calculated, based on dimensions suggested by Marc Runyan. In addition, several thin-wall tube candidates are presented. The heat load for optimized dimensions are given, as well as "safer" dimensions (larger  radius and/or thickness).
+
+\begin{table}[h]
+\begin{small}
+\begin{threeparttable}
+\begin{tabular}{lrrrrl}
+  \multicolumn{5}{l}{{\Large 4.2K - 600mK: Thermal Stand-off Heat Loads in $\mu$W, 12 Towers}} \\
+\toprule
+\bf{{\large Material}}& \multicolumn{2}{c}{145lb. Failure} & \multicolumn{2}{c}{290lb. Failure} & Ref.\\
+\cmidrule(r){2-5}
+& 5K - 1K & 4.2K - 600mK & 5K - 1K & 4.2K - 600mK & \\
+Current CDMS Graphite; $(2"\oslash,0.028")$  & 3708 & 2424 & 3708 & 2424 & \cite{lem}\\
+6 Graphlite CF Rods; ($0.08" \oslash$ @ $45^{o}$) & 308.4 & 238.8 & 308.4 & 238.8 & \cite{run}\\
+Vespel SCP-5000; $(0.74"\oslash,0.024")|(0.94"\oslash,0.030")$ & 282.6\tnote{\dag} & 203.5\tnote{\dag} & 448.4\tnote{\dag} & 322.9\tnote{\dag} & \cite{run}\\
+Vespel SP-1; $(.96"\oslash,0.027")|(1.2"\oslash,0.0347")$ & 412.7 & 297.1 & 662.6 & 477.2 & \cite{run}\\
+POCO-AXM 5Q; $(1.86"\oslash,0.013")|(2.28"\oslash,0.0172")$ & (900,721) & (446,425) & (1467,1175) & (726,693) & \cite{woo:gr},\cite{run}\\
+Ti 15-3-3-3 $(0.66"\oslash,0.0055")|(0.82"\oslash,0.0072")$ & 720.5 & 503.2 & 1168.3 & 816.0 & \cite{wik}\\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\item[\dag] Note that the integrated thermal conductivity of Vespel SP-1 was used as a proxy for
+    SCP-5000.
+\end{tablenotes}
+\end{threeparttable}
+\caption{Heat loads for 4.2K-600mK stage including non-ideal fridge temperatures. Structures designed for both 145lb. and 290lb. failure limits. Dimensions are given in (diameter, thickness) pairs for tubes. The left and right set correspond to 145lb. and 290lb. failure limits respectively. The CF Graphlite supports are rods with the given dimensions. Varying POCO heat loads come from the two referenced data. Stage length is 1.68 inches.}
+\end{small}
+\end{table}
+
+\begin{table}[h]
+\begin{small}
+\begin{threeparttable}
+\begin{tabular}{lrrrr}
+  \multicolumn{5}{l}{{\Large 600mK - 50mK: Thermal Stand-off Heat Loads in $\mu$W, 12 Towers}} \\
+\toprule
+\bf{{\large Material}}& \multicolumn{2}{c}{145lb. Failure} & \multicolumn{2}{c}{290lb. Failure} \\
+\cmidrule(r){2-5}
+& 1K - 100mK & 600mK - 50mK & 1K - 100mK & 600mK - 50mK \\
+Current CDMS Graphite; $(2"\oslash,0.028")$  & 40.8 & 11.4 & 40.8 & 11.4\\
+6 Graphlite CF Rods; ($0.08" \oslash$ @ $45^{o}$) & 15.0 & 4.8 & 15.0 & 4.8 \\
+Vespel SCP-5000; $(0.74"\oslash,0.024")|(0.94"\oslash,0.030")$ & 10.5\tnote{\dag} & 3.5\tnote{\dag} & 16.8\tnote{\dag} & 5.6\tnote{\dag} \\
+Vespel SP-1; $(.96"\oslash,.027")|(1.18"\oslash,0.035")$ & 15.4 & 5.2 & 24.8 & 8.3 \\
+POCO-AXM 5Q; $(1.84"\oslash,.013")|(2.26"\oslash,0.0172")$ & (6.6,9.1) & (2.1,3.0) & (10.7,14.9) & (3.4,4.8) \\
+Ti 15-3-3-3 $(0.66"\oslash,.0054")|(0.82"\oslash,0.0071")$ & 9.1\tnote{\S} & 1.3\tnote{\S} & 14.9\tnote{\S} & 2.2\tnote{\S} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\item[\dag] Note that the integrated thermal conductivity of Vespel SP-1 was used as a proxy for SCP-5000.
+\end{tablenotes}
+\end{threeparttable}
+\caption{Heat loads for 600mK - 50mK stage including non-ideal fridge temperatures. Structures designed for both 145lb. and 290lb. failure limits. Dimensions are given in (diameter, thickness) pairs for tubes. The left and right set correspond to 145lb. and 290lb. failure limits respectively. The CF Graphlite supports are rods with the given dimensions. Stage length is 1.65 inches. References for data are the same as in Table 5.}
+\end{small}
+\end{table}
+
+\begin{table}[h]
+\begin{small}
+\begin{threeparttable}
+\begin{tabular}{lrrrr}
+  \multicolumn{5}{l}{{\Large 50mK - 10mK: Thermal Stand-off Heat Loads in $\mu$W, 12 Towers}} \\
+\toprule
+\bf{{\large Material}}& \multicolumn{2}{c}{145lb. Failure} & \multicolumn{2}{c}{290lb. Failure} \\
+\cmidrule(r){2-5}
+& 100mK-40mK & 50mK - 10mK & 100mK - 40mK & 50mK - 10mK \\
+Current CDMS Graphite; $(2"\oslash,0.028")$  & 1.368E-1 & 2.64E-2 & 1.368E-1 & 2.64E-2\\
+6 Graphlite CF Rods; ($0.08" \oslash$ @ $45^{o}$) & 8.64E-2 & 2.04E-2 & 8.64E-2 & 2.04E-2 \\
+Vespel SCP-5000; $(0.68"\oslash,0.022")|(0.86"\oslash,0.028")$ & 6.83E-2\tnote{\dag} & 1.72E-2\tnote{\dag} & 1.084E-1\tnote{\dag} & 2.74E-2\tnote{\dag} \\
+Vespel SP-1; $(.88"\oslash,.025")|(1.08"\oslash,0.033")$ & 1.002E-1 & 2.53E-2 & 1.637E-1 & 4.13E-2 \\
+POCO-AXM 5Q; $(1.66"\oslash,.013")|(2.02"\oslash,0.017")$ & (4.9E-2,6.0E-2) & (1.3E-2,1.5E-2) & (8.0E-2,9.8E-2) & (2.2E-2,2.4E-2) \\
+Ti 15-3-3-3 $(0.60"\oslash,.0052")|(0.74"\oslash,0.0068")$ & 3.8E-5\tnote{\S} & 4.4E-7\tnote{\S} & 6.3E-5\tnote{\S} & 7.2E-7\tnote{\S} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\item[\dag] Note that the integrated thermal conductivity of Vespel SP-1 was used as a proxy for SCP-5000.
+\item[\S] The exponent for thermal conductivity of Ti 15-3-3-3 was fixed at 230mK -- the end of the data range -- and extrapolated to 10mK. The low temperature thermal conductivity will be verified through tests.
+\end{tablenotes}
+\end{threeparttable}
+\caption{Heat loads for 50mK-10mK stage including non-ideal fridge temperatures. Structures designed for both 145lb. and 290lb. failure limits. Dimensions are given in (diameter, thickness) pairs for tubes. The left and right set correspond to 145lb. and 290lb. failure limits respectively. The CF Graphlite supports are rods with the given dimensions. Stage length is 1.3 inches. References for the data are the same as in Table 5.}
+\end{small}
+\end{table}
+
+One can see from the tables that there are still many choices to be made with respect to the thermal stand-offs. We will likely make some test pieces to then test mechanically before any final decisions are made.
+
+\newpage
+\section{Total Heat Loads for 12 Tower Experiment}
+\begin{table}[h]
+\begin{threeparttable}
+\begin{tabular}{rrrr|rrr}
+\toprule
+ & \multicolumn{6}{c}{Contributions \& Total Heat Loads per Tower in $\mu$W} \\
+  & 1K & 100mK & 40mK & 600mK & 50mK & 10mK \\
+ \cmidrule(r){2-7}
+   Phonon Line & 19.6 & 1.20 & $11.0 \cdot 10^{-3}$  & 13.9 & 0.355 & $3.2 \cdot 10^{-3}$ \\
+   Charge Line & 0.4 & 0.01 & $1.6 \cdot 10^{-5} $ & 0.3 & 0.002  & $2.2 \cdot 10^{-6}$ \\
+   Stand-offs & 25.7 & 0.97 & $7.2 \cdot 10^{-3}$ & 19.9 & 0.340 & $1.7 \cdot 10^{-3}$ \\
+   SQUID Dissipation & 5.8 & NA & NA & 5.8 & NA & NA \\
+   SQUID Shunt R & NA & 0.50 & NA & NA & 0.500 & NA \\
+   \bf{Total Power (1 Tower)} & \bf{51.5} & \bf{2.68} & $ \bf{18.2 \cdot 10^{-3}}$ & \bf{39.8} & \bf{1.20} & $\bf{4.9 \cdot 10^{-3}}$ \\
+  \bottomrule
+\end{tabular}
+\end{threeparttable}
+\caption{Heat load contributions and total heat load for 1 tower. Powers given are those dissipated at the temperature stage indicated. Assumes dimensions stated in previous sections. CF was used instead of Ti15-3 in the lowest stage in order to be conservative. However, we predict that the heat load to 10mK can be much lower than these numbers by using Ti15-3 stand-offs. Heat loads for the charge readout cable assume 50mK heat-sinking. We could budget for avoiding a 50mK heat sink by using Ti15-3 stand-offs, which will likely have much lower heat loads to base. }
+\end{table}
+
+\begin{table}[h]
+\begin{threeparttable}
+\begin{tabular}{rrrr|rrr}
+\toprule
+ & \multicolumn{6}{c}{\large{Total Power for 12 Tower Set-up in $\mu$W}} \\
+  & 1K & 100mK & 40mK & 600mK & 50mK & 10mK \\
+ \cmidrule(r){2-7}
+   \bf{\large{Power}} & \large{\bf{618.0}} & \large{\bf{32.16}} & \large{\bf{0.218}} & \large{\bf{477.6}} & \large{\bf{14.40}} & \large{\bf{0.059}} \\
+\bottomrule
+\end{tabular}
+\end{threeparttable}
+\caption{Heat loads for a 12-tower experiment. Heat loads to base will likely be lower if Ti15-3 is used as a stand-off.}
+\end{table}
+
+
+\newgeometry{hmargin = 1.8cm,vmargin = 2cm}
+\newpage
+
+\appendix
+\section{Thermal Conductivity Variation of Trace Materials}
+
+\begin{figure}[h]
+\begin{centering}
+\subfloat[]
+    {\includegraphics[width=0.41\textwidth]{Mang_Ti_graph.png}}
+\subfloat[]
+    {\includegraphics[width=0.41\textwidth]{NbTi_graph.png}}
+
+\subfloat[]
+    {\includegraphics[width = 0.41\textwidth]{SS_graph.png}}
+\subfloat[]
+    {\includegraphics[width = 0.41\textwidth]{CuNi_graph.png}}
+\caption{Thermal conductivity literature for trace material candidates. Variation between samples is largely due to varying thermo-mechanical treatment after production. In (b), Tekdata and Akerib measurements were performed on same wires used in CDMS Charge readout coaxes. In (d), Stainless alloys with similar composition to SS316 were used. Arrows indicate data sets used for graph in Section 1.2.}
+\end{centering}
+\end{figure}
+
+\newpage
+\section{Fluctuation in Resistance for Ti15-3-3-3 Trace}
+The transition temperature of Ti 15-3-3-3 into its superconducting state is 3.89K \cite{wik}. If this material were used as a trace from the 4K stage to the Still of our towers, a portion of the trace would be in a normal state. This would give the line a resistance. Assuming the resistance of the line is low (tens of ohms), this is not a concern ; Fluctuating resistance, however, is a concern. As power loads to the fridge stages vary (from LED heating, circulation changes, etc.), the temperature gradient along the traces will vary as well. This will cause more/less of the line to be in a superconducting state -- varying resistance. The magnitude of these changes was calculated.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width = .5\textwidth]{Ti15333_trace_resistivity_section.png}
+\caption{}
+\end{figure}
+
+\subsection{Determining the Temperature Profile for Ti 15-3-3-3 Traces}
+The temperature profile along a Ti 15-3-3-3 trace was calculated, assuming steady-state planar heat flow. To do this, consider the trace in two sections -- one with length $l$ and the other with length $L-l$, where $L$ is the overall length of the trace, as shown in Figure 10. In steady-state, the power through these two sections will be equal, so
+\begin{eqnarray}
+\frac{A}{l}\int_{T}^{T_{high}} k(T)dT = P = \frac{A}{L - l}\int_{T_{low}}^{T} k(T)dT
+\end{eqnarray}
+where A is the cross-sectional area of the trace, $T_{high}$ and $T_{low}$ are the temperatures of the 4K stage and Still respectively, $T$ is the temperature at a length $l$ along the trace, and $k(T)$ is the thermal conductivity of the trace. After rearranging this becomes,
+\begin{eqnarray}
+\frac{l}{L-l} = \frac{\int_{T_{low}}^{T} k(T)dT}{\int_{T}^{T_{high}} k(T)dT}
+\end{eqnarray}
+which can be integrated to find the temperature at any point $l$ along the trace. Since the Ti 15-3-3-3 thermal conductivity had to be numerically integrated, T values were picked in $T \in [T_{low},T_{high}]$ and the corresponding $l$ values were found. Figure 11 shows the temperature profile for a 9.24cm trace with $T_{high} = 4.2K$ and $T_{low}=0.6K$.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width = .5\textwidth]{Ti153_T_Profile.png}
+\caption{}
+\end{figure}
+
+\subsection{Resistivity of Ti 15-3-3-3}
+The resistance of Ti 15-3-3-3 was measured by P. Wikus et al. Using the given dimensions, we converted to resistivity. This was then fitted to an equation to enable us to find the resistivity of Ti 15-3-3-3 as a function of temperature. The fitted resistivity is shown in Figure 12.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width = .6\textwidth]{Ti_Resistivity.png}
+\caption{Resistivity of Ti 15-3-3-3 showing $T_c$ at 3.89K}
+\end{figure}
+
+\subsection{Total Resistance of Trace}
+
+Combining the resistivity and temperature profiles, the trace was subdivided into sections, each assigned a length, and the resistance was calculated for each. From this, the total resistance of the line was calculated. We find,
+
+\begin{table}[h]
+\begin{threeparttable}
+\begin{tabular}{lcr}
+\toprule
+\multicolumn{2}{r}{Total Resistance [$\Omega$]} \\
+\midrule
+5K - 1K & $\rightarrow$ & 13.60 \\
+4.2K - 0.6K & $\rightarrow$ & 5.64 \\
+\bottomrule
+\end{tabular}
+\end{threeparttable}
+\end{table}
+
+\noindent With a total fluctuation of \bf{7.96 $\Omega$}.
+
+
+\restoregeometry
+
+\section{Appendix A: Aluminum as a Candidate Trace Material}
+
+Aluminum is naturally under consideration as a trace material, due to its well known properties and widespread use. Fabrication time for a stripline would be reduced by using Aluminum, as the company fabricating the line, Tech-Etch, has used it as a trace material in the past. A new material, such as Ti15-3-3-3 would require significantly more time to go through the development process. Therefore, it is in our best interest to examine the feasibility of an Aluminum-trace stripline. Considerations for its suitability include its thermal conductivity, coefficient of thermal expansion (CTE), and critical temperature ($T_{c}$).
+
+\subsection{Thermal Conductivity of Al5056}
+
+The Aluminum used by Tech-Etch is 5052-H19, however members of our collaboration were unable to find low temperature thermal conductivity data for this alloy. The thermal conductivity of another alloy, Al5056, was found to be very similar in normal state, so was used a proxy for 5052-H19. The thermal conductivity of Al5056 was determined from \cite{coc} for the range 600mK down to 50mK as,
+\begin{equation}
+K(T) = 1.9 \cdot 10^{4} T^{2.83} \mu W/cmK
+\end{equation}
+
+This thermal conductivity is compared to other phonon stripline candidate materials in Figure 4 below. In the range of interest (600mK - 50mK) we can see that the thermal conductivity of Al5056 is almost two orders of magnitude higher than NbTi and Ti15-3-3-3.
+
+\begin{figure}[h]
+\includegraphics[width = .87\textwidth]{Cable_Therm_Graph.png}
+\caption{Thermal conductivities of various stripline candidate materials. The thermal conductivity of Al5056 is nearly two orders of magnitude higher than NbTi or Ti15-3-3-3}
+\end{figure}
+
+
+\subsection{Aluminum Heat Load}
+
+To see if Al will work as a trace material, the thermal power conducted from 600mK to 50mK must be within our thermal budget for the 50mK still of our fridge. The power conducted between a thermal gradient is given by equation 1 in the report. Using a thickness of 1 mil, width of 40 mils, and a trace length of 0.79 inches we can calculate the power for each trace. Assuming 16 traces per detector and 6 detectors per tower, as well as accounting for Kapton heat load, we are able to estimate the total flex cable heat load per tower. The loads for Al5056 are compared with other trace materials in table 7.
+
+
+\begin{table}
+\begin{threeparttable}
+\begin{tabular}{l|c|r}
+\toprule
+Material & Power/Trace [nW] & Total Load per Tower [nW] \\
+\midrule
+Ti 15-3-3-3 & 0.85 & 684 \\
+NbTi & 1.4 & 739 \\
+Aluminum & 92 & 9471 \\
+\bottomrule
+\end{tabular}
+\end{threeparttable}
+\caption{Estimated heat load for an Aluminum-trace flex cable from 600mK to 50mK as compared with other candidate materials. Assumes 1 mil thick, 40 mils wide, 0.79 inch long traces; 16 traces per detector and 6 detectors per tower.}
+\end{table}
+
+The thermal budget for the 50mK end (the still) is $\sim 1 \mu W$. The Al5056 trace heat load is an estimated $9.5 \mu W$ per tower. The heat load for one tower is higher than the thermal budget, though our experiment necessitates the use of multiple towers. Reducing the width of the traces, as well as lengthening the traces could reduce this to perhaps $1\mu W$ (still too high), but inductance constraints would significantly complicate the design.
+
+
+\section{Thermal Expansion Coefficient of Aluminum}
+It is important to match the expansion coefficients of materials which will undergo large temperature changes. In our flex cable, we will be epoxy-ing the Aluminum traces to Kapton polyimide, so the CTE of these two materials should match relatively well. The linear coefficient of thermal expansion presented for Aluminum is 24ppm/K while DuPont states the coefficient for Kapton HN to be 20ppm/K. These values are well matched, so in this regard, Aluminum suites our needs.
+
+\section{Critical Temperature}
+
+The trace material for our striplines must be in a superconducting state for the temperatures at which they are used. The alloy used by Tech-Etch, 5052-H19, has a $T_{c}$ of 775mK. This low $T_{C}$ limits the alloy's use to the 600mK - 50mK span of our flex cable, as it would be in a normal state for most of the 4.2K - 600mK span. The low $T_{c}$ of the alloy is a concern, due to non-ideal temperatures in our fridge. If the temperature drifts upward past the $T_{c}$ of the Aluminum, then the traces will transition to a normal state. Fridge temperatures have been to drift up to as much as 1K, so this is a serious concern for the feasibility of an Aluminum-trace stripline.
+
+\section{Conclusion}
+
+Due to the high thermal conductivity of Aluminum, and the resulting heat load, as well as the low $T_{c}$, our collaboration has decided that it is unsuitable as a trace material.
+
+
+\newpage
+\bibliography{thesis}
+
+\end{document}
