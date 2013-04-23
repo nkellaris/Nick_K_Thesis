@@ -6,6 +6,13 @@ school = {University of California at Berkeley},
 year = {2008}
 }
 
+@phdthesis{Stockwell1996,
+author = {Stockwell, W.},
+title = {A Cryogenic Search for WIMP Dark Matter},
+school = {University of California at Berkeley},
+year = {1996}
+}
+
 @ONLINE{WMAP,
 title = {Wilkinson Microwave Anisotropy Probe (WMAP) Team},
 month = dec,
@@ -259,13 +266,10 @@ pages = {},
 year = {2005}
 }
 
-@article{,
-author = {},
-title = {},
-journal = {},
-volume = {},
-pages = {},
-year = {}
+@other{DOE,
+author = {DoE Proposal},
+title = {R \& D Toward SuperCDMS SNOLAB},
+year = {July 2, 2012 }
 }
 @article{Baudouy2003,
 author = {Baudouy, B.},

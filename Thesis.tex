@@ -20,6 +20,7 @@
 \usepackage[margin=10pt,font=small,textfont=sf,labelfont=bf]{caption}
 \usepackage{subfig}
 \usepackage[section]{placeins}
+\usepackage[toc,page]{appendix}
 
 \title{Development of Thermal Stand-offs and a Phonon Read-out Transmission Line for the CDMS SNOLAB Detector Towers}
 \author{Nicholas Kellaris}
@@ -27,6 +28,8 @@
 \begin{document}
 \bibliographystyle{plain}
 \maketitle
+
+\tableofcontents
 
 \chapter{Dark Matter and the CDMS Experiment for Direct Detection}
 
@@ -324,7 +327,7 @@ CDMS II was located in the Soudan mine, which drastically reduced cosmic ray bac
 
 \subsection{SuperCDMS Soudan}
 
-The next generation of the experiment greatly improved detector technology with iZIPs where the "i" stands for interleaved. This germanium detector has four phonon channels and 2 charge channels on \emph{each side} as can be seen in Figure 1.11 b). The layout not only provides localization improvements (e.g. unambiguous radial positioning of events \cite{DOE}) but also addresses the largest source of background for the CDMS II experiment: leakage events \cite{Akerib2005}.
+The next generation of the experiment greatly improved detector technology with iZIPs -- where the "i" stands for interleaved. This germanium detector has four phonon channels and 2 charge channels on \emph{each side} as can be seen in Figure 1.11 b). The layout not only provides localization improvements (e.g. unambiguous radial positioning of events \cite{DOE}) but also addresses the largest source of background for the CDMS II experiment: leakage events \cite{Akerib2005}.
 
 \begin{figure}[h]
 \centering
@@ -338,7 +341,7 @@ These leakage events are electron recoil interactions which occur in the "dead z
 
 \subsection{SuperCDMS SNOLAB}
 
-The next generation CDMS experiment will take place in the Sudbury mine in Ontario, Canada. This mine is nearly three times as deep as Soudan, which will render the muon flux negligible. Furthermore, the design of the detector will change once more such that it is larger, with six phonon channels and two charge channels on each side, as seen in Figure 1.11 c), which leads to a further increase in signal sensitivity and improves rejection of backgrounds. Another advancement in the experiment is the consideration of an active neutron veto, which is estimated to be capable of rejecting 79\% of all neutron-induced backgrounds \cite{DOE}. In addition, this experiment will be a massive upscaling in detector mass (around 200kg as compared to $\sim$10 kg for previous experiments). Figure 1.13 shows the projected upper limit of $\sigma \approx 8 \cdot 10^{-47} cm^2$ for the spin-independent cross section for SuperCDMS SNOLAB in comparison to results from previous experiments.
+The next generation CDMS experiment will take place in the Sudbury mine in Ontario, Canada. This mine is nearly three times as deep as Soudan, which will render the muon flux negligible. Furthermore, the design of the detector will change once more so that it is larger, with six phonon channels and two charge channels on each side, as seen in Figure 1.11 c), which leads to a further increase in signal sensitivity and improves rejection of backgrounds. Additionally, we will be using HEMTs (High-electron-mobility transistors) instead of FETs as low-noise amplifiers. This provides a huge reduction in power dissipation to the tower, as FETs must be heated to 100K to operate (they freeze out below this temperature. Another advancement in the experiment is the consideration of an active neutron veto, which is estimated to be capable of rejecting 79\% of all neutron-induced backgrounds \cite{DOE}. In addition, this experiment will be a massive upscaling in detector mass (around 200kg as compared to $\sim$10 kg for previous experiments). Figure 1.13 shows the projected upper limit of $\sigma \approx 8 \cdot 10^{-47} cm^2$ for the spin-independent cross section for SuperCDMS SNOLAB in comparison to results from previous experiments.
 
 \begin{figure}[h]
 \centering
@@ -346,21 +349,97 @@ The next generation CDMS experiment will take place in the Sudbury mine in Ontar
 \caption{Upper limits on the spin-independent cross-section and WIMP mass parameter space as set by various dark matter experiments. The dash-dot line shows the projected upper limits for SuperCDMS SNOLAB due the the large detector payload (200kg) and increased detector. Figure from \cite{DOE}.}
 \end{figure}
 
-\chapter{Tower Support Tube Design}
+\chapter{SuperCDMS Soudan Tower}
 
-We are proposing design alterations for SNOLab, considering possible alternate materials
-and dimensions for the central support tubes.
+This brief chapter discusses the design of the current tower in order to determine the design aspects we must consider in the SuperCDMS SNOLAB tower. These include the considerations for the charge and phonon read-out lines and the tower thermal stand-off tubes, which are being substantially re-designed for the new SuperCDMS SNOLAB. A model of the current tower -- with the detector stack mounts -- is shown in Figure 2.1. This is the tower currently in use for the SuperCDMS Soudan experiment. The various components of the tower are described below, along with their design considerations.
 
-\bigskip
+\section{Tower Floor}
+The bulk of the tower is made of OFHC (Oxygen-Free High Conductivity) Copper. This was chosen for its high thermal conductivity, dimensional stability, and high radio-purity. High thermal conductivity is required to ensure that the tower floors (and all devices heat sunk to them) are as close to the fridge stage temperatures as possible. Dimensional stability plays an important role during the cooldown of the experiment. If the tower's thermal contraction is too large, differential contraction can lead to either slack in the side-coaxes or stresses which can lead to thermal fatigue over multiple fridge run cycles. Lastly, a high radiopurity is required for all materials in the tower to minimize potential background in the experiment during operation.
 
-Considerations for Material Candidates:
-\begin{itemize}
-\item Thermal Conductivity
-\item Radioactivity
-\item Mechanical Properties
-\end{itemize}
 
-\subsection{Thermal Conductivity}
+\section{Heat Sinks to Dilution Fridge}
+
+Excellent thermal links to each temperature stage of the fridge are necessary in order to maintain constant temperatures on the tower and enable effective heat dissipation. To achieve this, the current tower uses OFHC copper straps. These are composed of dozens of braided strands of well-annealed copper (RRR = 1200) which provide a large enough cross-section of copper to dissipate heat, but maintain flexibility to prevent stresses from being created at the heat strap mount points \cite{Stockwell1996}.
+
+
+\section{Tower Thermal Stand-offs}
+
+The thermal stand-offs in the tower serve to thermally isolate each stage of the tower, while physically connecting the tower stages. The current experiment uses thin-walled graphite tubes between each stage, visible in Figure 2.1. These are nuclear-grade UF-4S graphite purchased from Mersen, milled to an OD of 1.99" and 0.028" wall thickness. Apart from the wiring, these are the only structures which make inter-stage connections. The design of these is crucial, and comes from the intersection of numerous constraints: stiffness requirements, thermal loading limits, dimensional stability, radiopurity, and mechanical strength.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width = .75\textwidth]{Labelled_tower.png}
+\caption{Model of the SuperCDMS Soudan towers currently in use. The graphite support tubes and vacuum coax lines for charge/phonon readout are visible. The different thermal stages, which are thermally linked to the fridge, are visible in both models. These are 4K, 600mK (Still), 50mK (Cold Plate), 10mK (Mixing Chamber). Note that the 50mK stage is internal to the tower.}
+\end{figure}
+
+\subsection{Stiffness and Dimensional Stability}
+The constraints on stiffness and dimensional stability stem from the requirement that the stage spacing doesn't change significantly during fridge operation. This is for two reasons: First, it ensures correct operation and preservation of the vacuum coaxes. A tower which isn't sufficiently stiff can deform during handling, which could potentially damage the coaxes. A coefficient of thermal contraction which is too high can either create slack in the vacuum coaxes (shorting them to the tower) or cause stresses in the wires, which could plastically deform them \footnotemark. \footnotetext{see Appendix A for an investigation of stresses experienced by the NbTi vacuum coaxes which suggest large enough stresses to potentially result in plastic deformation.} Second, a low coefficient of thermal contraction for the stand-offs ensures that the different tower stages don't come into contact during cooling, which would create a thermal short between fridge stages\footnotemark. Graphite has very high dimensional stability, as well as a high enough modulus of elasticity to ensure a stable tower during cooldown and handling.
+
+\footnotetext{This is not a concern for the new tower, which features a more open design and much larger stage separation.}
+
+\subsection{Radiopurity}
+The requirement for radiopurity in the thermal stand-offs come from the need to minimize background for our experiment. This is especially important for materials which are near the detectors, as there is little to no shielding to block radiation. The graphite in use is a nuclear grade graphite (very low impurity), which was shown to be very radioactively "clean" through a screening process.
+
+\subsection{Thermal Isolation}
+One of the largest requirements of the thermal stand-offs is that they are very good insulators (low thermal conductivity) in order to ensure that heat flow between adjacent thermal stages of the tower is minimal. The UF-4S graphite used was shown to have very low thermal conductivity, so satisfied this requirement nicely.
+
+\subsection{Mechanical Strength}
+The tower supports were designed to be strong enough to withstand varied loads during handling and operation. This includes lifting/tilting the tower and supporting the detector stack in compression when mounted in the fridge. The symmetric tube shape of the supports ensures strength for many types of loads, and was proven to be very strong (it could support over 125lbs when loaded in shear/bending!).
+
+
+\section{Vacuum Coaxes}
+Wiring must be routed down the side of the tower to the detector stack in order to control the detectors and read them out. The current design uses vacuum coaxes. These consist of .0012" diameter niobium-titanium (NbTi) wires suspended in rectangular grooves in the tower faces, which act as shielding. The grooves which encase each suspended wire are visible in the left image in Figure 2.1.
+
+The vacuum coaxes were chosen for multiple reasons: First, they offer very low noise pick-up. This is critical when the signals being read-out from the detectors are so small. Second, they prevent any charge build-up (?). Third, they minimize heat conduction between stages, because the bare NbTi wires are the only connection which is contiguous between all stages. This, in conjunction with the very low thermal conductivity of NbTi, provides very low heat conduction. Lastly, NbTi wires are superconducting below approximately 10K, which gives us zero resistance wiring to minimize signal loss before amplification.
+
+\section{Connector Tube}
+The tower connector tube is a cylindrical OFHC Copper tube which connects -- both physically and thermally -- the 10mK floor to the detectors. The purpose of this tube is two-fold: First, it roughly centers the detectors in the icebox of the fridge. This simplifies Monte Carlo simulations of detector performance. Second, it distances the radioactivity-sensitive detectors from the tower materials, which may be more radioactive than other materials in the experiment. Increasing the distance to the tower decreases the solid angle that the detectors subtend from the tower's position, which decreases the probability that an emitted radioactive particle will strike the detectors.
+
+\section{Thermal Load Contributions for SuperCDMS Soudan}
+
+To determine
+\section{Future Tower Considerations}
+Though the design and technology used will change for the SNOLAB tower, many of the considerations which went into designing the SuperCDMS Soudan tower will remain into the new design. As shown above, these considerations are numerous, and often competing (such as maximizing support strength while minimizing thermal conduction). Moving forward with the new tower design, these considerations should be kept in mind.
+
+
+\chapter{Tower Thermal Stand-off Design}
+
+As stated in the previous chapter, the thermal stand-offs for our detector tower are designed primarily to support the detector stack and electronics, while thermally isolating the various 4He-3He dilution fridge temperature stages. However, any tower support structure must address numerous concerns in its design; These concerns are: thermal conductivity, radiopurity, thermo-mechanical properties such as strength, moduli, and expansion coefficients, and -- for the design of the structure itself -- the ability to withstand various loads and shocks without failure. In this chapter, I explore various stand-off candidates which offer significant improvements over our current UF-4S graphite tubes based on their merits of thermal conductivity, radiopurity, and their thermo-mechanical properties. From here, I consider two design possibilities for the stand-off geometry: thin-walled cylindrical shells and hexapods. An analytical model for the thin-walled shells -- or "tubes" -- is developed in an effort to further improve fridge performance by optimizing tube dimensions to minimize heat load while maximizing strength. An FEA modeling program called Comsol is then used to analyze both the tube and hexapod structures. We find that new designs for SuperCDMS SNOLAB may be able to reduce interstage heat loads from the thermal stand-offs by almost a factor of ten.
+
+\section{Candidate Materials}
+The numerous parameters which our thermal stand-off materials must satisfy gives us a list of equally numerous candidate materials, each of which is known -- or believed -- to satisfy at least some of the requirements (that they satisfy other requirements is proven in the following sections). This section identifies the various candidates and describes their merits as stand-off materials.
+
+\subsection{DuPont Vespel}
+Vespel is a polyimide-based material produced by DuPont which is widely used in both high-temperature, and cryogenic applications. The polyimide is a condensation type produced from pyromellitic dianhydride (PMDA) and 4,4' diamino diphenyl ether (ODA)\footnotemark. We are considering four compounds of Vespel for this experiment: SP-1,SP-22,SCP-5000, and SCP-5050. The SP-series compounds are estimated to have a crystallinity of between 25 and 50\%.
+
+\footnotetext{Information from DuPont literature: Vespel S line Design Handbook}
+
+Vespel SP-1 is the unfilled polyimide resin. This compound has low thermal conductivity, is high strength, and has demonstrated low levels of radioactivity. SP-1 has a low dimensional stability, however, with a high coefficient of thermal expansion (CTE) an low elastic moduli.
+
+Vespel SP-22 is the base polyimide, SP-1, filled with 40\% graphite by weight. This material is even lower thermal conductivity than SP-1, making it an ideal candidate. In addition it offers higher dimensional stability than SP-1, with a lower CTE and higher moduli of elasticity. Unfortunately, it demonstrates a high level of radioactivity which probably originates from the graphite used.
+
+Vespel SCP-5000 is an unfilled polyimide resin very similar to SP-1, however it has been engineered to have higher strength and improved dimensional stability. This includes a lower CTE and significantly higher elastic moduli. At the same time, we have shown that SCP-5000 has a thermal conductivity as low as SP-1.
+
+Vespel SCP-5050 is analogous to SP-22 in that its composition is base resin (SCP-5000) filled with 40\% graphite by weight. It is not as strong as SCP-5050, but offers the highest dimensional stability of the Vespel compounds being considered; its CTE is designed to be similar to steel. In addition, it demonstrates a lower radioactivity and lower thermal conductivity than SP-22.
+
+All the Vespel compounds are being considered as isostatically formed parts, rather than direct formed, because this ensures isotropic structure and properties. Direct formed parts are created with a process similar to powder metallurgy, which leaves them with anisotropies. This has consequences for the material properties, such as a tensile strength and elongation which are lower in the direction parallel to the moulding force.
+
+\subsection{Graphite}
+
+Our current thermal stand-off material, grade UF-4S from Mersen, is graphite for many reasons. Graphite is known to have a very low thermal conductivity, and high dimensional stability. Its radioactivity can be minimized by purchasing nuclear grades, or by purification processes such as the one described in section 3.3.2 which reduce radioactive contaminants to very low levels.
+
+The first graphite candidate is Grade 2020 from Mersen. This material was recommended to us by the R\&D manager at Mersen for low thermal conductivity and high strength/purity. It is a nuclear grade graphite which can be further purified, and demonstrates reasonable radioactivity levels. It has a high dimensional stability, and is stronger than UF-4S graphite.
+The next graphite grade being considered is AXM-5Q\footnotemark, an industrial grade graphite produced by POCO. This material exhibits even lower thermal conductivity than UF-4S graphite (section 3.2) and higher strength. Off the shelf, this material displays very high levels of radioactivity compared to what our experiment can tolerate. However, purification offers a way to reduce these levels to well within our tolerated limits. In addition, it has a small grain size (5 microns) which gives it high isotropy.
+
+\footnotetext{In addition to grade AXM-5Q, we have also considered grades ZXF-5Q and ACF-10Q. They are both industrial grade graphite offered by POCO. Apart from counting their radioactivity, however, little research has been done into their properties, therefore they are not discussed as a likely candidate.}
+
+\subsection{TiMetal Titanium Alloys}
+
+TiMetal produces two titanium alloys which are currently of interest to us: Ti 15-3-3-3 and Ti 21s.
+
+Ti 15-3-3-3, also known as Ti 15V-3Al-3Cr-3Sn or simply Ti 15-3, is a meta-stable $\beta$-alloy of titanium. It is a superconductor at low temperatures, has low thermal conductivity, and high strength and elastic moduli. Screening has also shown it to be low radioactivity. The issue with this alloy is that true TiMetal Ti 15-3-3-3 is only available in sheets or as a foil. Ti 21s is another meta-stable $\beta$ alloy manufactured by TiMetal. It has good mechnical properties -- high strength and elastic moduli -- but its other properties are not known. It is being considered as a stand-off material in the hopes that it has interesting properties, similar to Ti 15-3-3-3.
+
+\section{Thermal Conductivity}
 Due to the finite cooling power of our helium dilution refrigerator, we must limit the
 thermal load to each stage of the fridge. The tower support tubes are a major source of
 thermal loading on each stage. The thermal power load on each stage from the tubes is
@@ -368,48 +447,17 @@ governed by the general equation
 \begin{eqnarray}
 Power = \int_{T_{low}}^{T_{high}} \frac{A}{L}K(T)dT \ \ , %place this above in a more general section and reference it.
 \end{eqnarray}
-where $T_{low}$ is the temperature of the stage being loaded, $T_{high}$ is the warmer
-connecting stage, A is the tube cross-sectional area, L is tube length, and K(T) is the
+where $T_{low}$ is the temperature of the colder stage (the one being thermally loaded), $T_{high}$ is the warmer
+connecting stage, A is the tube cross-sectional area, L is tube length, and K(T) is the temperature-dependent
 thermal conductivity. From the equation, we can see that thermal power is directly proportional
 to thermal conductivity, so by decreasing thermal conductivity, we decrease power to each
-stage. Figure 1 displays the thermal conductivity for tower tube candidate materials.
+stage; therefore, a first-pass look at tower material candidates should search for those materials which have a low thermal conductivity. These candidates are shown in comparison to the material currently in use -- UF-4S Graphite -- in Figure 3.1 below.
 \begin{figure}[htb]
-\includegraphics[width = \textwidth]{TowerCond.png}
-\caption{Thermal conductivity of the various core material candidates. All values have been
-extrapolated past 50mK. Below are the materials which offer improvement over UF-4S
-graphite for each stage.}
-\end{figure}
-\begin{figure}[htb]
-\centering
-\begin{minipage}[t]{.3\textwidth}
-\textbf{4K - 600mK Stage:}
-\begin{itemize}
-\item Vespel SP-1
-\item Vespel SP-22
-\item POCO AXM-5Q
-\end{itemize}
-\end{minipage}
-\begin{minipage}[t]{.3\textwidth}
-\textbf{600mK - 50mK Stage:}
-\begin{itemize}
-\item POCO AXM-5Q
-\item Vespel SP-22
-\item Vespel SP-1
-\end{itemize}
-\end{minipage}
-\begin{minipage}[t]{.3\textwidth}
-\textbf{50mK-10mK Stage:}
-\begin{itemize}
-\item Vespel SP-22
-\item Ti 15-3-3-3
-\end{itemize}
-\end{minipage}
+\includegraphics[width = \textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH3_figs/Standoff_K.png}
+\caption{Thermal conductivity of candidate tower stand-off materials. These data were collected from multiple papers: Vespel SCP-5000 \& Vespel SCP-5050 - This work ; Vespel SP-1, Vespel SP-22, Graphlite CFRP - \cite{run} ; Ti 15-3-3-3 - \cite{wik} ; UF-4S Graphite - \cite{lem} ; AXM-5Q Graphite - \cite{woo:gr}.}
 \end{figure}
 
-From the graph, one can see that Ti 15-3-3-3 potentially has a much lower thermal
-conductivity for the temperature range of the lowest support tube, 100mK to 40mK.
-Current data only extends down to 230mK, however. At that temperature, it is crossing
-the lowest thermally conductive material, Vespel SP-22, and decreasing quickly.
+
 
 Table 1 summarizes the possible improvements in thermal power conducted for each stage,
 assuming identical tube dimensions.
@@ -440,59 +488,99 @@ stage.}
 \end{threeparttable}
 \end{table}
 
-\subsubsection{Next Steps}
 
-Implement thermal conductivity tests during tower runs to increase data sets, and verify
-current data. Build 3He cooler fridge.
+\section{Radioactivity}
 
-\subsection{Radioactivity}
-%While this isn't the primary factor in choosing materials, they must still show radioactivity levels that are below an acceptable limit. Data from Gopher screening is shown in
-%Table 2. The new screening of current CDMS Graphite (already screened at Oroville) shows very low radioactivity. Conversely, Vespel SP-22, POCO AXM-5Q, and POCO ACF-10Q (another
-%variation of POCO Graphite) show far too much radioactivity. Ti 15-3-3-3 and Vespel SP-1 have reasonably low levels of radioactive contamination. The potential for decreasing the
-%dimensions of these tubes, thus decreasing volume, could compensate for their higher radioactivity.
+The dark matter particles that the CDMS experiment is searching for are a form of radiation; this means that our detectors are extremely sensitive radiation detectors. Our experiment takes extensive measures to ensure that any external sources of background radiation are minimized, as described in section 1.5.1. However, all the passive and active shielding in the world won't help if the materials within the shielding (such as the tower materials) are radioactive. Since the tower thermal stand-offs contribute non-negligibly to the mass of the tower, the radioactivity of candidate materials is of fundamental importance in establishing an effective experiment. To test for the presence of radioactive isotopes in our materials, we sent them to a test facility in Soudan, Minnesota for screening. The measurement process and results of screenings are described below. The results are presented in Table 3.2, which gives the total activity for transmutational processes (e.g. $\alpha$-decay, $\beta$-decay, Spontaneous Fission) for the isotopes Th-232, U-238, Co-60, K-40, and Cs-137.
 
-Due to the sensitivity of our detectors, radioactive contamination in our tower
-materials is a concern, and therefore a consideration when choosing a candidate.
-Material samples were sent to a test facility to be screened for radioactivity.
-The results are presented in Table 2, which gives the total activity for nuclear
-transmutational processes (e.g. $\alpha$-decay, $\beta$-decay, Spontaneous Fission).
+\subsection{Secular Equilibrium}
 
-\subsubsection{Measurement Process}
-The measurement process used a high purity Ge detector as a gamma counter to measured the
-gamma decay spectrum of each sample. From this, characteristic lines were identified for
-the U-238, Th-232, Co-60, K-40 and Cs-137 chains. A Monte Carlo simulation was then
-performed for each isotope in the chains of interest. This subtracted off background
-activity and estimated the efficiency of gamma detection for each line, which includes
-sample geometry and gamma production rate for transmutational decay processes. The result
-of this simulation was the total activity for each isotope.
+\begin{wrapfigure}{r}{6.6cm}
+\centering
+\includegraphics[width=.34\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH3_figs/Th232_chain.png}
+\caption{One decay chain for Th-232, which ends with the stable isotope Pb-208. The long half-life of Th-232 allows one to assume a secular equilibrium for undisturbed samples with Th-232 contamination. The figure shows the half-lives of the isotopes, as well as their method of decay.}
+\end{wrapfigure}
 
-Due to the long half-lives of the parent isotopes, the decay chains are assumed to be in
-secular equilibrium, implying that the decay rates of all isotopes are equal. Due to the
-finite accuracy of statistics, the activity of the lines were not all equal, so a weighted
-average of the best lines was taken to then obtain the activity of the parent isotope
-reported in Table 2.
+Secular equilibrium is the assumption of a near-equilibrium in the decay chain of a radioisotope. It assumes that the decay rates for all daughters in a given decay chain are equal. It is a crucial concept for the following sections, so will briefly be explained here.
+
+The validity of assuming secular equilibrium comes from the length of the half-lives of parent isotopes under examination. The isotopes screened for in Gopher are all very stable radioisotopes, with half lives on par with the age of the universe. This is crucial, as it means that over a given period of time, the decay rates of the isotopes are nearly constant (because the total population of the parent isotope doesn't change noticeably over time periods which are small compared to its half-life). Consider the decay chain for Th-232, shown in Figure 3.2. As Th-232 decays, Ra-228 particles are created at a constant rate. The Ra-228 particles will subsequently decay into Ac-228 particles, at a rate determined by their half-life. The population of Ra-228 will increase until its decay rate is equal to the constant creation rate. This will occur for Ac-228, Th-228, and all other daughters in the decay chain, with final decay rates being set by the decay rate of the initial Th-232 parent. Therefore, secular equilibrium yields an expected abundance for each daughter isotope in the decay chain -- based on their relative half-lives -- as well as identical decay rates for all daughters in the chain.
+
+The assumption of secular equilibrium can be invalidated if the half-lives of the parent isotopes are not sufficiently long, or through processes which remove or add isotope populations and break secular equilibrium, such as refining. However, the assumption of secular equilibrium is often very useful in the analysis of radioactive contaminants.
 
 
-POCO is dirty because it is industrial grade
+\subsection{Measuring Radioactivity}
+To measure the radioactivity of thermal stand-off candidates, we sent them to an underground facility in Soudan, Minnesota. This facility possesses a high-purity germanium detector, called Gopher, which is used as a gamma ray counter. The samples are cleaned thoroughly to remove any contaminants then placed inside a low background environment with the detector, and allowed to remain until sufficient gamma counts are detected for analysis.
+
+\begin{SCfigure}[.6][h]
+\centering
+\includegraphics[width = .5\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH3_figs/Gopher_counts_v_background.png}
+\caption{Detected gamma spectrum from 200keV - 400keV for a counted Ti 15-3-3-3 foil as obtained from Gopher -- a high purity Ge detector in Soudan, Minnesota. Background counts are shown in blue, while the sample spectrum peaks are clearly visible in red above the background. The 295keV Pb-214 line, for example, is clearly visible in the middle of the plot. Plot from \cite{GopherTi15333}.}
+\end{SCfigure}
+
+\subsubsection{Counting}
+The counting process itself relies on low backgrounds which are precisely characterized. Once a background spectrum is obtained, the sample is placed in the detection chamber and counted until a reliable activity above background is obtained. Figure 3.2 shows such a spectrum for a gamma energy of 200keV to 400keV, in which the sample activity (shown in red) is clearly visible above the background activity (in blue). Background is then subtracted away, and the count rate of prominent lines for isotopes of interest are determined. The long-lived isotopes currently screened for in Gopher are Th-232, U-238, Co-60, K-40, and Cs-137. An example of a prominent daughter isotope line -- the 295keV Pb-214 line from U-238 decay -- is shown in the center of Figure 3.2. Finding the gamma rate for specific daughter isotopes, however, is not enough to determine activity of the parent isotopes. Simulation is required for finding the total activity of the sample.
+
+\subsubsection{GEANT4 Monte Carlo Simulation}
+While radioactive screening with Gopher gives us the gamma emission rate for various radioisotopes, we are actually concerned with the decay rate of the isotopes in the sample (which is the rate of isotope disintegration into another isotope). To convert to true activity of the sample, the peak detection ratio must be determined for each line. This is accomplished by GEANT4 Monte Carlo simulation of the sample.
+
+GEANT4 (GEometry ANd Tracking) is a set of scripts which, through Monte Carlo methods, simulates the passage of particles through matter. This simulation takes into account many factors such as the geometry of the sample, position with respect to the detector, gamma intensity for various decay methods, and composition of the sample to estimate the peak detection ratio, defined as [number of counts observed for a line]/[number of MC-simulated events for a line] which simply determines what fraction of total events are detected as gammas in the detector. The Monte Carlo is run for each isotope in a chain by homogenously distributing that isotope through the sample. From here, given the considerations above, the peak detection ratio of detections/events for each isotope can be determined. Figure 3.3 shows a visualization of this process for Vespel SCP-5050. The right two figures show simulations of particle decay which track the movement/scattering of particles from the top and side perspective, respectively, while the leftmost figure shows the sample (dark rods) in the screening chamber with the Ge detector (silver cylinder in back).
+
+\begin{figure}[h]
+\centering
+\begin{minipage}{.34\textwidth}
+\includegraphics[width = \textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH3_figs/VespelSCP5050_In_Gopher.jpg}
+\end{minipage}
+\begin{minipage}{.3\textwidth}
+\includegraphics[width = \textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH3_figs/VespelSCP5050_Top_Hits.png}
+\end{minipage}
+\begin{minipage}{.3\textwidth}
+\includegraphics[width = \textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH3_figs/VespelSCP5050_Side_Hits.png}
+\end{minipage}
+\caption{Vespel SCP-5050 sample in Gopher. The left figure shows the sample placement in the detection chamber, with PE. The middle and right figure show the GEANT4-MC simulations from the top and side perspectives, which track particle movement through the sample, chamber, and detector. Images from \cite{GopherSCP5050}.}
+\end{figure}
+
+\subsubsection{Determining Total Activity for Each Line}
+
+Once the peak detection ratio is calculated for each line, the gamma rates can be converted to contamination. Then, assuming secular equilibrium, we know that the contamination (decays/second) should be equal for each isotope in a given decay chain. Due to the finite accuracy of statistics, this may not always be true, so a weighted average of the prominent daughter isotope contaminations is performed, which then gives the total contamination of the five parent isotopes screened for. Figure 3.5 shows the calculated contamination for various daughter isotopes of Th-232, U-238, Cs-137, Co-60, and K-40. These are the daughter contaminations that were used in Vespel SCP-5050 to determine parent isotope contamination.
+
+\begin{SCfigure}[.5][h]
+\centering
+\includegraphics[width = .55\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH3_figs/SCP5050_contamination.png}
+\caption{Calculated contamination of daughter isotopes used to determine contamination of each parent isotope. The indices represent specific lines for daughter isotopes in decay chains. 1-5 are for daughters of U-238, 6-13 are for daughters of Th-232, 14-15 are for Co-60, 16 is for K-40, and 17 is for Cs-137. Figure from \cite{GopherSCP5050}. }
+\end{SCfigure}
+
+\subsubsection{Results}
+
+The results of Gopher screenings are shown in Figure 3.2 with contamination levels for different isotopes given in milliBecquerels/kilogram. The graphite currently in use, UF-4S (old), shows almost no contamination with $<2$ mBq/kg of U-238. However, new samples of the same material show much higher contamination levels, $\sim 50$mBq/kg of Th-232, despite purification. This irreproducibility in radiopurity levels between graphite batches has been a problem before; when originally purchased, one batch of UF-4S showed too much contamination to use. 2020 graphite is from the same company as UF-4S (Mersen) and shows similar levels of contamination as the new UF-4S stock. These levels are likely higher than what our experiment can tolerate. The next three graphite grades are from Poco Graphite: ACF-10Q, AXM-5Q, and ZXF-5Q. They are all industrial graphite grades, as compared with UF-4S and 2020, which are nuclear grade. This is apparent in their significantly higher contamination levels. The next counted sample, AXM-5Q (p) was purified by Mersen, in the process described below. This purification proved to be extremely effective, decreasing activity by a factor of $\sim50$ to acceptable levels. Vespel SP-1 shows low levels of contamination as well, making it an ideal candidate from a radioactivity level perspective. The next sample, Vespel SP-22 shows very high levels of contamination, due its high graphite content, which rule it out as a candidate for the thermal stand-offs. Surprisingly, SP-22's successor, Vespel SCP-5050, shows very promising levels of contamination, which may be acceptable depending on the amount used in the experiment. The next two samples, Ti 15-3-3-3 and Graphlite CFRP, show similar levels of contamination which again, may be acceptable depending on the mass used in the experiment.
+
+\subsubsection{Graphite Purification}
+Graphite such as AXM-5Q are of interest in our experiment, and in many experiments, due to their very low thermal conductivity. However, as the results of screening show, they are often contaminated with high levels (by our standards) of radioisotopes. Therefore, the purification processes offered by Mersen and Poco are of great interest. The results are clearly visible in Table 3.2 for AXM-5Q, which saw its activity reduced by a factor of 50 post-purification.
+
+The purification process offered by Mersen reduced impurities from around 1000ppm to $<$1.4ppm for all purified samples (including those from Poco, which were sent to Mersen for purification) \cite{Mersen_conv}. The graphites are placed in an environment of chlorine gas pressurized above 15psi and heated to roughly $2000^{o}C$. In these conditions, the chlorine permeates the material and readily bonds with oxidizable metals to remove them from the sample \cite{Olivier_conv}. This is more effective the thinner/more porous the graphite.
 
 \begin{table}[htb]
 \centering
 \begin{threeparttable}
 \rowcolors{3}{gray!20}{white}
-\begin{tabular}{l|ccccc}
+\begin{tabular}{l|rrrrr}
 \multirow{2}{*}{\large{Material}} & \multicolumn{5}{c}{Contamination in mBq/kg}\\
 & U-238 & Th-232 & Co-60 & K-40 & Cs-137 \\\toprule
-CDMS Graphite & 1.328 $\pm$ 2.176 & & & & \\
-ZXF-5Q Graphite & 159.731 $\pm$ 4.374 & 218.112 $\pm$ 5.256 &  &  &  \\
-ACF-10Q Graphite & 406.771 $\pm$ 6.508 & 286.649 $\pm$ 5.731 & & 35.90 $\pm$ 8.021 &\\
-AXM-5Q Graphite & 117.708 $\pm$ 2.391 & 217.127 $\pm$ 3.785 & & &  \\
-Vespel SP-22 & 48.38 $\pm$ 4.832 & 211.1 $\pm$ 8.991 & & 7.822 $\pm$ 6.088 &\\
-Vespel SP-1 & & 5.39 $\pm$ 4.80 & & &  \\
-Ti 15-3-3-3 & & 17.2 $\pm$ 3.2 & & &  \\
+UF-4S Graphite (old) & 1.33 $\pm$ 2.18 & - & - & - & -\\
+UF-4S Graphite (new, p) & - & 52.03 $\pm$ 3.11 &- & -& - \\
+2020 Graphite (p) & 3.89 $\pm$ 0.60 & 79.63 $\pm$ 2.02 &- & 4.10 $\pm$ 1.65 &- \\
+ZXF-5Q Graphite (u-p) & 159.73 $\pm$ 4.37 & 218.11 $\pm$ 5.26 & - & - & - \\
+ACF-10Q Graphite (u-p) & 406.77 $\pm$ 6.51 & 286.65 $\pm$ 5.73 & -& 35.90 $\pm$ 8.02 &-\\
+AXM-5Q Graphite (u-p) & 117.71 $\pm$ 2.39 & 217.13 $\pm$ 3.79 &- & -&-  \\
+AXM-5Q Graphite (p) & 0.93 $\pm$ 0.25 & 4.93 $\pm$ 0.70 & -& 0.96 $\pm$ 1.16 & - \\
+Vespel SP-1 & -& 5.39 $\pm$ 4.80 & -& -&-  \\
+Vespel SP-22 & 48.38 $\pm$ 4.83 & 211.10 $\pm$ 8.99 &- & 7.82 $\pm$ 6.09 &\\
+Vespel SCP-5050 & 7.72 $\pm$ 0.69 & 9.95 $\pm$ 0.72 &- & 7.26 $\pm$ 2.18 & 0.48 $\pm$ 0.26 \\
+TiMet$^{\circledR}$ Ti 15-3-3-3 & -& 17.20 $\pm$ 3.20 &- &- & - \\
+Graphlite$^{\circledR}$ CFRP & 2.79 $\pm$ 0.89 & 0.707 $\pm$ 1.39 &- & 24.00 $\pm$ 4.96 & -\\
 
 \end{tabular}
 \caption{Activity of listed parent for each sample. Screened at Gopher, a high purity Ge
-gamma counter in Soudan, MN.}
+gamma counter in Soudan, MN. The two results for UF-4S graphite are from the old stock (currently in use in SuperCDMS Soudan) and new stock, purchased recently. For the graphites, u-p refers to unpurified stock samples, while p refers to those samples which have been purified by the method described in this section.}
 \end{threeparttable}
 \end{table}
 
@@ -516,15 +604,11 @@ Ti 15-3-3-3 & 3.04 $\cdot 10^{-7}$ & 2.09 $\cdot 10^{-6}$ & 2.4 $\cdot 10^{-6}$ 
 \end{threeparttable}
 \end{table}
 
-\subsubsection{Using SOURCES-4C to Predict Neutron Emission Rates}
+\subsection{Using SOURCES-4C to Predict Neutron Emission Rates}
 Neutron background is the largest concern for our detectors as it produces a
 nuclear recoil which, along with no charge collection, mimics the expected signal
 from WIMPS. In our candidate materials, there are two sources of neutrons:
-Spontaneous Fission and ($\alpha$,n)-reactions. These occur at different rates
-for each material, depending on the radioactive decay chain present and its
-constituent materials, which are the target materials for the ($\alpha$,n)-reactions.
-Therefore, the total activity for each material is not the determining factor;
-Instead, we must select materials based on acceptable neutron emission rates.
+Spontaneous Fission and ($\alpha$,n)-reactions. The rates at which these occur for each material are determined by two factors: which radioisotopes are present in the material (determined by the Gopher screenings), and the elemental composition of the material. The elements in a material serve as the target materials for the ($\alpha$,n)-reactions, particularly low-Z elements (which have lower Coulomb barriers preventing the $\alpha$-particle from reacting with the nucleus). Therefore, the total activity for each material is not the primary determining factor; in an ideal situation, we would consider candidates based on acceptable neutron emission rates.
 
 To model the neutron emission rate of each material, we used SOURCES-4C, a program
 developed by Los Alamos National Laboratory and Texas A\&M University. This
@@ -540,106 +624,178 @@ For our problem, the input parameters for SOURCES-4C were:
 \item Target materials in atom fraction
 \end{enumerate}
 
-To determine the $\alpha$-source contamination in atoms/cc we had to convert
-from the total activity values in Table 2. We use the equation
-$$
-D = -\frac{R \rho h}{ln\frac{1}{2}} \qquad,
-$$
+To determine the $\alpha$-source contamination in atoms/cc we have to convert
+from the total activity values in Table 3.2. To do this, we first find the concentration of the parent isotopes given in the table. This is done by starting with the equation for the time-dependent population of a radioisotope,
+\begin{eqnarray}
+D(t) & =& D_0\left(\frac{1}{2}\right)^{t/h} \\
+\end{eqnarray}
+where D(t) is the population at any time t, $D_0$ is the population at t = 0, and h is the half-life of the particle in seconds. Taking the derivative of both sides, we can find the rate of change in population at any t. This gives
+\begin{eqnarray}
+D'(t) = \frac{ln\left(\frac{1}{2}\right)}{h}D_0\left(\frac{1}{2}\right)^{t/h} = \frac{ln\left(\frac{1}{2}\right)}{h}D_0 \ \ , \ \ t << h \\
+\end{eqnarray}
 
-to find the number of atoms/cc for a given isotope, where R is activity in
-Becquerels/kg , $\rho$ is the material density in kg/cc, and h is the half-life
-of the isotope in seconds.
+the simplification on the right side of the equation comes from observing that t is always small when compared to the half-lives of the parent isotopes under consideration, so $(1/2)^{t/h} \sim 1$. To get to atoms/$cm^3$ we convert D'(t) to R (activity in Bq/kg), multiply by material density, $\rho$ (in $kg/cm^3$), and rearrange:
 
-Once we have the contamination of the parent isotope, we can then find the
-corresponding contamination for all $\alpha$-emitting daughters using the relation
-$$
-D_{d} = D_{p}\frac{h_{d}}{h_{p}} \qquad,
-$$
+\begin{eqnarray}
+D_0 = D = -\frac{R \rho h}{ln\left(\frac{1}{2}\right)}
+\end{eqnarray}
 
-where the subscripts d and p represent daughter and parent, respectively.
+where the R for each parent isotope comes from the screening results.
 
-As seen in Table 3, the neutron emission levels over the duration of an
-experiment are very low, thus probability of neutron emission is unlikely.
-For the POCO graphite grades, purification is an option as ACF-10Q, AXM-5Q,
-and ZXF-5Q are all industrial grades, so have higher impurity levels.
-Both POCO and Mersen offer purification processes which are able to reduce
-impurities to $ < $5ppm. These processes place the sample in an environment
-of chlorine gas pressurized above 15 psi and heated to roughly 2000$^{o}$C.
-The chlorine then readily bonds with oxidizable metals to remove them. The
-POCO samples will be purified and re-screened to test for a reduction in activity
-levels and the possibility of using them in the tower.
+Once we have the contamination of the parent isotope we can then find the
+corresponding contamination for all $\alpha$-emitting daughters by assuming secular equilibrium. This allows us to set R equal for all isotopes in a decay chain. Exploiting this equality in 3.6, we obtain
+\begin{eqnarray}
+\frac{D_i}{h_i} = \frac{D_k}{h_k}
+\end{eqnarray}
+where the subscripts denote different isotopes in secular equilibrium. This says that, in secular equilibrium, the ratio of isotopes present in a given decay chain depends only on the ratio of those isotopes' half-lives. This can be applied to find the amount of each daughter isotope from the parent isotope in a chain with,
+\begin{eqnarray}
+D_{d} = D_{p}\frac{h_{d}}{h_{p}}
+\end{eqnarray}
 
-\subsection{Mechanical Properties}
-The mechanical properties of the materials determine how little of the material
-we can safely use, thus setting the total radioactivity and thermal power conducted.
-Data for our materials was obtained from Matweb, DuPont data sheets, and
-correspondence with Mersen, the producer of our current graphite, formally known
-as Grade UF-4S. Relevant properties are presented in Table 3.
+where the subscripts d and p refer to daughter and parent, respectively.
+
+
+
+\section{Thermo-Mechanical Properties}
+
+The tower thermal stand-offs are a structural component of the tower, so the physical and mechanical properties of the materials are naturally an important factor in choosing suitable candidates. In Table 3.4 \& 3.5 I examine some of the physical quantities of interest for possible thermal stand-offs materials. These numbers characterize the strength and dimensional stability of the materials. Dimensional stability is required to ensure the correct operation of our rigid vacuum coaxes; if the tower flexes too much during handling, the vacuum coaxes could be put under too much tension and snap. Similarly, during fridge operation, a CTE which is too high could cause the vacuum coaxes too go slack and short to their shielding; a CTE which is too low could cause too much tension and plastically deform the lines. The different strength parameters are crucial in telling us how little of the material we can safely use in creating a sufficiently strong support. Since radioactivity levels and thermal power conducted depend on volume and cross-section of the material, respectively, by minimizing material use we also minimize radioactivity and thermal loads to the dilution fridge stages.
 
 \begin{table}[htb]%THERMOPHYSICAL PROPERTIES
-\centering
 \begin{threeparttable}
-{\footnotesize\rm\begin{tabularx}{16.5cm}{llp{1.6cm}p{1.9cm}p{1.6cm}p{1.6cm}l}
-\multicolumn{5}{l}{\Large{Thermophysical Properties}}\\
+\rowcolors{3}{gray!20}{white}
+\begin{tabular}{lcccccc}
 \toprule
-& \parbox[t][1cm][t]{2.2cm}{CTE @300K \\ $\Delta L/L$ \\ $(\mu m/(m\cdot C^o))$}
-& Tensile Strength [MPa] & Compressive Strength [MPa]
-& Flexural Strength [MPa] & Modulus of Elasticity [GPa] & Poisson's Ratio\\
+\textbf{Material} & $\rho$ ($g/cm^3$) & $\nu$ & $\sigma_{t}$ (MPa) & $\sigma_{c}$ (MPa)
+& $\sigma_{f}$ (MPa) & CTE $(\mu m/(m\cdot C^o))$ \\
 \midrule
- CDMS Graphite & 1.8-2.9  & (20) & (50) & 27.6 & (7.2) & 0.3* \\
- POCO AXM-5Q & 7.8 & 48 & 124 & 69 & 10.5 & 0.3* \\
- Ti 15V-3Cr-3Sn-3Al & 9.7 & 1100 & 1130 & - & 95.5 & 0.36  \\
- Ti 21S & 7.07 & 880-1210 & - & - & 83-110 & 0.34 \\
- Vespel SP-1 & 45 & 86 & 133 & 110 & 2.5 & 0.41 \\
- Vespel SCP-5000 & $<$45 & 163 & 640 & 254 & 3.99 & 0.41 \\
-Graphlite CF Rod & - & 2340 & 1900 & - & 131 & - \\
+ UF-4S Graphite & 1.76  & 0.2 & 20$^{\dag}$ & 50$^{\dag}$ & 27.6 & 1.8-2.9 \\
+ 2020 Graphite & 1.77 & 0.15 & 29 & 98 & 45 & 4.3 \\
+ POCO AXM-5Q & 1.73 & 0.3$^{*}$ & 48 & 124 & 69 & 7.8 \\
+ Ti 15-3-3-3 & 4.71 & 0.36 & 1117 & 1052 & - & 8.45 \\
+ Ti 21S & 4.93 & 0.34 & 958 & 1108 & - & 7.07 \\
+ Vespel SP-1 & 1.43 & 0.41 & 86.2 & 133 & 110 & 54.0$^{\ddag}$ \\
+ Vespel SCP-5000 & 1.46 & - & 163 & 640 & 254 & 45.0 \\
+ Vespel SP-22 & 1.65 & - & 51.7 & 112 & 89.6 & 38.0 \\
+ Vespel SCP-5050 & 1.76 & 0.22 & 72 & 219 & 130 & 29.0 \\
+ Graphlite CF Rod & 1.55 & -  & 2340 & 1900 & - & - \\
  \bottomrule
-\end{tabularx}}
-
-\caption{Thermophysical properties of candidate materials. The compressive and tensile
-strengths for CDMS Graphite were derived from the flexural strength given in the datasheet, using an apparent trend in graphite materials where tensile $\approx$ 2/3 flexural and compressive $\approx$ twice flexural. In addition, Modulus of Elasticity (E) was inferred from the given Shear Modulus (G) where $G = E/[2(1-\nu)]$ \\ *The poisson ratio of 0.3 is typical for graphites }
+\end{tabular}
+\caption{Some thermo-mechanical properties of candidate materials. $\nu$ is the Poisson's ratio for the material, while $\sigma_{t}$,$\sigma_{c}$, and $\sigma_{f}$ are tensile, compressive, and flexural strengths for the material, respectively. CTE is the linear coefficient of thermal expansion, given at room temperature for all materials. The properties given for Ti 15-3-3-3 and Ti 21s are lower limits for solution-treated, age-hardened samples. These numbers can be higher or lower depending on the specific heat treatment. All Vespel data are for Isostatically-formed parts. All Graphlite CFRP data is along the fiber axis. \dag - Compressive and tensile strengths were derived from the flexural strength, using an apparent trend in graphite materials where tensile $\approx$ 2/3 flexural and compressive $\approx$ twice flexural. * - A poisson ratio of 0.3 is typical for many graphites. \ddag - DuPont data for SP-1 gives a CTE of 45 $(\mu m/(m\cdot C^o))$ for -62$^{o}$C - 23$^{o}$C, whereas the number given in the table is for 23$^{o}$C and above. for Ti 15-3-3-3 and Ti 21s from \cite{Nyakana2005} and \cite{Johnson1996}. All other data from manufacturer websites or datasheets.}
 \end{threeparttable}
 \end{table}
 
+\begin{table}[htb]
+\begin{threeparttable}
+\rowcolors{3}{gray!20}{white}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Material} & $E_{T}$ (GPa) & $E_{C}$ (GPa) & G (GPa) \\
+\midrule
+ UF-4S Graphite & 7.2 & - & 3$^{\ddag}$ \\
+ 2020 Graphite & 9.2 & - & 4.1 \\
+ POCO AXM-5Q & 10.5 & - & 4$^{\ddag}$ \\
+ Ti 15-3-3-3 & 105 & - & 39.5$^{\ddag}$ \\
+ Ti 21S & 103 & 114 & 38.7$^{\ddag}$ \\
+ Vespel SP-1 & - & 2.41 & - \\
+ Vespel SCP-5000 & 3.99 & 9.06 & 1.41$^{\ddag}$\\
+ Vespel SP-22 & - & 3.28 & - \\
+ Vespel SCP-5050 & 8.93 & 3.00 & 3.66$^{\ddag}$\\
+ Graphlite CF Rod & 134 & 131 & - \\
+ \bottomrule
+\end{tabular}
+\caption{Continuation of table 3.4 for thermo-mechanical properties. Different moduli are given for each material: $E_{T}$ is the Young's Modulus, $E_{C}$ is the compressive modulus, and G is the shear modulus. \ddag - Indicates that data on the shear modulus, G, was unavailable; instead, the formula for homogenous and isotropic materials was used, in which $G = E_{T}/(2(1 + \nu))$. References are the same as above. }
+\end{threeparttable}
+\end{table}
+
+One of the most noticeable aspects of Tables 3.4 \& 3.5 is the wide distribution of structural properties for materials. As with any other qualification discussed in this chapter, some candidates are clearly better suited mechanically; however, this simply reflects the wide array of parameters which must be satisfied, and that different materials were chosen for different particular merits. Below I summarize the interesting results from the tables:
 \begin{itemize}
-\item CDMS Graphite has a lower strength than every other material, including AXM-5Q,
-another graphite.
-\item The Ti alloys offer high strength and low CTE. Ti 21S will be discussed in
-Availability section.
-\item Vespel SCP-5000 is the newly developed replacement for Vespel SP-1 with better
-mechanical properties and a lower CTE. In the above table, the CTE of Vespel SP-1 is
-45$\mu$m/mC from 300K to cryogenic temperatures. For temperatures above 300K, its CTE
-is 54 $\mu$m/mC. The CTE of SCP-5000, 45$\mu$m/mC, is given for temperatures above 300K.
-The cryogenic CTE is not known, but would likely be lower than its room temperature value
-as with Vespel SP-1.
+\item UF-4S Graphite (used as a thermal stand-off in SuperCDMS Soudan) has lower strengths than every other material including AXM-5Q,
+another graphite. It also has the lowest CTE, which made it well suited as a thermal stand-off in the current towers, where small stage separations demanded minimal contractions to prevent thermal shorts between stages.
+\item The two Ti alloys from TiMetal, Ti15-3-3-3 and Ti21s, offer some of the highest strengths of the candidates coupled with low CTEs and high elastic moduli, making them strong candidates.
+\item The Vespel SCP series compounds outperform their SP counterparts in nearly every regard. Their strengths show an increase of between 50\% - 400\%, with increased elastic moduli, and decreased coefficients of thermal contraction.
+\item Vespel SCP-5000 still has a fairly high CTE -- 45 ppm/C at room temperature. The number below room temperature is likely lower, however, if SCP-5000 follows the same trend as SP-1; this trend gives a CTE for SP-1 of 54ppm/C at room temperature and above, which drops to 45ppm/C from -62$^{o}$C - 23$^{o}$C.
+\item Graphlite CFRP offers exceptionally high strength as well as dimensional stability, which suggests that we could safely use very little of the material in order to minimize radioactivity and heat loads.
 \end{itemize}
 
-\subsubsection{Thermal Contraction}
+From here, we can now develop models which examine the interplay of properties for these materials.
 
 
-To prevent individual temperature stages from thermally shorting to one another, they must not touch at any temperature between 300K and 40mK. In addition, the tower must not shorten enough to allow our NbTi vacuum coax's to sag and short to the casing. The current design has a 0.03 inch (0.0762cm) gap between each stage. Below room temperature, the CTE of SP-1 is 45$\mu$m/mC. To get total contraction, $\Delta L$:
+\section{Thermal Contraction}
 
-$$
-\Delta L = 45\frac{\mu m}{mC^{o}}(L_{tube})(\Delta T)
-$$
+The thermal contraction of our tower stand-offs is constrained by the rigid vacuum NbTi coaxes, as described in chapter 2. We must ensure that these coaxes do not experience excessive strain and that they do not go slack during cooldown, which could short them to their copper housing. This is the only constraint, as the new SNOLab tower will feature an open face design, eliminating the 0.03" copper-copper stage separation, along with the need to preserve such a small separation during cooldown.
 
-For the longest tower stage, this gives 0.021 inches. Subtracting off the contraction of the copper tower stage (CTE $\approx$ 10$\mu$m/mC) gives a total of 0.018 inches contraction. While this leaves the gap open, the new design may consider lengthening the gap slightly to allow a larger buffer.
+\begin{figure}[ht]
+\centering
+\subfloat[Simplified SNOLab tower used to calculate expected thermal contraction behavior of tower components. All stand-off lengths and NbTi coax lengths are assumed to be 2", making the analysis identical for all tower stages.]{\includegraphics[width = .5\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH3_figs/SNOLab_tower_coax_stress.png}}
+\qquad
+\subfloat[Model for deflection of NbTi coaxes, where any slack is efficiently translated into a deflection. L is the distance between the coax heat-sinks, and $L_eq$ is the equilibrium length of the NbTi wires at 4K. A deflection $\geq$ 0.021" means that the wires will short to their housing]{\includegraphics[width = .33\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH3_figs/NbTi_deflection.png}}
+\caption{SNOLab model used to determine the strain in the NbTi wires (a), and the slack formed (b) during cooldown.}
+\end{figure}
 
-As for shorting the NbTi wires, a simple model considers the wires under no tension, and any shortening in length is efficiently taken up by the wires (e.g. pulling them toward
-the casing). We find that the largest deflection for any stage is 0.083 inches. The wires are centered in the vacuum coax, 0.024 inches from the casing. This means we will have way too much deflection! We need a better model, different material, or new side coax design.
+The model used for the SNOLab towers, shown in Figure 3.6a, is simple: it assumes stand-off lengths and vacuum coax lengths are all 2", and considers only the NbTi and stand-off contraction, without considering the CFRP support struts for the coaxes. Much of the analysis follows a previous analysis performed for the Soudan towers, which can be read in greater detail in Appendix A.
 
-\subsubsection{Possible Next Steps}
-\begin{itemize}
-\item Radioactivity screening and thermal conductivity test for Ti21S, Vespel SCP-5000, and Vespel SCP-5050
-\item Carry out strength tests for materials in support tube dimensions and as bulk material.
-\end{itemize}
+\subsection{Strain}
+Our goal is to find the strain on the vacuum coax wires during operation of our fridge. This strain can be positive or negative, where a negative strain represents the wires going slack. To find the strain, we use the formula
+\begin{eqnarray}
+Strain = \frac{L - L_{eq}}{L_{eq}}
+\end{eqnarray}
+where $L$ is the length of the wires at operating temperature, while $L_{eq}$ is the equilibrium length of the wires at that same temperature (under no strain). In our simple model, L is given at 4K by
+\begin{eqnarray}
+L = L_{NbTi} - |\Delta L_{stand-off}|
+\end{eqnarray}
+where $L_{NbTi}$ is the length of the wires at 300K, and $\Delta L_{stand-off}$ is the contraction of the stand-off from 300K to 4K \footnotemark. At the same time, $L_{eq}$ is given by
+\begin{eqnarray}
+L_{eq \ 300K} & = & L_{NbTi} \cdot (1 - 0.0107) \\
+L_{eq} & = & (L_{eq \ 300K})\cdot\left(1 - \left|\frac{\Delta L_{NbTi}}{L_{NbTi}}\right|\right)
+\end{eqnarray}
+where $L_{NbTi}$ is the actual length of the NbTi wires at 300K, $L_{eq \ 300K}$ and $L_{eq}$ are the equilibrium lengths at 300K and 4K respectively, $\Delta L_{NbTi}/L_{NbTi}$ is the fractional contraction of the wires from 300K to 4K, and the 0.0107 term accounts for the fact that the wires are strained to 1.07\% during fabrication. The fractional contraction of the NbTi wires was calculated from A.1, while the total contraction of various stand-off materials is given by
+\begin{eqnarray}
+\Delta L = (CTE)(L_{stand-off})(\Delta T)
+\end{eqnarray}
+where $\Delta L$ is the length change of the stand-off, CTE is the coefficient of thermal contraction -- given by Table 3.4 for various materials, $L_{stand-off}$ is the 300K length of the stand-off, and $\Delta T$ is the total temperature change of the stand-off.
 
-\subsection{Dimension Optimization}
- We are considering the possibility to decrease thickness and/or radius of tower support tubes. This would significantly decrease thermal power conducted and total radioactivity.
+\footnotetext{The thermal contraction formula for NbTi only extended down to 4K. Since the contraction from 4K to $<$1K is negligible compared to the contraction from 300K to 4K, it was ignored.}
 
-Through discussion with Dr. Sanjay Govindjee at UC Berkeley, a model predicting failure loads for different materials/dimensions as well as optimization of Radius/Thickness (a/t) has been developedd . The load considered is the same as that used in the graphite tower break test (one end fixed, the other subjected to a transverse shear force).
+The above method was applied to our simple model, producing the upper plot in Figure 3.7. This gives the strain in the NbTi wires at 4K as a function of CTE for stand-off materials. We see that on the lower end, the strain doesn't exceed 1.2\% -- only slightly higher than fabrication strain, and within acceptable limits, according to Figure A.3. On the upper end, the wires experience a "negative strain", which means they have gone slack. This is investigated below
 
-The most recent model created by Professor Govindjee considers 4 failure modes:
+\begin{figure}[ht]
+\centering
+\includegraphics[width = .6\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH3_figs/Coax_strain.png}
+\caption{}
+\end{figure}
+
+\subsection{Determining Slack in Wires}
+
+The NbTi wires in our vacuum coax lines are suspended and centered in copper grooves which act as shielding during operation. Any slack in the wires could result in a short to these copper grooves, therefore we must determine if the slack experienced by the wires for various stand-off materials may cause a short.
+
+The copper grooves surrounding the wires are 0.042" wide, which means that a deflection of 0.021" in either direction will cause a short to the housing. The model used to test this is shown in Figure 3.6b. We assume that any slack in the wire is perfectly taken up as a deflection (as if one was pulling the wire to the side). The calculated deflection, using this model, is shown in the lower plot of Figure 3.7 as a function of linear coefficients of thermal contraction for tower stand-off materials.
+
+We see that there is no deflection in the wires until the linear CTE of the stand-off reaches 42ppm/C, which is the point when the strain at 4K reaches 0\%. From here, deflection increases rapidly past the 0.021" maximum allowable. In Table 3.4 we see that Vespel SP-1 and Vespel SCP-5000 are above the 42ppm/C limit. As noted in Table 3.4, however, the CTE of these materials is likely lower than the room temperature value given. The CTE of Vespel SP-1 drops from 54ppm/C for room temperature and above, to 45ppm/C below room temperature. Since Vespel SCP-5000 is similar to SP-1, its room temperature CTE of 45ppm/C would likely drop sufficiently low below room temperature to allow its use as a stand-off. If SCP-5000 was chosen for use in the fridge, however, it would be prudent to verify its low temperature CTE.
+
+\subsection{Candidates Based on Thermal Stability}
+Considering the strains and deflections found in Figure 3.7 for the range of CTE's found in our candidates, we conclude that all materials besides Vespel SP-1 should satisfy thermal stability requirements in the SNOLab towers, though the low temperature thermal contraction of Vespel SCP-5000 should be verified if it is chosen as a stand-off material.
+
+\section{Tube Failure Model}
+
+The dimensions of the SuperCDMS Soudan thermal stand-offs were selected arbitrarily, based on what sounded reasonable at the time; therefore, we are not attached to these dimensions. Ideally, the dimensions would be different for each material, designed in such a way as to take advantage of the strengths of each. This dimension optimization would allow us to minimize the use of material, reducing both thermal concerns and radioactivity concerns. This section presents a model developed in collaboration with professor Sanjay Govindjee of UC Berkeley, which considers four failure modes: shear buckling, bending buckling, normal material failure, and shear material failure. Using this model, we determine how little material can safely be used to withstand a 145lb. transverse shear load. We then compare the resulting heat loads and radioactivity for candidates given their optimized dimensions.
+
+\subsection{Loading Conditions}
+
+\begin{figure}[ht]
+\centering
+\subfloat[]{\includegraphics[width = .3\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH3_figs/Tower_loading.jpg}}
+\qquad
+\subfloat[]{\includegraphics[width = .3\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH3_figs/Tower_break.jpg}}
+\caption{Destructive physical analysis of Soudan tower. The 600mK floor was bolted to the 50mK tabs to support it, isolating the 10mK floor and its support. This was then loaded until failure under transverse shear. It failed at $\sim$145 pounds in what appears to be compressive failure.}
+\end{figure}
+
+The load conditions which we wish to design to for the SNOLab towers are not yet defined; therefore, as a first pass, we will consider it sufficient to replicate the strength of the Soudan tower stand-offs, which are able to withstand up almost 145lbs applied as a transverse shear force. This was found through a destructive physical analysis (DPA) of a Soudan tower. The tower was clamped in a bench vise, and the 600mK floor was bolted to the 50mK tabs to support it the 600mK to 50mK tube. This isolated the 10mK floor and the tube attached to it. A strap was hung over the 10mK floor, and loaded to $\sim$145 pounds before the tube failed. The load conditions and tube failure are shown in Figure 3.8. This load can be approximated by a transverse shear load. Therefore, our model will design stand-offs which can support 145 pounds as a transverse shear load.
+
+\subsection{Analytical Model for Tube Failure}
+
+Through discussion with Dr. Sanjay Govindjee at UC Berkeley, a model predicting failure loads for different materials/dimensions as well as optimization of Radius/Thickness (a/t) has been developed. The load considered is the same as that used in the Soudan tower DPA (one end fixed, the other subjected to a transverse shear force). This section develops this analytical model as well as its assumptions and limitations. Though an FEA model could be created (and will be to check the results), an analytical model is useful, as it lets one view the entire parameter space and failure trends. Given the prevalence of thin-walled tubes in cryogenic structures, this model has the potential to be of use in broader applications than our own.
+
+Our model considers 4 failure modes:
 \begin{itemize}
 \item Shear Instability (Buckling)
 \item Bending Instability (Buckling)
@@ -647,10 +803,10 @@ The most recent model created by Professor Govindjee considers 4 failure modes:
 \item Material Failure from Shear Stresses
 \end{itemize}
 
-His full report can be read starting on page {\huge BLANK}. The summary of the failure formulas and their validities follow.
+A discussion of the formulas for failure modes considered and their validities follow.
 
 \subsubsection{Tube Geometry}
-The graphite tube tested had nominal dimensions of thickness $t = 0.028$in, radius $a = 0.986$in (to middle surface), and length $L=1.334$in.
+Cylindrical shell theories depend heavily on certain parameters in the shell, as these permit various simplifications of mechanical models. The graphite tube tested had nominal dimensions of thickness $t = 0.028$in, radius $a = 0.986$in (to middle surface), and length $L=1.334$in.
 
 For theory, the relevant geometric ratios are
 \begin{eqnarray}
@@ -659,7 +815,7 @@ For theory, the relevant geometric ratios are
 Z = \frac{(1-\nu^2)^\frac{1}{2}L^2}{at} = 61.5 \ (\text{for $\nu$ = 0.3})
 \end{eqnarray}
 
-where Z is Donnell's parameter. These values imply that we have a fairly thin shell of intermediate length. For dimension optimization, these values may change.
+where Z is Donnell's parameter. These values imply a fairly thin shell of intermediate length. For dimension optimization, these values may change, and the model may need adjustment. Below are the formulas which are used for Z near this value.
 
 \subsubsection{Shear Instability}
 
@@ -672,12 +828,11 @@ where $a_{s}$ is between 0.81 and 1.04 for $Z \in [50,100]$. As dimensions chang
 
 The number of circumferential waves present in buckling is
 $$
-N = \pi(1-\nu^2)b_{s}\left(\frac{a}{L}\right)^{1/2}\left(\frac{a}{t}\right)^{1/4},
+N = \pi(1-\nu^2)^{\frac{1}{8}}b_{s}\left(\frac{a}{L}\right)^{1/2}\left(\frac{a}{t}\right)^{1/4},
 $$
 where $b_{s}$ is between 0.8 to 1.15 for the range of Z values.
 
-This value gives between 3 and 5 waves depending on material/dimensions. Donnell's shell theory will only give errors of $\sim$4\% at 3 waves. Above 3 waves the error decreases
-quickly. For graphite at current dimensions we have 5 waves, assuring accuracy.
+This value gives between 3 and 5 waves depending on material/dimensions. Donnell's (typically used above 5 waves though!) shell theory will only give errors of $\sim$4\% at 3 waves. Above 3 waves the error decreases quickly. For graphite at current dimensions we have 5 waves, assuring accuracy.
 
 To get critical load ($P_{c}$), set $\tau_{f} = \tau_{b}$ and solve for P:
 $$
@@ -921,15 +1076,23 @@ Ti 21s is another metastable-$\beta$ alloy with similar properties to Ti 15-3-3-
 
 \chapter{Design of Low Conductivity Electronics for the Detector Tower}
 
+The next generation of the CDMS experiment -- SuperCDMS SNOLab -- features substantial redesigns for the detectors/readout electronics. These alterations include using more phonon read-out channels for the detectors, adding high-electron-mobility transistors (HEMTs) as low-noise amplifiers for the charge read-out, and new SQUIDs. These alterations will require the development of new wiring for phonon readout, charge readout, and for the 300K - 4K striplines. These lines have their own specific set of considerations for development which will dictate their design. The phonon readout design will require low a thermal conductance, low inductance, flexible stripline which meets various resistance requirements, the charge readout must be low noise and low thermal conductance, and the 300K - 4K striplines must meet thermal conductance and resistance requirements. The following sections will examine these requirements, and discuss the design options which satisfy them.
+
 \section{Phonon Readout Cable}
 
-\subsection{Thermal Conductivity of Kapton Polyimide}
+For SuperCDMS SNOLab, the phonon readout lines will move from a vacuum coax design, to a flexible transmission line. The primary impetus for this is that the new SQUIDs will require a transmission line with a much lower inductance between the detectors and the SQUIDs. From here, we have the secondary design considerations of low thermal conductance and resistance limits. Low thermal conductance is especially important for the new phonon readout line for two reasons: First, the flexible transmission line has a substrate, which includes much more material than a vacuum coax, so has more potential for high heat loads. Second, we are increasing the phonon channels per detector from 4 to 6, so there will be increased trace numbers (which increases transmission line width). Last, we must meet two resistance requirements. The first requires superconducting traces between the detectors and the SQUIDs, while the second sets an as-of-yet undefined resistance limit on the traces from the SQUIDs to the HEMTs.
 
-Thermal conductivity data for Kapton varies among the literature, as can be seen from Figure 1. In particular, we are interested in the Kapton HN data, as the company fabricating our stripline, Tech-Etch, uses this type. The power law fit of these thermal conductivities in the range of interest is presented in Table 1. The thermal conductivity used in heat load calculations was the data from M. Barucci \cite{bar}. This thermal conductivity is markedly higher than most of the other data. this is likely due to the direction of measurement along the sample. Barucci measures along a strip of Kapton, while other authors use a laminate of Kapton strips and measure through the thickness of the laminate (transverse to the Kapton strip direction). Unless the Kapton is isotropic, this would result in a different measured thermal conductivity.
+\subsection{Thermal Conductivity of Constituent Materials}
+
+Due to the increase in expected heat load associated with switching to a flexible phonon readout transmission line, the thermal conductivities of the cable materials is a large factor in their selection. The cable will consist of a polyimide substrate, a metallic trace, and some form of adhesive/epoxy (depending on the fabrication). The thermal conductivities of these are examined below.
+
+\subsubsection{Kapton}
+
+Though there are other options for substrate materials, Kapton is the default for cryogenic cabling, as it is known to have low thermal conductivity, as well as high radiopurity. It is often the primary substrate material offered by fabrication companies, therefore we would like to characterize its thermal conductivity. In particular, we are interested in Kapton HN data, as it is the type used by Tech-Etch -- a cryogenic cable fabrication company which will likely make the phonon cable. The thermal conductivity for Kapton HN samples, as well as other types, are shown Figure 4.1. The power law fit of these thermal conductivities in the range of interest is presented in Table 4.1; some of these were given in the references, and some are fits to graphical data presented in references. The thermal conductivity data from M. Barucci \cite{bar} was chosen to model heat loads for the cable in the following sections. This thermal conductivity is markedly higher than most of the other data. This is likely due to the direction of measurement along the sample; Barucci measures the thermal conductivity along a strip of Kapton, while other authors use a laminate of Kapton strips and measure through the thickness of the laminate (perpendicular to the Kapton strip direction). Unless the Kapton is isotropic, this would result in a different measured thermal conductivity.
 
 \begin{figure}[h]
 \includegraphics[width = .9\textwidth]{Kapton_var.png}
-\caption{Compiled data for the thermal conductivity of Kapton films. The type is specified in the legend, as well as whether measurements were performed parallel or perpendicular to the Kapton surface. The direction of Kapton measurement is not stated when unknown. Data are from Radebaugh \cite{rad73}, Barucci \cite{bar}, Lawrence \cite{law}, Wipf \cite{wip}, Rule \cite{Rule1996}, Yokoyama \cite{yok}, Baudouy \cite{Baudouy2003} }
+\caption{Compiled data for the thermal conductivity of Kapton films. The type is specified in the legend, as well as whether measurements were performed parallel or perpendicular to the Kapton surface. The direction of Kapton measurement is not stated when unknown. Data are from Radebaugh \cite{rad73}, Barucci \cite{bar}, Lawrence \cite{law}, Wipf \cite{wip}, Rule \cite{Rule1996}, Yokoyama \cite{yok}, Baudouy \cite{Baudouy2003}, and Akerib \cite{Akerib}. }
 \end{figure}
 
 \begin{table}[h]
@@ -945,8 +1108,8 @@ Rule \cite{Rule1996} & HN & $\perp$ & $24.7 \cdot T^{1.043}$ & 4.2 - 10 \\
 Rule \cite{Rule1996} & H & $\perp$ & $18.2 \cdot T^{1.121}$ & 4.2 - 10 \\
 Barucci \cite{bar} & HN & $\parallel$ & $65 \cdot T$ & 0.2 - 5 \\
 Radebaugh \cite{rad73} & Unspecified & $\perp$ & $12.73 \cdot T^{0.982}$ & 0.02 - 4 \\
-Akerib & Unspecified & ? & $60.7 \cdot T^{1.75}$ & 0.02 - 0.6  \\
-Akerib & Unspecified & ? & $92 \cdot T^{1.02}$ & 4 - 165 \\
+Akerib \cite{Akerib} & Unspecified & ? & $60.7 \cdot T^{1.75}$ & 0.02 - 0.6  \\
+Akerib \cite{Akerib}& Unspecified & ? & $92 \cdot T^{1.02}$ & 4 - 165 \\
 Yokoyama \cite{yok} & H & $\perp$ & $36.87 \cdot 10^{0.9154}$ & 10 - 300 \\
 Baudouy \cite{Baudouy2003} & HN & $\perp$ & $22.8 + 24.0 \cdot T$ & 1.4 - 2 \\
 \bottomrule
@@ -958,12 +1121,12 @@ Baudouy \cite{Baudouy2003} & HN & $\perp$ & $22.8 + 24.0 \cdot T$ & 1.4 - 2 \\
 
 \subsection{Thermal Conductivities of Trace Materials}
 
-The thermal conductivities of candidate trace materials for the Phonon line are presented in Figure 2. The thermal budget is very tight for the phonon line, so thermal conductivity is one of the main considerations for material selection.
+The thermal budget is very tight for the phonon line, as the thermal conductance is already expected to be much higher than for the current vacuum coax design, so thermal conductivity is a large consideration for trace material selection. Figure 4.2 presents the thermal conductivities of candidate materials; in the cases where multiple thermal conductivities are given for each material, we give rough upper and lower limits on thermal conductivity (from a literature search and from our own testing).
 
 \begin{figure}[h]
 \centering
 \includegraphics[width = .8\textwidth]{Trace_material_k.png}
-\caption{Thermal conductivities for trace materials. High and low values were taken from the literature when a significant variation was present among data. Data from: Haasbroek \cite{has}, Barucci \cite{Barucci2008}, Corzett{cor}, Olson \cite{ols}, Fairbank \cite{fair}, Wikus \cite{wik}, Dyachkov \cite{dya}.}
+\caption{Thermal conductivities for trace materials. High and low values were taken from the literature when a significant variation was present among data. Data from: Haasbroek \cite{has}, Barucci \cite{Barucci2008}, Corzett \cite{cor}, Olson \cite{ols}, Fairbank \cite{fair}, Wikus \cite{wik}, Dyachkov \cite{dya}.}
 \end{figure}
 
 
@@ -1338,26 +1501,165 @@ One can see from the tables that there are still many choices to be made with re
 \newgeometry{hmargin = 1.8cm,vmargin = 2cm}
 \newpage
 
-\appendix
-\section{Thermal Conductivity Variation of Trace Materials}
+\begin{appendices}
+
+\chapter{NbTi Vacuum Coax Stresses}
+
+There have been problems with the side coax operation in some SuperCDMS Soudan towers; it was suspected that this could have been due to problematic differential contractions of various tower materials, so a model was developed to determine if this was an issue. We find that the layout of the tower in conjunction with the thermal contraction behavior of NbTi, OFHC Copper, and UF-4S Graphite may be causing plastic deformation of the NbTi coaxes, with stresses as high as 1600 MPa for the Still-MC lines.
+
+\section{Tower Model for Contraction Lengths}
 
 \begin{figure}[h]
-\begin{centering}
-\subfloat[]
-    {\includegraphics[width=0.41\textwidth]{Mang_Ti_graph.png}}
-\subfloat[]
-    {\includegraphics[width=0.41\textwidth]{NbTi_graph.png}}
-
-\subfloat[]
-    {\includegraphics[width = 0.41\textwidth]{SS_graph.png}}
-\subfloat[]
-    {\includegraphics[width = 0.41\textwidth]{CuNi_graph.png}}
-\caption{Thermal conductivity literature for trace material candidates. Variation between samples is largely due to varying thermo-mechanical treatment after production. In (b), Tekdata and Akerib measurements were performed on same wires used in CDMS Charge readout coaxes. In (d), Stainless alloys with similar composition to SS316 were used. Arrows indicate data sets used for graph in Section 1.2.}
-\end{centering}
+\includegraphics[width = \textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/App_a_figs/Contraction_diagram.png}
+\caption{The following model of the SuperCDMS Soudan towers was used in considering the relative contractions of the tower components. The 5K stage is the 4He-bath, the 1K stage is the Still, and the 40mK stage is the Mixing Chamber. The orange represents the OFHC copper tower.}
 \end{figure}
 
-\newpage
-\section{Fluctuation in Resistance for Ti15-3-3-3 Trace}
+The above tower model was used to determine the tensile stress on the side coaxes. These models consider the contiguous structure supporting the NbTi side coaxes, and its overall length change. This is compared to the contraction of the NbTi wires to determine strains. From here, material data gives us the stress in the coaxes.
+
+\begin{figure}[h]
+\centering
+\begin{minipage}{.4\textwidth}
+\includegraphics[width = \textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/App_a_figs/CTE_ofhc_copper_plot.png}
+\end{minipage}
+\begin{minipage}{.4\textwidth}
+\includegraphics[width = \textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/App_a_figs/CTE_nbti_plot.png}
+\end{minipage}
+\caption{Temperature-dependent Coefficient of thermal expansion for OFHC Copper \cite{ofhc_copper} and NbTi \cite{Marquardt2000}. The NbTi coefficient of thermal expansion was inferred from the formula for total contraction of NbTi, which explains its inaccuracy at very low temperatures. At higher temperatures, however, the curve is believable.}
+\end{figure}
+
+\section{Coefficients of Thermal Expansion}
+
+To determine contraction, we need the thermal contraction characteristics of NbTi, OFHC Copper, and UF-4S graphite. Using NIST's property database \cite{ofhc_copper}, the temperature-dependent CTE of OFHC Copper was found. This is shown in Figure A.2.
+
+The equation for the thermal contraction coefficient could then be integrated from 300K to 4K (the lowest data range for the equation) to approximate total fractional contraction from 300K to operating temperature. This is an approximation, as the temperature of the copper during operation is less than 4K, but gives negligible differences from reality.
+
+The contraction of NbTi was found differently from copper. An equation for integrated thermal contraction was used, rather than one for just the coefficient. This equation reads,
+\begin{eqnarray}
+\frac{L_{T} - L_{293}}{L_{293}} = (a + bT + cT^2 + dT^3 + eT^4) \cdot 10^{-5}
+\end{eqnarray}
+\begin{table}[h]
+\begin{tabular}{c}
+a = -1.862E+02, b = -2.568E-01, c = 8.334E-03,  d = -2.951E-05, e = 3.908E-08\\
+\end{tabular}
+\end{table}
+
+where a,b,c,d,e are a measured set of coefficients \cite{Marquardt2000}. This gives the fractional contraction from 293K to some T $\geq$ 4K. We used this formula to determine the temperature-dependent CTE for comparison to OFHC copper. This fractional contraction was plotted for temperatures between 4K and 293K. The slope between all points was then found, which gave the approximate temperature-dependent CTE at the temperature of the points. This is shown in Figure A.2 alongside copper.
+
+The CTE for UF-4S graphite was obtained from a data sheet provided by Mersen, and is not given as a function of temperature. The CTE for UF-4S graphite is low, and depends on the grain orientation:
+$$
+CTE_{\parallel} = 1.8 \cdot 10^{-6}/C
+$$
+$$
+CTE_{\perp} = 2.9 \cdot 10^{-6}/C
+$$
+where $CTE_{\parallel}$ is measured with the grain, and $CTE_{\perp}$ against the grain. The lower value of CTE is used in the calculations that follow to give conservative estimates.
+
+\section{Tension from Fabrication}
+
+The NbTi wires are soldered under tension to prevent loss of tension (and shorts) at operation temperature. This is done with two 30g weights - one hung at either end - for a total of 60g. Dividing by the cross-section of the wires, we get a stress of $805MPa$. The Modulus of Elasticity, $E$, for our Nb-47Ti (47\% Ti by weight) is $75.15GPa$. Using this, we get a strain of,
+$$
+Strain = \frac{Stress}{E} = \frac{75.15e9}{805e6} = 0.0107 \ or \ 1.07\%
+$$
+
+so the wires are strained 1.07\% beyond their equilibrium length.
+
+\section{Stress on 5K - 1K Coax}
+
+To calculate the stress on the NbTi wires, the strain was first calculated. Referring to Figure A.1, we see that the contiguous structure supporting the side coax consists of 2.41cm of graphite tube and 1.78cm of copper. The contraction of these will bring the ends of the wire closer together, decreasing strain. Conversely, the 3.54cm of NbTi wire will contract, acting to increase the strain. The third factor which comes into play is the tension created in the wire during the construction of the side coax. Combining all these effects, we calculate the wire length at 4K and compare it to the equilibrium length. This gives a strain which can be translated into a stress.
+
+The strain is calculated from
+\begin{eqnarray}
+Strain = \frac{L - L_{eq}}{L_{eq}}
+\end{eqnarray}
+where $L$ is the actual length of the wires and $L_{eq}$ is the equilibrium length, both at 4K. We can see that
+\begin{eqnarray}
+L = L_{NbTi} - |\Delta L_{Cu}| - |\Delta L_{Tube}|
+\end{eqnarray}
+while,
+\begin{eqnarray}
+L_{eq \ 300K} & = & L_{NbTi} \cdot (1 - 0.0107) \\
+L_{eq} & = & (L_{eq \ 300K})\cdot\left(1 - \left|\frac{\Delta L_{NbTi}}{L_{NbTi}}\right| \right)
+\end{eqnarray}
+where $\Delta L_{Cu}$ is the total contraction from 300K to 4K of the copper whose length is given in Figure A.1, $\Delta L_{Tube}$ is the graphite tube contraction, $\Delta L_{NbTi}/L_{NbTi}$ is the fractional NbTi contraction, $L_{NbTi}$ is the original length of the wires at 300K (3.54cm in this case), and $L_{eq \ 300K}$ is the equilibrium length at 300K. Putting these into the strain equation gives $1.05 \%$ strain. From this we find,
+$$
+Stress = E \cdot Strain = 75.15e9 \cdot 0.0105 = 791MPa
+$$
+
+\section{Stress on 1K - 40mK Span Coax}
+
+The analysis carried out for the 1K - 40mK cable is similar to that for the 5K - 1K cable. For this cable, the contiguous support structure is more complicated. First, we have 7.39cm of graphite tube which will act to bring the wire ends closer together as they contract, decreasing strain. Second, we have the contracting copper. Due to the design of the tower (coax solder attachment points, etc.) we actually have $2.1cm + 3.5cm = 5.6cm$ of copper whose contraction will act to increase strain. Third, we have the contraction of the NbTi wires themselves, acting to increase the strain. Finally, we have the same applied tension as before, which creates a strain of 1.07\%.
+
+The strain is again calculated with equation A.2. For this span, however, we will have,
+\begin{eqnarray}
+L = L_{NbTi} + |\Delta L_{Cu}| - |\Delta L_{Tube}|
+\end{eqnarray}
+where the sign change in front of $|\Delta L_{Cu}|$ reflects that copper contraction increases stage separation in this case. As before, we have,
+\begin{eqnarray}
+L_{eq \ 300K} = L_{NbTi} \cdot (1 - 0.0107) \\
+L_{eq} = (L_{eq \ 300K})\cdot\left(1 - \left|\frac{\Delta L_{NbTi}}{L_{NbTi}}\right|\right)
+\end{eqnarray}
+with the same designations as before. Putting these into the strain equation gives $\approx 2.13 \%$ strain. This will be slightly less (about $2\%$) if the high CTE for graphite is used. From this we find,
+$$
+Stress = E \cdot Strain = 75.15e9 \cdot 0.0213 = 1604MPa
+$$
+
+This stress is much higher than the 5K - 1K coax stress. This is expected due to the short length of the wires for this span, as well as the large length of copper which is contracting. Though there is also a large length of graphite, its low CTE means it won't affect the total stress significantly.
+
+\section{Acceptability of Stresses}
+
+To see whether these loads are acceptable or not, we must know the yield strength for our NbTi alloy at base temperature. Our alloy, provided by Tekdata, is 47\% by weight Ti, which corresponds to 36.75\% \emph{Niobium} in atomic percentage. Yield strengths for similar alloys were found in the literature to range from 1230 MPa (34\% atm Nb, cold-worked) to 1750 MPa (39\% atm Nb, cold-worked and heat-treated) at 4.2K \cite{Collings1986}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width = .7\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/App_a_figs/NbTi_stress.png}
+\caption{Stress v. Strain curve for Tekdata's Nb-47Ti (wt \%) alloy at room temperature. The maximal stresses/strains at base temperature are shown for the 5K-1K coax and 1K-40mK coax by a dot-dashed and a dashed line respectively. The range of yield strengths for similar alloys (and their corresponding strains) are given by the hatched region in the plot.  We see that the 1K-40mK line may be exceeding its yield strength at base. The alloys used were 34\% atm Nb, cold-worked (1230MPa) and 39\% atm Nb, cold-worked and heat-treated (1750 MPa) at 4.2K \cite{Collings1986}. Our alloy is 36.75\% \emph{Niobium} in atomic percentage.}
+\end{figure}
+
+The room temperature stress v. strain curve for our specific NbTi alloy is shown in Figure A.3. The range of yield strengths is shown in the hatched region. We see that the 5K - 1K coax is well below either yield strength; however, the 1K - 40mK coax stress falls well into the range for yield strengths of similar compositions.
+
+To know for sure whether this is a real issue in our tower, we would need to 1), obtain the yield strength for our specific alloy/thermo-mechanical preparation and 2), find the young's modulus at low temperatures for our alloy. However, given that most materials tend toward a higher young's modulus at lower temperatures, there is a strong likelihood that this has been a problem in the Soudan towers.
+
+
+\chapter{Thermal Conductivity Variation of Trace Materials}
+
+Through a literature search and -- in some cases -- through testing, we have compiled thermal conductivities for candidate trace materials for the phonon cable. These thermal conductivities are shown to vary depending on the source of the material, its specific composition, and sometimes for unknown reasons (such as possible measurement error, natural material variation, etc.) The thermal conductivities of five candidate trace materials are presented here.
+ 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH4_figs/mang_variation.png}
+\caption{Thermal conductivity of Manganin wire by composition and author. There is little variation between data sets, suggesting a consistent, reproducible, thermal conductivity for Manganin wire.}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH4_figs/cuni_variation.png}
+\caption{Thermal conductivity of Manganin wire by composition and author. There is little variation between data sets, suggesting a consistent, reproducible, thermal conductivity for Manganin wire.}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH4_figs/ss_variation.png}
+\caption{Thermal conductivity of Manganin wire by composition and author. There is little variation between data sets, suggesting a consistent, reproducible, thermal conductivity for Manganin wire.}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH4_figs/ti153_variation.png}
+\caption{Thermal conductivity of Manganin wire by composition and author. There is little variation between data sets, suggesting a consistent, reproducible, thermal conductivity for Manganin wire.}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH4_figs/nbti_variation.png}
+\caption{Thermal conductivity of Manganin wire by composition and author. There is little variation between data sets, suggesting a consistent, reproducible, thermal conductivity for Manganin wire.}
+\end{figure}
+
+
+Thermal conductivity literature for trace material candidates. Variation between samples is largely due to varying thermo-mechanical treatment after production. In (b), Tekdata and Akerib measurements were performed on same wires used in CDMS Charge readout coaxes. In (d), Stainless alloys with similar composition to SS316 were used. Arrows indicate data sets used for graph in Section 1.2.
+
+
+
+\chapter{Fluctuation in Resistance for Ti15-3-3-3 Trace}
 The transition temperature of Ti 15-3-3-3 into its superconducting state is 3.89K \cite{wik}. If this material were used as a trace from the 4K stage to the Still of our towers, a portion of the trace would be in a normal state. This would give the line a resistance. Assuming the resistance of the line is low (tens of ohms), this is not a concern ; Fluctuating resistance, however, is a concern. As power loads to the fridge stages vary (from LED heating, circulation changes, etc.), the temperature gradient along the traces will vary as well. This will cause more/less of the line to be in a superconducting state -- varying resistance. The magnitude of these changes was calculated.
 
 \begin{figure}[h]
@@ -1366,7 +1668,7 @@ The transition temperature of Ti 15-3-3-3 into its superconducting state is 3.89
 \caption{}
 \end{figure}
 
-\subsection{Determining the Temperature Profile for Ti 15-3-3-3 Traces}
+\section{Determining the Temperature Profile for Ti 15-3-3-3 Traces}
 The temperature profile along a Ti 15-3-3-3 trace was calculated, assuming steady-state planar heat flow. To do this, consider the trace in two sections -- one with length $l$ and the other with length $L-l$, where $L$ is the overall length of the trace, as shown in Figure 10. In steady-state, the power through these two sections will be equal, so
 \begin{eqnarray}
 \frac{A}{l}\int_{T}^{T_{high}} k(T)dT = P = \frac{A}{L - l}\int_{T_{low}}^{T} k(T)dT
@@ -1383,7 +1685,7 @@ which can be integrated to find the temperature at any point $l$ along the trace
 \caption{}
 \end{figure}
 
-\subsection{Resistivity of Ti 15-3-3-3}
+\section{Resistivity of Ti 15-3-3-3}
 The resistance of Ti 15-3-3-3 was measured by P. Wikus et al. Using the given dimensions, we converted to resistivity. This was then fitted to an equation to enable us to find the resistivity of Ti 15-3-3-3 as a function of temperature. The fitted resistivity is shown in Figure 12.
 
 \begin{figure}[h]
@@ -1392,7 +1694,7 @@ The resistance of Ti 15-3-3-3 was measured by P. Wikus et al. Using the given di
 \caption{Resistivity of Ti 15-3-3-3 showing $T_c$ at 3.89K}
 \end{figure}
 
-\subsection{Total Resistance of Trace}
+\section{Total Resistance of Trace}
 
 Combining the resistivity and temperature profiles, the trace was subdivided into sections, each assigned a length, and the resistance was calculated for each. From this, the total resistance of the line was calculated. We find,
 
@@ -1414,11 +1716,11 @@ Combining the resistivity and temperature profiles, the trace was subdivided int
 
 \restoregeometry
 
-\section{Appendix A: Aluminum as a Candidate Trace Material}
+\chapter{Aluminum as a Candidate Trace Material}
 
 Aluminum is naturally under consideration as a trace material, due to its well known properties and widespread use. Fabrication time for a stripline would be reduced by using Aluminum, as the company fabricating the line, Tech-Etch, has used it as a trace material in the past. A new material, such as Ti15-3-3-3 would require significantly more time to go through the development process. Therefore, it is in our best interest to examine the feasibility of an Aluminum-trace stripline. Considerations for its suitability include its thermal conductivity, coefficient of thermal expansion (CTE), and critical temperature ($T_{c}$).
 
-\subsection{Thermal Conductivity of Al5056}
+\section{Thermal Conductivity of Al5056}
 
 The Aluminum used by Tech-Etch is 5052-H19, however members of our collaboration were unable to find low temperature thermal conductivity data for this alloy. The thermal conductivity of another alloy, Al5056, was found to be very similar in normal state, so was used a proxy for 5052-H19. The thermal conductivity of Al5056 was determined from \cite{coc} for the range 600mK down to 50mK as,
 \begin{equation}
@@ -1433,7 +1735,7 @@ This thermal conductivity is compared to other phonon stripline candidate materi
 \end{figure}
 
 
-\subsection{Aluminum Heat Load}
+\section{Aluminum Heat Load}
 
 To see if Al will work as a trace material, the thermal power conducted from 600mK to 50mK must be within our thermal budget for the 50mK still of our fridge. The power conducted between a thermal gradient is given by equation 1 in the report. Using a thickness of 1 mil, width of 40 mils, and a trace length of 0.79 inches we can calculate the power for each trace. Assuming 16 traces per detector and 6 detectors per tower, as well as accounting for Kapton heat load, we are able to estimate the total flex cable heat load per tower. The loads for Al5056 are compared with other trace materials in table 7.
 
@@ -1467,8 +1769,9 @@ The trace material for our striplines must be in a superconducting state for the
 
 Due to the high thermal conductivity of Aluminum, and the resulting heat load, as well as the low $T_{c}$, our collaboration has decided that it is unsuitable as a trace material.
 
+\end{appendices}
 
 \newpage
-\bibliography{thesis}
+\bibliography{C:/Users/Niko/Documents/LaTex/Bibliographies/thesis}
 
 \end{document}
