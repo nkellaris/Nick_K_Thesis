@@ -22,6 +22,8 @@
 \usepackage[section]{placeins}
 \usepackage[toc,page]{appendix}
 
+\providecommand{\e}[1]{\ensuremath{\times 10^{#1}}}
+
 \title{Development of Thermal Stand-offs and a Phonon Read-out Transmission Line for the CDMS SNOLAB Detector Towers}
 \author{Nicholas Kellaris}
 
@@ -341,7 +343,7 @@ These leakage events are electron recoil interactions which occur in the "dead z
 
 \subsection{SuperCDMS SNOLAB}
 
-The next generation CDMS experiment will take place in the Sudbury mine in Ontario, Canada. This mine is nearly three times as deep as Soudan, which will render the muon flux negligible. Furthermore, the design of the detector will change once more so that it is larger, with six phonon channels and two charge channels on each side, as seen in Figure 1.11 c), which leads to a further increase in signal sensitivity and improves rejection of backgrounds. Additionally, we will be using HEMTs (High-electron-mobility transistors) instead of FETs as low-noise amplifiers. This provides a huge reduction in power dissipation to the tower, as FETs must be heated to 100K to operate (they freeze out below this temperature. Another advancement in the experiment is the consideration of an active neutron veto, which is estimated to be capable of rejecting 79\% of all neutron-induced backgrounds \cite{DOE}. In addition, this experiment will be a massive upscaling in detector mass (around 200kg as compared to $\sim$10 kg for previous experiments). Figure 1.13 shows the projected upper limit of $\sigma \approx 8 \cdot 10^{-47} cm^2$ for the spin-independent cross section for SuperCDMS SNOLAB in comparison to results from previous experiments.
+The next generation CDMS experiment will take place in the Sudbury mine in Ontario, Canada. This mine is nearly three times as deep as Soudan, which will render the muon flux negligible. Furthermore, the design of the detector will change once more so that it is larger, with six phonon channels and two charge channels on each side, as seen in Figure 1.11 c), which leads to a further increase in signal sensitivity and improves rejection of backgrounds. Additionally, we will be using HEMTs (High-electron-mobility transistors) instead of FETs as low-noise amplifiers for the charge signal. This provides a huge reduction in power dissipation to the tower, as FETs must be heated to 100K to operate (they freeze out below this temperature. Another advancement in the experiment is the consideration of an active neutron veto, which is estimated to be capable of rejecting 79\% of all neutron-induced backgrounds \cite{DOE}. In addition, this experiment will be a massive upscaling in detector mass (around 200kg as compared to $\sim$10 kg for previous experiments). Figure 1.13 shows the projected upper limit of $\sigma \approx 8 \cdot 10^{-47} cm^2$ for the spin-independent cross section for SuperCDMS SNOLAB in comparison to results from previous experiments.
 
 \begin{figure}[h]
 \centering
@@ -390,14 +392,11 @@ The tower supports were designed to be strong enough to withstand varied loads d
 \section{Vacuum Coaxes}
 Wiring must be routed down the side of the tower to the detector stack in order to control the detectors and read them out. The current design uses vacuum coaxes. These consist of .0012" diameter niobium-titanium (NbTi) wires suspended in rectangular grooves in the tower faces, which act as shielding. The grooves which encase each suspended wire are visible in the left image in Figure 2.1.
 
-The vacuum coaxes were chosen for multiple reasons: First, they offer very low noise pick-up. This is critical when the signals being read-out from the detectors are so small. Second, they prevent any charge build-up (?). Third, they minimize heat conduction between stages, because the bare NbTi wires are the only connection which is contiguous between all stages. This, in conjunction with the very low thermal conductivity of NbTi, provides very low heat conduction. Lastly, NbTi wires are superconducting below approximately 10K, which gives us zero resistance wiring to minimize signal loss before amplification.
+The vacuum coaxes were chosen for multiple reasons: First, they offer very low noise pick-up. This is critical when the signals being read-out from the detectors are so small. Second, they prevent any static charge build-up, which causes noise. Third, they minimize heat conduction between stages, because the bare NbTi wires are the only connection which is contiguous between all stages. This, in conjunction with the very low thermal conductivity of NbTi, provides very low heat conduction. Lastly, NbTi wires are superconducting below approximately 10K, which gives us zero resistance wiring to minimize signal loss before amplification.
 
 \section{Connector Tube}
 The tower connector tube is a cylindrical OFHC Copper tube which connects -- both physically and thermally -- the 10mK floor to the detectors. The purpose of this tube is two-fold: First, it roughly centers the detectors in the icebox of the fridge. This simplifies Monte Carlo simulations of detector performance. Second, it distances the radioactivity-sensitive detectors from the tower materials, which may be more radioactive than other materials in the experiment. Increasing the distance to the tower decreases the solid angle that the detectors subtend from the tower's position, which decreases the probability that an emitted radioactive particle will strike the detectors.
 
-\section{Thermal Load Contributions for SuperCDMS Soudan}
-
-To determine
 \section{Future Tower Considerations}
 Though the design and technology used will change for the SNOLAB tower, many of the considerations which went into designing the SuperCDMS Soudan tower will remain into the new design. As shown above, these considerations are numerous, and often competing (such as maximizing support strength while minimizing thermal conduction). Moving forward with the new tower design, these considerations should be kept in mind.
 
@@ -668,7 +667,7 @@ The tower thermal stand-offs are a structural component of the tower, so the phy
 \textbf{Material} & $\rho$ ($g/cm^3$) & $\nu$ & $\sigma_{t}$ (MPa) & $\sigma_{c}$ (MPa)
 & $\sigma_{f}$ (MPa) & CTE $(\mu m/(m\cdot C^o))$ \\
 \midrule
- UF-4S Graphite & 1.76  & 0.2 & 20$^{\dag}$ & 50$^{\dag}$ & 27.6 & 1.8-2.9 \\
+ UF-4S Graphite & 1.76  & 0.2 & 18.4$^{\dag}$ & 55.2$^{\dag}$ & 27.6 & 1.8-2.9 \\
  2020 Graphite & 1.77 & 0.15 & 29 & 98 & 45 & 4.3 \\
  POCO AXM-5Q & 1.73 & 0.3$^{*}$ & 48 & 124 & 69 & 7.8 \\
  Ti 15-3-3-3 & 4.71 & 0.36 & 1117 & 1052 & - & 8.45 \\
@@ -789,7 +788,7 @@ The dimensions of the SuperCDMS Soudan thermal stand-offs were selected arbitrar
 \caption{Destructive physical analysis of Soudan tower. The 600mK floor was bolted to the 50mK tabs to support it, isolating the 10mK floor and its support. This was then loaded until failure under transverse shear. It failed at $\sim$145 pounds in what appears to be compressive failure.}
 \end{figure}
 
-The load conditions which we wish to design to for the SNOLab towers are not yet defined; therefore, as a first pass, we will consider it sufficient to replicate the strength of the Soudan tower stand-offs, which are able to withstand up almost 145lbs applied as a transverse shear force. This was found through a destructive physical analysis (DPA) of a Soudan tower. The tower was clamped in a bench vise, and the 600mK floor was bolted to the 50mK tabs to support it the 600mK to 50mK tube. This isolated the 10mK floor and the tube attached to it. A strap was hung over the 10mK floor, and loaded to $\sim$145 pounds before the tube failed. The load conditions and tube failure are shown in Figure 3.8. This load can be approximated by a transverse shear load. Therefore, our model will design stand-offs which can support 145 pounds as a transverse shear load.
+The load conditions which we wish to design to for the SNOLab towers are not yet defined; therefore, as a first pass, we will consider it sufficient to replicate the strength of the Soudan tower stand-offs, which are able to withstand up almost 145lbs applied as a transverse shear force. This was found through a destructive physical analysis (DPA) of a Soudan tower. The tower was clamped in a bench vise, and the 600mK floor was bolted to the 50mK tabs to support it the 600mK to 50mK tube. This isolated the 10mK floor and the tube attached to it. A strap was hung over the 10mK floor, and loaded to $\sim$145 pounds before the tube failed. The load conditions and tube failure are shown in Figure 3.8. This load can be approximated by a transverse shear load on a tube with "clamped edges". Therefore, our model will design stand-offs which can support 145 pounds as a transverse shear load.
 
 \subsection{Analytical Model for Tube Failure}
 
@@ -806,7 +805,7 @@ Our model considers 4 failure modes:
 A discussion of the formulas for failure modes considered and their validities follow.
 
 \subsubsection{Tube Geometry}
-Cylindrical shell theories depend heavily on certain parameters in the shell, as these permit various simplifications of mechanical models. The graphite tube tested had nominal dimensions of thickness $t = 0.028$in, radius $a = 0.986$in (to middle surface), and length $L=1.334$in.
+Cylindrical shell theories depend heavily on certain parameters in the shell, as these permit various simplifications of mechanical models. The tube we will initially try to model is the graphite tube broken in the DPA. The graphite tube tested had nominal dimensions of thickness $t = 0.028$in, radius $a = 0.986$in (to middle surface), and length $L=1.334$in.
 
 For theory, the relevant geometric ratios are
 \begin{eqnarray}
@@ -815,79 +814,78 @@ For theory, the relevant geometric ratios are
 Z = \frac{(1-\nu^2)^\frac{1}{2}L^2}{at} = 61.5 \ (\text{for $\nu$ = 0.3})
 \end{eqnarray}
 
-where Z is Donnell's parameter. These values imply a fairly thin shell of intermediate length. For dimension optimization, these values may change, and the model may need adjustment. Below are the formulas which are used for Z near this value.
+where Z is Donnell's parameter. These value imply a fairly thin shell of intermediate length. For dimension optimization, these values may change, and the model may need adjustment. Below are the formulas which are used for Z near this value.
 
 \subsubsection{Shear Instability}
 
-The tube may fail due to shear instability. According to Yamaki, this will occur when the maximum shear stress, $\tau_{f} = P/\pi at$ exceeds critical torsional stress from a purely torsional load,
-$$
-\tau{b} = \frac{\pi^2E}{12(1-\nu^2)}(1-\nu^2)^{\frac{3}{8}}a_s\left(\frac{t}{a}\right)^{\frac{5}{4}}\left(\frac{a}{L}\right)^{\frac{1}{2}}~~,
-$$
+The first failure mode considered is shear instability. Shear instability in will occur when the maximum shear stress in the material, $\tau_{f} = P/\pi at$ exceeds critical torsional stress from a purely torsional load. This torsional stress is given by Yamaki (\cite{Yamaki1984}) as
+\begin{eqnarray}
+\tau_{b} = \frac{\pi^2E}{12(1-\nu^2)}(1-\nu^2)^{\frac{3}{8}}a_s\left(\frac{t}{a}\right)^{\frac{5}{4}}\left(\frac{a}{L}\right)^{\frac{1}{2}}~~,
+\end{eqnarray}
 
-where $a_{s}$ is between 0.81 and 1.04 for $Z \in [50,100]$. As dimensions change, Z could become as high as 400, for which $a_{s}$ is between 0.81 and 0.91. For either case, the lower value of 0.81 is taken to be conservative.
-
-The number of circumferential waves present in buckling is
-$$
-N = \pi(1-\nu^2)^{\frac{1}{8}}b_{s}\left(\frac{a}{L}\right)^{1/2}\left(\frac{a}{t}\right)^{1/4},
-$$
-where $b_{s}$ is between 0.8 to 1.15 for the range of Z values.
-
-This value gives between 3 and 5 waves depending on material/dimensions. Donnell's (typically used above 5 waves though!) shell theory will only give errors of $\sim$4\% at 3 waves. Above 3 waves the error decreases quickly. For graphite at current dimensions we have 5 waves, assuring accuracy.
+using Donnell's thin shell theory. $a_{s}$ is between 0.81 and 1.04 for $Z \in [50,100]$. As dimensions change, Z could become as high as 400, for which $a_{s}$ is between 0.81 and 0.91. For either case, the lower value of 0.81 is taken to be conservative.
 
 To get critical load ($P_{c}$), set $\tau_{f} = \tau_{b}$ and solve for P:
-$$
-P_{c}^{s} = \frac{\pi^3E}{12(1-\nu^2)^{\frac{-5}{8}}}a_{s}\frac{a^{1/4}t^{9/4}}{L^{1/2}}
-$$
+\begin{eqnarray}
+P_{c}^{s} = \frac{\pi^3E}{12(1-\nu^2)^{-\frac{5}{8}}}a_{s}\frac{a^{1/4}t^{9/4}}{L^{1/2}}
+\end{eqnarray}
+
+To test the validity of Donnell's shell theory in this case we must determine the number of circumferential post-buckling waves present in the shell. This is found from \cite{Yamaki1984},
+\begin{eqnarray}
+N = \pi(1-\nu^2)^{\frac{1}{8}}b_{s}\left(\frac{a}{L}\right)^{1/2}\left(\frac{a}{t}\right)^{1/4},
+\end{eqnarray}
+where $\nu$ is poisson's ratio, and $b_{s}$ is related to the boundary conditions, and is between 0.8 to 1.15 for the range of Z values.
+
+This value gives between 3 and 5 waves depending on material/dimensions. Yamaki recommends fully trusting Donnell's shell theory when the wave number is $\geq$5. However, it will only give errors of $\sim$4\% and $\sim$2\% at three and four waves respectively. For current graphite dimensions, we have 5 waves, ensuring accuracy. We must be careful of changing values throughout the optimization process, however.
+
 
 \subsubsection{Bending Instability}
 
-Bending instability can also occur in the case of transverse loading. This will occur as local buckling when the maximum stress (tensile or compressive) is exceeded. Approximating the tube as a membrane, the stress is $\sigma_{b} = PL/a^2t\pi$. The tube fails at a critical stress reasonably approximated by
-$$
+When dealing with transverse loading, the material may fail due to bending instability. This will occur as local buckling once the maximum compressive stress in the shell wall exceeds some critical value. Approximating the tube as a membrane, the maximum stress in the tube is given by $\sigma_{b} = PL/a^2t\pi$. maximal stress before bending buckling in transverse loading is the same, locally, as for axial compression resulting in axisymmetric buckling. Ba$\check{z}$ant (\cite{Bazant1991}) gives this critical stress a value of,
+\begin{eqnarray}
 \sigma_{c}=\frac{E}{\sqrt{3(1-\nu^2)}}\frac{t}{a}.
-$$
+\end{eqnarray}
+for Z values greater than 2.85, where E is the modulus of elasticity of the material.
 
-Combining these gives the critical load for localized bending buckling as:
+Combining these two conditions gives the critical load for localized bending buckling as:
 
-$$
+\begin{eqnarray}
 P_{c}^{b} = \frac{E \pi}{\sqrt{3(1-\nu^2)}}\frac{t^2a}{L}
-$$
+\end{eqnarray}
+
 \subsubsection{Material Failure: Normal Stresses}
 
-The material may fail simply from exceeding its normal stress limit, $\sigma_{f}$ where $\sigma_{f}$ is the minimum of tensile or compressive strength. Then the failure load for this failure is:
-$$
-P_{c}^{mb} = \sigma_{f} \pi \frac{a^2t}{L}
-$$
+The material may fail simply from exceeding its normal stress limit, $\sigma_{f}$ where $\sigma_{f}$ is the minimum of tensile or compressive strength. Then the maximum load for normal material failure ($P_{c}^{mn}$) is:
+
+\begin{eqnarray}
+P_{c}^{mn} = \sigma_{f} \pi \frac{a^2t}{L}
+\end{eqnarray}
+
+
 \subsubsection{Material Failure: Shear Stresses}
 
-Failure can also occur from the tube exceeding its shear stress limit, $\tau_{f}$. In ductile materials, $\tau_{f} \approx \sigma_{f}/2 \ \text{or} \ \sigma_{f}/\sqrt{3}$. Brittle material values (such as graphite) can be approximated from $\tau_{f} = \sigma_{t}\sqrt{R/3} $ where $R = \sigma_{c}/\sigma_{t}$ (compressive/tensile).
+Failure can also occur from the tube exceeding its shear stress limit, $\tau_{f}$. In ductile materials, $\tau_{f} \approx \sigma_{f}/2 \ \text{or} \ \sigma_{f}/\sqrt{3}$. Brittle material values (such as graphite) can be approximated from $\tau_{f} = \sigma_{t}\sqrt{R/3} $ where $R = \sigma_{c}/\sigma_{t}$ (compressive/tensile) \cite{Ely1965}.
 
 Given $\tau_{f}$, the predicted critical load for shear failure is:
-$$
+\begin{eqnarray}
 P_{c}^{ms} = \tau_{f}\pi at
-$$
+\end{eqnarray}
 
 \subsubsection{Plotting Failure Curves}
 
-Using the available material properties, we are able to produce the following graphs in figure 2. Each point along each line represents the radius and thickness that will give a failure load of 145lbs (as found in Dennis' tower break test). The upper right side of each line represents safe design dimensions. The green line follows the dominating failure mode at any point along the graph, therefore, the dimension space above this line represents safe design space.
+Now that we have defined the failure modes under consideration, we must plot these failure curves for a variety of dimensions to determine the safe parameter space for each material. We do this by rearranging the critical load equations such that we have thickness as a function of radius ($t = f(a)$) assuming that the length (L) of each stage is a fixed value. For bending instability, for instance, we have
+\begin{eqnarray}
+t = \left(\frac{P_{c}^b L^\frac{1}{2}}{\pi^3 E (1-\nu^2)^\frac{5}{8}a_s a^{1/4}}\right)^{4/9}
+\end{eqnarray}
 
-%\begin{figure}[htb]
-%\begin{minipage}[t]{.45\textwidth}
-%\includegraphics[width=\textwidth]{Graphite_Failure100mK40mK.png}
-%\end{minipage}
-%\begin{minipage}[t]{.45\textwidth}
-%\includegraphics[width=\textwidth]{Vespel_Failure5K1K.png}
-%\end{minipage}
-%\end{figure}
-%\begin{figure}[htb]
-%\begin{minipage}[t]{.45\textwidth}
-%\includegraphics[width=\textwidth]{Vespel_Failure1K100mK.png}
-%\end{minipage}
-%\begin{minipage}[t]{.45\textwidth}
-%\includegraphics[width=\textwidth]{Ti15333_Failure.png}
-%\end{minipage}
-%\caption{Theoretical failure curves for different materials for 145lb load. The green dashed line represents minimum (thus optimum) dimensions for a 145lb load. Actual CDMS
-%Graphite dimensions are plotted as an '*' for comparison.}
-%\end{figure}
+From here, given the available material properties (Table 3.4 and 3.5) and selecting a desired failure load, we are able to produce a safe parameter-space graph (i.e. one which tells us what dimensions are needed to support a weight up to the failure limit).
+
+To determine its accuracy, we first apply our model to the current graphite tubes. Using the dimensions of the 50mK-10mK stage tube, and designing for a break strength of 145 lbs (as in the DPA) we obtain Figure 
+
+\begin{figure}[ht]
+\includegraphics[width = .6\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH3_figs/UF_4S_failure.png}
+\caption{Failure curves for UF-4S graphite used in the 50mK-10mK stage SuperCDMS Soudan tower (L = 1.334in). We plot two buckling modes and two material failure modes. In the plot, the highest line at any given radius (a) is the dominating failure mode for that region. This is shown by the green dashed line. Combinations of a/t to the upper right of this line represent dimensions whose failure limits are above 145lbs (as set by the DPA); therefore, this region represents the safe parameter space for design. The actual dimensions (t = 0.028", a = 0.986") for the graphite tube are marked by an X. We see that the discrepancy between our model and reality is $\sim$20\%. This may be due to the uncertainty in material properties in Table 3.4 and 3.5.}
+\end{figure}
 
 The predicted failure curves for CDMS graphite can be seen in the upper-left graph. The predicted dimensions for CDMS Graphite deviate $15-23\%$ from actual values of Radius = 1in, Thickness = 0.028in. The graphite model is still rough, however, as the values of tensile and compressive strength used were those approximated in table 3. These should be verified before further progress is made.
 
@@ -899,25 +897,6 @@ to the problem of minimizing cross-section. Therefore, radioactivity and heat lo
 
 The graphs in figure 3 plot radioactivity and thermal power as a function of radius. The thickness of the tube at any radius is implicitly the thickness from the optimal dimension
 pairs obtained from the failure limit lines in figure 2.
-
-%\begin{figure}[htb]
-%\begin{minipage}[t]{.48\textwidth}
-%\includegraphics[width=\textwidth]{VSP1_Graphite_5K1K.png}
-%\end{minipage}
-%\begin{minipage}[t]{.48\textwidth}
-%\includegraphics[width=\textwidth]{VSCP5000_Graphite_5K1K.png}
-%\end{minipage}
-%\end{figure}
-%\begin{figure}[htb]
-%\begin{minipage}[t]{.48\textwidth}
-%\includegraphics[width=\textwidth]{VSP1_Graphite_1K100mK.png}
-%\end{minipage}
-%\begin{minipage}[t]{.48\textwidth}
-%\includegraphics[width=\textwidth]{Ti15333_Graphite_100mK40mK.png}
-%\end{minipage}
-%\caption{Radioactivity and Thermal Power for varying dimensions. The green shaded regions represent the uncertainty in radioactivity given in table 2. The regions bounded by black
-%dashed lines are those of the candidate materials. Point 1 gives current graphite heat load, while point 2 (including error bars) gives current graphite radioactivity.}
-%\end{figure}
 
 It is obvious that the candidate materials offer significant improvement over the current UF-4S Graphite. The heat load improvement per stage is examined below. For simplicity,
 the values along the optimum lines have been used.
@@ -1080,7 +1059,7 @@ The next generation of the CDMS experiment -- SuperCDMS SNOLab -- features subst
 
 \section{Phonon Readout Cable}
 
-For SuperCDMS SNOLab, the phonon readout lines will move from a vacuum coax design, to a flexible transmission line. The primary impetus for this is that the new SQUIDs will require a transmission line with a much lower inductance between the detectors and the SQUIDs. From here, we have the secondary design considerations of low thermal conductance and resistance limits. Low thermal conductance is especially important for the new phonon readout line for two reasons: First, the flexible transmission line has a substrate, which includes much more material than a vacuum coax, so has more potential for high heat loads. Second, we are increasing the phonon channels per detector from 4 to 6, so there will be increased trace numbers (which increases transmission line width). Last, we must meet two resistance requirements. The first requires superconducting traces between the detectors and the SQUIDs, while the second sets an as-of-yet undefined resistance limit on the traces from the SQUIDs to the HEMTs.
+For SuperCDMS SNOLab, the phonon readout lines will move from a vacuum coax design, to a flexible parallel strip transmission line. The primary impetus for this is that the new SQUIDs will require a transmission line with a much lower inductance between the detectors and the SQUIDs. From here, we have the secondary design considerations of low thermal conductance and resistance limits. Low thermal conductance is especially important for the new phonon readout line for two reasons: First, the flexible transmission line has a substrate, which includes much more material than a vacuum coax, so has more potential for high heat loads. Second, we are increasing the phonon channels per detector from 4 to 6, so there will be increased trace numbers (which increases transmission line width). Last, we must meet two resistance requirements. The first requires superconducting traces between the detectors and the SQUIDs, while the second sets an as-of-yet undefined resistance limit on the traces from the SQUIDs to the 4K stage. The cable under consideration in this section spans the mixing chamber to 4K stage section. Throughout this section, the nominal temperatures for each tower stage will be used interchangeably with the stage name: 600mK/Still, 50mK/Cold Plate (CP), and 10mK/Mixing Chamber (MC).
 
 \subsection{Thermal Conductivity of Constituent Materials}
 
@@ -1097,6 +1076,7 @@ Though there are other options for substrate materials, Kapton is the default fo
 
 \begin{table}[h]
 \centering
+\rowcolors{3}{gray!20}{white}
 \begin{threeparttable}
 \begin{tabular}{llclr}
 \toprule
@@ -1118,46 +1098,37 @@ Baudouy \cite{Baudouy2003} & HN & $\perp$ & $22.8 + 24.0 \cdot T$ & 1.4 - 2 \\
 \end{threeparttable}
 \end{table}
 
-
-\subsection{Thermal Conductivities of Trace Materials}
-
-The thermal budget is very tight for the phonon line, as the thermal conductance is already expected to be much higher than for the current vacuum coax design, so thermal conductivity is a large consideration for trace material selection. Figure 4.2 presents the thermal conductivities of candidate materials; in the cases where multiple thermal conductivities are given for each material, we give rough upper and lower limits on thermal conductivity (from a literature search and from our own testing).
-
 \begin{figure}[h]
 \centering
-\includegraphics[width = .8\textwidth]{Trace_material_k.png}
-\caption{Thermal conductivities for trace materials. High and low values were taken from the literature when a significant variation was present among data. Data from: Haasbroek \cite{has}, Barucci \cite{Barucci2008}, Corzett\{cor}, Olson \cite{ols}, Fairbank \cite{fair}, Wikus \cite{wik}, Dyachkov \cite{dya}.}
+\includegraphics[width = .65\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/App_b_figs/trace_variation.png}
+\caption{Thermal conductivities for trace materials. High and low values were taken from the literature when a significant variation was present among data. Notice that, based on thermal conductivity, TiMetal Ti 15-3-3-3 is the best candidate for all stages of the phonon cable. Data from: Barucci \cite{Barucci2008}, Corzett \cite{cor}, Olson \cite{ols}, Fairbank \cite{fair}, Wikus \cite{wik}, Dyachkov \cite{dya}.}
 \end{figure}
 
 
-\subsection{Resistivities of Trace Materials}
-Since Ti15-3 has a transition temperature of 3.9K (as measured at MIT), it will not be in a superconducting state throughout the 4.2K - 600mK span. However, as long as the resistivity remains low, it can still be used. Table 2 presents the resistivity as compared to other possible trace materials.
+\subsubsection{Thermal Conductivities of Trace Materials}
 
-\begin{table}[h]
-\centering
-\begin{threeparttable}
-\begin{tabular}{l|c|c|c|c}
-Alloy & \multicolumn{3}{c}{Resistivity in $\mu$ $\Omega$ $cm$} \\\toprule
- & 300K & 273K & 10K & 4.2K \\\midrule
-70Cu-30Ni & - & 38.4 & - & 36.4 \\
-Constantan & 49.1 & - & 46.1 & - \\
-Manganin (4\%Ni) & 47.6 & - & 41.9 & - \\
-Ti15-3 & 146 & - & - & 173 \\
-SS316 & - & 76.5 & - & 55.3 \\
-50Nb-50Ti & 76.7 & - & 54 & 0 \\
-\end{tabular}
-\end{threeparttable}
-\caption{Resistivities of possible trace materials.}
-\end{table}
+The thermal budget is very tight for the phonon line, as the thermal conductance is already expected to be much higher than for the current vacuum coax design, so thermal conductivity is a large consideration for trace material selection. Figure 4.2 presents the thermal conductivities of candidate materials; in the cases where differing thermal conductivities are given for a material, we give rough upper and lower limits on thermal conductivity (from a literature search and from our own testing).
 
-Though the resistivity of Ti15-3 is higher than other candidate materials, if we consider a trace 10 mils wide and 1 mil thick, we get a resistance of
-$$
-\frac{R}{Length} = \frac{173 \cdot 10^{-6} \Omega cm}{6.45 \cdot 10^{-5} cm^{2}} = 2.68 \Omega / cm
-$$
+From the figure, we see that Ti 15-3-3-3 has wildly varying thermal conductivities depending on the source and form of the material. The ReTi Ti 15-3-3-3 results were measured in our lab, and don't inspire confidence in Ti 15-3-3-3 sourced from companies besides TiMetal. We plan to verify the Wikus results for TiMetal Ti 15-3-3-3 in our lab soon to determine if the material truly exhibits such a steep drop in thermal conductivity for temperatures below its critical temperature of 3.9K \cite{wik}.
 
-\subsection{Phonon Transmission Line Dimensions}
+\subsubsection{Thermal Conductivity of Epoxy Adhesive}
 
-The new proposed dimensions for the phonon transmission line are shown below. The total widths of the lines (as given below) are larger than previously thought, which may alter design considerations. The trace separation is 10 mil between every trace, regardless of width. Though this places adjacent traces near one another, by alternating trace types as shown in Figures 3,4, and 5, we can increase the spacing between the lines whose cross-talk we are concerned with.
+The cable will likely be built using an epoxy adhesive to join layers together. The adhesive comes in a sheet which is then cured above room temperature. Unfortunately, we know next to nothing about the properties of the epoxy. This is worrisome, as epoxies (such as Stycast 1266) often have thermal conductivities above Kapton. Given that the majority of our cable will be epoxy (as described in section 4.3), we plan characterize the thermal conductivity of the epoxy as soon as possible.
+
+\begin{figure}[h]
+\begin{center}
+\subfloat[]{\includegraphics[width = .75\textwidth]{4K_600mK_diagram.png}}\newline
+\subfloat[]{\includegraphics[width = .75\textwidth]{600mK_50mK_diagram.png}}\newline
+\subfloat[]{\includegraphics[width = .75\textwidth]{50mK_10mK_diagram.png}}
+\caption{Representative cross-section for various stages of the parallel trace transmission line for phonon readout. (a),(b), and (c) show the cross sections for the 4K-600mK, 600mK-50mK, and 50mK-10mK spans respectively. All types of trace pairs are shown, but not all pairs of each trace type. The bottom traces in each figure are return lines.}
+\end{center}
+\end{figure}
+
+\subsection{Phonon Transmission Line Layout and Dimensions}
+
+Our collaboration has decided that a vertically-spaced parallel strip transmission line would best satisfy the required conditions for a phonon cable. A cross-section of the transmission line proposed is shown in Figure 4.3. It will be a multi-layer transmission line with individual signal/return lines vertically spaced, as shown in the figure. The design is similar to one used in EBEX cabling \cite{Polsgrove2009} for low inductance and low thermal conductance. The trace types are interleaved in order to decrease cross-talk between the SQUID signal lines. Throughout this section, keep in mind that our goal is to minimize cross-sections and material amounts, while satisfying other constraints.
+
+The lists below give the full trace count for the proposed cable at different stages, as well as some useful dimensions for various calculations.
 
 \begin{itemize}
 \item 4.2K to 600mK
@@ -1190,30 +1161,6 @@ The new proposed dimensions for the phonon transmission line are shown below. Th
     \end{itemize}
 \end{itemize}
 
-\newpage
-
-\begin{figure}[h]
-\centering
-\includegraphics[width = .9\textwidth]{4K_600mK_diagram.png}
-\caption{Cross-section for 4K-600mK phonon transmission line showing 20 of the 100 traces.}
-\end{figure}
-~\\
-~\\
-\begin{figure}[h]
-\centering
-\includegraphics[width = .9\textwidth]{600mK_50mK_diagram.png}
-\caption{Cross-section for the 600mK-50mK section of the phonon transmission line showing 16 of the 76 traces.}
-\end{figure}
-~\\
-~\\
-\begin{figure}[h]
-\centering
-\includegraphics[width = .9\textwidth]{50mK_10mK_diagram.png}
-\caption{Cross-section for the 50mK-10mK section of the phonon transmission line showing 12 of the 52 traces.}
-\end{figure}
-
-\newpage
-
 \begin{itemize}
 \item 50mK to 10mK
     \begin{itemize}
@@ -1233,132 +1180,254 @@ The new proposed dimensions for the phonon transmission line are shown below. Th
     \end{itemize}
 \end{itemize}
 
-\subsection{Phonon Transmission Line Heat Load}
+The motivation behind these dimensions, and the ones shown in Figure 4.3, comes primarily from cross-talk considerations, inductance requirements, and fabrication capabilities. The company which will likely fabricate our cable, Tech-Etch, uses photolithography to define the traces in a substrate. The trace widths and spacing of 0.01" are near the minimum they feel comfortable reliably producing. The Kapton and epoxy thicknesses are the minimum available through Tech-Etch, and the trace thickness was set based on the thinnest Ti 15-3-3-3 foil we were able to obtain. The trace thickness is flexible, however, depending on the materials we choose to use. To determine the SQUID signal trace widths we must now examine the expected inductance between signal/return trace pairs.
 
-The heat loads for the Phonon line using different trace materials are shown below \footnotemark. As you can see, the heat load from the traces is significant, especially for the 4.2K-600mK span.
-The 50mK-10mK span assumes placement of a heat sink at the detector end of the tower (before the copper tube which holds the detector housings) which shortens the 50mK-10mK cable length to only 3.25cm. If we were to create a heat sink closer to the detectors, this could be significantly reduced.
+\subsubsection{Phonon Cable Inductance}
+
+The phonon cable has inductance limits for the SQUID signal lines from the detectors to the SQUIDs due to frequency bandwidth considerations. The new SQUID design will reduce the superconducting QET resistance from 0.2$\Omega$ to 0.02$\Omega$. The 3dB roll-off frequency for our amplifier is proportional to the ratio R/L for the SQUID signal lines. Since the QET resistance will decrease by a factor of 10, the inductance must decrease as well to maintain a workable bandwidth.
+
+We have set a limit of around 25nH between the SQUID signal/return lines. Assuming that the longest span we have between the SQUIDs and the detectors is 20", we have a mutual inductance limit of 25nH/20". To know if our cable will meet this limit, we used Sonnet EM modeling software to model the 50mK-10mK section of the cable (Figure 4.3c). We simulated two adjacent SQUID signal/return pairs with the dimensions given in the figure. The lines were modelled as lossless, as superconducting traces will be used in this section of cable. We also input the known properties of Kapton: relative permittivity = 3.4, dielectric loss tangent = 0.018, and dielectric conductivity (S/m) = 6.67E-16 from DuPont's website. We obtain an inductance of:
+$$
+L = 22.4\left[\frac{nH}{20"}\right]
+$$
+between signal/return lines. This number is below the maximum desired for our cable, so 40 mil wide traces satisfy our inductance requirements nicely.
+
+As a sanity check for this number we can use an analytical formula which treats the traces as thin parallel plates:
+\begin{eqnarray}
+L \approx \frac{\mu_{0} \mu_{r} h}{w}
+\end{eqnarray}
+
+where L is the inductance per unit length of the trace pair, $\mu_{0}$ and $\mu_{r}$ are the magnetic constant and relative magnetic permeability respectively, h is the center-to-center vertical separation of the traces, and w is the width of the traces. For this formula to be accurate, we must have $w\gg h$ and $h > t$, where t is the thickness of the traces. With this formula we find
+$$
+L_{trace \ pair} = 31.9\left[\frac{nH}{20"}\right]
+$$
+which is larger than calculated from the Sonnet model. This likely represents the inadequacy of this simple model when the spacing of the traces is on the order of their thickness. However, the fact that they are not wildly different suggests that our model is performing correctly. To verify this, we ensured that our model limited to the analytical case for very large w, small t, and large h. The agreement between the Sonnet model and the analytical formula in this case was very good, inspiring confidence in the model.
+
+\subsection{Resistivity of Trace Materials}
+The phonon cable has two effective resistance requirements. The first is that the traces between the detectors and SQUIDs are superconducting. This is necessary to retain our phonon detection bandwidth ($dI/dP$, current change per power deposition) \cite{Pyle2012}. The second is a roughly defined maximum resistance of 100 ohms between the SQUIDs and room temperature for the phonon lines. This can be divided however we wish between the phonon cable (which goes to the 4K stage) and the 4K-300K cable. The resistivity of some candidate trace materials is shown in Table 4.2.
 
 \begin{table}[h]
+\centering
 \begin{threeparttable}
-\begin{tabular}{rrrr|rrr}
-\toprule
- & \multicolumn{6}{c}{Heat Load for 48 Towers in $\mu$W} \\
-  & 5K-1K & 1K-100mK & 100mK-40mK & 4.2K-600mK & 600mK-50mK & 50mK-10mK \\
- \cmidrule(r){2-7}
-   Ti15-3 \cite{wik} & 590.6 & 20.20 & $1.0\cdot10^{-4}$ & 412.5 & 2.93 & $1.1 \cdot 10^{-6}$ \\
-   45Nb-Ti \cite{ols} & 1047 & 22.89 & 0.0279 & 623.9 & 4.95 & 0.0037 \\
-   Manganin (2\%Ni) \cite{Peroni1999} & 2476 & 192.9 & 1.321 & 1707 & 62.19 & 0.317 \\
-   SS316 \cite{lou} \cite{Barucci2008} & 1347 - 1846  & 117.7 - 235.8 & 0.938 - 3.087 & 941.1 - 1351 & 39.33 - 88.76 & 0.238 - 0.9405 \\
-   70Cu-30Ni \cite{pob} \cite{ols} & 1483 - 2480 & 140.7 - 190 & 1.25 - 1.273 & 1047 - 1706 & 48.26 - 60.94 & 0.303 - 0.330 \\
-   Al5056 \cite{Coccia1983} & 3.98E+5 & 2273 & .4225 & 2.05E+5 & 321.1 & 0.031 \\
-   Kapton \cite{bar} & 237.6 & 20.11 & 0.265 & 171.1 & 7.26 & 0.076 \\
-   Epoxy Adhesive &&&&&& \\
-   \multicolumn{2}{c}{\bf{Total Phonon Line}} & & & & & \\
-   with Ti15-3 & 828.3 & 40.31 & 0.265 & 583.6 & 10.19 & 0.076 \\
-   with 45Nb-Ti & 1285 & 43.00 & 0.292 & 795 & 12.21 & 0.0793 \\
-   with Manganin & 2714 & 213 & 1.585 & 1878 & 69.45 & 0.3925 \\
-   with SS316 & 1584 - 2083 & 137.8 - 255.9 & 1.203 - 3.351 & 1112 - 1522 & 46.59 - 96.02 & 0.314 - 1.016 \\
-   with 70Cu-30Ni & 1721 - 2717 & 160.8 - 210.1 & 1.515 - 1.537 & 1218 - 1877 & 55.52 - 68.2 & 0.3787 - 0.406 \\
-   with Al5056 & 3.99E+5 & 2293 & 0.687 & 2.05E+5 & 328.1 & .106 \\
-  \bottomrule
+\begin{tabular}{l|c|c|c|c}
+Alloy & \multicolumn{3}{c}{Resistivity in $\mu$ $\Omega$ $cm$} \\\toprule
+ & 300K & 273K & 10K & 4.2K \\\midrule
+70Cu-30Ni & - & 38.4 & - & 36.4 \\
+Constantan & 49.1 & - & 46.1 & - \\
+Manganin (4\%Ni) & 47.6 & - & 41.9 & - \\
+Ti15-3 & 146 & - & - & 173 \\
+SS316 & - & 76.5 & - & 55.3 \\
+50Nb-50Ti & 76.7 & - & 54 & 0 \\
+BeCu & 83 & - & 56.2 & - \\
 \end{tabular}
 \end{threeparttable}
-\caption{Heat loads for constituents of the phonon cable as well as the total cable heat load for various materials for a total of 48 towers. Assumes all trace thicknesses are 0.84 mils. The large heat load at the 50mK-10mK span for the phonon cable is due to short cable length (3.25cm) created by placing a heat sink at the bottom of the tower.}
+\caption{Resistivities of possible trace materials as a function of temperature. 70Cu-30Ni and SS316 data are from \cite{Clark1970}, Manganin, Constantan, and BeCu data are from Table 2.4 of \cite{Sciver1986}, NbTi data is from \cite{byc}, and Ti 15-3-3-3 data is from \cite{wik}. NbTi has zero resistivity at 4.2K because it is in a superconducting state. Notice as well that the temperature coefficient of Ti 15-3-3-3 is positive, unlike the other alloys.}
 \end{table}
 
-\footnotetext{Constantan (55Cu-45Ni) was considered as an alternative to Cupro-Nickel, due to its lower Copper content. However, it was found \cite{tou} to have a higher thermal conductivity than 70Cu-30Ni.}
+Originally, we had planned to have superconducting wiring for the full length of the tower. However, as stated above, we don't actually need zero resistance between the SQUIDs and the 4k stage. Instead, we just have to fall below a 100$\Omega$ limit for the wiring resistance above the SQUIDs (at 600mK). To explore a resistive trace option, we divide the candidates in Table 4.2 into two groups: superconductors and non-superconductors. Cupro-Nickel, Constantan, Manganin, and SS316 are not superconductors; they are resistive wiring. NbTi and Ti 15-3-3-3 are superconductors. However, the transition temperature of Ti 15-3-3-3 is 3.9K \cite{wik}; part of the cable would be in a superconducting state, and the other part in a normal state. We find in Appendix C that this will prevent Ti 15-3-3-3 from being used in the 600mK to 4K span of the phonon line. To see if the other resistive candidates would consume a reasonable portion of the resistance budget for the 600mK to 4K span, consider a trace of SS316 (the most resistive candidate material next to Ti 15-3-3-3) 0.01" (0.0254 cm) wide, and 0.00084" (2.134E-3 cm) thick. We find resistance from resistivity using
+\begin{eqnarray}
+R = \frac{\rho(T) L}{A}
+\end{eqnarray}
+where $\rho(T)$ is the material resistivity, L is the trace length, and A is the cross-section. We find
+$$
+\frac{R}{Length} = \frac{55 \cdot 10^{-6} \Omega cm}{5.42 \cdot 10^{-5} cm^{2}} = 1.014 \Omega / cm
+$$
 
-\newpage
-\subsection{Sonnet Modeling for Phonon Line}
-Between the SQUIDS and our detectors, we have set an inductance limit of roughly 30nH between signal/return lines. To ensure that our cable would meet this requirement, Sonnet modeling software was used to simulate the line with 40mil wide, 0.8mil thick traces at a center-to-center separation of 2.3mil. This yields:
-$$
-L = 22.4\frac{nH}{20"}
-$$
-as well as,
-$$
-C = 471\frac{pF}{20"}
-$$
-for capacitance between the lines.
+if we assume constant resistivity for SS316, given as the highest value for SS in Table 4.2. For the nominal length of the 4K-600mK stage given above (9.24cm), this yields 9.38$\Omega$. Though this is well below total resistance limit, this is a non-negligible portion of the 100$\Omega$. We will see in section 4.2 that we should be able to fabricate a 300K-4K line which falls below this remaining resistance budget, however, so a resistive trace could work for the 4K-600mK section. For 600mK-10mK, however, we are restricted to Ti 15-3-3-3, NbTi, or some other superconductor with $T_c$ well above 600mK. Now that we have both superconducting and non-superconducting options, we can examine the heat loads that each would result in.
+
+\subsection{Phonon Transmission Line Heat Load}
+
+The current design for a vertically spaced transmission line will conduct much more heat than a vacuum coax, and it is expected to contribute a significant amount to the overall heat load for the tower stages. Table 4.3 examines the expected heat loads for a phonon cable using different trace materials\footnotemark. The total heat loads were obtained by treating each portion of the cable separately (as if they were isolated) and summing the contributions. As you can see, the trace material contributes a significant amount to the cable heat load, especially on the Still (600mK/1K). This is where material choice becomes important. For 4.2K - 600mK, every candidate besides Ti 15-3-3-3 is a possibility. For 600mK and colder (SQUIDs to base temperature), the only options are superconducting traces, i.e. Ti 15-3-3-3 and NbTi. Though it is not listed in the table, the feasibility of Niobium as a trace option was explored and is discussed in Appendix D.
+
+\begin{table}[h]
+\resizebox{\textwidth}{!}{%
+\begin{threeparttable}
+\rowcolors{3}{gray!20}{white}
+\begin{tabular}{rrrr|rrrr}
+\toprule
+ & \multicolumn{6}{c}{Heat Load for 48 Towers in $\mu$W} \\
+  & 5K-1K & 1K-0.1K & 0.1K-40mK & 4.2K-0.6K & 0.6K-50mK & 50mK-10mK & Ref. \\
+ \cmidrule(r){2-8}
+   Ti 15-3-3-3 & 590-716 & 20-24 & 0.01-0.05 & 413-448 & 3.0-5.9 & 3\e{-3} - 8\e{-3} & \cite{wik},\cite{Run_ti153}   \\
+   45Nb-Ti & 1047 & 23 & 0.03 & 624 & 5.0 & 3.7\e{-3} & \cite{ols}\\
+   Manganin (2\%Ni) & 2476 & 193 & 1.3 & 1707 & 62 & 0.32 & \cite{Peroni1999} \\
+   SS316 & 1347 & 118 & 0.9 & 941 & 39 & 0.24 & \cite{Barucci2008}\\
+   70Cu-30Ni & 1483 - 2480 & 141 - 190 & 1.3 & 1047 - 1706 & 48 - 61 & 0.30 - 0.33 & \cite{pob},\cite{ols} \\
+   Al5056 & 3.98\e5 & 2273 & 0.42 & 2.1\e5 & 321 & 0.03 & \cite{Coccia1983} \\
+   Kapton & 238 & 20 & 0.27 & 171 & 7.3 & 0.08 & \cite{bar} \\
+   Epoxy Adhesive $^{\dag}$ & 317 & 27 & 0.35 & 228 & 9.7 & 0.10 & \cite{bar}\\
+   \multicolumn{2}{c}{\bf{Total Phonon Line}} & & & & & & - \\
+   with Ti15-3 & 1145-1271 & 67-71 & 0.63-0.67 & 812-847 & 19.9-22.8 & 0.18 & - \\
+   with 45Nb-Ti & 1605 & 70 & 0.65 & 1023 & 21.9 & 0.18& - \\
+   with Manganin & 3031 & 240 & 1.9 & 2106 & 79 & 0.49 & -\\
+   with SS316 & 1901 & 165 & 1.6 & 1340 & 56 & 0.41& -\\
+   with 70Cu-30Ni & 2037-3034 & 188-237 & 1.9 & 1446-2105 & 65-78 & 0.48-0.51 & -\\
+   with Al5056 & 3.99\e5 & 2319 & 1.04 & 2.05\e5 & 338 & 0.21 & - \\
+   \multicolumn{3}{c}{\bf{Total Experiment Cooling Power}} & & & & &\\
+ & 3000 & 2-50 & 1 & 3000 & 2-50 & 1 & \\
+  \bottomrule
+\end{tabular}
+\end{threeparttable}}
+\caption{Heat loads for constituents of the phonon cable as well as the total cable heat load for various materials for a total of 48 towers. Assumes all trace thicknesses are 0.84 mils, as this is the thickness of Ti 15-3-3-3 we have already procured for testing. The stage lengths assumed were 9.24cm (4.2K-0.6K), 5.04cm (0.6K-50mK), and 3.25cm (50mK-10mK). The powers given for each span are deposited on the lower of the two temperatures listed. The total predicted heat lift at the tower is given in the last row. All candidates are shown for all stages regardless of whether they can actually be used at that stage. This is simply for comparison purposes. \dag - Epoxy heat loads were calculated using Kapton thermal conductivity as a proxy.}
+\end{table}
+
+\footnotetext{Constantan (55Cu-45Ni) was proposed as an alternative to Cupro-Nickel (70Cu-30Ni), due to its lower Copper content. However, it was found to have a higher thermal conductivity than 70Cu-30Ni \cite{tou}. }
+
+There are a few aspects of Table 4.3 which bear mentioning. The first is that the heat loads were calculated assuming that the 50mK stage is available for heat sinking. In the SuperCDMS Soudan towers, the 50mK stage is internal, so no wiring is heat sunk to it. The only external components of this stage on the tower face are two connectors for thermally linking the tower support tubes to the fridge Cold Plate. This works for the vacuum coaxes as they have a very small cross-section, thus a small thermal conductance. If we dont heatsink to the 50mK stage, we expect a heatload of over 20$\mu$W to the Mixing Chamber of the fridge (70$\mu$W assuming 1K-40mK stages) for a Ti 15-3-3-3 cable with the same dimensions presented in Table 4.3. The next aspect is that, depending on the temperatures, we are near or above the predicted heat lift capability at the tower (last column) for every stage. This makes design for the phonon cable crucial, as it will be a significant portion of the heat load; we will be pursuing options to decrease this heat load in the near future. Finally, since Aluminum is a common choice for trace material, we presented the heat loads for Aluminum 5056. This alloy was found to be similar to Aluminum 5052-H19 -- an alloy used by Tech-Etch -- so is used as a proxy to see if its expected heat loads would satisfy our requirements. The rationale behind choosing Aluminum is that development time would be significantly decreased through use of a well-understood material such as Aluminum. We find, however, that heat loads are far too high for such a material.
+
+\subsection{Coefficients of Thermal Contraction}
+Aspects of thermal contraction are important in the development of a laminated transmission line, as any differential contraction will cause internal stress in the cable. Stresses which are too high may cause the traces to delaminate from the Kapton substrate. This will have to be taken into consideration and tested for in the development phase.
+
+\subsection{Conclusion}
+
+Based on thermal conductivity and resistivity, NbTi is the clear choice for the entire length of the phonon line. It performs the second best thermally, and it is a superconductor for the entire temperature regime in which it would be used. Unfortunately, it is very difficult to obtain as a foil. For the time being, we have decided to use Stainless Steel 316LN for the 4.2K-600mK span, and Ti 15-3-3-3 for the 600mK-50mK span and 50mK-10mK span.
 
 \section{Charge Readout Lines}
 
-The form of the future charge readout lines is still under debate. Since noise is only a concern on the gate wires, the charge feedback and bias pairs can be integrated into the flexible parallel-trace transmission line design. The 4 remaining gate wires have a few available options. The simplest option would be for the lines to remain vacuum coaxes. The next option involves a flexible coaxial cable produced by AXON' The last option would be to make our own cable with low noise properties.
+The form of the future charge readout lines is still under debate. Since noise is only a concern on the gate wires, the charge feedback and bias pairs can be integrated into the flexible parallel-trace transmission line design. The 4 remaining gate wires have a few available options. The simplest option would be for the lines to remain vacuum coaxes. The next option involves a flexible coaxial cable produced by AXON'. The last option would be to make our own cable with low noise properties.
 
-If we keep the vacuum coaxes, we will alter the design slightly to allow removal of the coaxes from the tower. This would involve a type of carbon fiber rod supported frame to which the wires are mounted, as depicted in Figure 6. Though this could be a low heat load design, it is the least convenient option. Heat loads are presented in Table 4. The wires would be the same 1.2 mil diameter NbTi lines currently used in our towers, however would have an additional heat sink at the newly available externalized 50mK stage on the next generation tower design. We see that the heat loads for this option are rather large, due to the carbon fiber rods. While the calculations have assumed a 40mil rod thickness, our supplier for rods also has 33mil, 30mil, 20mil, and 10mil diameter rod options, which could reduce heat loads.
+\begin{figure}[ht]
+\centering
+\includegraphics[width = .6\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH4_figs/Charge_matl_K.png}
+\caption{Thermal conductivities of materials used to model heat conduction in the charge readout designs. CuNi and PTFE are used as proxies for Constantan and Celloflon (porous PTFE) respectively. Data are from Runyan \cite{run}, Olson \cite{ols}, Fairbank \cite{fair}, and Kushino \cite{kus:cu}. The dashed line is a fixed exponent extrapolation of Graphlite data used in thermal conductance calculations.}
+\end{figure}
 
-The next option involves a coaxial cable from AXON' \footnotemark.
-\footnotetext{Another company, Texcal, was considered, as they also produce low-noise cabling. Unfortunately, their cables use silver-plated copper conductors, whose thermal conductivity far exceeds what is acceptable for our purposes.}
-This cable uses Constantan as a conductor material, PTFE for a housing, and Celloflan dielectric (porous PTFE); The cable's cross-section is shown in Figure 6. A thin graphite coating on the outside of the Celloflan dielectric prevents static charge build-up on the insulator -- our main source of noise in the gate wires. The suitability of this option depends on expected heat loads from the cable. These are shown in Table 4. The calculations use Cupro-Nickel (70Cu-30Ni) thermal conductivity in place of Constantan \footnotemark, as well as simple PTFE in place of Celloflan. The high expected heat loads from this cable will likely rule it out as a candidate for replacing the vacuum coax design.
+If we keep the vacuum coaxes, we will alter the design slightly to allow removal of the coaxes from the tower. This would involve a type of carbon fiber rod supported frame to which the wires are mounted, as depicted in Figure 4.4. Though this could be a low heat load design, it is the least convenient option, as it requires the use of the same copper side coaxes used in SuperCDMS Soudan towers. Heat loads for this option are presented in Table 4.4. The wires would be the same 0.0012" diameter Nb-47\%Ti lines currently used in our towers -- provided by Tekdata -- however they would have an additional heat sink at the newly available externalized 50mK stage on the next generation tower design.
+
+The next option involves a coaxial cable from AXON' \footnotemark.\footnotetext{Another company, Texcal, was considered, as they also produce low-noise cabling. Unfortunately, their cables use silver-plated copper conductors, whose thermal conductivity far exceeds what is acceptable for our purposes.}
+This cable uses Constantan as a conductor material, PTFE for a housing, and Celloflon dielectric (porous PTFE); The cable's cross-section is shown in Figure 4.4 on the left. A thin graphite coating on the outside of the Celloflon dielectric prevents static charge build-up on the insulator -- our main source of noise in the gate wires. The suitability of this option depends on expected heat loads from the cable. These are shown in Table 4.4. The calculations use Cupro-Nickel (70Cu-30Ni) thermal conductivity in place of Constantan \footnotemark, as well as simple PTFE in place of Celloflan.
 
 \footnotetext{It was found that the actual thermal conductivity of Constantan is slightly higher than Cupro-Nickel, but is close enough for approximation purposes. If this is considered a viable option, more accurate calculations will be done.}
+
 Another option is to simply alter a cable to have low-noise characteristics. This could be made possible with a flexible polyimide cable whose dielectric has undergone ion implantation to increase the conductivity to near that of graphite \footnotemark. This would serve the same function as the graphite layer in the AXON' coaxial cable -- preventing static charge build-up. Heat loads for this option are not presented, as the potential form of these cables is as-of-yet unknown.
 
 \footnotetext{See, for instance, \cite{Chen2009}}
 
 \begin{figure}[h]
-$\vcenter{\hbox{\includegraphics[width = .5\textwidth]{Edelweiss_cable.jpeg}}}$
-$\vcenter{\hbox{\includegraphics[width = .5\textwidth]{Charge_vacuum_design.png}}}$
-\caption{Two possible designs for future charge gate wires. Left is the specially made AXON' cable (to have a Conastantan conductor). Right shows the basic structure of a removable vacuum coax design with copper heatsink connections supported by carbon fiber rods.}
+\centering
+$\vcenter{\hbox{\includegraphics[width = .2\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH4_figs/Axon_cable_model.png}}}$
+$\vcenter{\hbox{\includegraphics[width = .5\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH4_figs/Edelweiss_cable.jpeg}}}$
+$\vcenter{\hbox{\includegraphics[width = .45\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH4_figs/Vacuum_coax_model.png}}}$
+\caption{Two possible designs for future charge gate wires. Top is the specially made AXON' cable (manufactured to have a Constantan conductor). Each bundle of the cable contains 7 coaxes (marked by a 1 in the diagram). The upper left is the model used for thermal conductance purposes. Bottom shows the basic structure of a removable vacuum coax design with copper heatsink connections supported by carbon fiber rods.}
 \end{figure}
 
 \subsection{Charge Readout Heat Loads}
 
-The total charge readout line heat load contribution for a 12 tower experiment is presented below in Table 4. These calculations assume 4 gate wires per detector, so 288 wires for 12 towers (or 288 coaxes in the case of the AXON' cable).
+To get expected heat loads for the charge readout options, we examine two
+The total charge readout wiring heat load contribution for a 48 tower experiment is presented below in Table 4.4. These calculations assume 4 gate wires per detector, so 24 wires per tower, and 1152 wires for 48 towers (or 1152 coaxes in the case of the AXON' cable).
+
+The models used for thermal conductance calculations are shown in Figure 4.4; the relevant thermal conductivities are shown in Figure 4.5. The vacuum coax assumed two 0.04" Graphlite CFRP rods supporting four 0.0012" NbTi wires between each stage (per detector). The AXON' cable model is a simplification of the actual design, and is shown in the upper left of Figure 4.4. We use the thermal conductivity for CuNi as a proxy for Constantan, and model the center conductor and shielding as solid cross-sections. The Celloflon is modelled as solid PTFE. To find total heat loads for the charge readout options, we add the contributions of each element separately.
+
 
 \begin{table}[h]
+\resizebox{\textwidth}{!}{%
+\rowcolors{3}{gray!20}{white}
 \begin{threeparttable}
 \begin{tabular}{rrrr|rrr}
 \toprule
- & \multicolumn{6}{c}{Charge Coax Heat Loads for 12 Towers in $\mu$W} \\
+ & \multicolumn{6}{c}{Charge Coax Heat Loads for 48 Towers in $\mu$W} \\
   & 5K-1K & 1K-100mK & 100mK-40mK & 4.2K-600mK & 600mK-50mK & 50mK-10mK \\
  \cmidrule(r){2-7}
-   Vacuum Coax Design & 122.3 & 16.34 & 0.135 & 94.3 & 5.17 & 0.031 \\
-   AXON' Cable & 2736 - 4439 & 261.56 - 351.22 & 3.163 - 3.221 & 1862 - 2988 & 88.59 - 110.91 & 0.768 - 0.827 \\
+ \multicolumn{2}{c}{\bf{Vacuum Coaxial Cable}} & & & & \\
+   Graphlite Rods & 731 & 35 & 0.16 & 566 & 11 & 0.036 \\
+   NbTi Wires & 10.3 & 0.08 & 7.7\e{-5} & 6.1 & 0.018 & 1.0\e{-5} \\
+   Total Vacuum Coax & 742 & 35 & 0.16 & 572 & 11 & 0.036 \\
+   \multicolumn{2}{c}{\bf{AXON' Coaxial Cable}} & & & & \\
+   Center Conductor & 81 & 2.8 & 0.019 & 57 & 0.98 & 5.1\e{-3} \\
+   Celloflon Dielectric & 365 & 3.5 & 4.1\e{-3} & 222 & 0.79 & 5.8\e{-4} \\
+   Constantan Shielding & 7701 & 269 & 1.8 & 5435 & 92 & 0.49 \\
+   Total AXON' Cable & 8147 & 276 & 1.87 & 5714 & 94 & 0.49 \\
+    \multicolumn{3}{c}{\bf{Total Experiment Cooling Power}} & & & & \\
+ & 3000 & 2-50 & 1 & 3000 & 2-50 & 1 \\
   \bottomrule
 \end{tabular}
-\end{threeparttable}
-\caption{Heat loads for charge readout coaxes for 12 towers. With 50mK heat sinking, assumes cable lengths of: 4.2K - 600mK = 7.8cm ; 600mK - 50mK = 2.7cm ; 50mK - 10mK = 1.5cm. Assumes 4 lines (or coaxes) per detector, 6 detectors per tower. The vacuum coax calculations assume two 40 mil diameter rods between each stage, which constitute the frame for the removable vacuum coaxes. These dominate the heat loads ($>95\%$).}
+\end{threeparttable}}
+\caption{Heat loads for charge readout coaxes for 48 towers with removable vacuum coax option and AXON' cable option in terms of constituent materials and total heat loads. The last row gives current estimated heat lift capability at the tower. Vacuum coax numbers assume cable lengths of 5.08cm (2") for every stage. AXON' cable numbers assume twice this length (10.16cm) given their ability to flex. Assumes 4 lines (or coaxes) per detector, 6 detectors per tower. The vacuum coax calculations assume two 40 mil diameter rods between each stage, which constitute the frame for the removable vacuum coaxes. The AXON' cable uses CuNi data from \cite{ols} as a proxy for Constantan, and solid PTFE conductivity from \cite{kus:cu} as a proxy for Celloflon (a porous PTFE). We see that the Graphlite rods and Constantan shielding dominate the heat loads.}
 \end{table}
 
-\section{Wiring for 300K - 4.2K}
+\subsubsection{Remarks}
+We see that the heat loads for the vacuum coax option are rather large, due to the carbon fiber rods. While the calculations have assumed a 0.04" rod thickness, our supplier \footnotemark for rods also has 0.033", 0.03", 0.02", and 0.01" diameter rod options, which would reduce heat loads. In contrast, the expected heat loads from the AXON' cable certainly rule it out as a candidate for replacing the vacuum coax design. Though the thermal conductivities used in the model for the AXON' cable were not the actual materials, we expect that heat loads are similar. Using solid PTFE instead of porous Celloflon gives a higher thermal conductivity, but since the shielding dominates, this will have little effect. In addition, the CuNi thermal conductivity used in calculations was the lower limit in the data, so we expect heat loads to be higher in reality.
 
-We must design cable to run from room temperature (300K) to the HEMTs on the tower (4.2K). This cable must meet resistance, thermal, and practical requirements. The upper limit on round trip resistance for the lines is around 200$\Omega$, while the upper limit for heat load is 500mW on 4.2K. Apart from these considerations, the cable must be thin enough to be flexible, the dimensions work-able, and the traces should be solderable\footnotemark.
+Until a better solution is found, we have decided that the best option for the charge read-out is a removable vacuum coax supported for Graphlite rods.
 
-To meet the heat load restrictions of the cable, a 77K heat sink will be placed along the cable. This will be located around 20" down the cable from room temperature. From here, the 77K - 4.2K length will run around 90" until the 4.2K heat sink. From here, there will be 20" to the HEMTs at the tower. 500mW is a larger heat load than we expect from any reasonably designed cable, so minimizing heat load is not the primary design consideration.
 
-\footnotetext{OFHC Copper was considered as an option, as it is the easiest to solder and has a much smaller resistivity, but the thermal conductivity was nearly 5 orders of magnitude higher than the range of materials in Figure 7. Dimensions could not be decreased enough to produce a viable heat load.}
+\footnotetext{Diversified Structural Composites. 1512 Interstate Drive, Erlanger, KY 41018 USA.}
 
-The resistivity of some of the candidate materials is shown in Table 2. This will set a limit on the minimum dimensions of the traces to keep below 200$\Omega$ for the lines. This, as well as the ease with which the traces can be manufactured into a cable (ability to solder to the traces, flexibility, strength, availability) is the main consideration for selection of dimensions and trace material.
+\section{300K - 4K SNOLab Cable}
 
-\begin{SCfigure}
-\includegraphics[width = .65\textwidth]{Trace_matl_300K.png}
-\caption{Thermal conductivities of viable trace materials for a cable spanning 4.2K to 300K. References for data are: \newline Nb47Ti - Tekdata website ; Nb50Ti - Flachbart \cite{Flachbart1978} ; Ti 15333 - Wikus \cite{wik} ; Manganin (84Cu-4Ni-12Mn) - Touloukian \cite{tou} ; 70Cu-30Ni - Tekdata website ; 55Cu-45Ni - Touloukian \cite{tou} ; SS316 - NIST database.}
-\end{SCfigure}
+The last major wiring component which this work will discuss is the 300K-4K SNOLab cable, which will run from room temperature (300K) to the warmest tower stage (4.2K). The design for this cable is still in its infancy, but we have two rough specifications to design to: First, we will have two trace types: "high resistance" traces which are allowed a resistance of up to 100$\Omega$ from 300K-4K, and "low resistance traces, whose resistance will be between $\sim$5-10$\Omega$\footnotemark . Second, we must ensure that we fall below the heat lift capability of the fridge -- estimated to be roughly 1.35W for the 48-tower experiment. Apart from these considerations, the cable must be thin enough to be flexible, the dimensions must be work-able (not too wide, robust, etc.), and the traces should be solderable. This section discusses expected resistances and heat loads for a few trace material options.
 
-\subsection{Expected Heat Loads}
+\footnotetext{These limits will be lower if we use a resistive trace for the phonon cable.}
 
-The predicted heat loads for some of the candidate materials on the 77K stage and 4.2K stage are presented in Table 5. These heat loads assume the cross-sections presented for each material in the same table. Cross-sections for each material were minimized based on each material's resistivity to produce a line resistance of 200$\Omega$. As the resistivity of each material varies with temperature, the maximum value of resistivity from Table 2 was assumed for each material across the temperature range to provide a safety buffer in resistance.
+\subsubsection{Cable Layout}
 
-The heat loads are all relatively similar despite very different thermal conductivities, due to the different minimum cross-sections. After factoring in resistance, the advantage of Ti15-3-3-3 over 70Cu-30Ni is only a factor of 2 for power onto 4.2K, despite Ti15-3-3-3 being about a factor of ten better in thermal conductivity.
+The 300K - 4K cable will start at room temperature and travel through the fridge, terminating at the 4.2K stage of the tower. Figure 4.6(a) shows a mock-up of a possible cable design which will be used to calculate heat loads onto the fridge. The total available length for the cable -- based on fridge set-up -- is around 130". The cable will run 20" from 300K to a 50K heatsink. From here, we allow 85" between the 50K heatsink and the 4.2K heatsink. The last 20" of the cable goes from the 4.2K heatsink to the 4.2K stage of the tower.
 
-Considering the difficulty in fabricating a cable out of Ti15-3-3-3, and the large dimensions that would be required for a Ti15-3-3-3 trace (30 mil wide traces would still have to be 7.5 mils thick) it is not the best option. Instead, Manganin or 70Cu-30Ni are recommended.
+The trace layout of the cable will allow for low resistance and high resistance traces. This differentiation allows for small cross-sections (higher resistances) where resistance isn't as important, in order to minimize heat loads to the fridge. There will be 106 high resistance traces, with up to 100$\Omega$ per trace. There are only 10 low resistance traces ($\sim 5 \Omega$) which are ground returns. The dimensions of these lines will be set by these resistances and trace material resistivity.
+
+We see in Figure 4.6(b) a representative cross-section of a possible cable design, which uses a vertically-spaced transmission line layout. The trace layers will be surrounded by Kapton layers which are attached with an epoxy adhesive. Assuming a company such as Tech-Etch fabricates this cable (as with our phonon cable) we have an epoxy thickness of 0.0005" and a Kapton thickness of $\geq$0.0005" (depending on the desired robustness of the cable). The widths of the low and high resistance traces will be set through resistance requirements. The trace thicknesses will be set independently for each material.
+
+\begin{figure}[ht]
+\centering
+\subfloat[]{\includegraphics[width = .5\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH4_figs/300K_cable_diagram.png}}
+\subfloat[]{\includegraphics[width = .6\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH4_figs/300K_cable_cross_section.png}}
+\caption{300K-4K model for resistance and heat load estimates. (a) shows length and heat sink locations. Each heat sink is assumed to be wide enough for perfect heatsinking. (b) shows a representative cross-section of the cable with 8 of the 116 total traces. 10 traces will be low resistance ground return lines, while the rest may be high resistance. X and Y are the width of the high resistance and low resistance traces respectively, and will be determined for each material. This cross-section assumes that the ground returns can be vertically spaced.}
+\end{figure}
+
+
+\subsection{Thermal Conductivity and Electrical Resistivity of Trace Materials}
+
+We expect that the cooling capacity of our fridge at the 4.2K stage will be such that heat loads will not be the primary concern for the 300K-4K cable. Instead, the primary factors which set cable dimensions and determine material viability are the resistance limits given previously. To this end, we must consider the resistivities of all trace materials, given in Table 4.2. These are used to calculate minimum cross-sections for the two trace types by rearranging equation 4.2. The minimum cross-sections for high resistance traces (type X) and low resistance traces (Y) are given in Table 4.5. In calculating minimum cross-section, all resistivities were assumed constant over the temperature range, with the highest value selected to be conservative. Be-Cu is the only exception. Its temperature-dependent resistivity is given in \cite{Sciver1986}. The results of the calculations are discussed in the next section.
+To ensure our secondary requirement of manageable heat loads, we present the thermal conductivities of each material in  Figure 4.7. We provide the thermal conductivity of Kapton for comparison, as any transmission line-type cable would use Kapton as a substrate. We can see the wide range of trace material thermal conductivities (which are, not surprisingly, roughly inversely proportional to each of their resistivities). In addition, the very low thermal conductivity of Kapton leads us to expect heat loads which are dominated by trace selection. 
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width = .7\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH4_figs/300K_trace_and_kap.png}
+\caption{Thermal conductivities of trace candidates for the 4.2K to 300K cable. Kapton is included for comparison, as it will be used as a substrate material in the cable. References for data are: Nb47Ti - \cite{Blake} ; Nb50Ti - \cite{Flachbart1978} ; Ti 15333 - \cite{Canavan2006} ; Manganin (84Cu-4Ni-12Mn) - \cite{tou} ; 70Cu-30Ni - \cite{Blake} ; 55Cu-45Ni - \cite{tou} ; SS316 - \cite{ss316_nist} ; Kapton - \cite{Rule1996}.}
+\end{figure}
+
+\subsection{Trace Material Performance}
+
+Table 4.5 gives an overview of important performance aspects of some trace materials: Cable width, Trace dimensions, and Expected heat loads. Minimum trace dimensions are calculated assuming constant resistivities for all resistive materials except Be-Cu (Copper excluded). Trace heat load contributions\footnotemark for all 48 towers are calculated assuming the presence of a 50K heatsink along the cable, and lengths given in Figure 4.6.  Below we examine some aspects of this table for each trace material.
+
+\footnotetext{Even with outer layer thicknesses of 3 mil the contribution to total heat load from Kapton is below 10\% for even the least conductive trace material; it was excluded for simplicity.}
 
 \begin{table}[h]
-\centering
+\resizebox{\textwidth}{!}{%
+\rowcolors{3}{gray!20}{white}
 \begin{threeparttable}
-\begin{tabular}{l|ccc}
+\begin{tabular}{l|ccccccc}
 \toprule
-Material & $A_{min}$ [$cm^2$] & Power to 77K [$\mu W$] & Power to 4.2K [$\mu W$] \\
+Material & \multicolumn{2}{c}{$A_{min}$ [$in^2$]} & Thickness [in] & \multicolumn{2}{c}{Width [in]} & Cable width [in] & Power to 4.2K [mW] \\
+& X & Y & & X & Y & & \\
 \midrule
-70Cu-30Ni & 1.2680E-4 & 1.301E+7 & 3.802E+5 \\
-Ti15-3-3-3 & 5.7125E-4 & 1.374E+7 & 1.605E+5 \\
-Manganin (4\%Ni) & 1.5718E-4 & 1.0220E+7 & 2.862E+5 \\
-SS316 & 2.526E-4 & 1.187E+7 & 3.180E+5 \\
+OFHC-Cu(rrr=100) & - & - & 0.0002 & 0.005 & 0.005 & 0.619 & 810 \\
+Manganin (4\%wt Ni) & 2.5\e{-5} & 5.0\e{-4} & 0.003 & 0.0084 & 0.1675 & 1.87 & 133 \\
+70Cu-30Ni & 2.0\e{-5} & 3.9\e{-4} & 0.003 & 0.0065 & 0.131 & 1.59 & 172 \\
+Be-Cu & 3.5\e{-6} & 7.0\e{-5} & 0.001 & 0.007 & 0.070 & 1.31 & 82 \\
+Ti 15-3-3-3 & 8.9\e{-5} & 1.8\e{-3} & 0.004 & 0.022 & 0.443 & 3.97 & 69 \\
+SS-316 & 3.9\e{-5} & 7.9\e{-4} & 0.004 & 0.0098 & 0.196 & 2.09 & 144 \\
+\midrule
+ \multicolumn{4}{l}{\textbf{Total Experimental Cooling Power @ 4.2K}} & & & &  1350 \\
 \bottomrule
 \end{tabular}
-\end{threeparttable}
-\caption{Minimum cross-sections and expected heat loads for candidate materials for a 48-tower experiment. Minimum cross-sections are calculated from the maximum resistivities of each material in Table 2 and used to calculate heat loads.  Only some of the candidate materials are presented for comparison, as heat loads are not a major concern.}
+\end{threeparttable}}
+\caption{Comparison of trace material performance for the 300K-4K cable, assuming a two trace layer transmission line design. X \& Y refer to the dimensions of the high resistance (100$\Omega$ lines and the low resistance ($\sim 5\Omega$) lines respectively. $A_{min}$ is the minimum cross-section allowable to fall at or below these resistances for each material. These were calculated assuming the highest resistivity number in Table 4.2 for each material, with the exception of Be-Cu, whose temperature dependent resistivity was used, from \cite{Sciver1986}. The trace thickness is assumed for each separately to provide as reasonable trace widths as possible. An approximate cable width is given for a single cable of 116 traces. The last column gives the  heat load on the 4.2K stage of the fridge for 48 towers (6 cables per tower), only counting trace contribution (which is over 90\% of the total cable heat load). The last row gives the total experimental cooling power for the dilution fridge. Copper and Ti 15-3-3-3 are included to give an idea of extremes, i.e. high thermal conductivity -- low electrical resistivity and low thermal conductivity -- high electrical resistivity. X \& Y widths and trace thickness for Copper, and X widths for Be-Cu were limited by production capabilities of Tech-Etch, rather than resistance limits.}
 \end{table}
+
+\textbf{OFHC Copper:} Copper is mainstay of cryogenic electronics, so naturally it was considered here. It is easily soldered, and has a low $\rho$. In fact, its dimensions are limited by fabrication capabilities rather than resistance limits. Despite this, the expected heat loads are very high for the experiment -- $\sim$5 times higher than the next closest option. In addition, the only way to get the small dimensions given in Table 4.5, it would need to be sputtered. This renders it fragile.
+
+\textbf{Manganin:} Manganin is a resistive metal, whose thermal conductivity is fairly low. It is also solderable. Its high resistivity would require fairly large dimensions to accommodate our resistance requirements, however.
+
+\textbf{70Cu-30Ni:} Cupro-Nickel performs slightly better than Manganin. It has a slightly lower $\rho$, but higher thermal conductivity. It is solderable, and gives reasonable expected heat loads as well.
+
+\textbf{Be-Cu:} Beryllium Copper is the least resistive candidate material besides OFHC Copper. The width for the high resistance trace is actually set by the capabilities of Tech-Etch rather than resistance. It was given a thickness of 0.001" to ensure strength. We see that the heat loads and cable widths expected from Be-Cu are very reasonable. It is also very easy to solder.
+
+\textbf{Ti 15-3-3-3:} Ti 15-3-3-3 was included to show how a very resistive, low thermal conductivity material performed. We see that despite its very low thermal conductivity it only slightly outperforms Be-Cu; however, the cable widths and trace thicknesses required are unworkable. In addition, it is incredibly difficult to solder to other materials. 
+
+\textbf{SS-316:} Stainless steel is a similar to Ti 15-3-3-3. It is on the lower end of the thermal conductivity spectrum, and the upper end of the electrical resistivity spectrum. Though heat loads are reasonable, we see that dimensions required for a SS trace to work are likely too large for our experiment (a 4 mil thick trace would not be flexible). Considering the difficulty in soldering to SS, it is not a desirable option.
+
+Considering that the main requirements of the cable are resistance limits, workable dimensions, and solderability, it is clear that of these materials, Be-Cu is the ideal option. As the design and requirements of this cable are still in developed, this may change. This section is simply meant to provide a first-pass examination of material options and cable lay-out. 
 
 
 \section{Tower Thermal Stand-offs}
@@ -1622,24 +1691,41 @@ To know for sure whether this is a real issue in our tower, we would need to 1),
 
 \chapter{Thermal Conductivity Variation of Trace Materials}
 
-\begin{figure}[h]
-\begin{centering}
-\subfloat[]
-    {\includegraphics[width=0.41\textwidth]{Mang_Ti_graph.png}}
-\subfloat[]
-    {\includegraphics[width=0.41\textwidth]{NbTi_graph.png}}
+Through a literature search and -- in some cases -- through testing, we have compiled thermal conductivities for candidate trace materials for our tower wiring. These thermal conductivities are shown to vary depending on the source of the material, its specific composition, and sometimes for unknown reasons (such as possible measurement error, natural material variation, etc.) The thermal conductivities of five candidate trace materials are presented here.
 
-\subfloat[]
-    {\includegraphics[width = 0.41\textwidth]{SS_graph.png}}
-\subfloat[]
-    {\includegraphics[width = 0.41\textwidth]{CuNi_graph.png}}
-\caption{Thermal conductivity literature for trace material candidates. Variation between samples is largely due to varying thermo-mechanical treatment after production. In (b), Tekdata and Akerib measurements were performed on same wires used in CDMS Charge readout coaxes. In (d), Stainless alloys with similar composition to SS316 were used. Arrows indicate data sets used for graph in Section 1.2.}
-\end{centering}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/App_b_figs/mang_variation.png}
+\caption{Thermal conductivity of Manganin wire by composition and author. There is little variation between data sets, suggesting a consistent, reproducible, thermal conductivity for Manganin wire. Notice in the Peroni data that the lower Nickel content Manganin alloy seems to have a slightly lower thermal conductivity. Curves from Tekdata article \cite{Blake}, Peroni \cite{Peroni1999}, Powell \cite{tou}, and Corzett \cite{cor}.}
 \end{figure}
 
-\newpage
-\chapter{Fluctuation in Resistance for Ti15-3-3-3 Trace}
-The transition temperature of Ti 15-3-3-3 into its superconducting state is 3.89K \cite{wik}. If this material were used as a trace from the 4K stage to the Still of our towers, a portion of the trace would be in a normal state. This would give the line a resistance. Assuming the resistance of the line is low (tens of ohms), this is not a concern ; Fluctuating resistance, however, is a concern. As power loads to the fridge stages vary (from LED heating, circulation changes, etc.), the temperature gradient along the traces will vary as well. This will cause more/less of the line to be in a superconducting state -- varying resistance. The magnitude of these changes was calculated.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/App_b_figs/cuni_variation.png}
+\caption{Thermal conductivity of various Cupro-Nickel alloys. There is more variation observed here than for Manganin. This is due to the widely varying composition, and likely to varying heat treatments. Data is from \cite{ols}, Pobell \cite{pob}, Kushino \cite{kus:cu}, Fairbank \cite{fair}, Tekdata \cite{Blake}, and Touloukian \cite{tou}. }
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/App_b_figs/ss_variation.png}
+\caption{Thermal conductivities of some Stainless Steel alloys similar to SS316 in composition. The agreement between different data sets is very good. Data from Barucci \cite{Barucci2008}, NIST \cite{ss316_nist}, Ortiz \cite{Ortiz}, and Touloukian \cite{tou}.}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/App_b_figs/ti153_variation.png}
+\caption{Thermal conductivity of Ti 15-3-3-3 alloy. The data shows good agreement above 1K, but varies significantly below this. This is likely due to the different suppliers and material forms. Both ingots are from Chinese suppliers, and have not undergone the same treatment processes as the TiMetal materials. The data are from Wikus \cite{wik}, Canavan \cite{Canavan2006}, Runyan \cite{Run_ti153}, and this work. }
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/App_b_figs/nbti_variation.png}
+\caption{Thermal conductivities of NbTi samples. We see that there is a fairly large variation in NbTi thermal conductivity as a function of composition and preparation. The Tekdata sample is the same material used in our current vacuum coaxes. Data from Flachbart \cite{Flachbart1978}, Dyachkov \cite{dya}, a Tekdata technical document \cite{Blake}, Olson \cite{ols}, and Bychkov \cite{byc}.}
+\end{figure}
+
+
+\chapter{Fluctuation in Resistance for Ti 15-3-3-3 Trace}
+The transition temperature of Ti 15-3-3-3 into its superconducting state is 3.89K \cite{wik}. If this material were used as a trace from the 4K stage to the Still of our towers, a portion of the trace would be in a normal state. This would give the line a resistance. Assuming the resistance of the line is low (tens of ohms), this is not a concern ; fluctuating resistance, however, is a concern. As power loads to the fridge stages vary (from LED heating, circulation changes, etc.), the temperature gradient along the traces will vary as well. This will cause more/less of the line to be in a superconducting state -- varying resistance. The magnitude of these changes is calculated in the sections that follow.
 
 \begin{figure}[h]
 \centering
@@ -1648,7 +1734,7 @@ The transition temperature of Ti 15-3-3-3 into its superconducting state is 3.89
 \end{figure}
 
 \section{Determining the Temperature Profile for Ti 15-3-3-3 Traces}
-The temperature profile along a Ti 15-3-3-3 trace was calculated, assuming steady-state planar heat flow. To do this, consider the trace in two sections -- one with length $l$ and the other with length $L-l$, where $L$ is the overall length of the trace, as shown in Figure 10. In steady-state, the power through these two sections will be equal, so
+The temperature profile along a Ti 15-3-3-3 trace was calculated assuming steady-state planar heat flow. To do this, consider the trace in two sections -- one with length $l$ and the other with length $L-l$, where $L$ is the overall length of the trace, as shown in Figure C.1. In steady-state, the power through these two sections will be equal, so
 \begin{eqnarray}
 \frac{A}{l}\int_{T}^{T_{high}} k(T)dT = P = \frac{A}{L - l}\int_{T_{low}}^{T} k(T)dT
 \end{eqnarray}
@@ -1656,97 +1742,147 @@ where A is the cross-sectional area of the trace, $T_{high}$ and $T_{low}$ are t
 \begin{eqnarray}
 \frac{l}{L-l} = \frac{\int_{T_{low}}^{T} k(T)dT}{\int_{T}^{T_{high}} k(T)dT}
 \end{eqnarray}
-which can be integrated to find the temperature at any point $l$ along the trace. Since the Ti 15-3-3-3 thermal conductivity had to be numerically integrated, T values were picked in $T \in [T_{low},T_{high}]$ and the corresponding $l$ values were found. Figure 11 shows the temperature profile for a 9.24cm trace with $T_{high} = 4.2K$ and $T_{low}=0.6K$.
+which can be integrated on the right side to find the temperature at any point $l$ along the trace. The Ti 15-3-3-3 thermal conductivity had to be numerically integrated given its form in \cite{wik}, so various T values were picked for $T \in [T_{low},T_{high}]$ and the corresponding $l$ values were found. Figure C.2 shows the temperature profile for a 9.24cm trace with $T_{high} = 4.2K$ and $T_{low}=0.6K$.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width = .5\textwidth]{Ti153_T_Profile.png}
-\caption{}
+\includegraphics[width = .6\textwidth]{Ti153_T_Profile.png}
+\caption{Temperature profile of a 9.24cm long Ti 15-3-3-3 trace with thermal conductivity from \cite{wik}, $T_{high}$ of 4.2K, and $T_{low}$ of 600mK. The steep curve in the graph represents the high temperature dependence of the Ti 15-3-3-3 thermal conductivity. }
 \end{figure}
-
-\section{Resistivity of Ti 15-3-3-3}
-The resistance of Ti 15-3-3-3 was measured by P. Wikus et al. Using the given dimensions, we converted to resistivity. This was then fitted to an equation to enable us to find the resistivity of Ti 15-3-3-3 as a function of temperature. The fitted resistivity is shown in Figure 12.
-
 \begin{figure}[h]
 \centering
 \includegraphics[width = .6\textwidth]{Ti_Resistivity.png}
-\caption{Resistivity of Ti 15-3-3-3 showing $T_c$ at 3.89K}
+\caption{Resistivity of Ti 15-3-3-3 showing $T_c$ at 3.89K.}
 \end{figure}
+
+\section{Resistivity of Ti 15-3-3-3}
+The resistance of Ti 15-3-3-3 was measured by P. Wikus et al \cite{wik}. Using the dimensions given in the paper, we converted resistance to resistivity. This was then fitted to an equation to enable us to find the resistivity of Ti 15-3-3-3 as a function of temperature. The fitted resistivity is shown in Figure C.3, with the superconducting transition clearly visible at 3.89K.
 
 \section{Total Resistance of Trace}
 
-Combining the resistivity and temperature profiles, the trace was subdivided into sections, each assigned a length, and the resistance was calculated for each. From this, the total resistance of the line was calculated. We find,
+To find the total resistance of a trace, we combine the information from the resistivity and temperature profiles so that at each point along the trace we now have a defined temperature and resistivity. The trace was subdivided into sections, each section assigned a length, and from this we calculated a resistance for each section. Adding together the contributions from each section, the total resistance of the line was calculated. If we do this for different sets of $[T_{high},T_{low}]$, we find
 
 \begin{table}[h]
+\centering
 \begin{threeparttable}
 \begin{tabular}{lcr}
 \toprule
-\multicolumn{2}{r}{Total Resistance [$\Omega$]} \\
+$[T_{high},T_{low}]$ & \multicolumn{2}{r}{Total R [$\Omega$]} \\
 \midrule
-5K - 1K & $\rightarrow$ & 13.60 \\
-4.2K - 0.6K & $\rightarrow$ & 5.64 \\
+$[5K,1K]$ & $\rightarrow$ & 13.60 \\
+$[4.2K,0.6K]$ & $\rightarrow$ & 5.64 \\
 \bottomrule
 \end{tabular}
 \end{threeparttable}
 \end{table}
 
-\noindent With a total fluctuation of \bf{7.96 $\Omega$}.
+This gives a total resistance fluctuation of 7.96 $\Omega$, which is too high to tolerate for our experiment. As a result, Ti 15-3-3-3 cannot be used as a phonon readout trace materials from 600mK to 4K.
 
+\chapter{Niobium as a Phonon Trace Material}
 
-\restoregeometry
+Though its thermal conductivity was originally believed to be far too high to be used as a trace, new data has led us to re-consider Niobium's candidacy for the phonon cable. This material has several advantages: it is a superconductor below $\sim$10K, it is an element, so it can be deposited through sputtering, which allows a much smaller cross-section to be used, and finally it is a well studied material, so there would be significantly less development time for a cable using Niobium (e.g. it can be soldered to easily). This section examines its suitability in terms of thermal conductance.
 
-\chapter{Aluminum as a Candidate Trace Material}
+\section{Thermal Conductivity of Niobium}
+The thermal conductivity of Niobium is very difficult to determine simply from literature, as its properties vary by more than an order of magnitude based on the preparation methods used on the sample. The literature provides dozens of data sets which show this varying thermal conductivity. Three thermal conductivity curves were selected from \cite{tou} for review. These samples represent the upper and lower limits on thermal conductivity for the literature, as well as possible differing temperature dependence on temperature. These samples are described below, and the plot of their thermal conductivity of shown in Figure D.1.
 
-Aluminum is naturally under consideration as a trace material, due to its well known properties and widespread use. Fabrication time for a stripline would be reduced by using Aluminum, as the company fabricating the line, Tech-Etch, has used it as a trace material in the past. A new material, such as Ti15-3-3-3 would require significantly more time to go through the development process. Therefore, it is in our best interest to examine the feasibility of an Aluminum-trace stripline. Considerations for its suitability include its thermal conductivity, coefficient of thermal expansion (CTE), and critical temperature ($T_{c}$).
+Sample 1 represents the upper limit on the thermal conductivity data, with roughly a power-law dependence on temperature. It was single crystal Niobium with composition 0.03Al, 0.03Fe, 0.02Si, 0.01C, $<$0.01Cl, $<$0.01Cr, $<$0.01Pb, and $<$0.01Mn with Nb as a balance. It was 2.35mm diameter and 20mm long. The sample was obtained in a floating zone by electronic bombardment. It was measured in a superconducting state ($T_c = 9.5K$).
 
-\section{Thermal Conductivity of Al5056}
+Sample 2 represents the lower limit of thermal conductivity data. It was identical to Sample 1, but had been annealed at 1870 C in a vacuum of $5\cdot10^{-5}$ torr for 63 hours. It was also measured in a superconducting state.
 
-The Aluminum used by Tech-Etch is 5052-H19, however members of our collaboration were unable to find low temperature thermal conductivity data for this alloy. The thermal conductivity of another alloy, Al5056, was found to be very similar in normal state, so was used a proxy for 5052-H19. The thermal conductivity of Al5056 was determined from \cite{coc} for the range 600mK down to 50mK as,
-\begin{equation}
-K(T) = 1.9 \cdot 10^{4} T^{2.83} \mu W/cmK
-\end{equation}
+Sample 3 represents the upper limit of thermal conductivity data, but with a distinctly different temperature dependence. One can see in Figure D.1 that sample 3 displays a local peak in thermal conductivity around 2K. The sample was 2.2mm diameter Niobium with $L/A = 89.6cm^{-1}$ and RRR = 120. It was measured in a superconducting state.
 
-This thermal conductivity is compared to other phonon stripline candidate materials in Figure 4 below. In the range of interest (600mK - 50mK) we can see that the thermal conductivity of Al5056 is almost two orders of magnitude higher than NbTi and Ti15-3-3-3.
 
 \begin{figure}[h]
-\includegraphics[width = .87\textwidth]{Cable_Therm_Graph.png}
-\caption{Thermal conductivities of various stripline candidate materials. The thermal conductivity of Al5056 is nearly two orders of magnitude higher than NbTi or Ti15-3-3-3}
+\centering
+\includegraphics[width = .79\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/App_d_figs/niobium_k_graph.png}
+\caption{Thermal conductivity of Niobium samples as compared to Nb-55Ti\cite{ols} and Manganin\cite{powell1966}. The three samples of Niobium used are meant to give upper (Sample 1) and lower (Sample 2) limits to the range of data presented in literature as well as possible variations in temperature dependence relations (Sample 2). All three curves of Niobium data come from \cite{tou}.}
 \end{figure}
 
+Though this data is a useful starting point, it is clear from the description of each sample that the Niobium used was not at all similar to what we would obtain through a sputtering process. Further analysis would require performing thermal conductivity measurements on a sputtered sample, or finding further data from the literature which better matches our conditions.
 
-\section{Aluminum Heat Load}
+\section{Thermal Power Conducted Between Stages}
+The Niobium trace contribution to power conducted between stages was compared for all samples for the 4.2K - 600mK, 600mK-50mK, 50mK-10mK stage transitions. The powers are shown in Table D.1. The lengths used for the stages were 9.24cm, 5.04cm, and 3.25cm respectively. These are the same lengths used in Chapter 4.
 
-To see if Al will work as a trace material, the thermal power conducted from 600mK to 50mK must be within our thermal budget for the 50mK still of our fridge. The power conducted between a thermal gradient is given by equation 1 in the report. Using a thickness of 1 mil, width of 40 mils, and a trace length of 0.79 inches we can calculate the power for each trace. Assuming 16 traces per detector and 6 detectors per tower, as well as accounting for Kapton heat load, we are able to estimate the total flex cable heat load per tower. The loads for Al5056 are compared with other trace materials in table 7.
+\begin{figure}[h]
+\centering
+\includegraphics[width = .5\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/App_d_figs/niobium_trace.png}
+\caption{Representative cross-section for a Niobium-trace transmission line. This assumes a single-sided sputtering process so that there is only one 0.0005" epoxy layer between the traces. This results in a total center-to-center vertical trace separation of 0.00116". The QET signal lines from 600mK to base are assumed to be 0.012" while all other traces are 0.004". All spacings are .004".}
+\end{figure}
 
+To determine the dimensions of the traces for heat load purposes requires consideration of a few factors such as inductance limits and production processes. First, the thickness of all traces was chosen to be .00016" (4 $\mu$m) based on practicality for a sputtering process (any thicker would be impractical). We would not like to go thinner as this decreases the mechanical strength of the trace. The widths of the traces were found first for the QET Signal lines based on inductance limits roughly 30nH/20" for the phonon lines. The sputtering process allows us to reduce the width of these lines from the original .04" thanks to thinner traces and fewer epoxy layers between the vertically-spaced traces. Both of these factors reduce the center-to-center vertical separation of the traces, which in turn reduces their mutual inductance. Assuming we are able to sputter to only one side of a Kapton substrate, we would obtain a vertically-spaced transmission line as shown above, in Figure D.2. To calculate the minimum width, we use the mutual inductance formula for vertically spaced nearly flat traces,
+\begin{eqnarray}
+L \approx \frac{\mu_0 \mu_r h}{w} \ \ \ \left[\frac{nH}{in}\right]
+\end{eqnarray}
+where $\mu_0$ is the magnetic permeability constant, $\mu_r$ is the relative permeability, h is the center-to-center vertical separation of the traces, and w is the width of the trace. At such small trace thicknesses, this formula is very accurate. Then, setting the desired inductance to 30nH/20" we find a minimum trace width of .012" (305$\mu$m), as shown in Figure D.2. In the absence of any inductance requirements, the widths of all other traces was set to .004" (101$\mu$m) which is a practical minimum for a lift-off process. Finally, trace spacing was set to .004" (101$\mu$m) for simplicity.
 
-\begin{table}
+\begin{table}[h]
+\resizebox{\textwidth}{!}{%
+\rowcolors{3}{gray!20}{white}
 \begin{threeparttable}
-\begin{tabular}{l|c|r}
+\begin{tabular}{rrrr|rrrr}
 \toprule
-Material & Power/Trace [nW] & Total Load per Tower [nW] \\
-\midrule
-Ti 15-3-3-3 & 0.85 & 684 \\
-NbTi & 1.4 & 739 \\
-Aluminum & 92 & 9471 \\
+ & \multicolumn{6}{c}{Heat Load for 48 Towers in $\mu$W} \\
+  & 5K-1K & 1K-100mK & 100mK-40mK & 4.2K-600mK & 600mK-50mK & 50mK-10mK & Ref \\
+ \cmidrule(r){2-8}
+ \multicolumn{2}{c}{\bf{Niobium}} & & & & & & \\
+   Nb (sample 1)& 8740 & 52 & 0.017 & 4198 & 8.5 & 0.0015 & \cite{tou} \\
+   Nb (sample 2) & 1597 & 78 & 0.15 & 1162 & 19.0 & 0.024 & \cite{tou} \\
+   Nb (sample 3)  & 1.13\e4 & 402 & 0.15 & 6969 & 64 & 0.014 & \cite{tou} \\
+   Kapton & 95 & 7.2 & 0.095 & 68 & 2.6 & 0.027 &  \cite{bar} \\
+   Epoxy & 63 & 4.8 & 0.063 & 45 & 1.7 & 0.018 & \cite{bar} \\
+   & \multicolumn{2}{c}{\bf{Total Phonon Line}} & & & & &\\
+   with Nb (sample 1) & 8898 & 64 & 0.17 & 5760 & 12.7 & 0.047 & - \\
+   with Nb (sample 2) & 1755 & 90 & 0.31 & 1276 & 23.2 & 0.069 & -\\
+   with Nb (sample 3) & 1.15\e4 & 414 & 0.30 & 7082 & 69 & 0.06 & -\\
+ \multicolumn{2}{c}{\bf{Other Trace Options}} & & & & & &\\
+   Ti 15-3-3-3 & 590-716 & 20-24 & 0.01-0.05 & 413-448 & 3.0-5.9 & 3\e{-3}-8\e{-3} & \cite{wik},\cite{Run_ti153}   \\
+   45Nb-Ti & 1047 & 23 & 0.03 & 624 & 5.0 & 3.7\e{-3} & \cite{ols}\\
+   Manganin (2\%Ni) & 2476 & 193 & 1.3 & 1707 & 62 & 0.32 & \cite{Peroni1999} \\
+   SS316 & 1347 & 118 & 0.9 & 941 & 39 & 0.24 & \cite{Barucci2008}\\
+   70Cu-30Ni & 1483 - 2480 & 141 - 190 & 1.3 & 1047 - 1706 & 48 - 61 & 0.30 - 0.33 & \cite{pob},\cite{ols} \\
+   Al5056 & 3.98\e5 & 2273 & 0.42 & 2.1\e5 & 321 & 0.03 & \cite{Coccia1983} \\
+   Kapton & 238 & 20 & 0.27 & 171 & 7.3 & 0.08 & \cite{bar} \\
+   Epoxy Adhesive $^{\dag}$ & 317 & 27 & 0.35 & 228 & 9.7 & 0.10 & \cite{bar}\\
+   & \multicolumn{2}{c}{\bf{Total Phonon Line}} & & & & & \\
+   with Ti15-3 & 1145-1271 & 67-71 & 0.63-0.67 & 812-847 & 19.9-22.8 & 0.18 & - \\
+   with 45Nb-Ti & 1605 & 70 & 0.65 & 1023 & 21.9 & 0.18& - \\
+   with Manganin & 3031 & 240 & 1.9 & 2106 & 79 & 0.49 & -\\
+   with SS316 & 1901 & 165 & 1.6 & 1340 & 56 & 0.41& -\\
+   with 70Cu-30Ni & 2037-3034 & 188-237 & 1.9 & 1446-2105 & 65-78 & 0.48-0.51 & -\\
+   with Al5056 & 3.99\e5 & 2319 & 1.04 & 2.05\e5 & 338 & 0.21 & - \\
+\multicolumn{3}{c}{\bf{Total Experiment Cooling Power}} & & & & &\\
+ & 3000 & 2-50 & 1 & 3000 & 2-50 & 1 & \\
+  \bottomrule
+\end{tabular}
+\end{threeparttable}}
+\caption{Heat loads for constituents of the phonon cable as well as the total cable heat load for various materials for a total of 48 towers. Stage lengths used are 9.24cm (4.2K-600mK), 5.08cm (600mK-50mK), and 3.25cm (50mK-10mK). Assumes Niobium traces are the same as in Figure D.2. The smaller Niobium widths allow the total cable width to decrease by more than a factor of two from the other options, decreasing the amount of Kapton used, and thus the heat load from Kapton for Niobium-trace cables. All other trace thicknesses are 0.84 mils with widths of .01" (.04" for QET Signal lines). The last row presents the current ranges for the SNOLab experiment fridge's cooling power. Values for Niobium below data ranges come from the extrapolated curves shown in Figure 1, therefore should not be assumed to be exact. \dag - The thermal conductivity of Kapton was used as a proxy for the Epoxy.}
+\end{table}
+
+\begin{table}[h]
+\begin{threeparttable}
+\begin{tabular}{rrrr|rrr}
+\toprule
+& & \multicolumn{4}{c}{$\int$K(T)dT for Niobium Samples $[\mu W/cm]$} & \\
+\cmidrule(r){2-7}
+& 5K-1K & 1K-100mK & 100mK-40mK & 4.2K-600mK & 600mK-50mK & 50mK-10mK \\
+Sample 1 & 6.90e+5 & 1.81e+3 & 0.482 & 3.31e+5 & 294 & 0.042 \\
+Sample 2 & 1.26e+5 & 2.71e+3 & 4.21 & 9.18e+4 & 657 & 0.660 \\
+Sample 3 & 8.91e+5 & 1.40e+4 & 4.07 & 5.50e+5 & 2.24e+3 & 0.375 \\
 \bottomrule
 \end{tabular}
 \end{threeparttable}
-\caption{Estimated heat load for an Aluminum-trace flex cable from 600mK to 50mK as compared with other candidate materials. Assumes 1 mil thick, 40 mils wide, 0.79 inch long traces; 16 traces per detector and 6 detectors per tower.}
+\caption{Integrated thermal conductivity for Niobium samples for the given temperature stages. Power/length is imparted to the lower stage in each transition.}
 \end{table}
 
-The thermal budget for the 50mK end (the still) is $\sim 1 \mu W$. The Al5056 trace heat load is an estimated $9.5 \mu W$ per tower. The heat load for one tower is higher than the thermal budget, though our experiment necessitates the use of multiple towers. Reducing the width of the traces, as well as lengthening the traces could reduce this to perhaps $1\mu W$ (still too high), but inductance constraints would significantly complicate the design.
 
+\section{Suitability as a Trace}
+We can see from Table D.1 that Niobium may satisfy thermal requirements for our experiment, depending on the thermal conductivity of our specific sample and the chosen dimensions. Though it is above the cooling power of the fridge, it is comparable to other trace options. Table D.2 presents the integrated thermal conductivity for each stage/sample to allow one to experiment with dimensions. The main issue with the traces will be their mechanical reliability. Such thin traces (0.16 mil) subject to strain through bending will likely break very easily, and will not permit cable bending. If we wish to pursue this route, we will need to:
+\begin{enumerate}
+\item Investigate the mechanical strength and reliability of such thin traces
+\item Measure the thermal conductivity of the specific material we wish to use, due to the uncertainty in the literature.
+\end{enumerate}
 
-\section{Thermal Expansion Coefficient of Aluminum}
-It is important to match the expansion coefficients of materials which will undergo large temperature changes. In our flex cable, we will be epoxy-ing the Aluminum traces to Kapton polyimide, so the CTE of these two materials should match relatively well. The linear coefficient of thermal expansion presented for Aluminum is 24ppm/K while DuPont states the coefficient for Kapton HN to be 20ppm/K. These values are well matched, so in this regard, Aluminum suites our needs.
-
-\section{Critical Temperature}
-
-The trace material for our striplines must be in a superconducting state for the temperatures at which they are used. The alloy used by Tech-Etch, 5052-H19, has a $T_{c}$ of 775mK. This low $T_{C}$ limits the alloy's use to the 600mK - 50mK span of our flex cable, as it would be in a normal state for most of the 4.2K - 600mK span. The low $T_{c}$ of the alloy is a concern, due to non-ideal temperatures in our fridge. If the temperature drifts upward past the $T_{c}$ of the Aluminum, then the traces will transition to a normal state. Fridge temperatures have been to drift up to as much as 1K, so this is a serious concern for the feasibility of an Aluminum-trace stripline.
-
-\section{Conclusion}
-
-Due to the high thermal conductivity of Aluminum, and the resulting heat load, as well as the low $T_{c}$, our collaboration has decided that it is unsuitable as a trace material.
+Given that the best case scenario for heat loads for Niobium are still higher than other candidates, and the fact that thermal budget is very tight for the phonon cable, we have decided to put this design option on the backburner and will not research it further unless other options don't work out.
 
 \end{appendices}
 
