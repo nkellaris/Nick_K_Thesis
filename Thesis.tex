@@ -403,7 +403,7 @@ Though the design and technology used will change for the SNOLAB tower, many of 
 
 \chapter{Tower Thermal Stand-off Design}
 
-As stated in the previous chapter, the thermal stand-offs for our detector tower are designed primarily to support the detector stack and electronics, while thermally isolating the various 4He-3He dilution fridge temperature stages. However, any tower support structure must address numerous concerns in its design; These concerns are: thermal conductivity, radiopurity, thermo-mechanical properties such as strength, moduli, and expansion coefficients, and -- for the design of the structure itself -- the ability to withstand various loads and shocks without failure. In this chapter, I explore various stand-off candidates which offer significant improvements over our current UF-4S graphite tubes based on their merits of thermal conductivity, radiopurity, and their thermo-mechanical properties. From here, I consider two design possibilities for the stand-off geometry: thin-walled cylindrical shells and hexapods. An analytical model for the thin-walled shells -- or "tubes" -- is developed in an effort to further improve fridge performance by optimizing tube dimensions to minimize heat load while maximizing strength. An FEA modeling program called Comsol is then used to analyze both the tube and hexapod structures. We find that new designs for SuperCDMS SNOLAB may be able to reduce interstage heat loads from the thermal stand-offs by almost a factor of ten.
+As stated in the previous chapter, the thermal stand-offs for our detector tower are designed primarily to support the detector stack and electronics, while thermally isolating the various 4He-3He dilution fridge temperature stages -- apart from wiring, these stand-offs are the only inter-stage connections on the tower. However, any tower support structure must address numerous concerns in its design; These concerns are: thermal conductivity, radiopurity, thermo-mechanical properties such as strength, moduli, and expansion coefficients, and -- for the design of the structure itself -- the ability to withstand various loads and shocks without failure. In this chapter, I explore various stand-off candidates which offer significant improvements over our current UF-4S graphite tubes based on their merits of thermal conductivity, radiopurity, and their thermo-mechanical properties. From here, I consider two design possibilities for the stand-off geometry: thin-walled cylindrical shells and hexapods. An analytical model for the thin-walled shells -- or "tubes" -- is developed in an effort to further improve fridge performance by optimizing tube dimensions to minimize heat load while maximizing strength. We find that new designs for SuperCDMS SNOLAB may be able to reduce interstage heat loads from the thermal stand-offs by nearly a factor of twenty.
 
 \section{Candidate Materials}
 The numerous parameters which our thermal stand-off materials must satisfy gives us a list of equally numerous candidate materials, each of which is known -- or believed -- to satisfy at least some of the requirements (that they satisfy other requirements is proven in the following sections). This section identifies the various candidates and describes their merits as stand-off materials.
@@ -440,52 +440,27 @@ Ti 15-3-3-3, also known as Ti 15V-3Al-3Cr-3Sn or simply Ti 15-3, is a meta-stabl
 
 \section{Thermal Conductivity}
 Due to the finite cooling power of our helium dilution refrigerator, we must limit the
-thermal load to each stage of the fridge. The tower support tubes are a major source of
-thermal loading on each stage. The thermal power load on each stage from the tubes is
-governed by the general equation
+thermal load to each stage of the fridge. In the current design, the tower support tubes are a major source of thermal heat load on each stage. The thermal power through a section of material is given by,
 \begin{eqnarray}
-Power = \int_{T_{low}}^{T_{high}} \frac{A}{L}K(T)dT \ \ , %place this above in a more general section and reference it.
+\dot{Q} = -K(T) A \frac{dT}{dx}
+\end{eqnarray}
+where $K(T)$ is the temperature-dependent thermal conductivity of the sample, A is the cross-section of the sample (perpendicular to heat flow), dT is the differential temperature change along the section of the sample in the direction of heat flow, and dx is the differential length of the sample section. If we assume steady-state, then $\dot{Q}$ is equal at every point in the sample, and we can integrate to get
+\begin{eqnarray}
+Power = \dot{Q} = \int_{T_{low}}^{T_{high}} \frac{A}{L}K(T)dT 
 \end{eqnarray}
 where $T_{low}$ is the temperature of the colder stage (the one being thermally loaded), $T_{high}$ is the warmer
 connecting stage, A is the tube cross-sectional area, L is tube length, and K(T) is the temperature-dependent
 thermal conductivity. From the equation, we can see that thermal power is directly proportional
 to thermal conductivity, so by decreasing thermal conductivity, we decrease power to each
 stage; therefore, a first-pass look at tower material candidates should search for those materials which have a low thermal conductivity. These candidates are shown in comparison to the material currently in use -- UF-4S Graphite -- in Figure 3.1 below.
-\begin{figure}[htb]
-\includegraphics[width = \textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH3_figs/Standoff_K.png}
-\caption{Thermal conductivity of candidate tower stand-off materials. These data were collected from multiple papers: Vespel SCP-5000 \& Vespel SCP-5050 - This work ; Vespel SP-1, Vespel SP-22, Graphlite CFRP - \cite{run} ; Ti 15-3-3-3 - \cite{wik} ; UF-4S Graphite - \cite{lem} ; AXM-5Q Graphite - \cite{woo:gr}.}
+
+\begin{figure}[ht]
+\includegraphics[width = \textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH3_figs/Tower_standoff_K.png}
+\caption{Thermal conductivity of candidate tower thermal stand-off materials. These data were collected from multiple papers: Vespel SCP-5000, Vespel SCP-5050, ReTi Ti 15-3-3-3, and Graphlite CFRP - This work ; Vespel SP-1, Vespel SP-22, and Graphlite CFRP - \cite{run} ; TiMet Ti 15-3-3-3 - \cite{wik} ; Chinese Ti 15-3-3-3 - \cite{Run_ti153} ;  UF-4S Graphite - \cite{lem} ; AXM-5Q Graphite - \cite{woo:gr}.}
 \end{figure}
 
+We are concerned with thermal conductivities in the temperature range $T \in [0.01,5]$ as this is the span of the temperatures for the tower stages (including non-ideal temperatures). We see that there are numerous samples whose thermal conductivity is below UF-4S graphite for this range; these materials -- Vespel SP-22, SP-1, SCP-5050, SCP-5000, POCO AXM-5Q graphite, and for lower ranges, TiMetal Ti 15-3-3-3. Other materials -- such as Graphlite -- have a higher thermal conductivity, but are still considered for other compensating properties, such as strength, which will be discussed in the following sections. Note that none of our thermal conductivity data extends to the lowest two stages -- the Cold Plate (50mK) and the Mixing Chamber (10mK). This makes predicting performance at this stage transition (50mK - 10mK) difficult. We will have to address this carefully, typically with fixed exponent extrapolation. 
 
-
-Table 1 summarizes the possible improvements in thermal power conducted for each stage,
-assuming identical tube dimensions.
-
-\begin{table}[htb]
-\begin{threeparttable}
-{\footnotesize\rm\begin{tabularx}{17.7cm}{l|XXXXXX}
-  \multicolumn{7}{l}{{\large Calculated Power Conducted for Candidate Tower Materials}}\\
-\toprule
- {\normalsize Material} & 4.2K-600mK  &5K-1K\tnote{*}& 600mK-50mK & 1K-100mK\tnote{*} & 50mK-10mK & 100mK-40mK\tnote{*} \\
-  &P($\mu$W)&P($\mu$W)&P($\mu$W)&P($\mu$W)& P(nW) & P(nW) \\ \hline\hline
-  Current Graphite & 202 & 309 & 0.95 & 3.4 & 2.2 & 11.4 \\
-  POCO AXM-5Q & 140 & 238.4 & 0.46 & \textbf{1.35} & 2.75 & 10.5 \\
-  Ti-6Al-4V 'Grade 5' & 2294 & 3490 & 7.8 & 43.6 & 0.4-2.13 & 6.4-21.1 \\
-  Ti 15V-3Cr-3Sn-3Al & 1134 & 1623 & 1.79 & 12.4 & - & - \\
-  45Nb-Ti (45\% wt. Nb) & 1715 & 2879 & 3.0 & 13.9 & 2.1 & 15.5 \\
-  Vespel SP-1 & \textbf{92.2} & \textbf{129} & 0.96 & 2.92 & 4.9 & 19.8 \\
-  Vespel SP-22 & 107 & 166 & \textbf{0.39} & 1.67 & \textbf{0.38} & \textbf{2.6} \\
-\bottomrule
-\end{tabularx}
-\begin{tablenotes}
-   \item[*]{Thermal stability calculations provided to account for non-ideal fridge temperatures}
-\end{tablenotes}}
-\caption{Calculated power conducted between individual tower stages. Power Calculations
-based on current support tube lengths: 4K-600mK stage - 0.949in; 600mK-50mK stage - 1.572in;
-50mK-10mK stage - 1.334in. \textbf{Bold} numbers display lowest power conducted for a given
-stage.}
-\end{threeparttable}
-\end{table}
 
 
 \section{Radioactivity}
@@ -494,9 +469,9 @@ The dark matter particles that the CDMS experiment is searching for are a form o
 
 \subsection{Secular Equilibrium}
 
-\begin{wrapfigure}{r}{6.6cm}
+\begin{wrapfigure}{r}{6.8cm}
 \centering
-\includegraphics[width=.34\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH3_figs/Th232_chain.png}
+\includegraphics[width=.32\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH3_figs/Th232_chain.png}
 \caption{One decay chain for Th-232, which ends with the stable isotope Pb-208. The long half-life of Th-232 allows one to assume a secular equilibrium for undisturbed samples with Th-232 contamination. The figure shows the half-lives of the isotopes, as well as their method of decay.}
 \end{wrapfigure}
 
@@ -653,8 +628,6 @@ D_{d} = D_{p}\frac{h_{d}}{h_{p}}
 
 where the subscripts d and p refer to daughter and parent, respectively.
 
-
-
 \section{Thermo-Mechanical Properties}
 
 The tower thermal stand-offs are a structural component of the tower, so the physical and mechanical properties of the materials are naturally an important factor in choosing suitable candidates. In Table 3.4 \& 3.5 I examine some of the physical quantities of interest for possible thermal stand-offs materials. These numbers characterize the strength and dimensional stability of the materials. Dimensional stability is required to ensure the correct operation of our rigid vacuum coaxes; if the tower flexes too much during handling, the vacuum coaxes could be put under too much tension and snap. Similarly, during fridge operation, a CTE which is too high could cause the vacuum coaxes too go slack and short to their shielding; a CTE which is too low could cause too much tension and plastically deform the lines. The different strength parameters are crucial in telling us how little of the material we can safely use in creating a sufficiently strong support. Since radioactivity levels and thermal power conducted depend on volume and cross-section of the material, respectively, by minimizing material use we also minimize radioactivity and thermal loads to the dilution fridge stages.
@@ -695,14 +668,14 @@ The tower thermal stand-offs are a structural component of the tower, so the phy
  POCO AXM-5Q & 10.5 & - & 4$^{\ddag}$ \\
  Ti 15-3-3-3 & 105 & - & 39.5$^{\ddag}$ \\
  Ti 21S & 103 & 114 & 38.7$^{\ddag}$ \\
- Vespel SP-1 & - & 2.41 & - \\
+ Vespel SP-1 & 2.3$^{*}$ & 2.41 & - \\
  Vespel SCP-5000 & 3.99 & 9.06 & 1.41$^{\ddag}$\\
- Vespel SP-22 & - & 3.28 & - \\
+ Vespel SP-22 & 3.3$^{*}$ & 3.28 & - \\
  Vespel SCP-5050 & 8.93 & 3.00 & 3.66$^{\ddag}$\\
  Graphlite CF Rod & 134 & 131 & - \\
  \bottomrule
 \end{tabular}
-\caption{Continuation of table 3.4 for thermo-mechanical properties. Different moduli are given for each material: $E_{T}$ is the Young's Modulus, $E_{C}$ is the compressive modulus, and G is the shear modulus. \ddag - Indicates that data on the shear modulus, G, was unavailable; instead, the formula for homogenous and isotropic materials was used, in which $G = E_{T}/(2(1 + \nu))$. References are the same as above. }
+\caption{Continuation of table 3.4 for thermo-mechanical properties. Different moduli are given for each material: $E_{T}$ is the Young's Modulus, $E_{C}$ is the compressive modulus, and G is the shear modulus. \ddag - Indicates that data on the shear modulus, G, was unavailable; instead, the formula for homogenous and isotropic materials was used, in which $G = E_{T}/(2(1 + \nu))$. * - Data from material properties table published by Oblicos-96, Ltd. (www.oblicos.com). Other references are the same as in Table 3.4. }
 \end{threeparttable}
 \end{table}
 
@@ -772,13 +745,19 @@ The copper grooves surrounding the wires are 0.042" wide, which means that a def
 We see that there is no deflection in the wires until the linear CTE of the stand-off reaches 42ppm/C, which is the point when the strain at 4K reaches 0\%. From here, deflection increases rapidly past the 0.021" maximum allowable. In Table 3.4 we see that Vespel SP-1 and Vespel SCP-5000 are above the 42ppm/C limit. As noted in Table 3.4, however, the CTE of these materials is likely lower than the room temperature value given. The CTE of Vespel SP-1 drops from 54ppm/C for room temperature and above, to 45ppm/C below room temperature. Since Vespel SCP-5000 is similar to SP-1, its room temperature CTE of 45ppm/C would likely drop sufficiently low below room temperature to allow its use as a stand-off. If SCP-5000 was chosen for use in the fridge, however, it would be prudent to verify its low temperature CTE.
 
 \subsection{Candidates Based on Thermal Stability}
-Considering the strains and deflections found in Figure 3.7 for the range of CTE's found in our candidates, we conclude that all materials besides Vespel SP-1 should satisfy thermal stability requirements in the SNOLab towers, though the low temperature thermal contraction of Vespel SCP-5000 should be verified if it is chosen as a stand-off material.
+Considering the strains and deflections found in Figure 3.7 for the range of CTE's found in our candidates, we conclude that all materials besides Vespel SP-1 should satisfy thermal stability requirements in the SNOLab towers, though the low temperature thermal contraction of Vespel SCP-5000 should be verified if it is chosen as a stand-off material. 
 
-\section{Tube Failure Model}
+\section{Tube Stand-offs}
 
-The dimensions of the SuperCDMS Soudan thermal stand-offs were selected arbitrarily, based on what sounded reasonable at the time; therefore, we are not attached to these dimensions. Ideally, the dimensions would be different for each material, designed in such a way as to take advantage of the strengths of each. This dimension optimization would allow us to minimize the use of material, reducing both thermal concerns and radioactivity concerns. This section presents a model developed in collaboration with professor Sanjay Govindjee of UC Berkeley, which considers four failure modes: shear buckling, bending buckling, normal material failure, and shear material failure. Using this model, we determine how little material can safely be used to withstand a 145lb. transverse shear load. We then compare the resulting heat loads and radioactivity for candidates given their optimized dimensions.
+Now that we have characterized the different candidate materials and examined their suitability, we move to the first proposed design for the thermal stand-offs: a thin-walled tube structure. This is the form of our current stand-offs in SuperCDMS Soudan towers. A thin-walled tube uses little material while providing high strength in a variety of loading conditions, making it an attractive design. 
 
-\subsection{Loading Conditions}
+The dimensions of the SuperCDMS Soudan thermal stand-offs were selected arbitrarily, based on what sounded reasonable at the time; therefore, we are not attached to these dimensions. Ideally, the dimensions would be different for each material, designed in such a way as to take advantage of the strengths of each. This dimension optimization would allow us to minimize the use of material, reducing both thermal concerns and radioactivity concerns. This section presents a model developed in collaboration with professor Sanjay Govindjee\footnotemark  of UC Berkeley, which considers four failure modes: shear buckling, bending buckling, normal material failure, and shear material failure. Using this model, we determine how little material can safely be used to withstand both a 145lb. and 290lb. transverse shear load. These results will be used later to compare expected heat loads on various tower stages from our optimized tube dimensions.
+
+\footnotetext{s\underline{~}g@berkeley.edu}
+
+\subsubsection{Loading Conditions}
+
+The load conditions which we wish to design to for the SNOLab towers are not yet defined; therefore, as a first pass, we will consider it sufficient to replicate the strength of the Soudan tower stand-offs, which are able to withstand up almost 145lbs applied as a transverse shear force. This was found through a destructive physical analysis (DPA) of a Soudan tower. The tower was clamped in a bench vise, and the 600mK floor was bolted to the 50mK tabs to support it the 600mK to 50mK tube. This isolated the 10mK floor and the tube attached to it. A strap was hung over the 10mK floor, and loaded to $\sim$145 pounds before the tube failed. The load conditions and tube failure are shown in Figure 3.8. This load can be approximated by a transverse shear load. In addition, we assume that the edges are constrained to a circular shape during loading. Therefore, our model will design stand-offs with "clamped edges" which can support 145 pounds as a transverse shear load.
 
 \begin{figure}[ht]
 \centering
@@ -787,8 +766,6 @@ The dimensions of the SuperCDMS Soudan thermal stand-offs were selected arbitrar
 \subfloat[]{\includegraphics[width = .3\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH3_figs/Tower_break.jpg}}
 \caption{Destructive physical analysis of Soudan tower. The 600mK floor was bolted to the 50mK tabs to support it, isolating the 10mK floor and its support. This was then loaded until failure under transverse shear. It failed at $\sim$145 pounds in what appears to be compressive failure.}
 \end{figure}
-
-The load conditions which we wish to design to for the SNOLab towers are not yet defined; therefore, as a first pass, we will consider it sufficient to replicate the strength of the Soudan tower stand-offs, which are able to withstand up almost 145lbs applied as a transverse shear force. This was found through a destructive physical analysis (DPA) of a Soudan tower. The tower was clamped in a bench vise, and the 600mK floor was bolted to the 50mK tabs to support it the 600mK to 50mK tube. This isolated the 10mK floor and the tube attached to it. A strap was hung over the 10mK floor, and loaded to $\sim$145 pounds before the tube failed. The load conditions and tube failure are shown in Figure 3.8. This load can be approximated by a transverse shear load on a tube with "clamped edges". Therefore, our model will design stand-offs which can support 145 pounds as a transverse shear load.
 
 \subsection{Analytical Model for Tube Failure}
 
@@ -802,7 +779,7 @@ Our model considers 4 failure modes:
 \item Material Failure from Shear Stresses
 \end{itemize}
 
-A discussion of the formulas for failure modes considered and their validities follow.
+A discussion of the formulas for the failure modes considered and their validity follows.
 
 \subsubsection{Tube Geometry}
 Cylindrical shell theories depend heavily on certain parameters in the shell, as these permit various simplifications of mechanical models. The tube we will initially try to model is the graphite tube broken in the DPA. The graphite tube tested had nominal dimensions of thickness $t = 0.028$in, radius $a = 0.986$in (to middle surface), and length $L=1.334$in.
@@ -882,177 +859,149 @@ From here, given the available material properties (Table 3.4 and 3.5) and selec
 
 To determine the accuracy of our model, we first apply it to the current graphite tubes to try to replicate the results of the DPA (figure 3.8). Using the dimensions of the 50mK-10mK stage tube, and designing for a break strength of 145 lbs (as in the DPA) we obtain Figure 3.9.  The (a,t) combinations which give a failure limit of 145lbs are marked by the dashed green line. Any dimensions to the upper-right of this line are considered safe parameter space (the failure limit is above 145lbs). The model predicts a failure limit of 175lbs for the actual tube dimensions tested. This equates to a $\sim$20\% discrepancy from our model. Given that the strengths input to the model from Table 3.4 and 3.5 are inferred rather than measured (see table notes) this could easily account for the discrepancy. As our model appears to be fairly accurate, we can now apply it to new tower materials.
 
-Before optimizing our materials, we use the method described above to plot failure curves for all candidates for each tower stage to determine the safe parameter space. This is shown in Figure 3.10 for Vespel SCP-5050
+Next, we use the method described above to plot failure curves for all candidates for each tower stage to determine the safe parameter space. One of the plots is shown in Figure 3.10 for Vespel SCP-5050 and compared to the UF-4S graphite performance for the Still to CP tube (600mK - 50mK). We see that Vespel SCP-5050 offers a large improvement in dimensions over UF-4S graphite; we find this to be true for every other candidate considered for every stage.
+
 \begin{figure}[ht]
 \centering
-\includegraphics[width = .65\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH3_figs/UF_4S_failure.png}
+\includegraphics[width = .7\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH3_figs/UF_4S_failure.png}
 \caption{Failure curves for UF-4S graphite used in the 50mK-10mK stage SuperCDMS Soudan tower (L = 1.334in). We plot two buckling modes and two material failure modes. In the plot, the highest line at any given radius (a) is the dominating failure mode for that region. This is shown by the green dashed line. Combinations of (a,t) to the upper right of this line represent dimensions whose failure limits are above 145lbs (as set by the DPA); therefore, this region represents the safe parameter space for design. The actual dimensions (t = 0.028", a = 0.986") for the graphite tube are marked by an X. We see that the discrepancy between our model and reality is $\sim$20\%. This may be due to the uncertainty in material properties in Table 3.4 and 3.5.}
 \end{figure}
 
+\begin{figure}[h]
+\centering
+\includegraphics[width = .6\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH3_figs/SCP_5050_graphite_1K_100mK.png}
+\caption{Failure curves for Vespel SCP-5050 and UF-4S graphite assuming a stage length of 1.88" and a failure limit of 145lbs. The current dimensions of the graphite are marked with an X. From the plot, we see that Vespel SCP-5050 offers a much better parameter space than UF-4S graphite. As in the previous plot. The (a,t) combinations to the upper right of each green dashed line represent safe parameter space.}
+\end{figure}
+\begin{figure}[h]
+\centering
+\includegraphics[width = .6\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH3_figs/SCP_5050_graphite_powers.png}
+\caption{Plot showing minimization process for heat loads on 50mK stage from 600mK from thermal stand-off tubes (SCP-5050 and UF-4S) for 48 tower experiment, assuming a stage length of 1.88". To get this plot, take the set of optimal (radius,thickness) pairs from the failure curves (green dashed line from Figure 3.9 in this case), and find thermal power conducted for each pair in the set. Though it is not shown in the plot, the optimal thickness is implicitly chosen at each radius. The X denotes heat loads expected from 0.986" radius and 0.028" thickness UF-4S tubes (currently in use in the SuperCDMS Soudan tower). Thermal conductivity data from \cite{lem} for UF-4S, and this work for SCP-5050.}
+\end{figure}
 
 \subsection{Minimizing Radioactivity and Heat Load}
 
-Once the optimal dimension pairs (radius, thickness) are obtained along the failure limit, we can minimize radioactivity and heat load of the candidate materials. Radioactivity is
-directly proportional to volume, and thermal power is directly related to cross-sectional area. Holding tube lengths fixed, minimization of radioactivity and heat load is reduced
-to the problem of minimizing cross-section. Therefore, radioactivity and heat load will have identical minimization parameters.
 
-The graphs in figure 3 plot radioactivity and thermal power as a function of radius. The thickness of the tube at any radius is implicitly the thickness from the optimal dimension
-pairs obtained from the failure limit lines in figure 2.
+Once the optimal dimension pairs (radius, thickness) are obtained along the failure limit (i.e. green dashed line in Figure 3.9) for each material, we can plot these pairs to determine the dimensions which yield the minimum heat load by minimizing the stand-off cross-section. In fact, by holding tube lengths fixed and minimizing cross-section, we minimize both radioactivity and heat loads simultaneously. This is because radioactivity -- typically proportional to volume -- becomes reduced to a dependence on cross-section once we fix tube lengths; as we already know, heat loads are proportional to material cross-section. Figure 3.11 shows this process for Vespel SCP-5050 and UF-4S Graphite using the dimensions and failure curves from Figure 3.10. We see a very clear minimum heat load for both materials. This method was used for all candidate tube-structure materials to determine minimized expected heat loads for every stage. We present the full results in section 3.8 and compare to hexapod structures. 
 
-It is obvious that the candidate materials offer significant improvement over the current UF-4S Graphite. The heat load improvement per stage is examined below. For simplicity,
-the values along the optimum lines have been used.
+\section{Truss Structure Stand-off}
 
-\smallskip
+The second proposed design for our tower thermal stand-offs is a truss structure. This design was primarily motivated by the inclusion of Graphlite CFRP (Carbon fiber reinforced plastic) as a candidate material. A truss is a structure consisting of triangular units of straight members; these members meet at nodes which function to permit swiveling of the truss members. An example of a hexapod truss structure is shown in Figure 3.12. Truss structures are a very interesting design for supporting components in cryogenic systems. They use material very efficiently, as they are very open structures whose properties are such that all material in the truss contributes equally to load carrying \cite{Hastings1993}. In addition, their ability to swivel eliminates transfer of moments (bending, etc.) to the members, reducing likelihood of failure. 
 
-\large{\underline{5K -1K}}
-
-At a radius of 0.4 inches, the power from Vespel SP-1 is 50$\mu$W. This is 1/6 the current heat load. Assuming the same thermal conductivity for Vespel SCP-5000, this number could
-be reduced to near 35$\mu$W for more than an 800\% reduction in heat load.
-
-\smallskip
-
-\underline{{\large 1K-100mK}}
-
-Vespel SP-1 could reduce the heat load to 1.3$\mu$W from 3.4$\mu$W, 2.6 times less than the current heat load. Vespel SCP-5000 could offer an additional 30\% improvement over SP-1.
-
-\smallskip
-
-\underline{{\large 100mK-40mK}}
-
-With no data yet in this range for Ti 15-3-3-3 we cannot know the improvement, but at the optimum value, cross-section is reduced by nearly a factor of 20. Given that the thermal
-conductivity of Ti 15-3-3-3 is almost certainly lower at this stage than UF-4S Graphite, a significant improvement is expected.
-
-\bigskip
-
-For each stage, the candidate materials not only offer a significant reduction in thermal power, but remain well within acceptable limits for radioactivity.
-
-It should be noted that the optimized values would almost certainly result in a failure load of less than 145lbs. Given the error for the predicted Graphite failure, the actual
-would be around 20-30\% lower. Even so, our failure load would still be near 100lbs. If it is decided that this is too low, the material dimensions can easily be increased and
-still offer more than a factor of 2 improvement for each stage.
-
-\section{Striplines}
-In addition to modifying the tower support tubes, we are examining the feasibility of replacing the NbTi vacuum coaxial cables along tower face with a parallel strip transmission
-line. This transmission line must satisfy the new inductance requirements of the SQUID/Detector designs while remaining within acceptable limits for thermal power loading on the
-tower stages. Critical current density, resistivity, and critical temperature ($T_{c}$) must also be evaluated for the new line.
-
-Our consideration of a flex cable comes from:
-\begin{itemize}
-\item Low inductance design capability
-\item Precise control over dimensions
-\item Reproducibility
-\item Strength, and Low Radioactivity (from Kapton substrate)
-\end{itemize}
-
-The new SQUID design will reduce the superconducting QET resistance from 0.2$\Omega$ to 0.02$\Omega$. Since the 3dB roll-off frequency corresponds to R/L for our amplifier, when we reduce R by a factor of 10, we must also reduce inductance, L, by a factor of 10 to maintain our bandwidth. The new goal for the inductance of our flex cable is 30nH over a 20 inch length, or $\approx$ 60nH/m. To determine the inductance for our parallel traces we used the following formula used by basic inductance calculators:
-
-$$ L \approx \frac{\mu_{0}\mu_{r}h}{w} \ \ (h > t , w >> h)$$
-
-$\mu_{0}$ = the magnetic constant (4$\pi \cdot 10^{-7}$)\\
-$\mu_{r}$ = relative permeability of Kapton (assumed to be 1)\\
-t = thickness of trace \\
-h = center-to-center separation of traces \\
-w = width of the trace \\
-
-Sonnet EM modeling software will be used to provide more detailed inductance modeling as well as to measure electrical cross-talk.
-
-\subsection{NbTi Trace}
-
-We have ordered Nb47Ti(53\% Nb, 47\% Ti by weight) which was rolled by Virginia Fine Metal. The foil is 4" x 10" and 0.002" thick. The same Nb47Ti has already been successfully etched so it can now be made into a preliminary parallel strip transmission line for testing.
-
-\begin{table}[ht]
+\begin{figure}[ht]
 \centering
+\includegraphics[width = .5\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH3_figs/Hexapod_MIRI.png}
+\caption{Hexapod truss structure used to support the MIRI Instrument on the James Webb Space Telescope. The nodes for each member allow motion in two directions to prevent moments from being transferred to the members. Image and description from \cite{Jessen2004}.}
+\end{figure}
+
+An analytical model for a truss structure has not been considered yet, but given the interesting properties of trusses, this option will certainly be pursued for candidate thermal stand-off materials. We plan to develop FEA models which will allow us to compare the strength of a hexapod truss to a tube structure. For now, we consider a few novel hexapod structures made from Graphlite CFRP and Ti 15-3-3-3 whose members are angled at $45^{o}$. The expected heat loads from these structures as well as the optimized tube structures are presented in Section 3.8 below.
+
+\section{Expected Heat Loads from Optimized Tube and Novel Truss Designs}
+
+Here we present the expected heat loads and dimensions for our optimized tube structures, as well as some novel hexapod trusses. These thermal loads are calculated assuming 48 towers. The tubes have been designed to a failure limit of 145 and 290 lbs. to allow for a safety factor in their design. The hexapod trusses have not been designed to a specific failure limit. For heat load calculations, all stage lengths are assumed to be 1.88" (seems reasonable). This means that the optimized dimensions for tube structures are identical for each stage. Powers are calculated for ideal temperatures as well as elevated temperatures to observe the thermal stability of all materials.
+
+\begin{table}[!h]
+\begin{small}
+\resizebox{\textwidth}{!}{%
+\rowcolors{3}{gray!20}{white}
 \begin{threeparttable}
-{\footnotesize\rm\begin{tabular}{l|rrrrrr}
-  \multicolumn{7}{l}{{\large Thermal Loading in Tower Stages for Current 8 Pair Design, 6 Face Tower}}\\
+\begin{tabular}{lccccc}
+  \multicolumn{5}{l}{{\Large 4.2K - 600mK: Thermal Stand-off Heat Loads in $\mu$W, 48 Towers}} \\
 \toprule
- {\normalsize Material} & 4.2K-600mK & 600mK-50mK & 50mK - 10mK & 5K-1K\tnote{*} & 1K-100mK\tnote{*} & 100mK-40mK\tnote{*} \\
-  &P($\mu$W)&P(nW)&P(nW)&P($\mu$W)& P(nW) & P(nW) \\ \hline\hline
-  Ti15333 @ 0.0005" & - & 658.5 & 4.41 & - & 1997 & 15.44 \\
-  Ti15333 @ 0.001" & - & 807.4 & 5.03 & - & 2670 & 17.60 \\
-  Nb-47Ti @ 0.001" & 108.4 & 879.95 & 5.14  & 170.74 & 2767 & 18.42 \\
-  Graphite Tube & 202 & 950 & 2.2 & 309 & 3400 & 11.4 \\
-  Current Vacuum Coax's & 0.762 & \multicolumn{2}{r}{3.60} & 1.28 & \multicolumn{2}{r}{16.68} \\
+\bf{{\large Material}}& \multicolumn{2}{c}{145lb. Failure} & \multicolumn{2}{c}{290lb. Failure} & Ref.\\
+\cmidrule(r){2-5}
+& 5K - 1K & 4.2K - 600mK & 5K - 1K & 4.2K - 600mK & \\
+Current CDMS Graphite; $(2"\oslash,0.028")$  & 7563 & 4941 & - & - & \cite{lem}\\
+Graphlite CF Hexapod; ($0.04" \oslash$ @ $45^{o}$) & 274 & 212 & - & - & \cite{run}\\
+Ti 15-3-3-3 Hexapod; ($0.04"$ x $0.06"$ @ $45^{o}$) & 2297-2786 & 1604-1741 & - & - & \cite{wik},\cite{Run_ti153} \\
+Vespel SCP-5000; $(0.78"\oslash,0.025")|(0.96"\oslash,0.032")$ & 806 & 568 & 1299 & 915 & -\\
+Vespel SCP-5050; $(1.4"\oslash,0.016")|(1.72"\oslash,0.021")$ & 1228 & 748 & 1999 & 1217 & - \\
+Vespel SP-1; $(.96"\oslash,0.030")|(1.2"\oslash,0.040")$ & 1649 & 1188 & 2696 & 1942 & \cite{run}\\
+POCO-AXM 5Q; $(1.90"\oslash,0.014")|(2.32"\oslash,0.019")$ & 3527 & 1746 & 5740 & 2841 & \cite{woo:gr}\\
+Ti 15-3-3-3 $(0.64"\oslash,0.006")|(0.78"\oslash,0.008")$ & 2604-3158 & 1819-1973 & 4224-5123 & 2950-3201 & \cite{wik},\cite{Run_ti153}\\
 \bottomrule
 \end{tabular}
-\begin{tablenotes}
-   \item[*]{Thermal stability calculations provided to account for non-ideal fridge temperatures}
-\end{tablenotes}}
-\caption{Calculated power conducted between individual tower stages for 30nH inductance. Graphite numbers based on current support tube lengths: 4.2K-600mK stage - 0.949in; 600mK-50mK
-stage - 1.572in; 50mK-10mK stage - 1.334in. Transmission line calculations used inter-stage lengths of: 4.2K-600mK - 0.688in; 600mK-50mK - 0.789in; 50mK-10mK - 0.740in. Vacuum coax
-calculations used: 4.2K-600mK - 1.339in; 600mK-10mK - 0.83in. }
-\end{threeparttable}
+\end{threeparttable}}
+\caption{Heat loads for 4.2K-600mK stage transition including non-ideal fridge temperatures, where power is dissipated on the lower temperature stage in each transition. Tube structures are designed for both 145lb. and 290lb. failure limits. Dimensions are given in (diameter, thickness) pairs for tubes. The left and right set correspond to 145lb. and 290lb. failure limits respectively. The CF Graphlite and Ti 15-3-3-3 hexapods are rods with the given dimensions angled at $45^{o}$. Stage length is taken to be 1.88". The last column gives the reference used for thermal conductivities of each material. Blank references indicate data used from this work. Note that "Current CDMS Graphite" refers to the grade UF-4S graphite used in SuperCDMS Soudan towers.}
+\end{small}
 \end{table}
 
-\subsection{Ti 15-3-3-3 Trace}
-Ti 15-3-3-3 is another option as a trace material. Its relevant properties are discussed below.
-\begin{itemize}
-\item Thermal Conductivity: This alloy offers a lower thermal conductivity than NbTi at all stages.
-\item Critical Current Density: MUST EXPERIMENTALLY DETERMINE
-\item Superconducting Transition Temperature: 3.89K
-\item Resistivity: MUST EXPERIMENTALLY DETERMINE
-\end{itemize}
-
-Due to it's very low transition temperature, it is not an option at the 4K to 600mK transition. If the SQUIDS are placed at the 600mK stage, Ti 15-3-3-3 is an ideal choice as a trace from 600mK down to the 10mK base.
-
-To roll Ti 15-3-3-3 we have contacted Ulbrich, a company which could provide us with a foil as thin as 0.5 mil. The cost for even 1 mil, however, is \$1010/lb with a minimum of 10 lbs, so it will be expensive. Another possible company is called Arnold Rolled Products. They carry Ti 15-3-3-3 sheet in stock and could roll to 0.5 mil.
-
-\bigskip
-
-\subsection{New 50mK Stage (or 100mK for Non-Ideal) Heatsink}
- The current tower design has an internal heat sink for the 50mK stage. The only external components of this stage on the tower face are two connectors for thermally connecting
-the tower support tubes to the fridge. This new transmission line design, while easily adjustable to meet inductance requirements, is much more thermally conductive; therefore,
-to implement this new design, I propose adding an additional external component for heatsinking the transmission line to the 50mK fridge stage. The need for an external 50mK
-heatsink can be seen in Table 5. We have used a best case transmission line design: 0.5 mil Ti 15-3-3-3 designed for 50nH/20". This is compared to the current NbTi vacuum coax's and graphite tower support tubes. The power shown is per tower with the current 6-sided design.
-
-\bigskip
-
-\begin{table}
-\centering
+\begin{table}[!]
+\begin{small}
+\resizebox{\textwidth}{!}{%
+\rowcolors{3}{gray!20}{white}
 \begin{threeparttable}
-\begin{tabular}{l|r}
-\multicolumn{2}{c}{Power Loaded to Base (40mK) [nW]}\\\toprule
-Ti15333 & 1442 \\\midrule
-Current Vacuum Coax's & 16.68\\\midrule
-Graphite Tube & 11.4 \\ \bottomrule
+\begin{tabular}{lccccc}
+  \multicolumn{5}{l}{{\Large 600mK - 50mK: Thermal Stand-off Heat Loads in $\mu$W, 48 Towers}} \\
+\toprule
+\bf{{\large Material}}& \multicolumn{2}{c}{145lb. Failure} & \multicolumn{2}{c}{290lb. Failure} & Ref.\\
+\cmidrule(r){2-5}
+& 1K - 100mK & 600mK - 50mK & 1K - 100mK & 600mK - 50mK \\
+Current CDMS Graphite & 137.3 & 38.3 & - & - & \cite{lem}\\
+Graphlite CF Hexapod & 17.1 & 5.73 & - & - & \cite{run}\\
+Ti 15-3-3-3 Hexapod & 29.0-34.2 & 4.24-8.45 & - & - & \cite{wik},\cite{Run_ti153} \\
+Vespel SCP-5000 & 27.7 & 9.47 & 44.7 & 15.25 & - \\
+Vespel SCP-5050 & 12.0 & 2.76 & 19.6 & 4.50 & - \\
+Vespel SP-1 & 61.2 & 20.4 & 100.1 & 33.4 & \cite{run} \\
+POCO-AXM 5Q & 25.6 & 8.19 & 41.6 & 13.3 & \cite{woo:gr} \\
+Ti 15-3-3-3 & 32.9-38.7 & 4.81-9.58 & 53.3-62.9 & 7.8-15.5 & \cite{wik},\cite{Run_ti153}\\
+\bottomrule
 \end{tabular}
-\end{threeparttable}
-\caption{Power load on tower base. For simplicity, only the non-ideal temperature calculations are provided.}
+\end{threeparttable}}
+\caption{Same as table 3.6, for 600mK - 50mK stage transition.}
+\end{small}
 \end{table}
 
-\bigskip
-Assuming the internal 50mK stage heatsink can be brought out, we can have  a thermally competitive design for the parallel strip transmission line. Table 4 compares an NbTi line, Ti 15-3-3-3 line, current coax's, and the Graphite tube. NbTi only goes to 1 mil, as it cannot be rolled thinner. Ti 15-3-3-3 is presented in 0.5 mil and 1 mil, as it can be produced in 0.5 mil, but it will be expensive.
+\begin{table}[!h]
+\begin{small}
+\resizebox{\textwidth}{!}{%
+\rowcolors{3}{gray!20}{white}
+\begin{threeparttable}
+\begin{tabular}{lccccc}
+  \multicolumn{5}{l}{{\Large 50mK - 10mK: Thermal Stand-off Heat Loads in $\mu$W, 48 Towers}} \\
+\toprule
+\bf{{\large Material}}& \multicolumn{2}{c}{145lb. Failure} & \multicolumn{2}{c}{290lb. Failure} & Ref.\\
+\cmidrule(r){2-5}
+& 100mK-40mK & 50mK - 10mK & 100mK - 40mK & 50mK - 10mK \\
+Current CDMS Graphite & 3.9\e{-1} & 7.6\e{-2} & - & - & \cite{lem}\\
+Graphlite CF Hexapod & 5.54\e{-2} & 1.05\e{-2} & - & - & - \\
+Ti 15-3-3-3 Hexapod & 1.23\e{-2}-6.06\e{-2} & 3.5\e{-3}-9.2\e{-3} & - & - & \cite{wik}, - \\
+Vespel SCP-5000 & 1.86\e{-1} & 4.86\e{-2} & 2.99\e{-1} & 7.83\e{-2} & - \\
+Vespel SCP-5050 & 1.47\e{-2} & 2.1\e{-3} & 2.4\e{-2} & 3.5\e{-3} & - \\
+Vespel SP-1 & 3.66\e{-1} & 9.24\e{-2} & 5.99\e{-1} & 1.51\e{-1} & \cite{run} \\
+POCO-AXM 5Q & 1.72\e{-1} & 4.65\e{-2} & 2.80\e{-1} & 7.57\e{-2} & \cite{woo:gr} \\
+Ti 15-3-3-3 & 1.4\e{-2}-6.87\e{-2} & 4.0\e{-3}-1.04\e{-2} & 2.27\e{-2}-1.11\e{-1} & 6.5\e{-3}-1.69\e{-2} & \cite{wik}, - \\
+\bottomrule
+\end{tabular}
+\end{threeparttable}}
+\caption{Same as Table 3.6 for 50mK - 10mK stage transition.}
+\end{small}
+\end{table}
 
-\section{Availability}
-\subsection{Vespel SP-1/Vespel SCP-5000}
+We see from Tables 3.6, 3.7, and 3.8 that there are numerous competitive options available for our thermal stand-offs. The candidates which seem most promising are described below.
 
-Vespel SP-1 and SCP-5000 are both readily available from DuPont through the certified distributor Curbell Plastics.
+\smallskip
 
-As a warning, an employee from Curbell Plastics notified us that another company, Pro Plastics, sells a counterfeit material under the name of Vespel.
+\textbf{4.2K - Still (4.2K - 600mK):} For this transition, a Graphlite CFRP hexapod is the ideal candidate. The expected heat loads are reduced by over a factor of twenty from the UF-4S graphite currently used in the experiment. Two other options, based on heat loads, are Vespel SCP-5000 and Vespel SCP-5050. For the SCP-5000 option we can see that dimensions become a little unbelievable, however; The diameter of 0.78" for the SCP-5000 will be subject to large bending moments if we have a wide tower. The SCP-5050 dimensions seem reasonable, especially for the 290 lb. failure limit, with 0.021" only being slightly thinner than our current 0.028" thick graphite tubes. The caveat with the Vespel SCP options is that the thermal conductivities are heavily extrapolated, so cannot be fully trusted.
 
-\subsection{Carbone UF-4S}
+\smallskip
 
-This is the grade currently used in the towers as a support tube. Through recent contact with Mersen (the new owner of Carbone of America) we have found that this grade is still produced and readily available.
+\textbf{Still - Cold Plate (600mK - 50mK):} This transition has a multiple options which may be viable. Vespel SCP-5050 appears to be the best option here, but the Graphlite CFRP hexapod and Ti 15-3-3-3 hexapod/tube all perform well. The main issue with the Ti 15-3-3-3 is the variability in the thermal conductivity data. In addition, the Ti 15-3-3-3 hexapod would likely perform better than the tube. This is because the tube would either need to be rolled from a sheet or milled from a billet. A rolled tube is subject to imperfections in shape, which are a large factor in failure limits for ductile materials. Billets of Ti 15-3-3-3 can only be purchased from Chinese manufacturers at the moment. These alloys have different qualities and undergo different heat treatments than the TiMetal Ti 15-3-3-3. This seems to have the effect of increasing the thermal conductivity of the Chinese samples. A hexapod could be built out of truss members wire-EDM'ed out of a sheet of TiMetal Ti 15-3-3-3, which would likely have a lower thermal conductivity.
+\smallskip
 
-\subsection{Ti 15-3-3-3/Ti 21s}
+\textbf{Cold Plate - Mixing Chamber (50mK - 10mK):} In this transition, the four options of the Graphlite hexapod, Vespel SCP-5050 tube, and Ti 15-3-3-3 hexapod and tube remain competitive. The same argument as before applies to the Ti 15-3-3-3 tube vs. hexapod structure. For this range, however, we do not have data for the low thermal conductivity Ti 15-3-3-3. To know if Ti 15-3-3-3 is truly a viable candidate we must determine the thermal conductivity of TiMetal Ti 15-3-3-3 at these temperatures.
 
-Ti 15-3-3-3 is not available in anything except sheet form in the United States. Chinese companies, however, have Ti 15-3-3-3 available as wire, sheet, and rod. Two possible
-companies are YR Titanium and ReTi Metal. Two rods have been ordered from ReTi Metal.
+\section{Future Directions for Stand-off Design}
 
-Ti 21s is another metastable-$\beta$ alloy with similar properties to Ti 15-3-3-3. Tests will be conducted to determine its suitability.
+The chapter presents a first pass at possible thermal stand-offs for the SuperCDMS SNOLab towers. It is clear from the preceding sections that there are many viable options for support materials. Next steps involve:
 
-\subsection{Stripline Companies}
-\subsubsection{Rolling}
 \begin{itemize}
-\item Hamilton Materials
-\item Virginia Fine Metals
-\item Arnold Rolled Products
+\item Further developing the analytical model for the tubes. We must consider how the model might change as dimensions adjust and we leave certain regimes (such as tubes which can be accurately modelled by Donnell's shell theory). These models must be confirmed through the use of FEA simulations on programs such as Comsol.
+\item Characterization of the strength of truss structures as well as parameters such as stiffness. Analytical models or FEA models will be developed to determine these.
+\item Stand-off prototypes are being fabricated to further develop these models through mechanical testing in order to characterize material/structural properties.
+\item The thermal conductivity of these materials must be tested throughout the range in which they may be used. This means extending the data range upward for Vespel SCP-5000 and SCP-5050, and verifying and extending the thermal conductivity range for TiMetal Ti 15-3-3-3.
+\item Further defining the conditions which a thermal stand-off must satisfy. This has recently been expanded to include a stiffness requirement and a requirement that the resonant frequency of the stand-off will be either above or below that of the fridge.
 \end{itemize}
 
-\subsubsection{Transmission Line Fabrication}
-\begin{itemize}
-\item Luxel
-\item Tech-Etch
-\end{itemize}
 
 \chapter{Design of Low Conductivity Electronics for the Detector Tower}
 
@@ -1102,7 +1051,7 @@ Baudouy \cite{Baudouy2003} & HN & $\perp$ & $22.8 + 24.0 \cdot T$ & 1.4 - 2 \\
 \begin{figure}[h]
 \centering
 \includegraphics[width = .65\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/App_b_figs/trace_variation.png}
-\caption{Thermal conductivities for trace materials. High and low values were taken from the literature when a significant variation was present among data. Notice that, based on thermal conductivity, TiMetal Ti 15-3-3-3 is the best candidate for all stages of the phonon cable. Data from: Barucci \cite{Barucci2008}, Corzett \cite{cor}, Olson \cite{ols}, Fairbank \cite{fair}, Wikus \cite{wik}, Dyachkov \cite{dya}.}
+\caption{Thermal conductivities for trace materials. High and low values were taken from the literature when a significant variation was present among data. Notice that, based on thermal conductivity, TiMetal Ti 15-3-3-3 is the best candidate for all stages of the phonon cable. Data from: Barucci \cite{Barucci2008}, Corzett \cite{cor}, Olson \cite{ols}, Fairbank \cite{fair}, Wikus \cite{wik}, Dyachkov \cite{dya}, and Runyan \cite{run}.}
 \end{figure}
 
 
@@ -1379,7 +1328,7 @@ We see in Figure 4.6(b) a representative cross-section of a possible cable desig
 \subsection{Thermal Conductivity and Electrical Resistivity of Trace Materials}
 
 We expect that the cooling capacity of our fridge at the 4.2K stage will be such that heat loads will not be the primary concern for the 300K-4K cable. Instead, the primary factors which set cable dimensions and determine material viability are the resistance limits given previously. To this end, we must consider the resistivities of all trace materials, given in Table 4.2. These are used to calculate minimum cross-sections for the two trace types by rearranging equation 4.2. The minimum cross-sections for high resistance traces (type X) and low resistance traces (Y) are given in Table 4.5. In calculating minimum cross-section, all resistivities were assumed constant over the temperature range, with the highest value selected to be conservative. Be-Cu is the only exception. Its temperature-dependent resistivity is given in \cite{Sciver1986}. The results of the calculations are discussed in the next section.
-To ensure our secondary requirement of manageable heat loads, we present the thermal conductivities of each material in  Figure 4.7. We provide the thermal conductivity of Kapton for comparison, as any transmission line-type cable would use Kapton as a substrate. We can see the wide range of trace material thermal conductivities (which are, not surprisingly, roughly inversely proportional to each of their resistivities). In addition, the very low thermal conductivity of Kapton leads us to expect heat loads which are dominated by trace selection. 
+To ensure our secondary requirement of manageable heat loads, we present the thermal conductivities of each material in  Figure 4.7. We provide the thermal conductivity of Kapton for comparison, as any transmission line-type cable would use Kapton as a substrate. We can see the wide range of trace material thermal conductivities (which are, not surprisingly, roughly inversely proportional to each of their resistivities). In addition, the very low thermal conductivity of Kapton leads us to expect heat loads which are dominated by trace selection.
 
 \begin{figure}[ht]
 \centering
@@ -1424,148 +1373,313 @@ SS-316 & 3.9\e{-5} & 7.9\e{-4} & 0.004 & 0.0098 & 0.196 & 2.09 & 144 \\
 
 \textbf{Be-Cu:} Beryllium Copper is the least resistive candidate material besides OFHC Copper. The width for the high resistance trace is actually set by the capabilities of Tech-Etch rather than resistance. It was given a thickness of 0.001" to ensure strength. We see that the heat loads and cable widths expected from Be-Cu are very reasonable. It is also very easy to solder.
 
-\textbf{Ti 15-3-3-3:} Ti 15-3-3-3 was included to show how a very resistive, low thermal conductivity material performed. We see that despite its very low thermal conductivity it only slightly outperforms Be-Cu; however, the cable widths and trace thicknesses required are unworkable. In addition, it is incredibly difficult to solder to other materials. 
+\textbf{Ti 15-3-3-3:} Ti 15-3-3-3 was included to show how a very resistive, low thermal conductivity material performed. We see that despite its very low thermal conductivity it only slightly outperforms Be-Cu; however, the cable widths and trace thicknesses required are unworkable. In addition, it is incredibly difficult to solder to other materials.
 
 \textbf{SS-316:} Stainless steel is a similar to Ti 15-3-3-3. It is on the lower end of the thermal conductivity spectrum, and the upper end of the electrical resistivity spectrum. Though heat loads are reasonable, we see that dimensions required for a SS trace to work are likely too large for our experiment (a 4 mil thick trace would not be flexible). Considering the difficulty in soldering to SS, it is not a desirable option.
 
-Considering that the main requirements of the cable are resistance limits, workable dimensions, and solderability, it is clear that of these materials, Be-Cu is the ideal option. As the design and requirements of this cable are still in developed, this may change. This section is simply meant to provide a first-pass examination of material options and cable lay-out. 
+Considering that the main requirements of the cable are resistance limits, workable dimensions, and solderability, it is clear that of these materials, Be-Cu is the ideal option. As the design and requirements of this cable are still in development, this may change. This section is simply meant to provide a first-pass examination of material options and cable lay-out.
+
+\chapter{Thermal Conductivity Tests}
+
+This chapter presents the thermal conductivity tests which were carried out in our lab in our 75$\mu$W helium dilution refrigerator.
+
+\section{Motivation to Conduct Tests}
+The next generation of the CDMS Experiment -- SNOLab -- will require a significant improvement in cold hardware thermal performance to fall within the cooling power of the dilution fridge which will be used. We are at the edge of this threshold now with our current designs, and are therefore very sensitive to the thermal properties of our candidate materials. It is for this reason that we wish to characterize precisely the thermal conductivity of all our candidate materials for the entire temperature range in which we are considering using them. Below, I describe the tests which have been conducted, the tests which will be conducted, and the reasoning for our interest in the materials.
+
+\subsection{Vespel SCP-5000 and SCP-5050}
+The DuPont Vespel SCP series materials can be seen as the "updated" SP series from the same manufacturer. SCP-5000 and SCP-5050 are similar to SP-1 and SP-22, respectively, except with higher strength and thermal stability (i.e. lower coefficient of thermal expansion). This naturally makes them very attractive as tower stand-off materials.
+
+\subsection{Graphlite Carbon Fiber}
+Graphlite is a trade name for carbon fiber reinforced plastic (CFRP), which is known for its strength. This material has shown to have an impressively high compressive/tensile strength which would be exploited in a truss structure. A very similar material has been characterized by Marc Runyan at larger diameters and higher temperatures.
+
+\subsection{Ti 15-3-3-3}
+Ti 15-3-3-3 is an alloy of titanium created by TIMETAL with composition 15V-3Sn-3Al-3Cr and Ti as a balance. This material has been measured previously in plate form and has shown to have very interesting (and very low) thermal conductivity at low temperatures. In addition, it is a very strong alloy with a low thermal expansion coefficient and superconducting properties. We have interest in Ti 15-3-3-3 in plate, tube, and foil form. We have looked into multiple sources for these forms, each of which must be characterized, due to the different manufacturing processes present in the production of each.
+
+\subsection{Mersen Graphite Grade 2020}
+Mersen's grade 2020 graphite is interesting to us for multiple reasons. First, Mersen manufacturers the Graphite we currently use, grade UF-4S, which has low thermal conductivity and high purity. Second, it is a nuclear grade graphite, so should have very low radioactivity -- a necessity in our experiment. Third, this grade was specifically recommended to us by the R\&D and Technical Manager at Mersen, as well as their resident graphite expert to satisfy low radioactivity and low thermal conductivity requirements.
+
+\subsection{POCO Graphites}
+POCO manufactures many grades of graphites. One of their industrial grades, AXM-5Q has demonstrated very low thermal conductivity. We wish to characterize some of their other industrial grades, ACF-10Q and ZXF-5Q, which may offer similar thermal qualities. Though these graphites are industrial grade, we have demonstrated that they may be purified to acceptable levels of radioactivity.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width = .5\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH5_figs/Rep_test_setup.png}
+\caption{Representative test set-up for thermal conductivity tests performed in the 75$\mu$W dilution fridge. The sample mounts were gold-plated copper for all samples except the Ti 15-3-3-3, which was unplated copper. All thermometer mounts were copper. Primarily two thermometers ($T_{high}$ and $T_{low}$) were used for measurements, but a third ($T_{base}$) was mounted on the thermometry package attached to the tower to verify fridge base temperatures throughout some measurements. }
+\end{figure}
+\section{Experimental Test Set-up}
+The thermal conductivity tests were conducted in a 75-$\mu$W helium dilution refrigerator. A representative experimental set-up is shown in Figure 5.1. The samples were connected on one end (through multiple copper-copper interfaces) to the mixing chamber of the fridge, while the other end was thermally isolated.
+
+\subsection{Heater}
+The heater was a metal film resistor, which offers high stability over large temperature ranges. Power was applied to the heater through a Keithley Quad Voltage Source. The resistance was initially 2$k\Omega$, but was later switched to 20$k\Omega$ to allow greater resolution in the voltage applied to the heater, due to the internal 0.25mV step size from the Keithley. Only the first Graphlite measurement, Vespel SCP-5050, and Vespel SP-22 used the 2$k\Omega$ heater.
+
+\subsection{Thermometry}
+Temperature was read out by either two or three thermistors, depending on the test. $T_{high}$ and $T_{low}$ were used in every test; $T_{high}$ and $T_{low}$ were Germanium thermistors. $T_{base}$ was used in some tests to verify the base temperature of the fridge and was a RuO$_{2}$ thermistor. Voltage bias to the thermometers was provided through the Keithley Quad Voltage Source. $T_{high}$ and $T_{low}$ were both four-wire connections for accurate resistance readout.
+
+\subsection{Wiring}
+All electrical connections were initially .003" diameter manganin wires, $\approx$ 8 inches long. The initial Graphlite measurement, as well as the Vespel SCP-5050 and SP-22 measurements were preformed with this wiring. Subsequent tests switched to .0012" manganin wires with a Formvar coating for the Heater and $T_{high}$ connections in order to minimize parasitic heat loads. For the samples tested to date, the parasitic heat load from wiring is estimated to be no more than 14\% (for the lowest temperature data points for Vespel SCP-5050). It was usually less than $\sim$3\% for the experiments.  
+
+\subsection{Mounting}
+The samples were epoxy-ed with Stycast-1266 into gold-plated-copper mounts for improved heat transfer from the heater, through the sample, to the fridge.
+
+Separate thermometer mounts were fabricated and placed along the sample to avoid any Kapitza resistance effects caused by placing thermometers on the same block as the heater. The thermometer mounts were placed far enough along the sample to be confident that planar heat flow had been established by the time temperature was read out.
+
+\section{Methods for Measuring Thermal Conductivity}
+The thermal conductivity of our samples was measured using three methods which I have termed the "differential" method, the "standard" method, and the "parameter-fit" method. The standard method and the parameter-fit method utilize the same measurements, but different analysis methods, while the differential method is different altogether. All three are outlined below.
+
+\subsection{Differential Method}
+This method for measuring thermal conductivity involves two successive measurements to provide one thermal conductivity data point. First, power $P_1$ is applied to the sample to establish a gradient, with the "hot" thermometer at some $T_{high_1}$. Then, more power, $P_2$, is applied to the sample which raises the "hot" thermometer to $T_{high_2}$. Throughout these two measurements, we assume a good enough thermal link to the fridge such that the base of the sample remains roughly constant (whether or not it is at $T_{base}$). The gradient of interest in both cases is $T_{high}$ to whatever temperature the base of the sample is at (for simplicity we will call it $T_{base}$). Then in steady state, the power through the sample is,
+\begin{eqnarray}
+P = \int_{T_{base}}^{T_{high}} \frac{A}{L_{diff}}K(T)dT
+\end{eqnarray}
+where $T_{base}$ is the temperature of the cold end of the sample, $T_{high}$ is the temperature of the top thermometer, A is the cross-section of the sample, $L_{diff}$ is the length from the hot thermometer to the base of the sample as shown in Figure 5.1, and K(T) is the thermal conductivity of the sample. From here, we subtract $P_1$ from $P_2$ to obtain an effective integral,
+\begin{equation}
+    \begin{aligned}
+P_2 - P_1 & = \left(\int_{T_{base}}^{T_{high_2}} \frac{A}{L_{diff}} K(T)dT - P_{parasitic}\right) \ - \ \left(\int_{T_{base}}^{T_{high_1}} \frac{A}{L_{diff}} K(T)dT - P_{parasitic}\right) \\
+& = \int_{T_{high_1}}^{T_{high_2}} \frac{A}{L_{diff}} K(T)dT \ .
+    \end{aligned}
+\end{equation}
+Here we assume that the thermal conductivity is some integrable function with the same form in both integrals, and $P_{parasitic}$ is some constant parasitic contribution to the heat load (from noise, etc.). Then, upon integration, the value of the integral at the lower limit, $T_{base}$, cancels out in both integrals, leaving the effective integral at the right of the last equal sign. So, given $P_2 - P_1 = \Delta P$, the differential power, we calculate the thermal conductivity at,
+\begin{eqnarray}
+T_{avg} = \frac{T_{high_1} + T_{high_2}}{2}
+\end{eqnarray}
+by assuming K(T) is nearly constant over the range $T_{high_1} \rightarrow T_{high_2}$ so that it can be brought outside of the integral,
+\begin{eqnarray}
+\Delta P = K_{T_{avg}}\frac{A}{L_{diff}}\int_{T_{high_1}}^{T_{high_2}}dT \ .
+\end{eqnarray}
+Integrating and rearranging, we have,
+\begin{eqnarray}
+K_{T_{avg}} = \Delta P\frac{L_{diff}}{A(T_{high_2}-T_{high_1})} \ .
+\end{eqnarray}
+This method has several advantages and disadvantages:
+\bigskip
+
+\textbf{Advantages}
+\begin{itemize}
+\item As can be seen from eqn 2, any constant parasitic heat load can be neglected with this method, making low temperature measurements (with low applied powers) much easier.
+\item Since this method only uses one thermometer to do temperature measurements ($T_{high}$), it eliminates any relative calibration error between thermometers, such as may be present between $T_{high}$ and $T_{low}$.
+\item It allows the measurement to be conducted over very small effective gradients ($T_{high_1} \rightarrow T_{high_2}$) so the constant thermal conductivity approximation used in eqn 4 is more accurate, even for strongly temperature-dependent thermal conductivities.
+\end{itemize}
+
+\bigskip
+
+\textbf{Disadvantages}
+\begin{itemize}
+\item The differential method requires a very good thermal link to the cooling bath/a fridge with a high cooling power. This is to ensure that $T_{base}$ is roughly constant between two consecutive measurements. The error from a varying $T_{base}$ is amplified in shorter samples.
+\end{itemize}
+
+\subsection{Standard Method}
+Though there is obviously no "standard" method for measuring thermal conductivity, I refer to this as the standard method as it is the most straight-forward of the steady heat-flow measurement methods. This involves applying a power, $P_{heater}$, to the top of the sample and letting the sample reach equilibrium (which took anywhere from 30 minutes at higher temperatures to 90 minutes at the lowest temperatures) according to the steady-state heat flow equation,
+
+\begin{equation}
+    \begin{aligned}
+P & = P_{heater} + P_{parasitic}\\
+  & = \int \frac{A}{L_{st}} K(T)dT\\
+    \end{aligned}
+\end{equation}
+where A is the cross-section of the sample, $L_{st}$ is the length between the two thermometers, given in Figure 1, K(T) is the temperature-dependent thermal conductivity of the sample, and $P_{parasitic}$ is any other parasitic heat load through the sample. Reading out the temperatures $T_{high}$ and $T_{low}$, and assuming that K(T) is nearly constant over this temperature range, we bring K(T) out of the integral as in eqn 5.4 and integrate. After rearranging we have,
+\begin{eqnarray}
+K_{T_{avg}} = P\frac{L_{st}}{A(T_{high} - T_{low})} \ ,
+\end{eqnarray}
+where $K_{T_{avg}}$ is assumed to be the thermal conductivity at some $T_{avg}$ (defined in eqn 3).
+
+The standard method has its own set of advantages and disadvantages, which are outlined below.
+
+\bigskip
+
+\textbf{Advantages}
+\begin{itemize}
+\item This method is simple, with no assumptions about good thermal links to cooling baths, etc.
+\end{itemize}
+
+\textbf{Disadvantages}
+\begin{itemize}
+\item There is a high sensitivity to relative calibration errors between $T_{high}$ and $T_{low}$ for small temperature gradients, which makes measurements at lower temperatures difficult.
+\item Constant parasitic heat loads -- if not adjusted for in calculations -- can be larger than applied heat loads for low temperature ranges, giving hugely inaccurate results for K. The effects of these heat loads can be minimized by either increasing the geometric factor A/L to increase applied heat loads through the sample (decreasing the percentage of power coming from parasitic sources), or by measuring and accounting for $P_{parasitic}$ in calculations.
+\item Errors from the constant thermal conductivity approximation can grow quickly at large gradients, especially for strongly temperature-dependent thermal conductivities. However, for most thermal conductivities, gradients of over 100\% of $T_{high}$ can be used with minimal errors\footnotemark.
+\end{itemize}
+
+\footnotetext{See \cite{Hust1982} for a discussion of these errors.}
+
+\subsection{Parameter-fit Method}
+The parameter-fit method is similar to the standard method in that a power is applied to that sample, and $T_{high}$ and $T_{low}$ are read out once equilibrium is reached. We start, from eqn 5.6, but instead of assuming a constant K, we assume some integrable form for K(T) -- often a power law of the form $A \cdot T^B$ at sub-kelvin temperatures. We can then vary a set of parameters (e.g. A and B in the power law form) to find those which minimize the quantity,
+\begin{eqnarray}
+\Delta = \sum_{i = 1}^{n} \frac{P_{total_i} - P_{expected_i}}{P_{total_i}}
+\end{eqnarray}
+for $n$ measurements. $P_{total_i} = P_{heater_i} + P_{parasitic_i}$ is a combination of the power applied to the heater and any parasitic heat loads, and $P_{expected_i}$ is given by,
+\begin{eqnarray}
+P_{expected_i} = \int_{T_{low_i}}^{T_{high_i}} \frac{A}{L_{st}}K(T)dT
+\end{eqnarray}
+with $T_{high_i}$ and $T_{low_i}$ being the high and low thermometer temperatures for a given measurement and K(T) is the assumed form for thermal conductivity with certain parameter values. $\Delta$ will vary as you vary parameter value combinations. Whichever values minimize this quantity are the best fit to the data.
+
+The standard method approaches the parameter-fit method in the limit of very small gradients, therefore they share similar advantages and disadvantages.
+
+\bigskip
+
+\textbf{Advantages}
+\begin{itemize}
+\item Since this method makes no assumptions about a constant thermal conductivity (unlike the standard method), it isn't susceptible to error for large gradients.
+\item It makes no assumptions about a perfect thermal link to a reservoir.
+\end{itemize}
+
+\textbf{Disadvantages}
+\begin{itemize}
+\item Since both the high and low thermometers are used, low gradient measurements are sensitive to relative calibration errors between thermometers.
+\item The data is sensitive to constant parasitic heat loads which can introduce large errors when $P_{parasitic}$ is comparable to $P_{heater}$.
+\item This method forces the data to be fit to an assumed form, so the data is inherently more "processed" by the time it is viewed. This could gloss over any anomalous behavior in the material's conductivity curve. Most materials' thermal conductivity, however, can be fit to a power law at low temperatures, so this isn't always a problem.
+\end{itemize}
+
+\section{Measured Thermal Conductivities}
+The thermal conductivities of five samples has been measured as of \today. These are: Graphlite carbon fiber, Vespel SCP-5050 \& SCP-5000, Vespel SP-22, and Ti 15-3-3-3. The results of each measurement are presented below with a brief discussion following. Note that error bars on the plots have only been included for the standard method.
+
+\subsection{Graphlite}
+
+The thermal conductivity of a 0.156" diameter Graphlite rod was measured from 0.05K to 0.5K using the three methods described above. The plot is shown in Figure 5.2. The agreement between all three methods is very good for the case of the Graphlite, as the thermal contact between the fridge and the sample was very good. The parameter-fit method in this case was fit to an altered power law of the form,
+\begin{eqnarray}
+K(T) = A \cdot T^{(B - C \cdot T^{D})}
+\end{eqnarray}
+which is the same form fitted to in a previous measurement by M. Runyan in \cite{run}. The parameter-fit method, shown in Figure 5.2, gave a thermal conductivity of,
+\begin{eqnarray}
+K(T) = 101.2 \cdot T^{(1.93 - 1.15 \cdot T^{0.28})} \ \frac{\mu W}{cm-K}
+\end{eqnarray}
+for the data range. This is noticeably higher than was measured in \cite{run}. This could be due to the fact that the larger diameter sample measured by M. Runyan was not the "official" Graphlite, as Graphlite is only manufactured up to the 0.156" diameter measured here.
+
+\subsection{Vespel SCP-5050}
+
+The thermal conductivity of Vespel SCP-5050 was measured from 0.09K to 0.5K. The results are shown in Figure 5.3 below. Once again, all three methods are in very good agreement, with the parameter-fit method giving a power law fit of
+\begin{eqnarray}
+K(T) = 10.78 \cdot T^{1.90} \frac{\mu W}{cm-K} \ .
+\end{eqnarray}
+
+\subsection{Vespel SP-22}
+The thermal conductivity of Vespel SP-22 was measured from 0.1 to 0.3K. The results are plotted and compared to previous measurements of this material in Figure 4. With this sample we can clearly see that the differential measurement is not in agreement with the other two methods. We hypothesize that this was due to a poor thermal link to the fridge caused by improper gluing. We discovered this as the sample broke free of its base mount on the fridge connection side during disassembly with almost no applied force. The break is shown in Figure 5.5.
+
+The parameter-fit method used a power law fit and gave a thermal conductivity of,
+\begin{eqnarray}
+K(T) = 13.3 \cdot T^{1.73} \frac{\mu W}{cm-K}
+\end{eqnarray}
+which is shown to be in very good agreement with previous measurements of SP-22.
+
+This test was primarily a confirmation of our Vespel SCP-5050 results as it confirmed the accuracy of our test set-up. The equipment used in both tests was identical (same heater, wiring, sample dimensions, etc.) so is a strong confirmation of the SCP-5050 results.
+
+\begin{SCfigure}
+\includegraphics[width = .2\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH5_figs/broken_sp22.jpg}
+\caption{The SP-22 sample-mount interface broke during removal from the fridge. This occurred with hardly any applied force on the sample. The was the interface which affected the thermal link to the fridge as was likely the cause of the discrepancy between the differential method and other methods shown in Figure 5.4.}
+\end{SCfigure}
+
+\subsection{Vespel SCP-5000}
+The thermal conductivity of Vespel SCP-5000 was measured from 0.09K to 0.55K using the three methods described in the previous section. Here, the tests were conducted slightly differently, with two differential measurements being performed instead of one. This involved the differential measurement using the $T_{high}$ thermometer only, but also a separate measurement which utilized the $T_{low}$ thermometer only. This resulted in two differential measurements on different effective sample lengths (one from $T_{high}$ to base and one from $T_{low}$ to base). The results are shown in Figure 5.6.
+
+In the figure, we see a huge discrepancy between the two differential measurements, as well as between the differential measurements and the other methods. This was likely due to very poor thermal contact with the fridge (possibly caused by untightened mounting screws, or poor gluing). This is evidenced by the fact that the short- sample differential method (using $T_{low}$ suffered a greater error than the long-sample measurement. This test will be re-run at a later date to attempt to rectify this discrepancy.
+
+The parameter-fit method and standard method are once again in good agreement, with the parameter-fit giving a thermal conductivity of,
+\begin{eqnarray}
+K(T) = 15.2 \cdot T^{1.12} \frac{\mu W}{cm-K} \ .
+\end{eqnarray}
+
+\subsection{Ti 15-3-3-3}
+The thermal conductivity of Ti 15-3-3-3 is of interest for reasons described in section 1. Since billets of Ti 15-3-3-3 are not available in the United States, we purchased a round billet of Ti 15-3-3-3 from ReTi in China. It the the thermal conductivity of this material which is presented here from 0.07K to 0.3K.
+
+The results of this measurement are shown in Figure 5.7, alongside measurements of similar samples. We see from the figure that the agreement between the three methods is fair in this case, but there is still a visible discrepancy between the differential method and the other two methods. The reasons for this discrepancy are unknown, but are likely due to a less-than-ideal thermal link to the fridge.
+
+The parameter-fit method gave a thermal conductivity of,
+\begin{eqnarray}
+K(T) = 187.4 \cdot T^{1.82} \frac{\mu W}{cm-K}
+\end{eqnarray}
+which is in good agreement with the measurements performed by M. Runyan on a similar bulk sample of Chinese-sourced Ti 15-3-3-3. The interesting thermal behavior exhibited by TIMET's Ti 15-3-3-3 is not present in this sample, making it much less desirable as a stand-off material.
 
 
-\section{Tower Thermal Stand-offs}
-Unlike the wiring, the thermal stand-offs for the tower can be made out of a multitude of materials. Both tube and hexa-pod structures have been proposed for these materials. These candidates are evaluated based on their thermal conductivity and their strength (which allows us to decrease their cross-sectional area).
+\subsection{Thermal Conductivities of All Materials}
+The parameter-fit thermal conductivities of all tested materials are presented in Figure 5.8. We see a large span for the thermal conductivities of the materials tested. We plan to test more samples in the near future to further characterize the various materials we plan to, or may decide to, use for the SNOLab tower development.
 
-\subsection{Thermal Conductivities of Tower Materials}
-In SuperCDMS, the dominant heat load came from the thermal stand-offs, so replacement materials aim for a significant improvement in thermal power conducted between stages. Figure 8 shows the candidate materials for thermal stand-offs based on radioactivity screening acceptability. Though the Graphlite rods are much higher in thermal conductivity, their strength makes them a viable material.
-
-\begin{figure}
-\includegraphics[width = \textwidth]{Stand_off_graph.png}
-\caption{Thermal conductivities of candidate thermal standoff materials. POCO AXM-5Q (1) is from Woodcraft \cite{woo:gr} , while POCO AXM-5Q (2) was measured by Marc Runyan at Caltech \cite{run}.}
+\begin{figure}[h]
+\centering
+\includegraphics[width = .8\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH5_figs/Graphlite.png}
+\caption{Thermal conductivity of Graphlite from 0.05K to .5K as measured at UC Berkeley. The results are show reasonable agreement with a previous measurement of Graphlite by M. Runyan, plotted as the solid (\textbf{--}) black line \cite{run}. The disagreement could be due to the fact that the sample measured by M. Runyan was not "official" Graphlite, though it was provided by the same company.}
 \end{figure}
 
-\subsection{Stand-off Configurations}
-There are currently two possibilities for the thermal stand-off configuration. The first is a hexapod structure, while the second is a thin walled tube.
+\begin{figure}[h]
+\centering
+\includegraphics[width = .8\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH5_figs/SCP5050.png}
+\caption{Thermal conductivity of Vespel SCP-5050 as measured from 0.09K to 0.5K. This data is compared to previous measurements of Vespel SP-22 (a very similar material, which we hope SCP-5050 can improve upon) by J.R. Olson \cite{ols}. SCP-5050 is noticeably lower ($\sim$ 30\%) in thermal conductivity.}
+\end{figure}
 
-The hexapod structure allows us to limit power loads by angling the stand-off material, which increases the effective length of the material. In addition, it limits cross-sections, as it is a very open structure. This has only been proposed for the Graplite rods so far, but could conceivably be applied to the Vespel or Ti15-3 as well.
+\begin{figure}[h]
+\centering
+\includegraphics[width = .8\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH5_figs/SP22.png}
+\caption{Thermal conductivity measurements of Vespel SP-22 as compared to previous measurements by J.R. Olson \cite{ols} and M. Runyan \cite{run}. Our data agree with these previous results very well. The uncertainty presented for the standard method are very conservative, and are likely lower. }
+\end{figure}
 
-The other materials were designed to be thin walled tubes. The dimensions of the tubes were optimized using the analytical model given in my earlier report. Using a given tube length, radius and thickness are optimized to minimize cross-section while maintaining a failure limit of 130 lbs (59 kg). This limit is in shear loading of the tower (mimicking holding the tower sideways with the detectors attached). The detectors themselves will weigh 1.4 kg apiece. With 6 detectors that is around 10 kg. We will need to figure out the equivalent load at the end of the tube to see if this results in greater than 130 lbs.
+\begin{figure}[h]
+\centering
+\includegraphics[width = .8\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH5_figs/SCP5000.png}
+\caption{Thermal conductivity of Vespel SCP-5000 from 0.09K to 0.55K. This is compared to measurements of Vespel SP-1 taken from Pobell \cite{pob}. The agreement is very good. The differential measurements in this test were not in good agreement. This may have been due to a large contact resistance or simply poor thermal contact between the fridge and the sample; this would cause the assumption of constant base temperature between measurements to not hold true.}
+\end{figure}
 
-\subsection{Stand-off Heat Loads}
+\begin{figure}[h]
+\centering
+\includegraphics[width = .8\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH5_figs/Ti15333.png}
+\caption{Thermal conductivity of ReTi Ti 15-3-3-3 from 0.07K to 0.3K. There is a slight discrepancy between the differential method and the parameter-fit/standard methods. The agreement with the Chinese-sourced Ti 15-3-3-3 sample measured by M. Runyan is good. The interesting thermal conductivity behavior exhibited by TIMETAL's Ti 15-3-3-3 plate measured by Wikus in \cite{wik} is not present in this sample.}
+\end{figure}
 
-The stand-off lengths used to calculate heat loads were chosen to be: 4.2K-600mK = 1.68 inches ; 600mK-50mK = 1.65 inches ; 50mK-10mK = 1.30 inches. These can easily be adjusted depending on heat load constraints. The heat loads for materials of various dimensions were calculated for each stage. At each stage, the heat load for CF Graphlite rods was calculated, based on dimensions suggested by Marc Runyan. In addition, several thin-wall tube candidates are presented. The heat load for optimized dimensions are given, as well as "safer" dimensions (larger  radius and/or thickness).
+\begin{figure}[h]
+\centering
+\includegraphics[width = .9\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH5_figs/all.png}
+\caption{Compiled thermal conductivities of all measured materials. The plots given are the parameter-fit lines for each sample tested.}
+\end{figure}
 
-\begin{table}[h]
-\begin{small}
-\begin{threeparttable}
-\begin{tabular}{lrrrrl}
-  \multicolumn{5}{l}{{\Large 4.2K - 600mK: Thermal Stand-off Heat Loads in $\mu$W, 12 Towers}} \\
-\toprule
-\bf{{\large Material}}& \multicolumn{2}{c}{145lb. Failure} & \multicolumn{2}{c}{290lb. Failure} & Ref.\\
-\cmidrule(r){2-5}
-& 5K - 1K & 4.2K - 600mK & 5K - 1K & 4.2K - 600mK & \\
-Current CDMS Graphite; $(2"\oslash,0.028")$  & 3708 & 2424 & 3708 & 2424 & \cite{lem}\\
-6 Graphlite CF Rods; ($0.08" \oslash$ @ $45^{o}$) & 308.4 & 238.8 & 308.4 & 238.8 & \cite{run}\\
-Vespel SCP-5000; $(0.74"\oslash,0.024")|(0.94"\oslash,0.030")$ & 282.6\tnote{\dag} & 203.5\tnote{\dag} & 448.4\tnote{\dag} & 322.9\tnote{\dag} & \cite{run}\\
-Vespel SP-1; $(.96"\oslash,0.027")|(1.2"\oslash,0.0347")$ & 412.7 & 297.1 & 662.6 & 477.2 & \cite{run}\\
-POCO-AXM 5Q; $(1.86"\oslash,0.013")|(2.28"\oslash,0.0172")$ & (900,721) & (446,425) & (1467,1175) & (726,693) & \cite{woo:gr},\cite{run}\\
-Ti 15-3-3-3 $(0.66"\oslash,0.0055")|(0.82"\oslash,0.0072")$ & 720.5 & 503.2 & 1168.3 & 816.0 & \cite{wik}\\
-\bottomrule
-\end{tabular}
-\begin{tablenotes}
-\item[\dag] Note that the integrated thermal conductivity of Vespel SP-1 was used as a proxy for
-    SCP-5000.
-\end{tablenotes}
-\end{threeparttable}
-\caption{Heat loads for 4.2K-600mK stage including non-ideal fridge temperatures. Structures designed for both 145lb. and 290lb. failure limits. Dimensions are given in (diameter, thickness) pairs for tubes. The left and right set correspond to 145lb. and 290lb. failure limits respectively. The CF Graphlite supports are rods with the given dimensions. Varying POCO heat loads come from the two referenced data. Stage length is 1.68 inches.}
-\end{small}
-\end{table}
+\section*{Conclusion}
 
-\begin{table}[h]
-\begin{small}
-\begin{threeparttable}
-\begin{tabular}{lrrrr}
-  \multicolumn{5}{l}{{\Large 600mK - 50mK: Thermal Stand-off Heat Loads in $\mu$W, 12 Towers}} \\
-\toprule
-\bf{{\large Material}}& \multicolumn{2}{c}{145lb. Failure} & \multicolumn{2}{c}{290lb. Failure} \\
-\cmidrule(r){2-5}
-& 1K - 100mK & 600mK - 50mK & 1K - 100mK & 600mK - 50mK \\
-Current CDMS Graphite; $(2"\oslash,0.028")$  & 40.8 & 11.4 & 40.8 & 11.4\\
-6 Graphlite CF Rods; ($0.08" \oslash$ @ $45^{o}$) & 15.0 & 4.8 & 15.0 & 4.8 \\
-Vespel SCP-5000; $(0.74"\oslash,0.024")|(0.94"\oslash,0.030")$ & 10.5\tnote{\dag} & 3.5\tnote{\dag} & 16.8\tnote{\dag} & 5.6\tnote{\dag} \\
-Vespel SP-1; $(.96"\oslash,.027")|(1.18"\oslash,0.035")$ & 15.4 & 5.2 & 24.8 & 8.3 \\
-POCO-AXM 5Q; $(1.84"\oslash,.013")|(2.26"\oslash,0.0172")$ & (6.6,9.1) & (2.1,3.0) & (10.7,14.9) & (3.4,4.8) \\
-Ti 15-3-3-3 $(0.66"\oslash,.0054")|(0.82"\oslash,0.0071")$ & 9.1\tnote{\S} & 1.3\tnote{\S} & 14.9\tnote{\S} & 2.2\tnote{\S} \\
-\bottomrule
-\end{tabular}
-\begin{tablenotes}
-\item[\dag] Note that the integrated thermal conductivity of Vespel SP-1 was used as a proxy for SCP-5000.
-\end{tablenotes}
-\end{threeparttable}
-\caption{Heat loads for 600mK - 50mK stage including non-ideal fridge temperatures. Structures designed for both 145lb. and 290lb. failure limits. Dimensions are given in (diameter, thickness) pairs for tubes. The left and right set correspond to 145lb. and 290lb. failure limits respectively. The CF Graphlite supports are rods with the given dimensions. Stage length is 1.65 inches. References for data are the same as in Table 5.}
-\end{small}
-\end{table}
+Through this work, I have tried to present some of the technical considerations which must go into the design of the SuperCDMS SNOLab tower. To that end, I have described some of the main components of this tower -- thermal stand-offs, phonon readout lines, charge readout lines, and the 300K-4K cable -- the current constraints to their design, and possible solutions to help CDMS move forward with the design of the next generation experiment.
 
-\begin{table}[h]
-\begin{small}
-\begin{threeparttable}
-\begin{tabular}{lrrrr}
-  \multicolumn{5}{l}{{\Large 50mK - 10mK: Thermal Stand-off Heat Loads in $\mu$W, 12 Towers}} \\
-\toprule
-\bf{{\large Material}}& \multicolumn{2}{c}{145lb. Failure} & \multicolumn{2}{c}{290lb. Failure} \\
-\cmidrule(r){2-5}
-& 100mK-40mK & 50mK - 10mK & 100mK - 40mK & 50mK - 10mK \\
-Current CDMS Graphite; $(2"\oslash,0.028")$  & 1.368E-1 & 2.64E-2 & 1.368E-1 & 2.64E-2\\
-6 Graphlite CF Rods; ($0.08" \oslash$ @ $45^{o}$) & 8.64E-2 & 2.04E-2 & 8.64E-2 & 2.04E-2 \\
-Vespel SCP-5000; $(0.68"\oslash,0.022")|(0.86"\oslash,0.028")$ & 6.83E-2\tnote{\dag} & 1.72E-2\tnote{\dag} & 1.084E-1\tnote{\dag} & 2.74E-2\tnote{\dag} \\
-Vespel SP-1; $(.88"\oslash,.025")|(1.08"\oslash,0.033")$ & 1.002E-1 & 2.53E-2 & 1.637E-1 & 4.13E-2 \\
-POCO-AXM 5Q; $(1.66"\oslash,.013")|(2.02"\oslash,0.017")$ & (4.9E-2,6.0E-2) & (1.3E-2,1.5E-2) & (8.0E-2,9.8E-2) & (2.2E-2,2.4E-2) \\
-Ti 15-3-3-3 $(0.60"\oslash,.0052")|(0.74"\oslash,0.0068")$ & 3.8E-5\tnote{\S} & 4.4E-7\tnote{\S} & 6.3E-5\tnote{\S} & 7.2E-7\tnote{\S} \\
-\bottomrule
-\end{tabular}
-\begin{tablenotes}
-\item[\dag] Note that the integrated thermal conductivity of Vespel SP-1 was used as a proxy for SCP-5000.
-\item[\S] The exponent for thermal conductivity of Ti 15-3-3-3 was fixed at 230mK -- the end of the data range -- and extrapolated to 10mK. The low temperature thermal conductivity will be verified through tests.
-\end{tablenotes}
-\end{threeparttable}
-\caption{Heat loads for 50mK-10mK stage including non-ideal fridge temperatures. Structures designed for both 145lb. and 290lb. failure limits. Dimensions are given in (diameter, thickness) pairs for tubes. The left and right set correspond to 145lb. and 290lb. failure limits respectively. The CF Graphlite supports are rods with the given dimensions. Stage length is 1.3 inches. References for the data are the same as in Table 5.}
-\end{small}
-\end{table}
+The thermal stand-offs will be designed to meet thermal, radioactivity, mechanical, and stability requirements. We considered two structures for use as thermal stand-offs: hexapods and tubes. An analytical model was developed for analysis of the tubes, while a model will be developed to help characterize the hexapod structures. We found that multiple materials -- primarily Graphlite CFRP, TiMetal Ti 15-3-3-3, and Vespel SCP-5050 -- may satisfy these requirements. They allow heat loads to each stage which are reduced by up to a factor of twenty from the previous material (UF-4S graphite) and its current dimensions. Future work will aim to develop these failure models and physically test prototypes using a mechanical loading machine.
 
-One can see from the tables that there are still many choices to be made with respect to the thermal stand-offs. We will likely make some test pieces to then test mechanically before any final decisions are made.
+Next we considered the wiring for the tower. This is broken up into three main components: 300K-4K cabling, phonon readout, and charge readout. 
 
-\newpage
-\section{Total Heat Loads for 12 Tower Experiment}
-\begin{table}[h]
-\begin{threeparttable}
-\begin{tabular}{rrrr|rrr}
-\toprule
- & \multicolumn{6}{c}{Contributions \& Total Heat Loads per Tower in $\mu$W} \\
-  & 1K & 100mK & 40mK & 600mK & 50mK & 10mK \\
- \cmidrule(r){2-7}
-   Phonon Line & 19.6 & 1.20 & $11.0 \cdot 10^{-3}$  & 13.9 & 0.355 & $3.2 \cdot 10^{-3}$ \\
-   Charge Line & 0.4 & 0.01 & $1.6 \cdot 10^{-5} $ & 0.3 & 0.002  & $2.2 \cdot 10^{-6}$ \\
-   Stand-offs & 25.7 & 0.97 & $7.2 \cdot 10^{-3}$ & 19.9 & 0.340 & $1.7 \cdot 10^{-3}$ \\
-   SQUID Dissipation & 5.8 & NA & NA & 5.8 & NA & NA \\
-   SQUID Shunt R & NA & 0.50 & NA & NA & 0.500 & NA \\
-   \bf{Total Power (1 Tower)} & \bf{51.5} & \bf{2.68} & $ \bf{18.2 \cdot 10^{-3}}$ & \bf{39.8} & \bf{1.20} & $\bf{4.9 \cdot 10^{-3}}$ \\
-  \bottomrule
-\end{tabular}
-\end{threeparttable}
-\caption{Heat load contributions and total heat load for 1 tower. Powers given are those dissipated at the temperature stage indicated. Assumes dimensions stated in previous sections. CF was used instead of Ti15-3 in the lowest stage in order to be conservative. However, we predict that the heat load to 10mK can be much lower than these numbers by using Ti15-3 stand-offs. Heat loads for the charge readout cable assume 50mK heat-sinking. We could budget for avoiding a 50mK heat sink by using Ti15-3 stand-offs, which will likely have much lower heat loads to base. }
-\end{table}
+We examined the current constraints on the 300K-4K cable, whose thermal load to 4K must not exceed the 1.35W cooling power of the fridge for a 48 tower experiment, and which has two separate resistance limits for the traces: ten ground return lines must be low resistance, and have less than $\approx 5 \Omega$ over 130"; the other lines cannot exceed 100$\Omega$ over this same distance. We found that both the thermal and resistance constraints can be satisfied with the use of Beryllium Copper as a trace material, without reaching the 100$\Omega$ limit.
 
-\begin{table}[h]
-\begin{threeparttable}
-\begin{tabular}{rrrr|rrr}
-\toprule
- & \multicolumn{6}{c}{\large{Total Power for 12 Tower Set-up in $\mu$W}} \\
-  & 1K & 100mK & 40mK & 600mK & 50mK & 10mK \\
- \cmidrule(r){2-7}
-   \bf{\large{Power}} & \large{\bf{618.0}} & \large{\bf{32.16}} & \large{\bf{0.218}} & \large{\bf{477.6}} & \large{\bf{14.40}} & \large{\bf{0.059}} \\
-\bottomrule
-\end{tabular}
-\end{threeparttable}
-\caption{Heat loads for a 12-tower experiment. Heat loads to base will likely be lower if Ti15-3 is used as a stand-off.}
-\end{table}
+Chapter 4 also explored the possibility of a vertically-spaced parallel trace transmission line for the phonon cable from 4.2K-10mK on the tower, to replace the mounted vacuum coaxes currently used. This cable must meet inductance, resistance, and thermal requirements. Inductance requirements limit us to $\sim$25nH over the length of the phonon cable from the SQUIDs at 600mK to the detectors. We find that we are able to satisfy this requirement with traces 40 mil wide, giving a reasonable width cable overall. Apart from this, we have to satisfy resistance requirements for the phonon cable. The first calls for superconducting traces from the detectors to the SQUIDs (at the Still); the second requires either superconducting traces or low resistance traces from the SQUIDs to the 4.2K stage. In conjunction with limits on resistance, we came up against a stiff wall for thermal constraints on the phonon cable. This is due to the large increase in material use in moving from a vacuum coax to a transmission line. We found that the ideal trace material would be NbTi, which is superconducting along the entire length of the phonon cable. Due to difficulty in obtaining NbTi as a foil, we have decided for now to use SS316LN traces from 4K to the Still, and superconducting Ti 15-3-3-3 traces from the Still to base. The outstanding problem for the phonon cable currently is thermal in nature. We are quickly approaching the cooling power of the total experiment with just the phonon cable contribution. This must be addressed soon to ensure a successful experiment. 
+
+The final wiring component we considered was the charge readout line. These lines must have very little noise in them, where noise is primarily caused by static charge build-up on dielectric components of the cabling. We considered cables by two companies, AXON' and Texcal, who use a semiconductive layer on the dielectric (such a graphite) to prevent static charge build-up, but found heat loads to be far too high for our experiment. For the time being, we have decided to remain with a vacuum coax design that is removable. These vacuum coaxes would still be made out of NbTi wires, and would remain under tension through the use of permanently attached struts which provide a rigid frame after removal from the tower face. We found that thin graphlite rods $\leq$0.04" diameter would serve this purpose well without introducing large heat loads. These struts would, however, greatly dominate the overall heat load from the charge readout design; therefore, we are continuing to search for another more ideal solution.
+
+Last, to help characterize the materials which we have considered using in the experiment -- especially thermal stand-off materials -- we performed numerous thermal conductivity measurements in our lab's 75$\mu$W helium dilution refrigerator. To date, we have measured Graphlite CFRP, Vespel SCP-5050, Vespel SP-22, Vespel SCP-5000, and ReTi Ti 15-3-3-3. As far as we are aware, the thermal conductivities of Vespel SCP-5050 and Vespel SCP-5000 have not been measured previously. We expect that these materials will be of interest in future cryogenic support systems due to their increased strength and decreased thermal conductivity as compared to Vespel SP-22 and SP-1. Tests are now being performed on wiring components such as a Kapton/Epoxy composite which will be used in our phonon cable.
+
+\section*{Acknowledgements}
+
+I would like to sincerely thank Professor Sadoulet for giving me the opportunity to work on the CDMS project over the past three years. It has been a very rewarding and humbling experience (and very frustrating at times). I would also like to thank him for encouraging me to do an honor's thesis, as well as supporting me financially throughout this entire period. I would like to thank Miguel Daal for his continued help and patience over these past few years while he taught me experimental physics from the ground up. He made it his personal goal to give me a project which I could claim ownership to and see through its ups an downs. Throughout the course of this research, I have encountered many questions, which I would not have been able to answer on my own. In particular, I owe a great debt to Dr. Sanjay Govindjee, who helped tremendously in developing the failure model for our thermal stand-off tubes and who has generously offered the use of his equipment for future mechanical testing. I owe thanks to everyone in the Sadoulet group who has offered me their time when I needed it, and even put up with my blunders (sorry about breaking your LED cables, Arran!). Finally, I would like to thank Sunil Golwala for his calm and collected management style for the SNOLab development process.
+
+%\section{Total Heat Loads for 12 Tower Experiment}
+%\begin{table}[h]
+%\begin{threeparttable}
+%\begin{tabular}{rrrr|rrr}
+%\toprule
+% & \multicolumn{6}{c}{Contributions \& Total Heat Loads per Tower in $\mu$W} \\
+%  & 1K & 100mK & 40mK & 600mK & 50mK & 10mK \\
+% \cmidrule(r){2-7}
+%   Phonon Line & 19.6 & 1.20 & $11.0 \cdot 10^{-3}$  & 13.9 & 0.355 & $3.2 \cdot 10^{-3}$ \\
+%   Charge Line & 0.4 & 0.01 & $1.6 \cdot 10^{-5} $ & 0.3 & 0.002  & $2.2 \cdot 10^{-6}$ \\
+%   Stand-offs & 25.7 & 0.97 & $7.2 \cdot 10^{-3}$ & 19.9 & 0.340 & $1.7 \cdot 10^{-3}$ \\
+%   SQUID Dissipation & 5.8 & NA & NA & 5.8 & NA & NA \\
+%   SQUID Shunt R & NA & 0.50 & NA & NA & 0.500 & NA \\
+%   \bf{Total Power (1 Tower)} & \bf{51.5} & \bf{2.68} & $ \bf{18.2 \cdot 10^{-3}}$ & \bf{39.8} & \bf{1.20} & $\bf{4.9 \cdot 10^{-3}}$ \\
+%  \bottomrule
+%\end{tabular}
+%\end{threeparttable}
+%\caption{Heat load contributions and total heat load for 1 tower. Powers given are those dissipated at the temperature stage indicated. Assumes dimensions stated in previous sections. CF was used instead of Ti15-3 in the lowest stage in order to be conservative. However, we predict that the heat load to 10mK can be much lower than these numbers by using Ti15-3 stand-offs. Heat loads for the charge readout cable assume 50mK heat-sinking. We could budget for avoiding a 50mK heat sink by using Ti15-3 stand-offs, which will likely have much lower heat loads to base. }
+%\end{table}
+%
+%\begin{table}[h]
+%\begin{threeparttable}
+%\begin{tabular}{rrrr|rrr}
+%\toprule
+% & \multicolumn{6}{c}{\large{Total Power for 12 Tower Set-up in $\mu$W}} \\
+%  & 1K & 100mK & 40mK & 600mK & 50mK & 10mK \\
+% \cmidrule(r){2-7}
+%   \bf{\large{Power}} & \large{\bf{618.0}} & \large{\bf{32.16}} & \large{\bf{0.218}} & \large{\bf{477.6}} & \large{\bf{14.40}} & \large{\bf{0.059}} \\
+%\bottomrule
+%\end{tabular}
+%\end{threeparttable}
+%\caption{Heat loads for a 12-tower experiment. Heat loads to base will likely be lower if Ti15-3 is used as a stand-off.}
+%\end{table}
 
 
 \newgeometry{hmargin = 1.8cm,vmargin = 2cm}
@@ -1777,7 +1891,7 @@ $[4.2K,0.6K]$ & $\rightarrow$ & 5.64 \\
 \end{threeparttable}
 \end{table}
 
-This gives a total resistance fluctuation of 7.96 $\Omega$, which is too high to tolerate for our experiment. As a result, Ti 15-3-3-3 cannot be used as a phonon readout trace materials from 600mK to 4K.
+This gives a total resistance fluctuation of 7.96 $\Omega$, which is too high to tolerate for our experiment. As a result, Ti 15-3-3-3 we have decided that cannot be used as a phonon readout trace materials from 600mK to 4K.
 
 \chapter{Niobium as a Phonon Trace Material}
 
@@ -1886,6 +2000,38 @@ We can see from Table D.1 that Niobium may satisfy thermal requirements for our 
 Given that the best case scenario for heat loads for Niobium are still higher than other candidates, and the fact that thermal budget is very tight for the phonon cable, we have decided to put this design option on the backburner and will not research it further unless other options don't work out.
 
 \end{appendices}
+
+%\section{Availability}
+%\subsection{Vespel SP-1/Vespel SCP-5000}
+%
+%Vespel SP-1 and SCP-5000 are both readily available from DuPont through the certified distributor Curbell Plastics.
+%
+%As a warning, an employee from Curbell Plastics notified us that another company, Pro Plastics, sells a counterfeit material under the name of Vespel.
+%
+%\subsection{Carbone UF-4S}
+%
+%This is the grade currently used in the towers as a support tube. Through recent contact with Mersen (the new owner of Carbone of America) we have found that this grade is still produced and readily available.
+%
+%\subsection{Ti 15-3-3-3/Ti 21s}
+%
+%Ti 15-3-3-3 is not available in anything except sheet form in the United States. Chinese companies, however, have Ti 15-3-3-3 available as wire, sheet, and rod. Two possible
+%companies are YR Titanium and ReTi Metal. Two rods have been ordered from ReTi Metal.
+%
+%Ti 21s is another metastable-$\beta$ alloy with similar properties to Ti 15-3-3-3. Tests will be conducted to determine its suitability.
+%
+%\subsection{Stripline Companies}
+%\subsubsection{Rolling}
+%\begin{itemize}
+%\item Hamilton Materials
+%\item Virginia Fine Metals
+%\item Arnold Rolled Products
+%\end{itemize}
+%
+%\subsubsection{Transmission Line Fabrication}
+%\begin{itemize}
+%\item Luxel
+%\item Tech-Etch
+%\end{itemize}
 
 \newpage
 \bibliography{C:/Users/Niko/Documents/LaTex/Bibliographies/thesis}
