@@ -553,7 +553,7 @@ The standard method has its own set of advantages and disadvantages, which are o
 The parameter-fit method is similar to the standard method in that a power is applied to that sample, and $T_{high}$ and $T_{low}$ are read out once equilibrium is reached. We start
  from eqn 3.6, but instead of assuming a constant K, we assume some integrable form for K(T) -- often a power law of the form $A \cdot T^B$ at sub-kelvin temperatures. We can then vary a set of parameters (e.g. A and B in the power law form) to find those which minimize the quantity,
 \begin{eqnarray}
-\Delta = \sum_{i = 1}^{n} \frac{P_{total_i} - P_{expected_i}}{P_{total_i}}
+\Delta = \sum_{i = 1}^{n} \left[\frac{P_{total_i} - P_{expected_i}}{P_{total_i}}\right]^2
 \end{eqnarray}
 for $n$ measurements. $P_{total_i} = P_{heater_i} + P_{parasitic_i}$ is a combination of the power applied to the heater and any parasitic heat loads, and $P_{expected_i}$ is given by,
 \begin{eqnarray}
@@ -1094,7 +1094,7 @@ using Donnell's thin shell theory. $a_{s}$ is between 0.81 and 1.04 for $Z \in [
 
 To get critical load ($P_{c}$), set $\tau_{f} = \tau_{b}$ and solve for P:
 \begin{eqnarray}
-P_{c}^{s} = \frac{\pi^3E}{12(1-\nu^2)^{-\frac{5}{8}}}a_{s}\frac{a^{1/4}t^{9/4}}{L^{1/2}}
+P_{c}^{s} = \frac{\pi^3E}{12(1-\nu^2)^{\frac{5}{8}}}a_{s}\frac{a^{1/4}t^{9/4}}{L^{1/2}}
 \end{eqnarray}
 
 To test the validity of Donnell's shell theory in this case we must determine the number of circumferential post-buckling waves present in the shell. This is found from \cite{Yamaki1984},
@@ -1140,9 +1140,9 @@ P_{c}^{ms} = \tau_{f}\pi at
 
 \subsubsection{Plotting Failure Curves}
 
-Now that we have defined the failure modes under consideration, we must plot these failure curves for a variety of dimensions to determine the safe parameter space for each material. We do this by rearranging the critical load equations such that we have thickness as a function of radius ($t = f(a)$) assuming that the length (L) of each stage is a fixed value. For bending instability, for instance, we have
+Now that we have defined the failure modes under consideration, we must plot these failure curves for a variety of dimensions to determine the safe parameter space for each material. We do this by rearranging the critical load equations such that we have thickness as a function of radius ($t = f(a)$) assuming that the length (L) of each stage is a fixed value. For shear instability, for instance, we have
 \begin{eqnarray}
-t = \left(\frac{P_{c}^b L^\frac{1}{2}}{\pi^3 E (1-\nu^2)^\frac{5}{8}a_s a^{1/4}}\right)^{4/9}
+t = \left(\frac{12(1-\nu^2)^\frac{5}{8}P_{c}^b L^\frac{1}{2}}{\pi^3 E a_s a^{1/4}}\right)^{4/9}
 \end{eqnarray}
 
 From here, given the available material properties (Table 4.4 and 4.5) and selecting a desired failure load, we are able to produce a safe parameter-space graph (i.e. one which tells us what dimensions are needed to support a weight up to the failure limit).
@@ -1626,7 +1626,7 @@ To ensure our secondary requirement of manageable heat loads, we present the the
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width = .7\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH4_figs/300K_trace_and_kap.png}
+\includegraphics[width = .7\textwidth]{C:/Users/Niko/Documents/LaTex/Nick_K_Thesis/CH4_figs/300K_trace_and_kap_Kt.png}
 \caption{Thermal conductivities of trace candidates for the 4.2K to 300K cable. Kapton is included for comparison, as it will be used as a substrate material in the cable. References for data are: Nb47Ti - \cite{Blake} ; Nb50Ti - \cite{Flachbart1978} ; Ti 15333 - \cite{Canavan2006} ; Manganin (84Cu-4Ni-12Mn) - \cite{tou} ; 70Cu-30Ni - \cite{Blake} ; 55Cu-45Ni - \cite{tou} ; SS316 - \cite{ss316_nist} ; Kapton - \cite{Rule1996}.}
 \end{figure}
 
@@ -1669,7 +1669,7 @@ SS-316 & 3.9\e{-5} & 7.9\e{-4} & 0.004 & 0.0098 & 0.196 & 2.09 & 144 \\
 
 \textbf{Ti 15-3-3-3:} Ti 15-3-3-3 was included to show how a very resistive, low thermal conductivity material performed. We see that despite its very low thermal conductivity it only slightly outperforms Be-Cu; however, the cable widths and trace thicknesses required are unworkable. In addition, it is incredibly difficult to solder to other materials.
 
-\textbf{SS-316:} Stainless steel is a similar to Ti 15-3-3-3. It is on the lower end of the thermal conductivity spectrum, and the upper end of the electrical resistivity spectrum. Though heat loads are reasonable, we see that dimensions required for a SS trace to work are likely too large for our experiment (a 4 mil thick trace would not be flexible). Considering the difficulty in soldering to SS, it is not a desirable option.
+\textbf{SS-316:} Stainless steel is a candidate similar to Ti 15-3-3-3. It is on the lower end of the thermal conductivity spectrum, and the upper end of the electrical resistivity spectrum. Though heat loads are reasonable, we see that dimensions required for a SS trace to work are likely too large for our experiment (a 4 mil thick trace would not be flexible). Considering the difficulty in soldering to SS, it is not a desirable option.
 
 Considering that the main requirements of the cable are resistance limits, workable dimensions, and solderability, it is clear that of these materials, Be-Cu is the ideal option. As the design and requirements of this cable are still in development, this may change. This section is simply meant to provide a first-pass examination of material options and cable lay-out.
 
